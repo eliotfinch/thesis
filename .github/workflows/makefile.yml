@@ -18,15 +18,13 @@ jobs:
       run: sudo apt-get update && sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super
       
     - name: Compile
-      #working-directory: ${{ env.DIR }}
       run: latexmk -pdf -bibtex main
-      # run: pdflatex main; bibtex main; pdflatex main; pdflatex main;
       
     - name: Move
-      run: mkdir -p github_artifacts && mv main.pdf ./github_artifacts
+      run: mkdir github_artifacts && mv main.pdf github_artifacts
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
       with:
-        name: main.pdf
-        path: ./github_artifacts
+        name: main
+        path: github_artifacts
