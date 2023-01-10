@@ -1,0 +1,155 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+english, % ngerman for German
+doublespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage{svg}
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xspace}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{changes}
+%\usepackage[final]{changes}
+\usepackage{bm}
+\usepackage{cancel}
+\usepackage{aas_macros}
+\usepackage{algorithm,algpseudocode}
+\usepackage{microtype}
+\usepackage{indentfirst}
+\usepackage[inline]{enumitem}
+\usepackage{dcolumn}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{url}
+\usepackage[frozencache,cachedir=./]{minted}
+\usepackage[normalem]{ulem}
+
+\usepackage{xcolor,colortbl}
+\newcolumntype{a}{>{\columncolor{gray}}c}
+\newcolumntype{b}{>{\columncolor{white}}c}
+
+
+\usepackage{prettyref}
+\newrefformat{fig}{Figure~\ref{#1}}
+\newrefformat{ch}{Chapter~\ref{#1}}
+\newrefformat{ap}{Appendix~\ref{#1}}
+
+
+\usepackage[nohyperlinks,printonlyused]{acronym}
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+%\usepackage{verbatim,etoolbox,afterpage,bigints,textcomp,tabularx,lmodern}
+
+\usepackage{siunitx}
+\usepackage{graphicx}
+
+\let\olddegree\degree  % Store \degree in \olddegree
+\let\degree\relax      % Remove definition of \degree
+% ... load other packages
+
+\usepackage{gensymb}   % This creates \degree
+\let\degreesymb\degree % Store new \degree in \degreesymb
+\let\degree\olddegree  % Restore \degree to its old definition \olddegree
+% ... rest of your document
+
+%\usepackage[
+%backend=biber,
+%style=apa,
+%]{biblatex}
+%\addbibresource{main.bib}
+
+
+\DeclareSIUnit\year{yr}
+
+\newcommand{\sub}[1]{_{\text{#1}}}
+\newcommand{\super}[1]{^{\text{#1}}}
+%%% JOURNALS
+
+\def\aj{\rm{AJ}}
+\def\araa{\rm{ARA\&A}}
+\def\apj{\rm{ApJ}}
+\def\apjl{\rm{ApJ}}
+\def\apjs{\rm{ApJS}}
+\def\aap{\rm{A\&A}}
+\def\aapr{\rm{A\&A~Rev.}}
+\def\aaps{\rm{A\&AS}}
+\def\jcap{\rm{J. Cosmology Astropart. Phys.}}
+\def\mnras{\rm{MNRAS}}
+\def\prd{\rm{PRD}}
+\def\prl{\rm{PRL}}
+\def\prx{\rm{PRX}}
+\def\pasa{\rm{PASA}}
+\def\pasp{\rm{PASP}}
+\def\pasj{\rm{PASJ}}
+\def\ssr{\rm{Space~Sci.~Rev.}}
+\def\nat{\rm{Nature}}
+\def\aplett{\rm{Astrophys.~Lett.}}
+\def\apspr{\rm{Astrophys.~Space~Phys.~Res.}}
+\def\physrep{\rm{Phys.~Rep.}}
+\def\cqg{\rm{CQG}}
+\def\lrr{\rm{LRR}}
+
+
+\newcommand{\D}{\ensuremath{\mathrm{d}}}
+\newcommand{\di}{\ensuremath{\vec{d}_{i}}}
+\newcommand{\thetavec}{\ensuremath{\vec{\theta}}}
+\newcommand{\thetai}{\ensuremath{\vec{\theta}_{i}}}
+\newcommand{\Thetai}{\ensuremath{\vec{\Theta}_{i}}}
+\newcommand{\thetaij}{\ensuremath{{}^j\vec{\theta}_i}}
+\newcommand{\dtheta}{\ensuremath{\delta\vec{\theta}_i}}
+\newcommand{\inttheta}{\ensuremath{\mathrm{d}\{\thetavec\}}}
+\newcommand{\lam}{\ensuremath{\vec{\lambda}}}
+\newcommand{\intlam}{\ensuremath{\mathrm{d}\vec{\lambda}}}
+\newcommand{\catalog}{\ensuremath{\{\vec{d}_i\}}}
+\newcommand{\catalogtheta}{\ensuremath{\{\vec{\theta}_i\}}}
+\newcommand{\Gi}{\ensuremath{\vec{\Gamma}^i}}
+\newcommand{\ssim}{\mathchar"5218\relax\,}
+\newcommand{\ttimes}{\!\times\!\relax}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CUSTOM MATH OPERATORS %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator*{\SumInt}{%
+	\mathchoice%
+	{\ooalign{$\displaystyle\sum$\cr\hidewidth$\displaystyle\int$\hidewidth\cr}}
+	{\ooalign{\raisebox{.14\height}{\scalebox{.7}{$\textstyle\sum$}}\cr\hidewidth$\textstyle\int$\hidewidth\cr}}
+	{\ooalign{\raisebox{.2\height}{\scalebox{.6}{$\scriptstyle\sum$}}\cr$\scriptstyle\int$\cr}}
+	{\ooalign{\raisebox{.2\height}{\scalebox{.6}{$\scriptstyle\sum$}}\cr$\scriptstyle\int$\cr}}
+}
+
+\makeatletter
+\renewcommand{\fnum@algorithm}{\fname@algorithm}
+\makeatother
+\renewcommand{\arraystretch}{1.15}
+\usemintedstyle{borland}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	MARGIN SETTINGS %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\geometry{
+	headheight=20pt,
+	paper=a4paper,
+	inner=3cm, % Inner margin
+	outer=2cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=3cm, % Top margin
+	bottom=3cm, % Bottom margin
+%	showframe, % Uncomment to show how the type block is set on the page
+}
+
+\usepackage[width=.9\textwidth]{caption}
