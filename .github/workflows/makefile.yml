@@ -3,8 +3,6 @@ name: Makefile CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
@@ -16,24 +14,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     
-    - name: Install TeXlive
+    - name: Install TeX live
       run: sudo apt-get update && sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super
       
-    - name: LaTeX compile
-      #working-directory: ${{ env.DIR }}
-      #run: latexmk -pdf -bibtex ${{ env.FILE }}
-      run: pdflatex main; bibtex main; pdflatex main; pdflatex main;
+    - name: Compile
+      run: latexmk -pdf -bibtex main
       
-    - name: move
-      run: mkdir -p github_artifacts && mv main.pdf ./github_artifacts/
-      
-    - name: Upload pdf as artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ env.FILE }}.pdf
-        path: ./github_artifacts
+    - name: Move
+      run: mkdir github_artifacts && mv main.pdf github_artifacts
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
       with:
-        name: main.pdf
+        name: main
+        path: github_artifacts
