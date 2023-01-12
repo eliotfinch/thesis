@@ -28,3 +28,29 @@ jobs:
       with:
         name: main
         path: github_artifacts
+
+  deploy:
+
+    needs: [build]
+    runs-on: ubuntu-latest
+    
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v3.0.2
+      with:
+        path: github_artifacts
+        
+    - name: Move
+      run: mkdir github_deploy && mv github_artifacts/*/* github_deploy
+      
+    - name: Deploy on Orphan Branch
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./github_deploy
+        publish_branch: build
+        force_orphan: true
