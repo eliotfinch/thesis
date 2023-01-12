@@ -45,12 +45,12 @@ jobs:
         path: github_artifacts
         
     - name: Move
-      run: mkdir github_deploy && mv github_artifacts/*/* github_deploy
+      run: mkdir github_deploy && mv github_artifacts/main.pdf github_deploy
       
-    - name: Deploy on Orphan Branch
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Deploy on New Branch
+      uses: peaceiris/actions-github-pages@v3.1.12
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./github_deploy
+        publish_dir: github_deploy
         publish_branch: build
         force_orphan: true
