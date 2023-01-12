@@ -1,6 +1,8 @@
 # Thesis
 PhD Thesis: "Modelling and Data Analysis of Black-hole Ringdown"
 
+> [Download](https://github.com/EliotFinch/thesis/blob/build/main.pdf)
+
 ## Outline
 
 ### Introduction
