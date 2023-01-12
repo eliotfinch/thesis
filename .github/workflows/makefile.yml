@@ -45,7 +45,7 @@ jobs:
         path: github_artifacts
         
     - name: Move
-      run: mkdir github_deploy && mv github_artifacts/main.pdf github_deploy
+      run: mkdir github_deploy && mv github_artifacts/main/main.pdf github_deploy
       
     - name: Deploy on New Branch
       uses: peaceiris/actions-github-pages@v3.1.12
