@@ -8,7 +8,7 @@ PhD Thesis: "Modelling and Data Analysis of Black-hole Ringdown"
 - Detector response?
   
 ### Ringdown
-- Scalar field on Schwarszchild background?
+- Scalar field on Schwarzschild background?
 - Vibrating string analogy?
 - Geodesic picture?
   
