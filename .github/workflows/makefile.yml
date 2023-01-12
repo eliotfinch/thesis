@@ -51,7 +51,7 @@ jobs:
       uses: peaceiris/actions-github-pages@v3.1.12
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        personal_token: ${{ secrets.PERSONAL_TOKEN }}
         publish_dir: github_deploy
         publish_branch: build
         force_orphan: true
