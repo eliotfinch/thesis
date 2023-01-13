@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v3
     
     - name: Install TeX live
-      run: sudo apt-get update && sudo apt-get install texlive texlive-publishers texlive-science latexmk cm-super
+      run: sudo apt-get update && sudo apt-get install texlive texlive-publishers texlive-science texlive-bibtex-extra latexmk biber
       
     - name: Compile
       run: latexmk -pdf -bibtex main
