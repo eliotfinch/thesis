@@ -5,7 +5,11 @@ Other subtitle ideas:
 - Modelling and Data Analysis
 - Numerical-relativity and Gravitational-wave observations
 
-> [Download](https://github.com/EliotFinch/thesis/blob/build/main.pdf)
+---
+
+### [Download PDF](https://github.com/EliotFinch/thesis/blob/build/main.pdf)
+
+---
 
 ## Outline
 
