@@ -27,3 +27,7 @@ Other subtitle ideas:
 - Expand detector response, TD vs FD analysis methods.
 
 ### Searching for a Ringdown Overtone in GW150914
+
+---
+
+The [workflow](https://github.com/EliotFinch/thesis/blob/main/.github/workflows/makefile.yml) to compile the PDF on push and create a link to the artifact was taken from the tutorial available [here](https://davidegerosa.com/githubforlatex/). Note that in the repository settings under `Actions -> General` I had to change the `Workflow permissions` to have `Read and write permissions`.
