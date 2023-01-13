@@ -196,7 +196,7 @@
 \RequirePackage{siunitx} % Required for \SI commands
 
 \RequirePackage{graphicx} % Required to include images
-\graphicspath{{figures/}{./}} % Specifies where to look for included images
+\graphicspath{{Figures/}{./}} % Specifies where to look for included images
 
 \RequirePackage{booktabs} % Required for better table rules
 
@@ -212,13 +212,6 @@
  \def\@title{#2}%
  \def\ttitle{#2}%
 }
-
-\NewDocumentCommand{\tthesistitle} { o m }{%
-	\IfValueTF{#1}{\def\shortttitle{#1}}{\def\shortttitle{#2}}%
-	\def\@tttitle{#2}%
-	\def\tttitle{#2}%
-}
-
 \DeclareDocumentCommand{\author}{m}{\newcommand{\authorname}{#1}\renewcommand{\@author}{#1}}
 \NewDocumentCommand{\supervisor}{m}{\newcommand{\supname}{#1}}
 \NewDocumentCommand{\examiner}{m}{\newcommand{\examname}{#1}}
@@ -302,7 +295,7 @@
 \pagestyle{thesis}
 \ifbool{headsepline}{\KOMAoption{headsepline}{true}}{}
 \PreventPackageFromLoading[\ClassError{\classname}{Package `fancyhdr' is
-incompatible\MessageBreak with this class}{The pagestyles are defined 
+incompatible\MessageBreak with this class}{The pagesyles are defined 
 	using package `scrlayer-scrpage', please consult the\MessageBreak 
 KOMA-script documentation for details.}]{fancyhdr}
 
@@ -327,15 +320,15 @@ KOMA-script documentation for details.}]{fancyhdr}
 %	ABBREVIATIONS PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
-\newcommand{\abbrevname}{List of abbreviations}
+\newcommand{\abbrevname}{List of Abbreviations}
 \providecaptionname{english,british,american}{\abbrevname}{List of Abbreviations}
-\NewDocumentEnvironment{abbreviations}{m}{%
+\providecaptionname{ngerman,german,austrian,naustrian}{\abbrevname}{Abk\"urzungsverzeichnis}
+\NewDocumentEnvironment{abbreviations}{ m }{%
 	\ifbool{nolistspace}{\begingroup\singlespacing}{}
-	\ifbool{listtoc}{\addchap{\abbrevname}}{\addchap*{\abbrevname} In alphabetical order:}
-    
-    \begin{longtable}{#1}
-    }{%
-    \end{longtable}
+	\ifbool{listtoc}{\addchap{\abbrevname}}{\addchap*{\abbrevname}}
+	\begin{longtable}{#1}
+	}{%
+	\end{longtable}
 	\addtocounter{table}{-1}% Don't count this table as one of the document tables
 	\ifbool{nolistspace}{\endgroup}{}
 }
@@ -479,7 +472,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 		\tttypeout{Dedicatory}
 		\null\vfil
 		\thispagestyle{plain}
-		\begin{center}{\large\slshape #1}\end{center}
+		\begin{center}{\Large\slshape #1}\end{center}
 		\vfil\null
 	}
 }
@@ -489,8 +482,8 @@ KOMA-script documentation for details.}]{fancyhdr}
 %	PHYSICAL CONSTANTS PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
-\newcommand{\constantsname}{Physical Constants and Units}
-\providecaptionname{english,british,american}{\constantsname}{Physical Constants and Units}
+\newcommand{\constantsname}{Physical Constants}
+\providecaptionname{english,british,american}{\constantsname}{Physical Constants}
 \providecaptionname{ngerman,german,austrian,naustrian}{\constantsname}{Physikalische Konstanten}
 
 \NewDocumentEnvironment{constants}{ m }{%
