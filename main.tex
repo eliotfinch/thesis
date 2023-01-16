@@ -55,7 +55,15 @@ headsepline, % Uncomment to get a line under the header
 % \usepackage{mathpazo} % Use the Palatino font by default
 
 \usepackage{physics}
-\usepackage{aas_macros}
+\usepackage{amssymb}
+% \usepackage{aas_macros}
+
+% Side-by-side subfigures/captions
+\usepackage[caption=false]{subfig}
+
+\newcommand{\dvec}[1]{\vb*{#1}}
+\newcommand{\pvec}[1]{\vec{#1}}
+\newcommand\params{\ensuremath{\vec{\theta}}}
 
 \usepackage[sorting=none]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 \addbibresource{bibliography.bib} % The filename of the bibliography
@@ -267,8 +275,8 @@ $\omega$ & angular frequency & \si{\radian} \\
 
 \include{Chapters/Chapter1}
 \include{Chapters/Chapter2} 
-%\include{Chapters/Chapter3}
-%\include{Chapters/Chapter4} 
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4} 
 %\include{Chapters/Chapter5} 
 
 %----------------------------------------------------------------------------------------
@@ -294,3 +302,4 @@ $\omega$ & angular frequency & \si{\radian} \\
 %----------------------------------------------------------------------------------------
 
 \end{document}  
+
