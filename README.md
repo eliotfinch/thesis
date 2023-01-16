@@ -7,7 +7,7 @@ Other subtitle ideas:
 
 ---
 
-### [Download PDF](https://github.com/EliotFinch/thesis/blob/build/main.pdf)
+### [Download PDF](https://github.com/EliotFinch/thesis/raw/build/main.pdf)
 
 ---
 
