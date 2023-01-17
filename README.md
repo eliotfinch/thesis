@@ -11,6 +11,10 @@ Other subtitle ideas:
 
 ---
 
+## Comments
+
+- [ ] example comment; suggest title of chapter 1 be "Introduction to BH ringdown", or similar
+
 ## Outline
 
 ### Introduction
