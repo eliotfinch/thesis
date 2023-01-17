@@ -5,7 +5,7 @@
 
 \label{Chapter4}
 
-\section{Introduction}\label{sec:introduction}
+\section{Introduction}\label{ch4:sec:introduction}
 
 The gravitational-wave (GW) signals from binary coalescences provide a unique opportunity to study gravity in the strong-field and dynamical regimes.
 Of particular interest here is the signal from the final stages of a binary black-hole (BH) merger, known as the ringdown, which is associated with the remnant BH settling into its final state.
@@ -19,7 +19,7 @@ Additionally, GW150914 is by now the most well-studied GW event and therefore th
 
 The first tests of GR performed using GW150914 included an investigation of the ringdown~\cite{LIGOScientific:2016lio}. 
 The ringdown signal, after a fixed starting time $t_0$, was modeled using a single damped sinusoid; the parameters of which were checked for consistency with the predicted least-damped QNM of the remnant BH.
-This first attempt at a ringdown analysis was performed using the standard Whittle frequency-domain log-likelihood~\cite{Whittle:1957}, commonly used in GW data analysis.
+This first attempt at a ringdown analysis was performed using the standard Whittle frequency-domain log-likelihood~\cite{10.2307/2983994}, commonly used in GW data analysis.
 The ringdown was isolated by choosing a lower limit of $\sim 130\, \mathrm{Hz}$ in the frequency integral, effectively cutting the data mid-signal.
 This approach suffers from several shortcomings. 
 Firstly the frequency-domain cut at $\sim 130\, \mathrm{Hz}$ only approximately separates the ringdown from the early-time signal due to the breakdown of the stationary phase approximation near merger. 
@@ -67,10 +67,10 @@ We perform analyses with and without an overtone and investigate different choic
 We also perform additional analyses with varying data sampling frequencies and integration limits to verify the stability of our results. Finally, a mock injection study into real detector noise is also performed to further assess the significance of any overtone detection.
 Sec.~\ref{sec:analysis} describes the signal model, the data, and the analysis methods used in this paper.
 Sec.~\ref{sec:results} presents our main results including posteriors on the remnant BH properties and overtone amplitude, and Bayes' factors for the overtone model.
-The results are discussed further in Sec.~\ref{sec:discussion}.
+The results are discussed further in Sec.~\ref{ch4:sec:discussion}.
 Throughout this paper we make use of natural units where $G=c=1$.
 
-All data products and plotting scripts used to make the figures in this paper are made publicly available at Ref.~\cite{finch_eliot_zenodo}.
+All data products and plotting scripts used to make the figures in this paper are made publicly available at Ref.~\cite{finch_eliot_2022_6949492}.
 
 
 \section{Methods}\label{sec:analysis}
@@ -131,7 +131,7 @@ By definition, $h_+(t) = \Re\{ h(t) \}$, and $h_\times(t) = \Im \{ h(t) \}$.
 \subsection{Data and Priors}
 \label{sec:details}
 
-We use the GW150914 strain data sampled at $4096\, \mathrm{Hz}$ for both the Hanford and Livingston interferometers, which was obtained from \cite{gwosc, RICHABBOTT2021100658}.
+We use the GW150914 strain data sampled at $4096\, \mathrm{Hz}$ for both the Hanford and Livingston interferometers, which was obtained from \cite{gwosc, LIGOScientific:2019lzm}.
 A total of $4096\,\mathrm{s}$ of data around the event was downloaded, from which the mean was subtracted (this is effectively equivalent to applying a $\sim 1\, \mathrm{Hz}$ highpass filter). 
 Pre-computed power spectral densities (PSDs) associated with GW150914 from the GWTC-1 release were used \cite{gwtc1psds}. 
 It has been verified our results are insensitive to the exact noise PSD used; for example, our results are unchanged when using a PSD estimated from a length of off-source data.
@@ -266,7 +266,7 @@ In Fig.~\ref{fig:mass_spin_post} we plot the posterior distributions on the remn
 Results are shown for the different choices of the prior on the ringdown start time shown in Fig.~\ref{fig:start_time} (these results were obtained by reweighting the samples obtained with a flat prior using the approach described in Sec.~\ref{subsec:reweighting}).
 The earliest start time ($\bar{t_0}=-2\tilde{M_f}$) is omitted from the fundamental-only ($N=0$) plot in the left-hand panel of Fig.~\ref{fig:mass_spin_post} because of a low number of posterior samples at these time (see appendix \ref{app:t0_posterior_prior}).
 Also shown for comparison are the much tighter constraints resulting from the full IMR analysis.
-These IMR posterior samples were obtained from Ref.~\cite{maximiliano_isi_2022_5965773}, which (as detailed in Refs.~\cite{Isi:2019aib,Isi:2022mhy}) are obtained from applying fitting formulas to the samples available at Ref.~\cite{gwtc1samples}. 
+These IMR posterior samples were obtained from Ref.~\cite{maximiliano_isi_2022_5965773}, which (as detailed in Refs.~\cite{Isi:2019aib,Isi:2022mhy}) are obtained from applying fitting formulas to the samples available at Ref.~\cite{gwtc1datarelease}. 
 When only the fundamental QNM is used ($N=0$), and when the analysis is started at early times (e.g.\ $t_0 - t_\mathrm{ref}\lesssim -2\tilde{M_f}$) our posteriors on the remnant parameters are biased towards high values of $M_f$ and $\chi_f$.
 This behavior is expected; a single QNM is only able to model the ringdown signal starting well after the time of peak strain.
 Including an overtone ($N=1$) allows the ringdown analysis to start at earlier times, as can be seen by the removal of the bias in the right panel. 
@@ -337,7 +337,7 @@ The Bayes' factor has been suggested (particularly by Ref.~\cite{Cotesta:2022pci
 The Bayes' factor was computed in two different ways.
 Firstly, \textsc{dynesty} was used to calculate the evidences $Z_{N=0}$ and $Z_{N=1}$ for both of the analyses described above, and these were reweighted to the desired $t_0$ prior using Eq.~\ref{eq:new_evidence}. 
 Nested sampling also returns an estimate for the error on the evidences, and these are used to plot the error bars in Fig.~\ref{fig:overtone_amplitude}.
-Secondly, exploiting the fact that the $N=0$ model is nested within the $N=1$ model, the Bayes' factors were computed using the posterior on $A_1$ from the $N=1$ analysis to find the Savage-Dickey density ratio~\cite{Dickey:1971}. 
+Secondly, exploiting the fact that the $N=0$ model is nested within the $N=1$ model, the Bayes' factors were computed using the posterior on $A_1$ from the $N=1$ analysis to find the Savage-Dickey density ratio~\cite{10.2307/2958475}. 
 
 Our results in the bottom panel of Fig.~\ref{fig:overtone_amplitude} can be compared to the corresponding results of the time-domain analyses shown in Fig.~7 of Ref.~\cite{Isi:2022mhy} and Fig.~2 of Ref.~\cite{Cotesta:2022pci}.
 Ref.~\cite{Cotesta:2022pci} computes the Bayes' factors using the ratio of evidences evaluated with nested sampling, whereas Ref.~\cite{Isi:2022mhy} computes Bayes' factors using Savage-Dickey density ratios.
@@ -346,7 +346,7 @@ Ref.~\cite{Isi:2022mhy} finds the strongest log-evidence of $\sim 1.7$ at $t_0-t
 Ref.~\cite{Cotesta:2022pci} finds slightly \emph{negative} log-evidence starting at this time.
 Again, our result lies somewhere in between, we find a moderate log-evidence of $\sim 1.0$ when marginalizing over a narrow prior on $t_0$ centered at this time.
 If we instead marginalize over the time of peak strain using the broader IMRP $t_{\rm peak}$ prior, the evidence is slightly negative.
-However, as discussed in Sec.~\ref{sec:discussion} below, we consider the actual values of the Bayes factors to be less important than their trend with varying start time.
+However, as discussed in Sec.~\ref{ch4:sec:discussion} below, we consider the actual values of the Bayes factors to be less important than their trend with varying start time.
 
 \begin{figure}[b]
 	\includegraphics[width=0.8\columnwidth]{SearchingforaRingdownOvertoneinGW150914/kerr_spectrum_and_deviation.pdf}
@@ -408,7 +408,7 @@ Because the two QNMs decay exponentially at different rates, the amplitude ratio
 Our two-dimensional posteriors on the amplitude ratio and ringdown start time are plotted in Fig.~\ref{fig:amp_ratio}.
 As expected we find that the amplitude ratio decreases for later start times, and the error on the amplitude ratio increases for later start times because of the decreasing SNR in the ringdown.
 
-In order to check whether this is consistent with the theoretical expectation for an overtone we compare with fits to the numerical relativity simulation SXS:BBH:0305 \cite{2016CQGra..33x4002L, sxs_catalog} which has parameters consistent with GW150914.
+In order to check whether this is consistent with the theoretical expectation for an overtone we compare with fits to the numerical relativity simulation SXS:BBH:0305 \cite{Lovelace:2016uwp, sxs_catalog} which has parameters consistent with GW150914.
 Fixing the remnant mass and spin to the values reported in the simulation metadata, we perform QNM least-squares fits to this simulation for a range of ringdown start times using the code previously developed in Ref.~\cite{Finch:2021iip}.
 Results are shown in Fig.~\ref{fig:amp_ratio} for two such fits. 
 Firstly, we performed a two-QNM fit intended to mimic the analysis of the real GW150914 data described in Sec.~\ref{subsec:overtone} above. 
@@ -476,7 +476,7 @@ This waveform reconstruction uses the posterior on all of the model parameters, 
 \end{figure*}
 
 
-\section{Discussion and Conclusions}\label{sec:discussion}
+\section{Discussion and Conclusions}\label{ch4:sec:discussion}
 
 The main motivation for this work comes from the ongoing discussion in the literature about whether a ringdown overtone can be confidently detected in the GW150914 data. 
 In particular, the detection claim made in Ref.~\cite{Isi:2019aib} was disputed by Ref.~\cite{Cotesta:2022pci} where a nearly identical time-domain analysis was reperformed (see also the reply Ref.~\cite{Isi:2022mhy}).
@@ -498,13 +498,13 @@ There are also conceptual problems regarding what it means to compare two models
 From the above discussion, it is clear that ringdown analyses are rather subtle. 
 We think our frequency-domain method has some important advantages over what has been done before. 
 For example, it marginalizes over the ringdown start time and sky position which is preferable to fixing these parameters (which potentially introduces systematic biases). 
-Ideally, we should also marginalize over the uncertainties in the noise power spectral density (see, e.g.,\ Ref.~\cite{Cornish:2020dwh}) and detector calibration (see, e.g.,\ Ref.~\cite{2017PhRvD..96j2001C}) as part of a ringdown analysis. 
+Ideally, we should also marginalize over the uncertainties in the noise power spectral density (see, e.g.,\ Ref.~\cite{Cornish:2020dwh}) and detector calibration (see, e.g.,\ Ref.~\cite{LIGOScientific:2017aaj}) as part of a ringdown analysis. 
 The ability to do this is, in principle, another benefit of the frequency-domain analysis approach used here as this can be done using techniques that are standard in the field.
 
 We stress that while our results have been compared with those of previous time-domain studies, our frequency-domain method is rather different and therefore we do not expect to find perfect agreement. 
 In contrast, the results of Refs.~\cite{Isi:2019aib, Cotesta:2022pci, Isi:2022mhy} are produced using essentially identical methods and should therefore be expected to agree exactly. 
 The reason for the disagreement that is seen there is currently unknown and the subject of an ongoing investigation by both sets of authors.
-It is vitally important for QNM science that all results are reproducible. To that end we have made all our data products and plotting scripts publicly available at Ref.~\cite{finch_eliot_zenodo}.
+It is vitally important for QNM science that all results are reproducible. To that end we have made all our data products and plotting scripts publicly available at Ref.~\cite{finch_eliot_2022_6949492}.
 
 If QNMs are going to fulfill their promise for testing GR, fundamental physics and the Kerr metric hypothesis, then the community must be able to agree on standards for what it means to detect them and to be able to robustly quantify their significance. 
 This field is still very young, and that there is already significant controversy regarding the QNM content of GW150914 and GW190521 is concerning, and we risk the situation becoming more confused with many more suitable events expected in O4.
@@ -512,7 +512,7 @@ And, as discussed in the introduction, this is a conceptual issue that will not 
 This issue needs input from the whole community; however, we suggest that (as a minimum) future claims of an overtone detection are accompanied by the investigations in Fig.~\ref{fig:mass_spin_post}, both panels of Fig.~\ref{fig:overtone_amplitude} and Fig.~\ref{fig:delta_f}.
 That is, posteriors on the remnant properties with and without the overtone, posteriors on the overtone amplitude, a study of the Bayes' factor trends for different start times, and posteriors on deviations from Kerr when the overtone frequency is allowed to vary.
 
-All data products and plot scripts associated with this work are made publicly available at Ref.~\cite{finch_eliot_zenodo}.
+All data products and plot scripts associated with this work are made publicly available at Ref.~\cite{finch_eliot_2022_6949492}.
 
 
 \section{Sampling Frequency and Integration Limits}\label{app:fhigh}
@@ -562,7 +562,7 @@ This is the reason why this result is omitted from Fig.~\ref{fig:mass_spin_post}
 
 Closely following the injection study performed in Ref.~\cite{Cotesta:2022pci}, we inject GW150914-like signals in the instrumental noise surrounding the true GW150914 event and reperform our overtone analysis ($N=1$).
 
-The $\ell=2$ spin-weighted spherical harmonic of the numerical relativity simulation SXS:BBH:0305 \cite{2016CQGra..33x4002L, sxs_catalog} was used as the mock signal, scaled to a total mass of $72\,M_\odot$ and injected with a face-off orientation at a luminosity distance of $410\,\mathrm{Mpc}$. 
+The $\ell=2$ spin-weighted spherical harmonic of the numerical relativity simulation SXS:BBH:0305 \cite{Lovelace:2016uwp, sxs_catalog} was used as the mock signal, scaled to a total mass of $72\,M_\odot$ and injected with a face-off orientation at a luminosity distance of $410\,\mathrm{Mpc}$. 
 The sky position was taken to be $\alpha = 1.95\,\mathrm{rad}$, $\delta=-1.27\,\mathrm{rad}$.
 This signal was injected into the data surrounding GW150914, such that the peak of the absolute value of the strain occurred at times $[-20, -15, -10, 5, 15, 20, 25, 30, 35, 40]\,\mathrm{s}$ relative to $t_\mathrm{ref}$.
 These choices ensure the mock signal does not overlap with the real event.

@@ -24,8 +24,6 @@
 %
 % TO FIX
 % Remove physics package?
-% Do I need aas_macros?
-% Bib line length inconsistent
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -67,6 +65,7 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage[sorting=none]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
 \addbibresource{bibliography.bib} % The filename of the bibliography
+\renewbibmacro{in:}{}
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
