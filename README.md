@@ -17,10 +17,7 @@ Other subtitle ideas:
 
 ## Outline
 
-### Introduction
-- BHs and what you can learn/test with ringdown. 
-
-### Ringdown
+### Introduction to Black-hole Ringdown
 - Scalar field on Schwarzschild background. Mention the vibrating string analogy.
 - Geodesic picture.
 - Kerr sprectum plot.
