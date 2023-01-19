@@ -1,35 +1,150 @@
 % Chapter 1
 
-\chapter{Introduction} % Main chapter title
+\chapter{Introduction to Black-hole Ringdown} % Main chapter title
 
 \label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
-%----------------------------------------------------------------------------------------
-%	SECTION 1
-%----------------------------------------------------------------------------------------
+\section{Ringdown}
 
-\section{Main Section 1}
+A high-level overview of black holes, ringdown, and the usefulness of the ringdown. 
+This will motivate the three main chapters of the thesis. 
+Specifically, this will aim to introduce
+\begin{itemize}
+	\item Binary black-hole mergers
+	\item Perturbed black holes and quasinormal modes (the basic idea, and a brief history of results)
+	\item The no-hair theorem and tests of it
+\end{itemize}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies lacinia euismod. Nam tempus risus in dolor rhoncus in interdum enim tincidunt. Donec vel nunc neque. In condimentum ullamcorper quam non consequat. Fusce sagittis tempor feugiat. Fusce magna erat, molestie eu convallis ut, tempus sed arcu. Quisque molestie, ante a tincidunt ullamcorper, sapien enim dignissim lacus, in semper nibh erat lobortis purus. Integer dapibus ligula ac risus convallis pellentesque.
 
-%-----------------------------------
-%	SUBSECTION 1
-%-----------------------------------
-\subsection{Subsection 1}
+\section{Scalar field on Schwarzschild background}
 
-Nunc posuere quam at lectus tristique eu ultrices augue venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam erat volutpat. Vivamus sodales tortor eget quam adipiscing in vulputate ante ullamcorper. Sed eros ante, lacinia et sollicitudin et, aliquam sit amet augue. In hac habitasse platea dictumst.
+An example calculation of quasinormal modes to give some idea where they come from?
 
-%-----------------------------------
-%	SUBSECTION 2
-%-----------------------------------
+\section{Quasinormal modes from the geodesic correspondence}
 
-\subsection{Subsection 2}
-Morbi rutrum odio eget arcu adipiscing sodales. Aenean et purus a est pulvinar pellentesque. Cras in elit neque, quis varius elit. Phasellus fringilla, nibh eu tempus venenatis, dolor elit posuere quam, quis adipiscing urna leo nec orci. Sed nec nulla auctor odio aliquet consequat. Ut nec nulla in ante ullamcorper aliquam at sed dolor. Phasellus fermentum magna in augue gravida cursus. Cras sed pretium lorem. Pellentesque eget ornare odio. Proin accumsan, massa viverra cursus pharetra, ipsum nisi lobortis velit, a malesuada dolor lorem eu neque.
+We focus on the $\ell = m$ case, since these modes are associated with equatorial motion. 
 
-%----------------------------------------------------------------------------------------
-%	SECTION 2
-%----------------------------------------------------------------------------------------
+First, we need the metric associated with a stationary and axisymmetric spacetime. 
+The stationary and axisymmetric character requires that the metric coefficients be independent of $t$ and $\phi$, so that $g_{\mu \nu} = g_{\mu \nu}(r,\theta)$.
+We also require that the spacetime is invariant to the simultaneous inversion of the time $t$ and the angle $\phi$ (i.e.\ to the transformation $t \rightarrow -t$, $\phi \rightarrow -\phi$). 
+The physical meaning is that the spacetime we are considering is that associated with a rotating body. 
+This invariance requires 
+\begin{equation}
+	g_{tr} = g_{t \theta} = g_{\phi r} = g_{\phi \theta} = 0.
+\end{equation}
+Then we have 
+\begin{align}
+	\dd s^2 &= g_{tt}\dd t^2 + 2g_{t \phi} \dd t \dd \phi + g_{\phi \phi}\dd \phi^2 \nonumber \\
+	&+ \qty[ g_{rr}\dd r^2 + 2g_{r \theta} \dd r \dd \theta + g_{\theta \theta} \dd \theta^2 ].
+\end{align}
+It can be shown \cite{Chandrasekhar:1985kt} that the term in square brackets can be brought to the diagonal form $g_{r'r'}\dd r'^2 +  g_{\theta' \theta'} \dd \theta'^2$ by a change of coordinates $r'=r'(r,\theta)$ and $\theta'=\theta'(r,\theta)$.
+Renaming our variables by removing the primes, this gives
+\begin{equation}
+	\dd s^2 = g_{tt}\dd t^2 + g_{rr}\dd r^2 + g_{\theta \theta}\dd \theta^2 + g_{\phi \phi}\dd \phi^2 + 2g_{t \phi}\dd t\dd \phi
+\end{equation}
 
-\section{Main Section 2}
+We can find geodesic curves $x^\mu(\lambda)$ by extremising the action $S=\int\mathrm{d}\lambda\,\mathcal{L}$ where the Lagrangian is given by
+\begin{align}
+	\mathcal{L} &= \frac{1}{2}g_{\mu \nu} \dot{x}^\mu \dot{x}^\nu \\
+	&= \frac{1}{2}\qty(g_{tt}\dot{t}^2 + g_{rr}\dot{r}^2 + g_{\theta \theta}\dot{\theta}^2 + g_{\phi \phi}\dot{\phi}^2 + 2g_{t \phi}\dot{t}\dot{\phi}), \nonumber
+\end{align}
+and a dot denotes a derivative with respect to the affine parameter $\lambda$ along the curve. 
 
-Sed ullamcorper quam eu nisl interdum at interdum enim egestas. Aliquam placerat justo sed lectus lobortis ut porta nisl porttitor. Vestibulum mi dolor, lacinia molestie gravida at, tempus vitae ligula. Donec eget quam sapien, in viverra eros. Donec pellentesque justo a massa fringilla non vestibulum metus vestibulum. Vestibulum in orci quis felis tempor lacinia. Vivamus ornare ultrices facilisis. Ut hendrerit volutpat vulputate. Morbi condimentum venenatis augue, id porta ipsum vulputate in. Curabitur luctus tempus justo. Vestibulum risus lectus, adipiscing nec condimentum quis, condimentum nec nisl. Aliquam dictum sagittis velit sed iaculis. Morbi tristique augue sit amet nulla pulvinar id facilisis ligula mollis. Nam elit libero, tincidunt ut aliquam at, molestie in quam. Aenean rhoncus vehicula hendrerit.
+We could find the second order differential geodesic equations from the Euler-Lagrange (EL) equations, 
+\begin{gather} \label{eq:ELeqns_1}
+	\dv{\lambda}(\pdv{\mathcal{L}}{\dot{x}^\mu}) = \pdv{\mathcal{L}}{x^\mu}.
+\end{gather}
+However, first we recognise that the spacetime, and hence the action, are stationary; therefore the timelike component of the 4-momentum is a constant of the motion
+\begin{equation}\label{eq:el_t} 
+	\pdv{\mathcal{L}}{\dot{t}} = -E \;\implies\; g_{tt}\dot{t} + g_{t\phi}\dot{\phi} = -E.
+\end{equation}
+Similarly, from the axisymmetry of the spacetime we have another constant of motion $L$,
+\begin{equation}\label{eq:el_phi}
+	\pdv{\mathcal{L}}{\dot{\phi}} =L \;\implies\; g_{\phi \phi}\dot{\phi} + g_{t\phi}\dot{t} = L.
+\end{equation}
+From Eqs.~\ref{eq:el_t} and \ref{eq:el_phi} we can solve for the two components of the 4-velocity $\dot{t}$ and $\dot{\phi}$ to give
+\begin{gather} \label{eq:tdot_L}
+	\dot{t} = E \frac{g_{\phi \phi} + g_{t \phi}\hat{L}}{\qty(g_{t \phi})^2 - g_{t t}g_{\phi \phi}} \\
+	\label{eq:phidot_L}
+	\dot{\phi} = E \frac{g_{t \phi} + g_{t t}\hat{L}}{g_{t t}g_{\phi \phi} - \qty(g_{t \phi})^2}
+\end{gather}
+where $\hat{L} = L/E$.
+We are also free to rescale our affine parameter $\lambda\rightarrow E\lambda$ to remove $E$ from the above expressions.
+The azimuthal orbital frequency can also be calculated:
+\begin{gather}
+	\Omega_\phi = \frac{\mathrm{d}\phi}{\mathrm{d}t} =  \frac{\dot{\phi}}{\dot{t}} = -\frac{g_{t\phi}+g_{tt}\hat{L}}{g_{\phi\phi}+g_{t\phi}\hat{L}}
+\end{gather}
+
+In general, for the remaining two coordinates, $r$ and $\theta$, we can use the EL equations to find the second order differential geodesic equations.
+However, in the special case of equatorial motion ($\theta=\pi/2\;\implies\;\dot{\theta}=0$) we can get a first order equation for $\dot{r}$ by considering the normalization of the four-velocity;
+\begin{equation} \label{eq:rdot}
+	g_{\mu\nu}\dot{x}^\mu\dot{x}^\mu = 0 \;\implies\; \dot{r}^2 = V_{\rm eff}(r;\hat{L}),
+\end{equation}
+where
+\begin{align}\label{eq:Veff}
+	V_{\rm eff}(r;\hat{L}) &= \frac{-g_{tt}\dot{t}^2 -g_{\phi\phi}\dot{\phi}^2-2g_{t\phi}\dot{t}\dot{\phi} }{g_{rr}} \nonumber \\
+	&= \frac{g_{tt} \hat{L}^2+2 g_{t\phi } \hat{L}+g_{\phi\phi}}{g_{rr}(g_{t\phi}^2-g_{tt} g_{\phi \phi})},
+\end{align}
+and in the final line we have used Eqs.~\ref{eq:tdot_L} and \ref{eq:phidot_L} to eliminate $\dot{t}$ and $\dot{\phi}$.
+In Eq.~\ref{eq:Veff} it is to be understood that the $g_{\mu\nu}$ metric coefficients are to be evaluated on the equatorial plane $\theta=\pi/2$ and so are only functions of $r$.
+
+A \emph{light ring} is circular null geodesic orbit. 
+The radius, $r_*$, and angular momentum, $\hat{L}_*$, of such an orbit must satisfy $V_{\rm eff} = V'_{\rm eff} = 0$, where a prime denotes a radial derivative with respect to $r$. The first condition yields
+\begin{equation}
+	\hat{L}_*(r) = \frac{-g_{t \phi} \pm \sqrt{g_{t \phi}^2 - g_{t t}g_{\phi \phi}}}{g_{t t}},
+\end{equation}
+while the second gives implicit formula for $r_*$:
+\begin{gather}
+	V'_{\rm eff}\big(r_*;\hat{L}_*(r_*)\big) = 0.
+\end{gather}
+In the case of the Kerr metric single root $r_*$.
+
+Having found the equations of the light ring, now consider neighboring geodesics. 
+First, consider polar motion. The Euler-Lagrange for $\theta$ (Eq.~\ref{eq:ELeqns_1} with $x^\mu=\theta$) is 
+\begin{align}\label{eq:el_theta}
+	g_{\theta \theta} \ddot{\theta} + & \qty(\pdv{g_{\theta \theta}}{\theta} \dot{\theta} + \pdv{g_{\theta \theta}}{r} \dot{r}) \dot{\theta}
+	= \frac{1}{2} \bigg(\pdv{g_{t t}}{\theta} \dot{t}^2 + \nonumber \\ &\pdv{g_{r r}}{\theta} \dot{r}^2 + \pdv{g_{\theta \theta}}{\theta} \dot{\theta}^2 + \pdv{g_{\phi \phi}}{\theta} \dot{\phi}^2 + 2\pdv{g_{t \phi}}{\theta} \dot{t}\dot{\phi}\bigg).
+\end{align}
+Consider small perturbations in the $\theta$ direction \footnote{It is sufficient to consider $\theta$ and $r$ perturbations separately\ldots} about the light ring; i.e. set $r = r_*$, $\theta = \pi/2+\delta\theta(\lambda)$, and where $\dot{t}$ and $\dot{\phi}$ are given by Eqs.~\ref{eq:tdot_L} and \ref{eq:phidot_L} respectively and discard terms $\mathcal{O}(\delta\theta^2)$. 
+This gives
+\begin{align}\label{eq:el_theta_expanded}
+	g_{\theta \theta}&(r_*,\pi/2) \ddot{\delta \theta} = \frac{1}{2} \bigg(\pdv[2]{g_{t t}(r_*,\pi/2)}{\theta} \dot{t}^2  
+	+ \nonumber\\ & \pdv[2]{g_{\phi\phi}(r_*,\pi/2)}{\theta} \dot{\phi}^2 
+	+2\pdv[2]{g_{t \phi}(r_*,\pi/2)}{\theta} \dot{t}\dot{\phi}\bigg)\delta \theta.
+\end{align}
+which describes simple harmonic motion, $\ddot{\delta\theta}=-\tilde{\Omega}^2_\theta\delta\theta$, where the constant $\tilde{\Omega}_\theta$ is the frequency of the oscillations with respect to the parameter $\lambda$.
+The frequency of the oscillations with respect to coordinate time $t$ is given by
+\begin{align}
+	\Omega_\theta = \frac{\tilde{\Omega}_\theta}{\dot{t}} =\sqrt{-\frac{
+			\pdv[2]{g_{t t}}{\theta} +2\pdv[2]{g_{t \phi}}{\theta} \Omega_\phi + \pdv[2]{g_{\phi\phi}}{\theta} \Omega_\phi^2
+		}{2g_{\theta \theta}}} ,
+\end{align}
+where all quantities on the right hand side are to be evaluated at the light ring. 
+In the case of the Kerr metric $\Omega_\theta^2>0$ and the light ring is stable in the polar direction.
+
+Now consider motion in the radial direction ($\dot{r}\neq 0$).
+Differentiating Eq.~\ref{eq:rdot} with respect to $\lambda$ gives
+\begin{align}
+	\ddot{r} = \frac{1}{2}V'_{\rm eff}(r).
+\end{align}
+Consider small perturbations $r = r_*+\delta r(\lambda)$ with $\theta = \pi/2$ and discarding $\mathcal{O}(\delta r^2)$ terms gives
+\begin{align}
+	\ddot{\delta r} = \frac{1}{2}V''_{\rm eff}(r_*)\delta r.
+\end{align}
+Looking for periodic solutions, the frequency of the radial oscillaitons (with respect to coordinate time) is given by
+\begin{align}
+	\Omega_{r} = \sqrt{-\frac{V''_{\rm eff}(r_*)}{2\dot{t}^2}}.
+\end{align}
+In the case of the Kerr metric the light ring orbit has $\Omega_r^2<0$ and is unstable in the radial direction; therefore $\Gamma = (-\Omega_r^2)^{-1/2}$ is the instability (Lyapunov) timescale.
+
+\section{The Kerr Spectrum}
+
+An explanation of the conventions used, and maybe also the general waveform (although it make make sense to have that right at the top). 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\columnwidth]{IntroductiontoBlackHoleRingdown/qnm_taxonomy.pdf}
+	\caption[The Kerr quasinormal mode spectrum]{ 
+		The Kerr quasinormal mode spectrum.}
+	\label{fig:ch1:qnm_taxonomy}
+\end{figure}
