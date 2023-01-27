@@ -117,7 +117,7 @@ The full signal model is given by discontinuously joining the inspiral-merger to
 Finally, the detector response must be considered.
 We project the waveform polarizations onto each interferometer (IFO) with the antenna patterns, $F^\mathrm{IFO}_{+,\times}$.
 The detector response for each ${\mathrm{IFO}\in \{\mathrm{H}, \mathrm{L}\}}$ is given by
-\begin{align} \label{eq:projection_antenna}
+\begin{align} \label{ch4:eq:projection_antenna}
 	h^\mathrm{IFO}(t) = F^\mathrm{IFO}_+(\alpha, \delta, \psi) ~ &h_+(t + \Delta t_\mathrm{IFO}) \nonumber \\
 	+ F^\mathrm{IFO}_\times(\alpha, \delta, \psi) ~ &h_\times(t + \Delta t_\mathrm{IFO}),
 \end{align}
@@ -147,7 +147,7 @@ $ \nu_w \leq \nu_{w+1} $ via the \emph{hypertriangulation} transformation descri
 We sample over the wavelet central times ($\eta_w$) using a Gaussian prior in the Hanford frame with a width of $50\,\tilde{M_f}$ ($\sim 17\,\mathrm{ms}$) centered on $t_\mathrm{ref} = 1126259462.423\,\mathrm{s}$.
 This choice was found to be sufficiently flexible, whilst at the same time encouraging the wavelets to accurately model the signal near the peak (see the discussion in Ref.~\cite{Finch:2021qph}).
 
-For the ringdown, uniform priors are used for the amplitudes $(A_n \in [0,10^{-19}])$, phases $(\phi_n \in [0,2\pi])$, remnant mass $(M_f \in [40,100]\,M_\odot )$, remnant spin $(\chi_f \in [0,0.99])$ and ringdown start time $(t_0-t_\mathrm{ref} \in [-15, 15]\,\,\tilde{M_f},$ which in SI units corresponds to $\sim[-5.1,5.1]\, \mathrm{ms})$.
+For the ringdown, uniform priors are used for the amplitudes $(A_n \in [0,10^{-19}])$, phases $(\phi_n \in [0,2\pi])$, remnant mass $(M_f \in [40,100]\,M_\odot )$, remnant spin $(\chi_f \in [0,0.99])$ and ringdown start time $(t_0-t_\mathrm{ref} \in [-15, 15]\,\tilde{M_f},$ which in SI units corresponds to $\sim[-5.1,5.1]\, \mathrm{ms})$.
 We use a uniform prior on $t_0$ so that the samples can be easily reweighted in post-processing (see Sec.~\ref{subsec:reweighting}). 
 For the remaining parameters, we used a uniform prior over the sphere of the sky (parametrized using $\alpha$ and $\delta$) for the source location and a flat, periodic prior on the polarization angle $\psi$ in the range $0$ to $\pi$.
 

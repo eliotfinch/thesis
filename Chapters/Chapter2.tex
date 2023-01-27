@@ -6,28 +6,28 @@
 
 \section{Introduction}
 
-A prerequisite for any ringdown analysis is a suitable choice for the \emph{start time}, $t_0$, of the ringdown. 
+A prerequisite for any ringdown analysis is a suitable choice for the start time, $t_0$, of the ringdown. 
 Starting too early risks a GW signal contaminated with nonlinearities that cannot be described by a model based solely on QNMs and obtaining biased measurements as a result. 
 On the other hand, starting too late leaves a short signal that is already decaying and without enough signal-to-noise to make useful measurements. 
-The difficulties of defining a suitable start time and some surprising data analysis consequences of this were discussed in \cite{Thrane:2017lqn}. 
+The difficulties of defining a suitable start time and some surprising data analysis consequences of this were discussed in Ref.~\cite{Thrane:2017lqn}. 
 Previous studies on numerical relativity (NR) waveforms have tended to use just a single \cite{Flanagan:1997sx} or relatively small number ($\leq 4$) \cite{Kamaretsos:2011um, London:2014cma, Carullo:2018sfu, Bhagwat:2017tkm} of QNMs, and have used a wide range of start times. 
-Typically, the start time is referred to the maxima of some time-dependent quantity (e.g.\ the 22 mode of the strain, the modulus of the Weyl scalar, or the total GW luminosity; these quantities peak at times that typically differ by a few tens of $M$) and typical choices were ${10-20M}$ after the peak (although, see \cite{Berti:2007fi} where a range of different start times are explored). 
+Typically, the start time is referred to the maxima of some time-dependent quantity (e.g.\ the 22 mode of the strain, the modulus of the Weyl scalar, or the total GW luminosity; these quantities peak at times that typically differ by a few tens of $M$) and typical choices were $10M$ to $20M$ after the peak (although, see Ref.~\cite{Berti:2007fi} where a range of different start times are explored). 
 Several studies caution against starting too early \cite{JimenezForteza:2020cve, Bhagwat:2019dtm}.
 
-More recently, \cite{Giesler:2019uxc} (see also \cite{Ota:2019bzl}) looked to allow the ringdown to start significantly earlier by including multiple overtones. 
-In particular, \cite{Giesler:2019uxc} found that by including up to seven overtones the ringdown analysis can be started as early as the peak in the 22 mode of the strain. 
+More recently, Ref.~\cite{Giesler:2019uxc} (see also Ref.~\cite{Ota:2019bzl}) looked to allow the ringdown to start significantly earlier by including multiple overtones. 
+In particular, Ref.~\cite{Giesler:2019uxc} found that by including up to seven overtones the ringdown analysis can be started as early as the peak in the 22 mode of the strain. 
 This might be considered a surprising result; the signal peak is expected to occur when the remnant BH (to the extent that it yet even makes sense to consider it as such) is most highly distorted and linear perturbation theory is not expected to be valid. 
-The failure of this intuition was investigated in \cite{Okounkova:2020vwu} which suggests much of the nonlinearity is trapped behind a forming common apparent horizon and never makes it out to future null infinity in the form of GWs. 
-Even more surprising, in \cite{Dhani:2020nik} this approach was extended by the inclusion of mirror modes along with overtones (thereby doubling the number of QNMs) and it was found that it was possible to start the ringdown analysis even earlier (up to ${10M}$ \emph{before} the peak). 
+The failure of this intuition was investigated in Ref.~\cite{Okounkova:2020vwu} which suggests much of the nonlinearity is trapped behind a forming common apparent horizon and never makes it out to future null infinity in the form of GWs. 
+Even more surprising, in Ref.~\cite{Dhani:2020nik} this approach was extended by the inclusion of mirror modes along with overtones (thereby doubling the number of QNMs) and it was found that it was possible to start the ringdown analysis even earlier (up to $10M$ before the peak). 
 Clearly it is not surprising that a model with so many free parameters is able to fit the GW signal well; the important point is that it is able to do so without obtaining biased values for the final mass and spin. 
-A ringdown model with overtones was successfully applied to GW150914 in \cite{Isi:2019aib} to extract the fundamental QNM and the first overtone from the noisy data, and more recently to events in GWTC-2 \cite{LIGOScientific:2020tif}. 
+A ringdown model with overtones was successfully applied to GW150914 in Ref.~\cite{Isi:2019aib} to extract the fundamental QNM and the first overtone from the noisy data, and more recently to events in GWTC-2 \cite{LIGOScientific:2020tif}. 
 
 To the best of our knowledge, previous studies modelling the ringdown from NR simulations with QNMs have only considered aligned-spin BBH systems. 
-We note that some work on precessing systems has been done in the extreme mass ratio limit, see \cite{Hughes:2019zmt,Lim:2019xrb}. 
-It is well known that misalignment between the orbital angular momentum and the spins of the component BHs cause the orbit to precess during the inspiral phase of the evolution leading to qualitatively different GW signals at early times (e.g.\ see \cite{Apostolatos:1994mx}). 
+We note that some work on precessing systems has been done in the extreme mass ratio limit, see Refs.~\cite{Hughes:2019zmt,Lim:2019xrb}. 
+It is well known that misalignment between the orbital angular momentum and the spins of the component BHs cause the orbit to precess during the inspiral phase of the evolution leading to qualitatively different GW signals at early times (e.g.\ see Ref.~\cite{Apostolatos:1994mx}). 
 It is less clear what effect, if any, misaligned component spins would have on the late time ringdown signal which is generally associated with the remnant BH. 
-The primary aim of this paper is to address this question by systematically extending the analyses of \cite{Giesler:2019uxc, Dhani:2020nik} to a large number of precessing BBH simulations from the SXS catalog \cite{Boyle:2019kee, Mroue:2013xna}. 
-We find that for BBH systems with misaligned spins, and that exhibit precession during their inspiral phase, a model consisting only of overtones (with or without mirror modes) \emph{cannot} be reliably applied from the peak of the 22 strain. 
+The primary aim of this paper is to address this question by systematically extending the analyses of Refs.~\cite{Giesler:2019uxc, Dhani:2020nik} to a large number of precessing BBH simulations from the SXS catalog \cite{Boyle:2019kee, Mroue:2013xna}. 
+We find that for BBH systems with misaligned spins, and that exhibit precession during their inspiral phase, a model consisting only of overtones (with or without mirror modes) cannot be reliably applied from the peak of the 22 strain. 
 A more conservative ringdown start time corresponding to the peak of the energy flux improves reliability, but we still see significant variation in performance across different simulations. 
 The introduction of a higher harmonic (QNMs with $\ell > 2$) to the overtone model helps to reduce this variation, hinting at the importance of mode mixing.
 
@@ -35,11 +35,142 @@ Previous studies have also focused on using full NR simulations to test ringdown
 In this paper we briefly investigate the use of surrogates, which provide an opportunity to test models over a continuous parameter space. 
 We find caution should be taken, particularly for surrogates of precessing systems, due to errors in the surrogate waveforms.
 
-In section \ref{aligned-spin-section} we reproduce some important results from \cite{Giesler:2019uxc, Dhani:2020nik}, which are later compared with those for precessing systems in section \ref{misaligned-spin-section}. 
+In section \ref{aligned-spin-section} we reproduce some important results from Refs.~\cite{Giesler:2019uxc, Dhani:2020nik}, which are later compared with those for precessing systems in section \ref{misaligned-spin-section}. 
 With precessing systems, it is necessary to perform a rotation to account for the fact that the spin of the remnant BH will not be aligned with initial coordinate axes used to set up the simulation; the procedure for doing this is also discussed in section \ref{misaligned-spin-section}. 
 In section \ref{surrogate-section} we comment on the use of NR surrogates to test ringdown models. 
 Finally, concluding remarks are presented in section \ref{sec:discussion}. 
 Throughout, we use natural units in which $G=c=1$.
+
+\section{Model for the spherical modes}
+
+Numerical relativity expands the gravitational-wave (GW) strain in the basis of (spin-weighted) spherical harmonics
+\begin{equation}\label{eq:spherical_expansion}
+    rh = M \sum_{\ell m} h_{\ell m}(t) {}_{-2}Y_{\ell m}(\Omega),
+\end{equation}
+where we suppress the sum limits for clarity, and $\Omega$ is used as shorthand for the angles $\theta$, $\phi$.
+We will assume the above has been rotated such that the remnant black-hole (BH) spin vector is aligned with the $z$-axis.
+
+Perturbation theory expands the GW strain in the basis of the (spin-weighted) spheroidal harmonics
+\begin{equation}\label{eq:spheroidal_expansion}
+    rh = M \sum_{\ell m n} \left[ C_{\ell m n} e^{-i \omega_{\ell m n} t} {}_{-2}S_{\ell m n}(\Omega) + C'_{\ell m n} e^{-i \omega'_{\ell m n} t} {}_{-2}S'_{\ell m n}(\Omega) \right],
+\end{equation}
+where we have defined $t$ such that the ringdown start time $t_0 = 0$.
+Here, $C_{\ell m n}$ are complex coefficients (containing an amplitude and a phase), $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$ are the complex quasinormal mode frequencies (which are functions of the remnant BH mass $M_f$ and spin $\chi_f$), and ${}_{-2}S_{\ell m n}(\Omega) = {}_{-2}S_{\ell m}(\Omega; a\omega_{\ell m n})$ are the spheroidal harmonics.
+The spheroidal harmonics are functions of the spheroidicity $\gamma = a\omega_{\ell m n}$, where $a = M_f \chi_f$ is the Kerr parameter.
+The primes denote the mirror modes, which satisfy $\operatorname{Re}[\omega'_{\ell m n}] = 2\pi f'_{\ell m n} < 0$.
+These mirror modes are related to the regular modes via $\omega'_{\ell m n} = -\omega^*_{\ell -m n}$.
+The prime on the spheroidal harmonic enters in the spheroidicity: ${}_{-2}S'_{\ell m n}(\Omega) = {}_{-2}S_{\ell m}(\Omega; a\omega'_{\ell m n})$.
+
+Equating the two expansions we get
+\begin{equation}
+    \sum_{\ell m} h_{\ell m}(t) {}_{-2}Y_{\ell m}(\Omega) = \sum_{\ell m n} \left[ C_{\ell m n} e^{-i \omega_{\ell m n} t} {}_{-2}S_{\ell m n}(\Omega) + C'_{\ell m n} e^{-i \omega'_{\ell m n} t} {}_{-2}S'_{\ell m n}(\Omega) \right],
+\end{equation}
+and then we can extract $h_{\ell m}$ using spherical-harmonic orthogonality:
+\begin{align}\label{eq:hlm_with_ints}
+    h_{\ell' m'}(t) = \sum_{\ell m n} \bigg[ &C_{\ell m n} e^{-i \omega_{\ell m n} t} \left(\int_\Omega \dd{\Omega} ~ {}_{-2}S_{\ell m n}(\Omega) ~ {}_{-2}Y^*_{\ell' m'}(\Omega)\right) \nonumber \\
+    + &C'_{\ell m n} e^{-i \omega'_{\ell m n} t} \left(\int_\Omega \dd{\Omega} ~ {}_{-2}S'_{\ell m n}(\Omega) ~ {}_{-2}Y^*_{\ell' m'}(\Omega)\right) \bigg].
+\end{align}
+Following the convention of Ref.~\cite{Stein:2019mop}, the first integral is the spherical-spheroidal mixing coefficient:
+\begin{equation}
+    \int_\Omega \dd{\Omega} ~ {}_{-2}S_{\ell m n}(\Omega) ~ {}_{-2}Y^*_{\ell' m'}(\Omega) = \mu_{\ell' m' \ell n} \delta_{m' m}.
+\end{equation}
+To evaluate the second integral we first rewrite the primed spheroidal harmonic as 
+\begin{align}\label{eq:spheroidal_transform}
+    {}_{-2}S'_{\ell m n}(\Omega) &= {}_{-2}S_{\ell m}(\theta, \phi; a\omega'_{\ell m n}) \nonumber \\
+    &= {}_{-2}S_{\ell m}(\theta, \phi; -a\omega^*_{\ell -m n}) \nonumber \\
+    &= (-1)^\ell {}_{-2}S^*_{\ell -m}(\pi - \theta, \phi; a\omega_{\ell -m n})
+\end{align}
+where the last line follows from Eqs.~48b and 48c of Ref.~\cite{Cook:2014cta}.
+Next, we use the symmetries of the spherical harmonics to write
+\begin{equation}\label{eq:spherical_transform}
+    {}_{-2}Y^*_{\ell m}(\theta, \phi) = (-1)^{\ell} ~ {}_{-2}Y_{\ell -m}(\pi - \theta, \phi).
+\end{equation}
+Using Eqs.~\ref{eq:spheroidal_transform} and \ref{eq:spherical_transform} we can rewrite the second integral of Eq.~\ref{eq:hlm_with_ints} as
+\begin{align}
+    \int_\Omega \dd{\Omega}& ~ {}_{-2}S'_{\ell m n}(\Omega) ~ {}_{-2}Y^*_{\ell' m'}(\Omega) = \nonumber \\ 
+    &= \int_\Omega \dd{\Omega} ~ (-1)^\ell {}_{-2}S^*_{\ell -m}(\pi - \theta, \phi; a\omega_{\ell -m n}) ~ (-1)^{\ell'} ~ {}_{-2}Y_{\ell' -m'}(\pi - \theta, \phi) \nonumber \\
+    &= (-1)^{l+l'} \int_\Omega \dd{\Omega} ~ {}_{-2}S^*_{\ell -m}(\pi - \theta, \phi; a\omega_{\ell -m n}) ~ {}_{-2}Y_{\ell' -m'}(\pi - \theta, \phi) \nonumber \\
+    &= (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \delta_{m' m}
+\end{align}
+Substituting for both of the integrals of Eq.~\ref{eq:hlm_with_ints} we get
+\begin{align}\label{eq:hlm_model}
+    h_{\ell' m'}(t) &= \sum_{\ell m n} \left[ C_{\ell m n} e^{-i \omega_{\ell m n} t} \mu_{\ell' m' \ell n} \delta_{m' m} + C'_{\ell m n} e^{-i \omega'_{\ell m n} t} (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \delta_{m' m} \right] \nonumber \\
+    &= \sum_{\ell n} \left[ C_{\ell m' n} e^{-i \omega_{\ell m' n} t} \mu_{\ell' m' \ell n} + C'_{\ell m' n} e^{-i \omega'_{\ell m' n} t} (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \right] \nonumber \\
+    &= \sum_{\ell n} \left[ C_{\ell m' n} e^{-i \omega_{\ell m' n} t} \mu_{\ell' m' \ell n} + C'_{\ell m' n} e^{-i \omega'_{\ell m' n} t} \mu'_{\ell' m' \ell n} \right]
+\end{align}
+where $\mu'_{\ell' m' \ell n} = (-1)^{l+l'} \mu^*_{\ell' -m' \ell n}$.
+
+\section{Fitting implementation}
+
+Given some spherical-harmonic modes $h_{\ell m}$, we can turn Eq.~\ref{eq:hlm_model} into a least-squares fitting problem to find the best-fit complex coefficients $C_{\ell m n}$ and $C'_{\ell m n}$ (this assumes the complex frequencies and mixing coefficients are also given). 
+First, we write Eq.~\ref{eq:hlm_model} as a matrix equation. 
+Note that in the above I have separated the regular and mirror modes to show explicitly how to deal with the mirror modes (i.e. how to obtain their frequencies and mixing coefficients from the regular frequencies and mixing coefficients). 
+I will now drop this distinction for clarity.
+
+\subsection{Single-mode fit}
+
+For simplicity, I first consider the case when we want to model a single spherical mode (for example, the $h_{22}$ mode). We write
+\begin{equation}\label{eq:hlm_matrix_single}
+    \vb*{h}_{\ell m} = \vb*{a}_{\ell m} \vdot \vb*{C}
+\end{equation}
+where $\vb*{h}_{\ell m} = \left[h_{\ell m}(u_0),\ h_{\ell m}(u_1), \ldots,\ h_{\ell m}(u_{K-1}) \right]$ is the waveform data evaluated at a total of $K$ times labeled by $u_k$. 
+In general we will have 
+\begin{equation}
+    t_0 \neq u_0, \quad u_{K-1} \neq t_0 + T
+\end{equation}
+where $t_0$ is our chosen ringdown start time, and $T$ determines the length of our ringdown model. 
+So, we will need a method for choosing $u_0$ (e.g. it could be the first value after $t_0$, or the closest value to $t_0$).
+
+The matrix $\vb*{a}_{\ell m}$ is the coefficient matrix, which is where the choice of QNM content in our model enters. 
+It has the form
+\begin{equation}
+    \vb*{a}_{\ell m} = 
+    \begin{pmatrix}
+    e^{-i \omega_0 (u_0 - t_0)} \mu_{\ell m,0} & e^{-i \omega_1 (u_0 - t_0)} \mu_{\ell m,1} & \cdots & e^{-i \omega_{J-1} (u_0 - t_0)} \mu_{\ell m,J-1} \\ 
+    e^{-i \omega_0 (u_1 - t_0)} \mu_{\ell m,0} & e^{-i \omega_1 (u_1 - t_0)} \mu_{\ell m,1} & \cdots & e^{-i \omega_{J-1} (u_1 - t_0)} \mu_{\ell m,J-1} \\ 
+    \vdots & \vdots & \ddots & \vdots \\
+    e^{-i \omega_0 (u_{K-1} - t_0)} \mu_{\ell m,0} & e^{-i \omega_1 (u_{K-1} - t_0)} \mu_{\ell m,1} & \cdots & e^{-i \omega_{J-1} (u_{K-1} - t_0)} \mu_{\ell m,J-1}
+    \end{pmatrix}
+\end{equation}
+where we have suppressed the three QNM labels and instead labelled each QNM by a single number. 
+There are a total of $J$ QNMs included in the model.
+So, $\vb*{a}_{\ell m}$ is a matrix of shape $(K, J)$.
+To reiterate, the QNM content in our model can consist of any regular or mirror modes, as long as the correct frequencies and mixing coefficients are used in the above matrix (I have just used $\omega_j$ and $\mu_{\ell m, j}$ as generic terms). 
+
+The vector $\vb*{C}$ contains our complex amplitudes, of which there are a total of $J$ (one for each QNM included in the model). This has the form
+\begin{equation}
+    \vb*{C} = \left(C_0,\ C_1,\ \ldots,\ C_{J-1}\right)^T.
+\end{equation}
+When we perform the matrix multiplication of Eq.~\ref{eq:hlm_matrix_single} we are multiplying a matrix of shape $(K,J)$ by a vector of length $J$, so we are left with a vector of length $K$.
+Written in this form, we can easily apply least-squares solvers to invert the equation for the vector of coefficients. 
+
+\subsection{Multimode fit}
+
+Due to mode mixing, a given QNM contributes to all spherical-harmonic modes with the same $m$. 
+This means we can perform a fit to multiple spherical-harmonic modes with a single set of shared QNM amplitudes $\vb*{C}$.
+We will approach this by joining $\vb*{h}_{\ell m}$ vectors together for each $(\ell, m)$ we want to include in the fit (to effectively form a single timeseries), and similarly by ``stacking'' $\vb*{a}_{\ell m}$ matrices on top of each other.
+
+The single-mode matrix equation, Eq.~\ref{eq:hlm_matrix_single}, becomes
+\begin{equation}\label{eq:hlm_matrix_multi}
+    \vb*{h} = \vb*{a} \vdot \vb*{C}
+\end{equation}
+where
+\begin{equation}
+    \vb*{h} = 
+    \begin{bmatrix}
+    \vb*{h}_0 & \vb*{h}_1 & \cdots & \vb*{h}_{I-1}
+    \end{bmatrix}
+\end{equation}
+and $I$ is the number of spherical-harmonic modes to include in the fit (I have suppressed the two spherical-harmonic indices for clarity). So, $\vb*{h}$ is a vector of length $I \times K$.
+Similarly
+\begin{equation}
+    \vb*{a} = 
+    \begin{bmatrix}
+    \vb*{a}_0 \\ \vb*{a}_1 \\ \vdots \\ \vb*{a}_{I-1}
+    \end{bmatrix},
+\end{equation}
+which has shape $(I \times K, J)$. 
+We see that when we multiply this new coefficient matrix by the vector $\vb*{C}$ (length $J$) in Eq.~\ref{eq:hlm_matrix_multi} we recover a vector of correct length $I \times K$.
 
 \section{Aligned-spin Systems}\label{aligned-spin-section}
 
@@ -60,8 +191,8 @@ At late times ($t \geq t_0$, where $t_0$ is to be determined) the signal is mode
 We note that as QNMs are not \emph{complete}, in the sense of being derivable from a self-adjoint operator, this model is necessarily an approximation.
 The most general QNM ringdown model is a sum over $(\ell,m,n)$ including both the regular ($\omega_{\ell m n}$) and the mirror ($\omega'_{\ell m n}$) mode frequencies (see, e.g.\ \cite{Berti:2005ys}),
 \begin{align}\label{general_ringdown}
-    h(t,r,\theta',\phi') = \frac{M_f}{r} \sum_{\ell=2}^{\infty}\sum_{m=-\ell}^{\ell}\sum_{n=0}^{\infty} \big[ &C_{\ell m n} e^{-i \omega_{\ell m n}(t-t_0)} ~ {}_{-2}S_{\ell m n}(\theta',\phi') \\
-    + &C'_{\ell m n} e^{-i \omega'_{\ell m n}(t-t_0)} ~ {}_{-2}S'_{\ell m n}(\theta',\phi') \big],
+    h(t,r,\theta',\phi') = \frac{M_f}{r} \sum_{\ell=2}^{\infty}\sum_{m=-\ell}^{\ell}\sum_{n=0}^{\infty} \Big[ &C_{\ell m n} e^{-i \omega_{\ell m n}(t-t_0)} ~ {}_{-2}S_{\ell m n}(\theta',\phi') \\
+    + &C'_{\ell m n} e^{-i \omega'_{\ell m n}(t-t_0)} ~ {}_{-2}S'_{\ell m n}(\theta',\phi') \Big],
 \end{align}
 for $t\geq t_0$.
 Here, ${}_{-2}S_{\ell m n}(\theta',\phi')$ are the spheroidal harmonics of spin weight $-2$, which are the most natural angular basis for the radiation produced by a perturbed Kerr BH. 
@@ -79,7 +210,7 @@ Following Giesler \emph{et al.} \cite{Giesler:2019uxc}, the spherical harmonic m
 \end{equation}
 This \emph{overtone} model is a restriction of the sum in Eq.~\ref{general_ringdown}, where overlaps between different harmonic $\ell$ indices (mode mixing) \cite{Berti:2014fga} as well as mirror modes are neglected. 
 As in \cite{Giesler:2019uxc}, we model each spherical harmonic mode individually as a sum of QNMs. An alternative approach would be to model several spherical harmonic modes simultaneously with a shared set of QNM amplitudes which might give improved fits, especially when mode mixing is significant (see, e.g.\ \cite{Cook:2020otn}).
-In \cite{Giesler:2019uxc}, the efficacy of this model for $l=m=2$ was demonstrated by performing least squares fits to the $h_{22}(t)$ mode for a selection of aligned-spin SXS simulations. The authors note that this was also verified for other values of $(\ell,m)$.
+In \cite{Giesler:2019uxc}, the efficacy of this model for $\ell=m=2$ was demonstrated by performing least squares fits to the $h_{22}(t)$ mode for a selection of aligned-spin SXS simulations. The authors note that this was also verified for other values of $(\ell,m)$.
 
 The overtone model in Eq.~\ref{GieslerRD} contains $2(N+1)$ free parameters in the complex amplitudes, $C_{\ell m n}$, plus the two parameters $M_f,\; \chi_f$ that determine the $\omega_{\ell m n}$ frequencies.
 All of these parameters depend on the properties of the progenitor binary, but we do not study these dependencies here.
@@ -139,7 +270,7 @@ The overtone model contains more parameters as $N$ is increased, and it is neces
 To address this, we check to see if the remnant BH properties are correctly recovered by the model. 
 The combined error on the remnant mass and spin is quantified by \cite{Giesler:2019uxc}
 \begin{equation} \label{eq:epsilon}
-    \epsilon = \sqrt{ \qty( \frac{\delta M_f}{M} )^2 + \qty( \delta\chi_f )^2 },
+    \epsilon = \sqrt{ \left( \frac{\delta M_f}{M} \right)^2 + \left( \delta\chi_f \right)^2 },
 \end{equation}
 where $\delta M_f = M_{\mathrm{best fit}} - M_f$, and $\delta \chi_f = \chi_{\mathrm{best fit}} - \chi_f$. 
 The best fit values are those which minimise the mismatch, while the true values are taken from the metadata for the SXS simulation.
