@@ -6,42 +6,6 @@
 
 \section{Introduction}
 
-The gravitational wave (GW) observatories LIGO \cite{LIGOScientific:2014pky} and Virgo \cite{VIRGO:2014yos} have now observed dozens of GW events \cite{LIGOScientific:2018mvr, LIGOScientific:2020ibl}, mostly from binary black hole (BBH) mergers. 
-Particularly prominent in the GW signals of the higher-mass systems are the final few wave cycles, known as the \emph{ringdown}, emitted as the system settles into its final state: a Kerr black hole (BH). 
-The ringdown signal contains a superposition of oscillatory modes, the frequency spectrum of which is characteristic of the remnant BH.
-
-The characteristic oscillations of the remnant BH are called \emph{quasinormal modes} (QNMs), so-called because, unlike normal modes, they decay over time.
-The QNM frequencies are complex, $\omega = 2\pi f - {i}/\tau$, with the real part $f$ giving the oscillation frequency and the reciprocal of the imaginary part $\tau$ giving the damping time. 
-The QNM frequencies can be calculated within the framework of linearised gravity, treating the gravitational field in the vicinity of the remnant as a small (linear) perturbation of the Kerr metric \cite{Berti:2009kk}.
-Therefore, the QNM description of the GW signal is only expected to be valid at sufficiently late times, when the nonlinearities from the merger have largely decayed away. 
-
-The remnant Kerr BH has no hair; it is fully described by only a final mass, $M_f$, and a dimensionless final spin parameter, $\chi_f = |\vb*{\chi}_f|$. 
-The same is true of the spectrum of QNM frequencies, $\omega_{\ell m n}(M_f, \chi_f)$, which are also functions of only the mass and spin. 
-Individual QNMs are indexed by the triplet $(\ell, m, n)$ which are the polar ($\ell\geq2$), azimuthal ($-\ell \leq m \leq \ell$) and overtone ($n \geq 0$) numbers respectively. 
-The spectrum is further complicated by the fact that QNMs occur in pairs. 
-A complete description of the ringdown must include the \emph{mirror modes} $\omega'_{\ell m n}$ \cite{Berti:2009kk, Berti:2005ys, Dhani:2020nik, London:2014cma} with negative real frequency $f'_{\ell m n}$ along with the \emph{regular modes} $\omega_{\ell m n}$ with $f_{\ell m n}>0$
-\footnote{We choose to classify QNMs as either \emph{regular} or \emph{mirror}. This is closely related to, but still distinct from, the prograde/retrograde classification of QNMs used in, for example, \cite{LIGOScientific:2020tif}.}.
-A quantification of the mirror modes was treated in Appendix D of \cite{JimenezForteza:2020cve}; some of these estimates were later confirmed in \cite{Dhani:2020nik}.
-The spectrum of mirror modes contains the same information as the regular modes (albeit with nontrivial relationships between them, see Eqs.~\ref{eq:sym_mirror_modes_conj}) which has sometimes led to them being neglected. 
-Whether they can, in fact, be neglected will depend on the relative excitation amplitudes of the regular and mirror modes and their differing decay times. 
-In general, the ringdown will contain a superposition of all these modes with different excitation amplitudes and phases (see Eq.~\ref{general_ringdown}). 
-Usually, the GW strain is dominated by the $\ell=|m|=2$ modes. 
-Furthermore, the overtones decay more quickly (i.e.\ $\tau$ decreases) with increasing $n$ so that at late times the signal will be dominated by the fundamental $n=0$ modes. 
-Therefore, the most prominent QNM in the ringdown is expected to be the $(\ell, m, n)=(2,2,0)$ mode, and the observational challenge is usually to detect the presence of other, subdominant modes.
-
-The study of QNMs has applications in both astro and fundamental physics. 
-The highly constrained dependence of the QNM spectrum on only the remnant mass and spin means that, conversely, if a QNM frequency is measured, then the mass and spin of the final BH merger can be inferred. 
-For high-mass systems, where only the ringdown signal is observable, this may be the only information available about the nature of the source \cite{Berti:2005ys, Baibhav:2020tma}. 
-For lower-mass systems, measuring QNM frequencies allows us to estimate the remnant properties independently of the rest of the signal, and so consistency tests can be performed. 
-For example, a test of the BH area theorem can be performed in this way \cite{Cabero:2017avf, Isi:2020tac}. 
-A similar consistency test using full inspiral-merger-ringdown models and a sharp cut in the frequency (rather than time) domain was performed on GW150914 \cite{LIGOScientific:2016lio}. 
-Each additional QNM that can be detected in the ringdown provides a separate estimate of the mass and spin of the remnant. 
-Therefore, if multiple QNM frequencies can be identified, a ringdown-only consistency test on the expected Kerr-like nature of the remnant BH can be performed \cite{Dreyer:2003bv, Carullo:2019flw} (this is possible only if the $(\ell, m, n)$ of the modes are known). 
-In these tests, deviations from the expected results may point to new physics beyond general relativity. 
-
-QNMs also have practical uses in waveform modelling.
-They are used in full inspiral-merger-ringdown BBH waveforms produced in both the phenomenological \cite{Pratten:2020ceb, Garcia-Quiros:2020qpx, Pratten:2020fqn} and effective-one-body approaches \cite{Buonanno:2006ui, Buonanno:2007pf, Pan:2011gk}.
-
 A prerequisite for any ringdown analysis is a suitable choice for the \emph{start time}, $t_0$, of the ringdown. 
 Starting too early risks a GW signal contaminated with nonlinearities that cannot be described by a model based solely on QNMs and obtaining biased measurements as a result. 
 On the other hand, starting too late leaves a short signal that is already decaying and without enough signal-to-noise to make useful measurements. 
@@ -95,10 +59,10 @@ By convention, the \emph{NR frame} $(\theta,\phi)$ is uniquely fixed by requirin
 At late times ($t \geq t_0$, where $t_0$ is to be determined) the signal is modelled as a sum of QNMs.
 We note that as QNMs are not \emph{complete}, in the sense of being derivable from a self-adjoint operator, this model is necessarily an approximation.
 The most general QNM ringdown model is a sum over $(\ell,m,n)$ including both the regular ($\omega_{\ell m n}$) and the mirror ($\omega'_{\ell m n}$) mode frequencies (see, e.g.\ \cite{Berti:2005ys}),
-\begin{equation}\label{general_ringdown}
-    h(t,r,\theta',\phi') =
-    \frac{M_f}{r} \sum_{\ell=2}^{\infty}\sum_{m=-\ell}^{\ell}\sum_{n=0}^{\infty} \left[ C_{\ell m n} e^{-i \omega_{\ell m n}(t-t_0)} ~ {}_{-2}S_{\ell m n}(\theta',\phi') + C'_{\ell m n} e^{-i \omega'_{\ell m n}(t-t_0)} ~ {}_{-2}S'_{\ell m n}(\theta',\phi') \right],
-\end{equation}
+\begin{align}\label{general_ringdown}
+    h(t,r,\theta',\phi') = \frac{M_f}{r} \sum_{\ell=2}^{\infty}\sum_{m=-\ell}^{\ell}\sum_{n=0}^{\infty} \big[ &C_{\ell m n} e^{-i \omega_{\ell m n}(t-t_0)} ~ {}_{-2}S_{\ell m n}(\theta',\phi') \\
+    + &C'_{\ell m n} e^{-i \omega'_{\ell m n}(t-t_0)} ~ {}_{-2}S'_{\ell m n}(\theta',\phi') \big],
+\end{align}
 for $t\geq t_0$.
 Here, ${}_{-2}S_{\ell m n}(\theta',\phi')$ are the spheroidal harmonics of spin weight $-2$, which are the most natural angular basis for the radiation produced by a perturbed Kerr BH. 
 The prime on the second spheroidal harmonic is due to the different QNM frequency associated with the mirror modes.
@@ -183,7 +147,7 @@ A ringdown model can be said to perform well if it yields small values for \emph
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/aligned_spin_epsilon_M_hist.pdf}
+    \includegraphics[width=\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/aligned_spin_epsilon_M_hist.pdf}
     \caption[Remnant error and mismatches for fits to aligned-spin SXS simulations using an overtone model]{Left: histograms of the mass-spin remnant error $\epsilon$ from an overtone model fit to 85 aligned-spin SXS simulations for several different overtone numbers $N$. 
     Right: histograms of the mismatch from a fit with the true remnant mass and spin parameters, with the same overtone models and SXS simulations as in the left histogram.
     The solid histograms show results from fits performed starting at the peak of the $h_{22}$ mode with $N$ overtones of the fundamental $\ell = m = 2$ mode.
@@ -322,7 +286,7 @@ This simulation initially (at the reference time) has a mass ratio of $q=2.78$ a
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/misaligned_spin_epsilon_M_hist.pdf}
+    \includegraphics[width=\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/misaligned_spin_epsilon_M_hist.pdf}
     \caption[Remnant error and mismatches for fits to misaligned-spin SXS simulations using an overtone model]{Left: histograms of the mass-spin remnant error $\epsilon$ from an overtone model fit to the rotated $h'_{22}$ modes of 252 misaligned-spin SXS simulations for several different overtone numbers $N$. 
     Right: histograms of the mismatch from a fit with the true remnant mass and spin parameters, with the same overtone models and SXS simulations as in the left histogram.
     The solid histograms show results from fits performed starting at the peak of the energy flux with $N$ overtones of the fundamental $\ell = m = 2$ mode.
@@ -396,7 +360,7 @@ We see significantly smaller mismatches, and a stronger mismatch peak around the
 
 \begin{figure*}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/misaligned_spin_epsilon_M_hist_harmonics.pdf}
+    \includegraphics[width=\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/misaligned_spin_epsilon_M_hist_harmonics.pdf}
     \caption[Remnant error and mismatches for fits to misaligned-spin SXS simulations using the harmonic model]{Left: histograms of the mass-spin remnant error $\epsilon$ from harmonic model fits (Eq.~\ref{full_ringdown}) to same 252 misaligned-spin SXS simulations used in Fig.\ref{misaligned_spin_epsilon_hist}. Shown (in dashed lines) are the $N=7$, $L=3$ and $L=4$ models with mirror modes. Also shown in green is the overtone model with $N=7$ and $L=2$ (no mirror modes); this is the same as the green histogram in Fig.~\ref{misaligned_spin_epsilon_hist} and is included here to aid comparison. Right: histograms of the mismatch from a fit with the true remnant mass and spin parameters, with the same models and SXS simulations as in the left histogram. The harmonic model, which includes many free parameters, achieves small mismatches but without significant improvement in the remnant error. We note that the inclusion of $L=4$ does not bring any additional improvements over $L=3$.}
     \label{misaligned_spin_epsilon_hist_harmonics}
 \end{figure*}
@@ -530,7 +494,7 @@ The $N=3$ and $N=0$ model results do change and generally give a worse fit with 
 
 \begin{figure*}[h]
     \centering
-    \includegraphics[width=\textwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/misaligned_spin_epsilon_M_hist_m10.pdf}
+    \includegraphics[width=\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/misaligned_spin_epsilon_M_hist_m10.pdf}
     \caption[Remnant error and mismatches for fits to misaligned-spin SXS simulations using the overtone model starting from $10M$ before the peak of the $h_{22}$ strain]{
     Left: histograms of the mass-spin remnant error $\epsilon$ from an overtone model fit to the rotated $h'_{22}$ mode of 252 misaligned-spin SXS simulations for several different overtone numbers $N$. 
     Right: histograms of the mismatch from a fit with the true remnant mass and spin parameters, with the same overtone models and SXS simulations as in the left histogram.
