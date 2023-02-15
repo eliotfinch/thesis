@@ -18,13 +18,21 @@ Other subtitle ideas:
 
 ## Outline
 
-### Introduction to Black-hole Ringdown
-- Scalar field on Schwarzschild background. Mention the vibrating string analogy.
-- Geodesic picture.
-- Kerr sprectum plot.
+### Introduction
+
+#### Black-hole ringdown
+- High-level overview of binary black hole mergers, gravitational waves, time and length scales, and why the ringdown is useful.
+- A breif summary of the history either in here or throughout the introduction.
+- This will lead into a discussion of quasinormal modes...
+
+#### Quasinormal modes
+- We can do a demonstrative calculation of a massless **scalar field evolving according to the Klein-Gordon equation on a Schwarzschild background**. This gets the form of the potential, but I am not sure the calculation of the actual QNMs is particularly easy...
+- We can calculate QNMs easily with a **geodesic picture**.
+- Show the full Kerr spectrum taxonomy and conventions. 
   
 ### Modelling the Ringdown from Precessing Black-hole Binaries
 - Flesh out NR sims, what they are and how they're set up.
+- Explain the framework for the full multimode fitting code.
 
 ### Developments to my Ringdown Fitting Code
 - The code has developed a lot since the first paper. I would like to include a description of the more developed fitting procedure somewhere. Things I can do (which were not presented in my first paper) include multimode fits with mixing coefficients, fits to CCE waveforms, and fits with nonlinear QNMs.
