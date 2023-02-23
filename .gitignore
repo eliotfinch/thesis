@@ -2,6 +2,7 @@ main.pdf
 clean.sh
 noticeintentionsubmit.docx
 UoB\ Thesis\ LaTeX\ Template
+.ipynb_checkpoints
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
