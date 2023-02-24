@@ -28,7 +28,7 @@ Sec 2.1
 
 Sec 2.2
 - Eq. 2.1. Do you want to explain the range of indices for l and m in the sum? Or is this already explained in the introduction?
-- Paragraph 1. “We will assume the above has been rotated”. 
+- Paragraph 1. “We will assume the above has been rotated”. - make reference to fact that we will need to rotate the precessing systems
 - Eqs. 2.8 and 2.9. Consider adding punctuation at end of equation.
 - Eq. 2.10. Do you want to say that bold quantities refer to vectors containing discretely sampled versions of the waveform model?
 - Eq. 2.11 and surrounding text. Is this really necessary? I’m not sure what exactly you are trying to say here.
@@ -43,8 +43,8 @@ Sec 2.5
 Discussion section: Another instance of “this paper” -> “this chapter”
 
 OVERALL COMMENTS ON CHAPTER 2
-- Figure placement is a nightmare!
- - What was Fig. 12 in the paper… this contains 6 panels and has a table in the figure caption. The layout here is a problem.
+- Figure placement is a nightmare! **Make captions wider?** 
+ - What was Fig. 12 in the paper… this contains 6 panels and has a table in the figure caption. The layout here is a problem. Taking out could be an option? 
 
 ## Outline
 
