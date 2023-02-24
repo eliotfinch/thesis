@@ -3,6 +3,7 @@ clean.sh
 noticeintentionsubmit.docx
 UoB\ Thesis\ LaTeX\ Template
 .ipynb_checkpoints
+__pycache__/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
