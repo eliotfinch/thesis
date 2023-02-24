@@ -8,7 +8,7 @@ Other subtitle ideas:
 ---
 
 ### [Download PDF](https://github.com/EliotFinch/thesis/raw/build/main.pdf)
-![Makefile CI](https://github.com/eliotfinch/thesis/actions/workflows/makefile.yml/badge.svg?event=push)
+![Makefile CI](https://github.com/eliotfinch/thesis/actions/workflows/makefile.yml/badge.svg)
 
 ---
 

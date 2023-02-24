@@ -54,12 +54,112 @@ In these tests, deviations from the expected results may point to new physics be
 QNMs also have practical uses in waveform modelling.
 They are used in full inspiral-merger-ringdown BBH waveforms produced in both the phenomenological \cite{Pratten:2020ceb, Garcia-Quiros:2020qpx, Pratten:2020fqn} and effective-one-body approaches \cite{Buonanno:2006ui, Buonanno:2007pf, Pan:2011gk}.
 
+\section{Quasinormal modes}
 
-\section{Scalar field on Schwarzschild background}
+\subsection{Scalar field on a Schwarzschild background}
 
-An example calculation of quasinormal modes to give some idea where they come from?
+Polar (even-parity) Schwarzschild metric perturbations are described by the Zerilli equation \cite{Zerilli:1970se, Zerilli:1970wzz}, and axial (odd-parity) perturbations are described by the Regge-Wheeler equation \cite{Regge:1957td} (interestingly, these two equations are isospectral, with identical QNM spectra).
+To help build some intuition, we will perform a demonstrative calculation involving a massless scalar field, $\psi(t,r,\theta,\phi)$ on a Schwarzschild background.
+This will lead to equations reminiscent of the above, without the complication of tensor spherical harmonics that comes with the full gravitational-perturbation treatment.
+The metric tensor, in Schwarzschild coordinates, is
+\begin{equation}
+g_{\mu\nu} = \begin{pmatrix}
+- \left(1 - \frac{2M}{r}\right) & 0 & 0 & 0 \\
+0 & \left(1 - \frac{2M}{r}\right)^{-1} & 0 & 0 \\
+0 & 0 & r^2 & 0 \\
+0 & 0 & 0 & r^2 \sin^2\theta
+\end{pmatrix},
+\end{equation}
+where $M$ is the mass of the black hole (BH). 
+The scalar field evolves according to the Klein-Gordon equation 
+\begin{equation}
+    \nabla_\mu \nabla^\mu \psi = 0.
+\end{equation}
+Using the fact that a covariant derivative reduces to the partial derivative on scalars, we can write this as
+\begin{equation}
+    \nabla_\mu \nabla^\mu \psi = \frac{1}{\sqrt{-g}} \partial_\mu \qty(\sqrt{-g} g^{\mu\nu} \partial_\nu \psi) = 0
+\end{equation}
+where $g$ is the determinant of the metric tensor, $g^{\mu\nu}$ is the inverse of the metric tensor, and we have also used $\Gamma^\mu_{\mu\nu} = \partial_\nu \ln{\sqrt{-g}} = \qty(-g)^{-1/2} \partial_\nu \sqrt{-g}$.
+For Schwarzschild we have $g = -r^4 \sin^2{\theta} \implies \sqrt{-g} = r^2 \sin{\theta}$.
+Evaluating, we get
+\begin{multline}
+    - \qty(1 - \frac{2M}{r})^{-1} \pdv[2]{\psi}{t} + \frac{1}{r^2} \pdv{r} \qty[r^2 \qty(1 - \frac{2M}{r}) \pdv{\psi}{r} ]\\
+    + \frac{1}{r^2} \qty[ \frac{1}{\sin{\theta}} \pdv{\theta} \qty(\sin{\theta} \pdv{\psi}{\theta} ) + \frac{1}{\sin^2{\theta}} \pdv[2]{\psi}{\phi} ] = 0.
+\end{multline}
+Recognising that the spherical harmonics, $Y_{\ell m}(\theta,\phi)$, are the eigenfunctions of the angular part:
+\begin{equation}
+    \frac{1}{\sin{\theta}} \pdv{\theta} \qty(\sin{\theta} \pdv{Y_{\ell m}}{\theta} ) + \frac{1}{\sin^2{\theta}} \pdv[2]{Y_{\ell m}}{\phi} = - \ell (\ell + 1) Y_{\ell m},
+\end{equation}
+we will attempt a spherical harmonic decomposition of the scalar field. 
+With the expectation that the radial dependence of the field will go as $1/r$ (and also anticipating a change in radial coordinate) we write the scalar field as
+\begin{equation}
+    \psi(t, r, \theta, \phi) = \frac{1}{r} \sum_{\ell = 0}^\infty \sum_{m = -\ell}^\ell \psi_{\ell m}(t, r) Y_{\ell m}(\theta, \phi).
+\end{equation}
+Note that here, in the scalar case, the sum over $\ell$ starts from $\ell = 0$.
+In general, the sum will start from $\ell = \abs{s}$, where $s$ is the spin weight of the field ($s=0$, $-1$ and $-2$ for scalar, electrical, and gravitational perturbations respectively).
+Substituting, we are left with an equation for the radial part:
+\begin{multline}
+    - \pdv[2]{\psi_{\ell m}}{t} + \frac{1}{r} \qty(1 - \frac{2M}{r}) \pdv{r} \qty[r^2 \qty(1 - \frac{2M}{r}) \pdv{r}\qty(\frac{\psi_{\ell m}}{r}) ]\\
+    - \qty(1 - \frac{2M}{r}) \qty(\frac{\ell (\ell + 1)}{r^2}) \psi_{\ell m} = 0.
+\end{multline}
+To proceed we introduce the tortoise coordinate, $r_*$,
+\begin{equation}
+    r_* = r + 2M \ln(\frac{r}{2M} - 1),
+\end{equation}
+which has the property that
+\begin{equation}
+    \dv{r_*}{r} = \qty( 1 - \frac{2M}{r} )^{-1}.
+\end{equation}
+Note that as $r$ approaches the Schwarzschild radius ($r \rightarrow 2M$), the tortoise coordinate $r_* \rightarrow -\infty$.
+Making this change of variables, we arrive at
+\begin{equation}\label{eq:wave_equation}
+    \pdv[2]{\psi_{\ell m}(t,r)}{r_*} - \pdv[2]{\psi_{\ell m}(t,r)}{t} - V_\ell(r) \psi_{\ell m}(t,r) = 0,
+\end{equation}
+where
+\begin{equation}
+    V_\ell(r) = \qty( 1 - \frac{2M}{r} ) \qty( \frac{\ell (\ell + 1)}{r^2} + \frac{2M}{r^3} )
+\end{equation}
+is an effective potential.
+Performing a Fourier transform, we can bring Eq.~\ref{eq:wave_equation} into the form of a one-dimensional Schr\"{o}dinger equation
+\begin{equation}\label{eq:fd_wave_equation}
+    \pdv[2]{\tilde{\psi}_{\ell m}(\omega,r)}{r_*} + \qty[ \omega^2 - V_\ell(r)] \tilde{\psi}_{\ell m}(\omega,r) = 0.
+\end{equation}
+Axial gravitational perturbations obey an equation of the same form (i.e. the Regge-Wheeler equation), and in fact the effective potential can be written in the unified form
+\begin{equation}
+    V_\ell(r) = \qty( 1 - \frac{2M}{r} ) \qty( \frac{\ell (\ell + 1)}{r^2} + \frac{(1 - s^2)2M}{r^3} )
+\end{equation}
+with $s = 0$, $-1$ and $-2$ for scalar, electrical, and gravitational perturbations respectively. 
+The Zerilli equation, describing polar perturbations, also has a similar form (but with a more complicated effective potential). 
+Regardless, it has been shown that the Regge-Wheeler and Zerilli equations give the same QNM spectrum \cite{Chandrasekhar:1975nkd}.
 
-\section{Quasinormal modes from the geodesic correspondence}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Figures/Introduction/rw_potential.pdf}
+    \caption[The Regge-Wheeler potential]{The Regge-Wheeler potential as a function of the tortoise coordinate $r_*$ (with the BH horizon at $r_* = -\infty$), for scalar and gravitational perturbations and for a selection of $\ell$.}
+    \label{fig:rw_potential}
+\end{figure}
+
+We must specify boundary conditions to complete the problem. 
+When solving for the normal modes on a string, or the energy levels of a quantum harmonic oscillator, we require the wavefunction to vanish at the boundaries (either at the string ends, or at $\pm \infty$ for the harmonic oscillator).
+The problem we're considering here is slightly different; the potential, depicted in Fig.~\ref{fig:rw_potential}, clearly does not admit bound states. 
+Instead, the potential vanishes for $r_* \rightarrow \pm \infty$, which implies we need to look for purely outgoing plane waves:
+\begin{alignat}{2}
+    &\tilde{\psi}_{\ell m}(\omega, r) \sim e^{i \omega r_*} \qquad &&\qty(r_* \rightarrow -\infty) \nonumber \\
+    &\tilde{\psi}_{\ell m}(\omega, r) \sim e^{- i \omega r_*} \qquad &&\qty(r_* \rightarrow \infty).
+\end{alignat}
+This follows from the consideration that the field should radiate  only inward at the horizon and only outward at spatial infinity.
+When enforcing these boundary conditions, only discrete values of $\omega$ satisfy Eq.~\ref{eq:fd_wave_equation}; these are the QNMs.
+
+As suggested by the name, these are not true normal modes; the dissipative nature of the system means the modes decay over time.
+This information is captured by the complex nature of the QNM frequencies:
+\begin{equation}
+    \omega = 2\pi f - i/\tau
+\end{equation}
+where $f$ is the oscillation frequency, and $\tau$ is the decay time of the mode.
+Several methods have been employed to calculate QNMs, including shooting methods \cite{Chandrasekhar:1975zza}, WKB methods \cite{Schutz:1985km}, and continued fractions \cite{Leaver:1985ax}.
+The latter is known to be highly accurate, and is the method of choice in modern codes such as the \texttt{qnm} Python package \cite{Stein:2019mop} (which is used throughout this thesis).
+
+\subsection{Quasinormal modes from the geodesic correspondence}
 
 We focus on the $\ell = m$ case, since these modes are associated with equatorial motion. 
 
@@ -176,11 +276,11 @@ Looking for periodic solutions, the frequency of the radial oscillaitons (with r
 \end{align}
 In the case of the Kerr metric the light ring orbit has $\Omega_r^2<0$ and is unstable in the radial direction; therefore $\Gamma = (-\Omega_r^2)^{-1/2}$ is the instability (Lyapunov) timescale.
 
-\section{The Kerr Spectrum}
+\section{Black-hole spectroscopy and the Kerr spectrum}
 
 An explanation of the conventions used, and maybe also the general waveform (although it make make sense to have that right at the top). 
 
-\begin{figure}[h]
+\begin{figure}[t]
 	\centering
 	\includegraphics[width=\columnwidth]{Introduction/qnm_taxonomy.pdf}
 	\caption[The Kerr quasinormal mode spectrum]{ 
