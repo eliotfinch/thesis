@@ -1,4 +1,4 @@
-with open('bib_test.bib') as f:
+with open('bibliography.bib') as f:
     bib_in = f.read()
 
 # Split bib entries and strip comments
