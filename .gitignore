@@ -1,9 +1,9 @@
 main.pdf
 clean.sh
+
+## Miscellaneous files
 noticeintentionsubmit.docx
 UoB\ Thesis\ LaTeX\ Template
-.ipynb_checkpoints
-__pycache__/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -281,3 +281,12 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
