@@ -21,18 +21,28 @@ LIGO~\cite{LIGOScientific:2014pky} and Virgo~\cite{VIRGO:2014yos} detectors have
 The signals originate from the mergers of compact objects. 
 The majority of these are binary black holes (BBHs), and these are the systems of interest throughout this thesis.  
 But, it is important to note that signals have also been observed from at least one binary neutron star system (GW170817~\cite{LIGOScientific:2017vwq} remains the only unambiguous candidate) and from neutron-star -- black-hole (BH) systems (the most confident candidate being GW200115\_042309~\cite{LIGOScientific:2021qlt}).
-
-GW150914~\cite{LIGOScientific:2016aoc} marked the first direct observation of GWs, and was also the first observation of a BBH merger.
+GW150914~\cite{LIGOScientific:2016aoc} marked the first direct observation of GWs, as well as the first observation of a BBH merger.
 It also marked what can be described in simple terms as the first measurement of a ringing BH.
-For a more complete description see the rest of this thesis.
+
+A prediction of general relativity (GR), GWs...
+
+The GW signal from a BBH merger can be split into three regions: the inspiral, merger, and ringdown.
+The inspiral corresponds to the two BHs in the binary orbiting each other. 
+Unlike in the Newtonian case, the generation of GWs causes the system to lose energy and for the orbit to shrink and spiral. 
+Nonetheless, this stage in the binary evolution can be modelled with corrections to the Newtonian case in a post-Newtonian framework. 
+Eventually, the BHs come together in the highly dynamical merger; this can only be understood with the evolution of the full nonlinear equations of general relativity (GR). 
+Immediately after merging, the final BH is highly distorted, and as it equilibrates it produces GWs which roughly take the form of a damped sinusoid. 
+This is analogous to the ringing a bell makes after it has been struck, and this final stage is called the ringdown.
 
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=\columnwidth]{Introduction/td_waveform.pdf}
 	\caption[The time-domain gravitational-wave signal from a binary black-hole merger.]{ 
-		The time-domain gravitational-wave signal from a binary black-hole merger.}
+		The time-domain gravitational-wave signal from a binary black-hole merger. A GW signal is made up of plus ($h_+$) and cross ($h_{\times}$) polarizations; here we plot only the plus component. The GW detectors measure a linear combination of these two polarizations (the data produced by the GW detectors is a time series of a dimensionless quantity called the strain), but the measured signal looks qualitatively similar to what is shown here. This figure was generated using the NRSur7dq4~\cite{Varma:2019csw} surrogate waveform. Surrogates effectively ``interpolate'' the waveforms from full numerical relativity simulations, allowing waveform generation for any choice of system parameters (within the validity of the model). For NRSur7dq4, the simulations used to build the model came from the SXS catalog~\cite{sxs_catalog}, which we also use extensively in Chapter.~\ref{Chapter2}.}
 	\label{fig:ch1:td_waveform}
 \end{figure}
+
+The GW signal from these three regimes is shown in the time domain in Fig.~\ref{fig:ch1:td_waveform}, and also the frequency domain in Fig.~\ref{fig:ch1:fd_waveform}. 
 
 \begin{figure}[t]
 	\centering
@@ -304,7 +314,7 @@ Looking for periodic solutions, the frequency of the radial oscillaitons (with r
 \end{align}
 In the case of the Kerr metric the light ring orbit has $\Omega_r^2<0$ and is unstable in the radial direction; therefore $\Gamma = (-\Omega_r^2)^{-1/2}$ is the instability (Lyapunov) timescale.
 
-\section{Black-hole spectroscopy and the Kerr spectrum}
+\section{Black-hole spectroscopy}
 
 An explanation of the conventions used, and maybe also the general waveform (although it make make sense to have that right at the top). 
 
