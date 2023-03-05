@@ -4,7 +4,7 @@
 
 \label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
-\section{Black-hole ringdown}
+\section{Binary black-hole mergers}
 
 % A high-level overview of black holes, ringdown, and the usefulness of the ringdown. 
 % This will motivate the three main chapters of the thesis. 
@@ -42,7 +42,7 @@ This is analogous to the ringing a bell makes after it has been struck, and this
 	\centering
 	\includegraphics[width=\columnwidth]{Introduction/td_waveform.pdf}
 	\caption[The time-domain gravitational-wave signal from a binary black-hole merger.]{ 
-		The gravitational-wave signal from a binary black-hole merger. This waveform was generated using the NRSur7dq4 surrogate, and then projected onto the Hanford detector using parameters consistent with GW150914.}
+		The gravitational-wave signal from a binary black-hole merger. This waveform was generated using the NRSur7dq4 surrogate, and projected onto the Hanford detector using parameters consistent with GW150914.}
 	\label{fig:ch1:td_waveform}
 \end{figure}
 
@@ -107,11 +107,15 @@ The time to merger, $\tau$, as a function of GW frequency is given by
     \tau = \frac{5}{256} \qty(\pi f)^{-\frac{8}{3}} \qty(\frac{G\mathcal{M}}{c^3})^{-\frac{5}{3}},
 \end{equation}
 where $\mathcal{M}$ is a combination of the two masses in the binary known as the chirp mass.
+% We leave the factors of $G$ and $c$ in for clarity.
 % This expression comes from equating the time derivative of the orbital energy...
 
 The signal in Fig.~\ref{fig:ch1:fd_waveform} was generated with the IMRPhenomD~\cite{Khan:2015jqa} waveform model, as implemented in the \texttt{ripple}~\cite{Edwards:2023sak} Python package.
 % A note comparing phenom models to surrogates... The original motivation of the Phenom approach was to produce an approximate and efficient waveform family suitable for GW searches (the models are written as closed-form analytic expressions in the frequency domain)
 The Hanford PSD is estimated from $1024\,\mathrm{s}$ of off-source data at the time of GW150914, using a Welch periodogram~\cite{1161901}.
+
+
+\section{Black-hole ringdown}
 
 % From paper 1
 % ------------
