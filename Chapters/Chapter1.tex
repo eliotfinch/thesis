@@ -102,7 +102,7 @@ Evaluating for the above figure we get $\rho \sim 17$, which is consistent with 
 
 Also shown in the figure is the time to merger at select frequencies of the inspiral.
 This is to emphasise how the frequency of the binary evolves over time, spending the vast majority of its life in the inspiral (in fact, many millions of years) with a slowly shrinking orbit.
-The time to merger, $\tau$, as a function of GW frequency is given by
+The time to merger, $\tau$, ($\tau_\mathrm{merge}$?) as a function of GW frequency is given by
 \begin{equation}\label{eq:time_to_merger}
     \tau = \frac{5}{256} \qty(\pi f)^{-\frac{8}{3}} \qty(\frac{G\mathcal{M}}{c^3})^{-\frac{5}{3}},
 \end{equation}
@@ -116,6 +116,25 @@ The Hanford PSD is estimated from $1024\,\mathrm{s}$ of off-source data at the t
 
 
 \section{Black-hole ringdown}
+
+% Drop the radial dependance... 
+The reason for this is because the $r$ dependence of the waveform goes predominately like $r^{-1}$, so the radial dependence can be removed by multiplying through by $r$. For clarity we will drop the $r$ factor in the equations below and have the $r^{-1}$ scaling implied (just keep in mind when we refer to the GW signal $h$ or a mode $h_{\ell m}$, we really mean $rh$ and $rh_{\ell m}$). 
+
+\begin{align}
+    \Re[Ce^{-i\omega(t-t_0)}] &= \Re[Ae^{i\phi}e^{-i(2\pi f - i/\tau)(t-t_0)}] \nonumber \\
+    &= \Re[Ae^{-i\qty[2\pi f(t-t_0) - \phi]}e^{-(t-t_0)/\tau}] \nonumber \\
+    &= A\cos[2\pi f(t-t_0) - \phi]e^{-(t-t_0)/\tau}
+\end{align}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=\columnwidth]{Introduction/ringdown_waveform.pdf}
+	\caption[The gravitational-wave ringdown signal.]{ 
+		The ringdown waveform from a BBH, fitted with a simple damped sinusoid. The waveform is a numerical relativity simulation from the SXS catalog.}
+	\label{fig:ch1:rd_waveform}
+\end{figure}
+
+% The model loses validity at early times, but the inclusion of additional ringdown modes in the model (in particular, overtones, has been proposed as a method of extending the linear ringdown description to earlier times (but controversy...)
 
 % From paper 1
 % ------------
