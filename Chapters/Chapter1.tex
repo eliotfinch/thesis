@@ -1,19 +1,10 @@
 % Chapter 1
 
-\chapter{Introduction} % Main chapter title
+\chapter{Introduction}
 
-\label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+\label{Chapter1}
 
 \section{Binary black-hole mergers}
-
-% A high-level overview of black holes, ringdown, and the usefulness of the ringdown. 
-% This will motivate the three main chapters of the thesis. 
-% Specifically, this will aim to introduce
-% \begin{itemize}
-% 	\item Binary black-hole mergers
-% 	\item Perturbed black holes and quasinormal modes (the basic idea, and a brief history of results)
-% 	\item The no-hair theorem and tests of it
-% \end{itemize}
 
 At the time of writing the 
 % Laser Interferometer Gravitational-Wave Observatory 
@@ -26,18 +17,20 @@ It also marked what can be described in simple terms as the first measurement of
 
 A prediction of general relativity (GR), GWs are produced by accelerating masses; they are transverse waves which act to expand and contract space.
 They can be measured via their influence on freely-falling test masses, which will move relative to each other as space is perturbed.
-This is somewhat analogous to the expansion of the Universe, which causes distant galaxies (the test masses) to appear to recede from us due to the expansion of space.
+This is somewhat analogous %~\cite{Saulson:1997ck} 
+to the expansion of the Universe, which causes distant galaxies (the test masses) to appear to recede from us due to the expansion of space.
 The LIGO and Virgo GW detectors employ interferometry to measure the motion of test masses to extreme precision.
-In this setup the mirrors at the end of the interferometer arms act as the test masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via the light travel time of the interferometer laser.
-The ultimate detector output is a timeseries of a dimensionless scalar quantity called the strain, $h$, which quantifies the changes in position of the test masses (which can also be thought of as changes to the interferometer arm lengths).
+In this setup the mirrors at the end of the interferometer arms act as the freely-falling masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via the light travel time of the interferometer laser.
+The ultimate detector output is a timeseries of a dimensionless scalar quantity called the strain, $h$, which quantifies the change in position of the mirrors (which can also be thought of as changes to the interferometer arm lengths).
 
 It is understood how the dynamics of compact-object mergers translate to the measured strain, which allows us to learn about the signal origin.
-The GW signal from a BBH merger can be split into three regions: the inspiral, merger, and ringdown.
+The GW signal from a BBH merger can be split into three stages: the inspiral, merger, and ringdown.
 The inspiral corresponds to the two BHs in the binary orbiting each other. 
 Unlike in the Newtonian case, the generation of GWs causes the system to lose energy and for the orbit to shrink and spiral. 
-Nonetheless, this stage in the binary evolution can be modelled with corrections to the Newtonian case in a post-Newtonian framework. 
-Eventually, the BHs come together in the highly dynamical merger; this can only be understood with the evolution of the full nonlinear equations of general relativity (GR). 
-Immediately after merging, the final BH is highly distorted, and as it equilibrates it produces GWs which roughly take the form of a damped sinusoid. 
+This stage in the binary evolution can be modelled with corrections to the Newtonian case in a post-Newtonian framework. 
+Eventually, the BHs come together in the highly energetic and dynamical merger; this process requires the full nonlinear equations of GR to solve. 
+Immediately after merging, the final BH is highly distorted. 
+As it equilibrates it produces GWs which roughly take the form of a damped sinusoid. 
 This is analogous to the ringing a bell makes after it has been struck, and this final stage is called the ringdown.
 
 \begin{figure}[t]
@@ -48,11 +41,11 @@ This is analogous to the ringing a bell makes after it has been struck, and this
 	\label{fig:ch1:td_waveform}
 \end{figure}
 
-The GW signal from these three regimes is shown in Fig.~\ref{fig:ch1:td_waveform}.
-We use geometric units ($G = c = 1$) to express time and (scaled) strain in units of the total binary mass, $M$. 
-Specifically, plotted is the GW signal projected onto the LIGO Hanford detector, $h$, multiplied by the distance to the source, $r$ (but note that in reality the Hanford data stream will be noise dominated, see Fig.~\ref{fig:ch1:fd_waveform}).
-In geometric units, we can convert between lengths, masses, and times with appropriate combinations of $G$ and $c$, which means time$/M$ and $rh/M$ can be made dimensionless quantities. 
-Say we had a system with total mass $M = 72\, M_\odot \approx 1.43 \times 10^{32}\,$kg at a distance $r = 440\,$Mpc $\approx 1.36 \times 10^{25}\,$m (chosen because these are consistent with the system properties of the first GW signal, GW150914). 
+The GW signal from these three stages is shown in Fig.~\ref{fig:ch1:td_waveform}.
+Plotted is the GW signal projected onto the LIGO Hanford detector, $h$, multiplied by the distance to the source, $r$, as a function of time. 
+We use geometric units ($G = c = 1$) to express these quantities in units of the total binary mass, $M$. 
+In geometric units we can convert between lengths, masses, and times with appropriate combinations of $G$ and $c$; this means $\mathrm{time}/M$ and $rh/M$ can be made dimensionless quantities. 
+Say we had a system with total mass $M = 72\, M_\odot \approx 1.43 \times 10^{32}\,$kg at a distance $r = 440\,$Mpc $\approx 1.36 \times 10^{25}\,$m (chosen because these are consistent with the system properties of the first GW event, GW150914). 
 Expressing $M$ in seconds gives us the conversion factor for time:
 \begin{equation}
     M \times \frac{G}{c^3} \approx 1.43 \times 10^{32}\, \mathrm{kg} \times \frac{6.67 \times 10^{-11}\, \mathrm{m}^3\, \mathrm{kg}^{-1}\, \mathrm{s}^{-2}}{\qty(3 \times 10^8\, \mathrm{m}\, \mathrm{s}^{-1})^3} \approx 3.6 \times 10^{-4}\, \mathrm{s}.
@@ -63,30 +56,32 @@ One way to do this is to express $r$ in seconds by dividing by $c$, then use our
 \begin{equation}
     \frac{M \times G/c^3}{r/c} \approx \frac{3.6 \times 10^{-4}\, \mathrm{s}}{1.36 \times 10^{25}\, \mathrm{m}/3 \times 10^8\, \mathrm{m}\, \mathrm{s}^{-1}} \approx 7.85 \times 10^{-21}.
 \end{equation}
-This gives a peak amplitude in Fig.~\ref{fig:ch1:td_waveform} of $\sim 0.2 \times 7.85 \times 10^{-21} \approx 1.60 \times 10^{-21}$. 
-This can be compared with what was measured for GW150914 (see Fig.~1 in \cite{LIGOScientific:2016aoc}), and we see these numbers are consistent.
+This gives a peak strain amplitude in Fig.~\ref{fig:ch1:td_waveform} of $\sim 0.2 \times 7.85 \times 10^{-21} \approx 1.60 \times 10^{-21}$. 
+This can be compared with what was measured for GW150914 (see Fig.~1 in Ref.~\cite{LIGOScientific:2016aoc}), and we see these numbers are consistent.
 
-The waveform was generated using the NRSur7dq4~\cite{Varma:2019csw} surrogate waveform, with zero spins, equal mass ratio, and zero inclination. 
-Surrogates effectively ``interpolate'' the waveforms from full numerical relativity simulations, allowing waveform generation for any choice of system parameters (within the validity of the model). 
-For NRSur7dq4, the simulations used to build the model came from the SXS catalog~\cite{sxs_catalog}, which we also use extensively in Chapter.~\ref{Chapter2}. 
-Along with the intrinsic parameters, to project onto the Hanford detector we choose an event time, sky location and polarization angle (the latter being the extra degree of freedom we have when choosing the orientation of the source with respect to the detector) consistent with GW150914. 
+The waveform was generated using the NRSur7dq4~\cite{Varma:2019csw} surrogate waveform with zero spins, equal mass ratio, and zero inclination. 
+Surrogates effectively ``interpolate'' the waveforms from full numerical relativity (NR) simulations, allowing quick waveform generation for any choice of system parameters (within the validity of the model). 
+For NRSur7dq4, the simulations used to build the model came from the SXS catalog~\cite{sxs_catalog}, which we also use extensively in Chapter~\ref{Chapter2}. 
+Along with the intrinsic system parameters, to project onto the Hanford detector we also choose an event time, sky location and polarization angle consistent with GW150914. 
 
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=\columnwidth]{Introduction/fd_waveform.pdf}
 	\caption[The frequency-domain gravitational-wave signal from a binary black-hole merger]{ 
-		The frequency-domain gravitational-wave signal from a binary black-hole merger, shown with the Hanford sensitivity curve (both expressed through the characteristic strain). The signal was generated with IMRPhenomD with parameters consistent with GW150914.}
+		The frequency-domain gravitational-wave signal from a binary black-hole merger, shown with the Hanford sensitivity curve (both expressed through the characteristic strain). The signal was generated with IMRPhenomD using parameters consistent with GW150914.}
 	\label{fig:ch1:fd_waveform}
 \end{figure}
 
-The above discussion disregards the sensitivity of the detector to different frequencies (i.e. the detector noise).
-It is usually assumed that the noise in the LIGO an Virgo detectors is stationary and Gaussian; in this case, it is most natural to describe the noise in the frequency domain with a power spectral density (PSD) $S_n(f)$.
-The noise is uncorrelated between frequency bins, and the amplitude of the noise in each frequency bin is given by $\sqrt{S_n(f)}$. 
+% In reality the GW signal is amongst detector noise.
+The above discussion disregards the sensitivity of the detector to different frequencies (i.e.\ the detector noise).
+It is standard to treat the noise in the LIGO and Virgo detectors as stationary and Gaussian~\cite{LIGOScientific:2019hgc}.
+Stationarity means that the noise covariance matrix is diagonal in the frequency domain (i.e.\ there is no correlation between frequency bins), and so we can describe the noise with a power spectral density (PSD) $S_n(f)$.
+The noise in each frequency bin is modelled as following a Gaussian distribution with a random phase and amplitude $\sqrt{S_n(f)}$.
 We show the Hanford PSD in Fig.~\ref{fig:ch1:fd_waveform}, along with a frequency-domain representation of a BBH GW signal. 
-Since we are now comparing with a PSD, we fix the BBH total mass and distance to the example numbers used above. 
-Looking at the Hanford noise curve, we see that the detector is most sensitive to GW frequencies between $\sim 20$ and $\sim 1000\,\mathrm{Hz}$.
-Roughly speaking, the GW signal from a BBH merger increases in frequency over time, and the frequency evolution speeds up as the system approaches merger.
-Consequently, the majority of the inspiral signal is at too low a frequency to be detected, with the GW signal only entering the detector band just before merger.
+Since we are now comparing with a PSD, we fix the BBH total mass and distance to the example numbers used above ($M = 72\,M_\odot$, $r = 440\,\mathrm{Mpc}$).
+Roughly speaking, the GW signal from a BBH merger increases in frequency over time.
+The majority of the inspiral signal is at too low a frequency to be detected, with the GW signal only entering the detector band ($\sim 20$ to $\sim 1000\,\mathrm{Hz}$) just before merger.
+Although the binary can spend millions of years inspiralling, we observe only the last few tenths of a second of the merger.
 We choose to plot the signal and noise curve in terms of the characteristic strain~\cite{Moore:2014lga}, given by
 \begin{equation}
     h_c(f) = 2f\abs{\tilde{h}(f)}
@@ -103,78 +98,92 @@ The characteristic strain has the property that the area between the signal and 
 Evaluating for the above figure we get $\rho \sim 17$, which is consistent with the Hanford SNR for GW150914.
 
 Also shown in the figure is the time to merger at select frequencies of the inspiral.
-This is to emphasise how the frequency of the binary evolves over time, spending the vast majority of its life in the inspiral (in fact, many millions of years) with a slowly shrinking orbit.
+This is to emphasise how the frequency of the binary evolves over time, spending the vast majority of its life in the inspiral with a slowly shrinking orbit.
 The time to merger, $\tau_\mathrm{merge}$, as a function of GW frequency is given by
 \begin{equation}\label{eq:time_to_merger}
     \tau_\mathrm{merge} = \frac{5}{256} \qty(\pi f)^{-\frac{8}{3}} \qty(\frac{G\mathcal{M}}{c^3})^{-\frac{5}{3}},
 \end{equation}
 where $\mathcal{M}$ is a combination of the two masses in the binary known as the chirp mass.
-% We leave the factors of $G$ and $c$ in for clarity.
+We also explicitly show the factors of $G$ and $c$ in this equation for clarity (in geometric units these would be set to 1, and it would be implied that the chirp mass should be expressed in units of time). 
 % This expression comes from equating the time derivative of the orbital energy...
 
 The signal in Fig.~\ref{fig:ch1:fd_waveform} was generated with the IMRPhenomD~\cite{Khan:2015jqa} waveform model, as implemented in the \texttt{ripple}~\cite{Edwards:2023sak} Python package.
-% A note comparing phenom models to surrogates... The original motivation of the Phenom approach was to produce an approximate and efficient waveform family suitable for GW searches (the models are written as closed-form analytic expressions in the frequency domain)
+Phenom models produce approximate waveforms using closed-form analytic expressions in the frequency-domain, making evaluation quick and suitable for GW searches.
 The Hanford PSD is estimated from $1024\,\mathrm{s}$ of off-source data at the time of GW150914, using a Welch periodogram~\cite{1161901}.
 
 
 \section{Black-hole ringdown}
 
-% Drop the radial dependance... 
-The reason for this is because the $r$ dependence of the waveform goes predominately like $r^{-1}$, so the radial dependence can be removed by multiplying through by $r$. For clarity we will drop the $r$ factor in the equations below and have the $r^{-1}$ scaling implied (just keep in mind when we refer to the GW signal $h$ or a mode $h_{\ell m}$, we really mean $rh$ and $rh_{\ell m}$). 
+The endpoint of a BBH, the ringdown signal is produced by the remnant BH settling to its stationary state.
+Just as a bell or drum has a characteristic sound, so too does a BH; associated with the BH is a unique spectrum of oscillatory modes, determined purely by its properties (namely, for astrophysical BHs, a mass and spin).
+The characteristic oscillations of the remnant BH are called quasinormal modes (QNMs), so-called because, unlike normal modes, they decay over time.
+The QNM frequencies are complex, $\omega = 2\pi f - i/\tau$, with the real part $f$ giving the oscillation frequency and the reciprocal of the imaginary part $\tau$ giving the damping time. 
+The ringdown signal consists of a sum of QNMs, each excited a different amount depending on the initial configuration of the binary and how they merged.
 
-\begin{align}
-    \Re[Ce^{-i\omega(t-t_0)}] &= \Re[Ae^{i\phi}e^{-i(2\pi f - i/\tau)(t-t_0)}] \nonumber \\
-    &= \Re[Ae^{-i\qty[2\pi f(t-t_0) - \phi]}e^{-(t-t_0)/\tau}] \nonumber \\
-    &= A\cos[2\pi f(t-t_0) - \phi]e^{-(t-t_0)/\tau}
-\end{align}
+Fig.~\ref{fig:ch1:rd_waveform} shows (in blue) the ringdown waveform from a NR simulation, SXS:BBH:0305~\cite{Lovelace:2016uwp}.
+This simulation has properties consistent with GW150914, and will be the subject of further study in Chapter~\ref{Chapter2}.
+NR waveforms are decomposed into spherical-harmonic modes indexed by $ell$ and $m$ (see TODO for more details), and here we plot the real part of the dominant $\ell = m = 2$ mode.
+The radial dependence of GW waveforms goes predominantly as $r^{-1}$, so the SXS catalog provides the strain multiplied by $r$ (just as what was plotted in Fig.~\ref{fig:ch1:td_waveform}).
+For clarity we will drop the $r$ factor for the remainder of the thesis and have the $r^{-1}$ scaling implied (just keep in mind when we refer to the GW signal $h$ or a mode $h_{\ell m}$, we really mean $rh$ and $rh_{\ell m}$). 
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=\columnwidth]{Introduction/ringdown_waveform.pdf}
 	\caption[The gravitational-wave ringdown signal]{ 
-		The ringdown waveform from a BBH, fitted with a simple damped sinusoid. The waveform is a numerical relativity simulation from the SXS catalog.}
+		The ringdown waveform from a BBH, fitted with a simple damped sinusoid. At early times this simple description breaks down. The waveform is a NR simulation from the SXS catalog.}
 	\label{fig:ch1:rd_waveform}
 \end{figure}
 
-% The model loses validity at early times, but the inclusion of additional ringdown modes in the model (in particular, overtones, has been proposed as a method of extending the linear ringdown description to earlier times (but controversy...)
+Overplotted is a simple model for the $h_{22}$ mode: a exponentially damped sinusoid with complex frequency $\omega = 2\pi f - i/\tau$ and amplitude $C = Ae^{i\phi}$. 
+Taking the real part we have
+\begin{align}
+    \Re[Ce^{-i\omega(t-t_0)}] &= \Re[Ae^{i\phi}e^{-i(2\pi f - i/\tau)(t-t_0)}] \nonumber \\
+    &= \Re[Ae^{-i\qty[2\pi f(t-t_0) - \phi]}e^{-(t-t_0)/\tau}] \nonumber \\
+    &= A\cos[2\pi f(t-t_0) - \phi]e^{-(t-t_0)/\tau}.
+\end{align}
+That such a simple model describes the final stages of such a complicated system is a remarkable result, and is part of the power of studying the ringdown.
+A faded red line traces the damped sinusoid to earlier times, where it starts to lose validity.
+This is to be expected, as at earlier times we approach the nonlinear merger, which we wouldn't expect to be described by a linear model.
+However, it has been proposed that the inclusion of additional QNMs in the model (and in particular, a subset of QNMs known as overtones) can push the linear ringdown description to earlier times.
+
+% If a system has a set of characteristic frequencies associated with it, then if we excite the system we can attempt to measure those frequencies and characterise the system. This is spectroscopy...
 
 % From paper 1
 % ------------
 
-Particularly prominent in the GW signals of the higher-mass systems are the final few wave cycles, known as the \emph{ringdown}, emitted as the system settles into its final state: a Kerr black hole (BH). 
-The ringdown signal contains a superposition of oscillatory modes, the frequency spectrum of which is characteristic of the remnant BH.
+% Particularly prominent in the GW signals of the higher-mass systems are the final few wave cycles, known as the \emph{ringdown}, emitted as the system settles into its final state: a Kerr black hole (BH). 
+% The ringdown signal contains a superposition of oscillatory modes, the frequency spectrum of which is characteristic of the remnant BH.
 
-The characteristic oscillations of the remnant BH are called \emph{quasinormal modes} (QNMs), so-called because, unlike normal modes, they decay over time.
-The QNM frequencies are complex, $\omega = 2\pi f - {i}/\tau$, with the real part $f$ giving the oscillation frequency and the reciprocal of the imaginary part $\tau$ giving the damping time. 
-The QNM frequencies can be calculated within the framework of linearised gravity, treating the gravitational field in the vicinity of the remnant as a small (linear) perturbation of the Kerr metric \cite{Berti:2009kk}.
-Therefore, the QNM description of the GW signal is only expected to be valid at sufficiently late times, when the nonlinearities from the merger have largely decayed away. 
 
-The remnant Kerr BH has no hair; it is fully described by only a final mass, $M_f$, and a dimensionless final spin parameter, $\chi_f = |\vb*{\chi}_f|$. 
-The same is true of the spectrum of QNM frequencies, $\omega_{\ell m n}(M_f, \chi_f)$, which are also functions of only the mass and spin. 
-Individual QNMs are indexed by the triplet $(\ell, m, n)$ which are the polar ($\ell\geq2$), azimuthal ($-\ell \leq m \leq \ell$) and overtone ($n \geq 0$) numbers respectively. 
-The spectrum is further complicated by the fact that QNMs occur in pairs. 
-A complete description of the ringdown must include the \emph{mirror modes} $\omega'_{\ell m n}$ \cite{Berti:2009kk, Berti:2005ys, Dhani:2020nik, London:2014cma} with negative real frequency $f'_{\ell m n}$ along with the \emph{regular modes} $\omega_{\ell m n}$ with $f_{\ell m n}>0$
-\footnote{We choose to classify QNMs as either \emph{regular} or \emph{mirror}. This is closely related to, but still distinct from, the prograde/retrograde classification of QNMs used in, for example, \cite{LIGOScientific:2020tif}.}.
-A quantification of the mirror modes was treated in Appendix D of \cite{JimenezForteza:2020cve}; some of these estimates were later confirmed in \cite{Dhani:2020nik}.
-The spectrum of mirror modes contains the same information as the regular modes (albeit with nontrivial relationships between them, see Eqs.~\ref{eq:sym_mirror_modes_conj}) which has sometimes led to them being neglected. 
-Whether they can, in fact, be neglected will depend on the relative excitation amplitudes of the regular and mirror modes and their differing decay times. 
-In general, the ringdown will contain a superposition of all these modes with different excitation amplitudes and phases (see Eq.~\ref{general_ringdown}). 
-Usually, the GW strain is dominated by the $\ell=|m|=2$ modes. 
-Furthermore, the overtones decay more quickly (i.e.\ $\tau$ decreases) with increasing $n$ so that at late times the signal will be dominated by the fundamental $n=0$ modes. 
-Therefore, the most prominent QNM in the ringdown is expected to be the $(\ell, m, n)=(2,2,0)$ mode, and the observational challenge is usually to detect the presence of other, subdominant modes.
+% The QNM frequencies can be calculated within the framework of linearised gravity, treating the gravitational field in the vicinity of the remnant as a small (linear) perturbation of the Kerr metric \cite{Berti:2009kk}.
+% Therefore, the QNM description of the GW signal is only expected to be valid at sufficiently late times, when the nonlinearities from the merger have largely decayed away. 
 
-The study of QNMs has applications in both astro and fundamental physics. 
-The highly constrained dependence of the QNM spectrum on only the remnant mass and spin means that, conversely, if a QNM frequency is measured, then the mass and spin of the final BH merger can be inferred. 
-For high-mass systems, where only the ringdown signal is observable, this may be the only information available about the nature of the source \cite{Berti:2005ys, Baibhav:2020tma}. 
-For lower-mass systems, measuring QNM frequencies allows us to estimate the remnant properties independently of the rest of the signal, and so consistency tests can be performed. 
-For example, a test of the BH area theorem can be performed in this way \cite{Cabero:2017avf, Isi:2020tac}. 
-A similar consistency test using full inspiral-merger-ringdown models and a sharp cut in the frequency (rather than time) domain was performed on GW150914 \cite{LIGOScientific:2016lio}. 
-Each additional QNM that can be detected in the ringdown provides a separate estimate of the mass and spin of the remnant. 
-Therefore, if multiple QNM frequencies can be identified, a ringdown-only consistency test on the expected Kerr-like nature of the remnant BH can be performed \cite{Dreyer:2003bv, Carullo:2019flw} (this is possible only if the $(\ell, m, n)$ of the modes are known). 
-In these tests, deviations from the expected results may point to new physics beyond general relativity. 
+% The remnant Kerr BH has no hair; it is fully described by only a final mass, $M_f$, and a dimensionless final spin parameter, $\chi_f = |\vb*{\chi}_f|$. 
+% The same is true of the spectrum of QNM frequencies, $\omega_{\ell m n}(M_f, \chi_f)$, which are also functions of only the mass and spin. 
+% Individual QNMs are indexed by the triplet $(\ell, m, n)$ which are the polar ($\ell\geq2$), azimuthal ($-\ell \leq m \leq \ell$) and overtone ($n \geq 0$) numbers respectively. 
+% The spectrum is further complicated by the fact that QNMs occur in pairs. 
+% A complete description of the ringdown must include the \emph{mirror modes} $\omega'_{\ell m n}$ \cite{Berti:2009kk, Berti:2005ys, Dhani:2020nik, London:2014cma} with negative real frequency $f'_{\ell m n}$ along with the \emph{regular modes} $\omega_{\ell m n}$ with $f_{\ell m n}>0$
+% \footnote{We choose to classify QNMs as either \emph{regular} or \emph{mirror}. This is closely related to, but still distinct from, the prograde/retrograde classification of QNMs used in, for example, \cite{LIGOScientific:2020tif}.}.
+% A quantification of the mirror modes was treated in Appendix D of \cite{JimenezForteza:2020cve}; some of these estimates were later confirmed in \cite{Dhani:2020nik}.
+% The spectrum of mirror modes contains the same information as the regular modes (albeit with nontrivial relationships between them, see Eqs.~\ref{eq:sym_mirror_modes_conj}) which has sometimes led to them being neglected. 
+% Whether they can, in fact, be neglected will depend on the relative excitation amplitudes of the regular and mirror modes and their differing decay times. 
+% In general, the ringdown will contain a superposition of all these modes with different excitation amplitudes and phases (see Eq.~\ref{general_ringdown}). 
+% Usually, the GW strain is dominated by the $\ell=|m|=2$ modes. 
+% Furthermore, the overtones decay more quickly (i.e.\ $\tau$ decreases) with increasing $n$ so that at late times the signal will be dominated by the fundamental $n=0$ modes. 
+% Therefore, the most prominent QNM in the ringdown is expected to be the $(\ell, m, n)=(2,2,0)$ mode, and the observational challenge is usually to detect the presence of other, subdominant modes.
 
-QNMs also have practical uses in waveform modelling.
-They are used in full inspiral-merger-ringdown BBH waveforms produced in both the phenomenological \cite{Pratten:2020ceb, Garcia-Quiros:2020qpx, Pratten:2020fqn} and effective-one-body approaches \cite{Buonanno:2006ui, Buonanno:2007pf, Pan:2011gk}.
+% The study of QNMs has applications in both astro and fundamental physics. 
+% The highly constrained dependence of the QNM spectrum on only the remnant mass and spin means that, conversely, if a QNM frequency is measured, then the mass and spin of the final BH merger can be inferred. 
+% For high-mass systems, where only the ringdown signal is observable, this may be the only information available about the nature of the source \cite{Berti:2005ys, Baibhav:2020tma}. 
+% For lower-mass systems, measuring QNM frequencies allows us to estimate the remnant properties independently of the rest of the signal, and so consistency tests can be performed. 
+% For example, a test of the BH area theorem can be performed in this way \cite{Cabero:2017avf, Isi:2020tac}. 
+% A similar consistency test using full inspiral-merger-ringdown models and a sharp cut in the frequency (rather than time) domain was performed on GW150914 \cite{LIGOScientific:2016lio}. 
+% Each additional QNM that can be detected in the ringdown provides a separate estimate of the mass and spin of the remnant. 
+% Therefore, if multiple QNM frequencies can be identified, a ringdown-only consistency test on the expected Kerr-like nature of the remnant BH can be performed \cite{Dreyer:2003bv, Carullo:2019flw} (this is possible only if the $(\ell, m, n)$ of the modes are known). 
+% In these tests, deviations from the expected results may point to new physics beyond general relativity. 
+
+% QNMs also have practical uses in waveform modelling.
+% They are used in full inspiral-merger-ringdown BBH waveforms produced in both the phenomenological \cite{Pratten:2020ceb, Garcia-Quiros:2020qpx, Pratten:2020fqn} and effective-one-body approaches \cite{Buonanno:2006ui, Buonanno:2007pf, Pan:2011gk}.
 
 
 
@@ -274,16 +283,26 @@ Instead, the potential vanishes for $r_* \rightarrow \pm \infty$, which implies 
 This follows from the consideration that the field should radiate  only inward at the horizon and only outward at spatial infinity.
 When enforcing these boundary conditions, only discrete values of $\omega$ satisfy Eq.~\ref{eq:fd_wave_equation}; these are the QNMs.
 
-As suggested by the name, these are not true normal modes; the dissipative nature of the system means the modes decay over time.
-This information is captured by the complex nature of the QNM frequencies:
-\begin{equation}
-    \omega = 2\pi f - i/\tau
-\end{equation}
-where $f$ is the oscillation frequency, and $\tau$ is the decay time of the mode.
+% As suggested by the name, these are not true normal modes; the dissipative nature of the system means the modes decay over time.
+% This information is captured by the complex nature of the QNM frequencies:
+% \begin{equation}
+%     \omega = 2\pi f - i/\tau
+% \end{equation}
+% where $f$ is the oscillation frequency, and $\tau$ is the decay time of the mode.
 Several methods have been employed to calculate QNMs, including shooting methods \cite{Chandrasekhar:1975zza}, WKB methods \cite{Schutz:1985km}, and continued fractions \cite{Leaver:1985ax}.
 The latter is known to be highly accurate, and is the method of choice in modern codes such as the \texttt{qnm} Python package \cite{Stein:2019mop} (which is used throughout this thesis).
 
 \subsection{Quasinormal modes from the geodesic correspondence}
+
+\begin{itemize}
+    \item Goebel points out the connection between QNMs and GWs in orbit close to the light ring~\cite{1972ApJ...172L..95G}.
+    \item Some important calculations by Ferrari and Mashhoon~\cite{Ferrari:1984zz} (again says different approach/interpretation to Goebel).
+    \item Adopting a different approach (with a different interpretation?) Mashhoon~\cite{Mashhoon:1985cya} confirms the validity of Goebel's arguments. Kerr-Newman?
+    
+    \item Find a relationship between the QNM frequencies of Kerr black holes of arbitrary spins and general spherical photon orbits~\cite{Yang:2012he}.
+    \item 
+    
+\end{itemize}
 
 We focus on the $\ell = m$ case, since these modes are associated with equatorial motion. 
 
