@@ -189,6 +189,8 @@ However, it has been proposed that the inclusion of additional QNMs in the model
 
 \section{Quasinormal modes}
 
+% Cite some important papers here? Explain what we do in this section...
+
 \subsection{Scalar field on a Schwarzschild background}
 
 Polar (even-parity) Schwarzschild metric perturbations are described by the Zerilli equation \cite{Zerilli:1970se, Zerilli:1970wzz}, and axial (odd-parity) perturbations are described by the Regge-Wheeler equation \cite{Regge:1957td} (interestingly, these two equations are isospectral, with identical QNM spectra).
@@ -281,36 +283,35 @@ Instead, the potential vanishes for $r_* \rightarrow \pm \infty$, which implies 
     &\tilde{\psi}_{\ell m}(\omega, r) \sim e^{- i \omega r_*} \qquad &&\qty(r_* \rightarrow \infty).
 \end{alignat}
 This follows from the consideration that the field should radiate  only inward at the horizon and only outward at spatial infinity.
-When enforcing these boundary conditions, only discrete values of $\omega$ satisfy Eq.~\ref{eq:fd_wave_equation}; these are the QNMs.
+When enforcing these boundary conditions, only discrete values of $\omega = \omega_{\ell m n}$ satisfy Eq.~\ref{eq:fd_wave_equation}; these are the QNMs.
+They are indexed by three numbers: the usual angular indices $\ell$ and $m$, % Relate back to where I've already mentioned these?
+and an additional ``overtone'' index $n$.
 
-% As suggested by the name, these are not true normal modes; the dissipative nature of the system means the modes decay over time.
-% This information is captured by the complex nature of the QNM frequencies:
-% \begin{equation}
-%     \omega = 2\pi f - i/\tau
-% \end{equation}
-% where $f$ is the oscillation frequency, and $\tau$ is the decay time of the mode.
 Several methods have been employed to calculate QNMs, including shooting methods \cite{Chandrasekhar:1975zza}, WKB methods \cite{Schutz:1985km}, and continued fractions \cite{Leaver:1985ax}.
 The latter is known to be highly accurate, and is the method of choice in modern codes such as the \texttt{qnm} Python package \cite{Stein:2019mop} (which is used throughout this thesis).
 
 \subsection{Quasinormal modes from the geodesic correspondence}
-
-% \begin{itemize}
-%     \item Goebel points out the connection between QNMs and GWs in orbit close to the light ring~\cite{1972ApJ...172L..95G}.
-%     \item Some important calculations by Ferrari and Mashhoon~\cite{Ferrari:1984zz} (again says different approach/interpretation to Goebel).
-%     \item Adopting a different approach (with a different interpretation?) Mashhoon~\cite{Mashhoon:1985cya} confirms the validity of Goebel's arguments. Kerr-Newman?
-%     \item Some further work on the geodesic stability~\cite{Cardoso:2008bp}.
-%     \item Find a relationship between the QNM frequencies of Kerr black holes of arbitrary spins and general spherical photon orbits~\cite{Yang:2012he}.
-%     \item Allows study of BHs in theories beyond GR, for example~\cite{Blazquez-Salcedo:2016enn}.
-%     \item Or for constraining charge in Kerr-Newman~\cite{Cardoso:2016olt, Wang:2021uuh} (but see also~\cite{Carullo:2021oxn} where a more sophisticated analysis was done).
-% \end{itemize}
 
 First pointed out by Goebel~\cite{1972ApJ...172L..95G}, there exists a relation between BH QNMs and null geodesics around the BH spacetime.
 Having since been developed further~\cite{Ferrari:1984zz, Mashhoon:1985cya, Cardoso:2008bp, Yang:2012he}, this approach provides a physical insight to QNMs; that is, QNMs can be interpreted as GWs slowly leaking out of a light-ring orbit around the BH. 
 Although only valid for $\ell \gg 1$ (known as the eikonal, or geometrical optics, limit), this correspondence greatly simplifies the calculations of QNMs since it only depends on the background metric.
 Consequently, it offers a way to compute QNMs in beyond GR theories (for example, as was done in Ref.~\cite{Blazquez-Salcedo:2016enn}), or for computing the QNM spectrum for charged (Kerr-Newman~\cite{Newman:1965my}) BHs~\cite{Cardoso:2016olt, Wang:2021uuh} (but, see also Ref.~\cite{Carullo:2021oxn} where a more sophisticated analysis was done).
 
-Below we take an axisymmetric spacetime and show how one arrives at expressions for the QNM frequencies.
-We focus on the $\ell = m$ case, since these modes are associated with equatorial motion. 
+The key result is that the QNM frequencies for a Kerr BH in the eikonal limit can be written as
+\begin{equation}
+    \omega_{\ell m n} = \qty(\ell + \frac{1}{2}) \Omega_\theta + m \Omega_\mathrm{pre} - i \qty(n + \frac{1}{2}) \gamma_L.
+\end{equation}
+Here, $\Omega_\theta$ is the frequency of small geodesic oscillations in the polar direction. 
+The precessional frequency of the orbital plane, $\Omega_\mathrm{pre}$, is given by $\Omega_\mathrm{pre} = \Omega_\phi - \Omega_\theta$, where $\Omega_\phi$ is the orbital frequency of the light ring.
+Finally, $\gamma_L$ is the Lyapunov exponent of the light ring; this can be thought of as a measure of the stability of the orbit.
+Crucially, these quantities are all determined by the metric. 
+Below we take a simple case of an axisymmetric spacetime and show how one can calculate the relevant quantities.
+As a further simplification we also focus on the $\ell = m$ case, since these modes are associated with equatorial motion. 
+Note that, with the assumption $\ell = m \gg 1$, we can write the real part of the QNM frequency as
+\begin{equation}
+    \qty(\ell + \frac{1}{2}) \Omega_\theta + m \Omega_\mathrm{pre} \sim \ell \Omega_\theta + \ell \qty(\Omega_\phi - \Omega_\theta) = \ell \Omega_\phi,
+\end{equation}
+which aligns with the interpretation of QNMs originating as GWs in light ring orbits.
 
 First, we need the metric associated with a stationary and axisymmetric spacetime. 
 The stationary and axisymmetric character requires that the metric coefficients be independent of $t$ and $\phi$, so that $g_{\mu \nu} = g_{\mu \nu}(r,\theta)$.
@@ -321,23 +322,20 @@ This invariance requires
 	g_{tr} = g_{t \theta} = g_{\phi r} = g_{\phi \theta} = 0.
 \end{equation}
 Then we have 
-\begin{align}
-	\dd s^2 &= g_{tt}\dd t^2 + 2g_{t \phi} \dd t \dd \phi + g_{\phi \phi}\dd \phi^2 \nonumber \\
-	&+ \qty[ g_{rr}\dd r^2 + 2g_{r \theta} \dd r \dd \theta + g_{\theta \theta} \dd \theta^2 ].
-\end{align}
+\begin{equation}
+	\dd s^2 = g_{tt}\dd t^2 + 2g_{t \phi} \dd t \dd \phi + g_{\phi \phi}\dd \phi^2 + \qty[ g_{rr}\dd r^2 + 2g_{r \theta} \dd r \dd \theta + g_{\theta \theta} \dd \theta^2 ].
+\end{equation}
 It can be shown \cite{Chandrasekhar:1985kt} that the term in square brackets can be brought to the diagonal form $g_{r'r'}\dd r'^2 +  g_{\theta' \theta'} \dd \theta'^2$ by a change of coordinates $r'=r'(r,\theta)$ and $\theta'=\theta'(r,\theta)$.
 Renaming our variables by removing the primes, this gives
 \begin{equation}
 	\dd s^2 = g_{tt}\dd t^2 + g_{rr}\dd r^2 + g_{\theta \theta}\dd \theta^2 + g_{\phi \phi}\dd \phi^2 + 2g_{t \phi}\dd t\dd \phi
 \end{equation}
-
 We can find geodesic curves $x^\mu(\lambda)$ by extremising the action $S=\int\mathrm{d}\lambda\,\mathcal{L}$ where the Lagrangian is given by
 \begin{align}
 	\mathcal{L} &= \frac{1}{2}g_{\mu \nu} \dot{x}^\mu \dot{x}^\nu \\
 	&= \frac{1}{2}\qty(g_{tt}\dot{t}^2 + g_{rr}\dot{r}^2 + g_{\theta \theta}\dot{\theta}^2 + g_{\phi \phi}\dot{\phi}^2 + 2g_{t \phi}\dot{t}\dot{\phi}), \nonumber
 \end{align}
 and a dot denotes a derivative with respect to the affine parameter $\lambda$ along the curve. 
-
 We could find the second order differential geodesic equations from the Euler-Lagrange (EL) equations, 
 \begin{gather} \label{eq:ELeqns_1}
 	\dv{\lambda}(\pdv{\mathcal{L}}{\dot{x}^\mu}) = \pdv{\mathcal{L}}{x^\mu}.
@@ -362,7 +360,6 @@ The azimuthal orbital frequency can also be calculated:
 \begin{gather}
 	\Omega_\phi = \frac{\mathrm{d}\phi}{\mathrm{d}t} =  \frac{\dot{\phi}}{\dot{t}} = -\frac{g_{t\phi}+g_{tt}\hat{L}}{g_{\phi\phi}+g_{t\phi}\hat{L}}
 \end{gather}
-
 In general, for the remaining two coordinates, $r$ and $\theta$, we can use the EL equations to find the second order differential geodesic equations.
 However, in the special case of equatorial motion ($\theta=\pi/2\;\implies\;\dot{\theta}=0$) we can get a first order equation for $\dot{r}$ by considering the normalization of the four-velocity;
 \begin{equation} \label{eq:rdot}
@@ -376,30 +373,29 @@ where
 and in the final line we have used Eqs.~\ref{eq:tdot_L} and \ref{eq:phidot_L} to eliminate $\dot{t}$ and $\dot{\phi}$.
 In Eq.~\ref{eq:Veff} it is to be understood that the $g_{\mu\nu}$ metric coefficients are to be evaluated on the equatorial plane $\theta=\pi/2$ and so are only functions of $r$.
 
-A \emph{light ring} is circular null geodesic orbit. 
+A light ring is circular null geodesic orbit. 
 The radius, $r_*$, and angular momentum, $\hat{L}_*$, of such an orbit must satisfy $V_{\rm eff} = V'_{\rm eff} = 0$, where a prime denotes a radial derivative with respect to $r$. The first condition yields
 \begin{equation}
 	\hat{L}_*(r) = \frac{-g_{t \phi} \pm \sqrt{g_{t \phi}^2 - g_{t t}g_{\phi \phi}}}{g_{t t}},
 \end{equation}
-while the second gives implicit formula for $r_*$:
+while the second gives an implicit formula for $r_*$:
 \begin{gather}
 	V'_{\rm eff}\big(r_*;\hat{L}_*(r_*)\big) = 0.
 \end{gather}
-In the case of the Kerr metric single root $r_*$.
+% In the case of the Kerr metric single root $r_*$.
 
-Having found the equations of the light ring, now consider neighboring geodesics. 
-First, consider polar motion. The Euler-Lagrange for $\theta$ (Eq.~\ref{eq:ELeqns_1} with $x^\mu=\theta$) is 
-\begin{align}\label{eq:el_theta}
-	g_{\theta \theta} \ddot{\theta} + & \qty(\pdv{g_{\theta \theta}}{\theta} \dot{\theta} + \pdv{g_{\theta \theta}}{r} \dot{r}) \dot{\theta}
-	= \frac{1}{2} \bigg(\pdv{g_{t t}}{\theta} \dot{t}^2 + \nonumber \\ &\pdv{g_{r r}}{\theta} \dot{r}^2 + \pdv{g_{\theta \theta}}{\theta} \dot{\theta}^2 + \pdv{g_{\phi \phi}}{\theta} \dot{\phi}^2 + 2\pdv{g_{t \phi}}{\theta} \dot{t}\dot{\phi}\bigg).
-\end{align}
-Consider small perturbations in the $\theta$ direction \footnote{It is sufficient to consider $\theta$ and $r$ perturbations separately\ldots} about the light ring; i.e. set $r = r_*$, $\theta = \pi/2+\delta\theta(\lambda)$, and where $\dot{t}$ and $\dot{\phi}$ are given by Eqs.~\ref{eq:tdot_L} and \ref{eq:phidot_L} respectively and discard terms $\mathcal{O}(\delta\theta^2)$. 
+Having found the equations of the light ring, now consider neighbouring geodesics. 
+First, consider polar motion. The EL for $\theta$ (Eq.~\ref{eq:ELeqns_1} with $x^\mu=\theta$) is 
+\begin{multline}\label{eq:el_theta}
+	g_{\theta \theta} \ddot{\theta} + \qty(\pdv{g_{\theta \theta}}{\theta} \dot{\theta} + \pdv{g_{\theta \theta}}{r} \dot{r}) \dot{\theta} \\
+	= \frac{1}{2} \bigg(\pdv{g_{t t}}{\theta} \dot{t}^2 + \pdv{g_{r r}}{\theta} \dot{r}^2 + \pdv{g_{\theta \theta}}{\theta} \dot{\theta}^2 + \pdv{g_{\phi \phi}}{\theta} \dot{\phi}^2 + 2\pdv{g_{t \phi}}{\theta} \dot{t}\dot{\phi}\bigg).
+\end{multline}
+Consider small perturbations in the $\theta$ direction about the light ring; i.e. set $r = r_*$, $\theta = \pi/2+\delta\theta(\lambda)$, and where $\dot{t}$ and $\dot{\phi}$ are given by Eqs.~\ref{eq:tdot_L} and \ref{eq:phidot_L} respectively and discard terms $\mathcal{O}(\delta\theta^2)$. 
 This gives
-\begin{align}\label{eq:el_theta_expanded}
-	g_{\theta \theta}&(r_*,\pi/2) \ddot{\delta \theta} = \frac{1}{2} \bigg(\pdv[2]{g_{t t}(r_*,\pi/2)}{\theta} \dot{t}^2  
-	+ \nonumber\\ & \pdv[2]{g_{\phi\phi}(r_*,\pi/2)}{\theta} \dot{\phi}^2 
-	+2\pdv[2]{g_{t \phi}(r_*,\pi/2)}{\theta} \dot{t}\dot{\phi}\bigg)\delta \theta.
-\end{align}
+\begin{multline}\label{eq:el_theta_expanded}
+	g_{\theta \theta}(r_*,\pi/2) \ddot{\delta \theta} \\
+ = \frac{1}{2} \bigg(\pdv[2]{g_{t t}(r_*,\pi/2)}{\theta} \dot{t}^2 + \pdv[2]{g_{\phi\phi}(r_*,\pi/2)}{\theta} \dot{\phi}^2 + 2\pdv[2]{g_{t \phi}(r_*,\pi/2)}{\theta} \dot{t}\dot{\phi}\bigg)\delta \theta.
+\end{multline}
 which describes simple harmonic motion, $\ddot{\delta\theta}=-\tilde{\Omega}^2_\theta\delta\theta$, where the constant $\tilde{\Omega}_\theta$ is the frequency of the oscillations with respect to the parameter $\lambda$.
 The frequency of the oscillations with respect to coordinate time $t$ is given by
 \begin{align}
@@ -423,7 +419,7 @@ Looking for periodic solutions, the frequency of the radial oscillaitons (with r
 \begin{align}
 	\Omega_{r} = \sqrt{-\frac{V''_{\rm eff}(r_*)}{2\dot{t}^2}}.
 \end{align}
-In the case of the Kerr metric the light ring orbit has $\Omega_r^2<0$ and is unstable in the radial direction; therefore $\Gamma = (-\Omega_r^2)^{-1/2}$ is the instability (Lyapunov) timescale.
+In the case of the Kerr metric the light ring orbit has $\Omega_r^2<0$ and is unstable in the radial direction; therefore $\gamma_L = (-\Omega_r^2)^{-1/2}$ is the instability (Lyapunov) timescale.
 
 \section{Black-hole spectroscopy}
 
