@@ -122,7 +122,7 @@ The ringdown signal consists of a sum of QNMs, each excited a different amount d
 
 Fig.~\ref{fig:ch1:rd_waveform} shows (in blue) the ringdown waveform from a NR simulation, SXS:BBH:0305~\cite{Lovelace:2016uwp}.
 This simulation has properties consistent with GW150914, and will be the subject of further study in Chapter~\ref{Chapter2}.
-NR waveforms are decomposed into spherical-harmonic modes indexed by $ell$ and $m$ (see TODO for more details), and here we plot the real part of the dominant $\ell = m = 2$ mode.
+NR waveforms are decomposed into spherical-harmonic modes indexed by $\ell$ and $m$ (see TODO for more details), and here we plot the real part of the dominant $\ell = m = 2$ mode.
 The radial dependence of GW waveforms goes predominantly as $r^{-1}$, so the SXS catalog provides the strain multiplied by $r$ (just as what was plotted in Fig.~\ref{fig:ch1:td_waveform}).
 For clarity we will drop the $r$ factor for the remainder of the thesis and have the $r^{-1}$ scaling implied (just keep in mind when we refer to the GW signal $h$ or a mode $h_{\ell m}$, we really mean $rh$ and $rh_{\ell m}$). 
 
@@ -158,9 +158,6 @@ However, it has been proposed that the inclusion of additional QNMs in the model
 % The QNM frequencies can be calculated within the framework of linearised gravity, treating the gravitational field in the vicinity of the remnant as a small (linear) perturbation of the Kerr metric \cite{Berti:2009kk}.
 % Therefore, the QNM description of the GW signal is only expected to be valid at sufficiently late times, when the nonlinearities from the merger have largely decayed away. 
 
-% The remnant Kerr BH has no hair; it is fully described by only a final mass, $M_f$, and a dimensionless final spin parameter, $\chi_f = |\vb*{\chi}_f|$. 
-% The same is true of the spectrum of QNM frequencies, $\omega_{\ell m n}(M_f, \chi_f)$, which are also functions of only the mass and spin. 
-% Individual QNMs are indexed by the triplet $(\ell, m, n)$ which are the polar ($\ell\geq2$), azimuthal ($-\ell \leq m \leq \ell$) and overtone ($n \geq 0$) numbers respectively. 
 % The spectrum is further complicated by the fact that QNMs occur in pairs. 
 % A complete description of the ringdown must include the \emph{mirror modes} $\omega'_{\ell m n}$ \cite{Berti:2009kk, Berti:2005ys, Dhani:2020nik, London:2014cma} with negative real frequency $f'_{\ell m n}$ along with the \emph{regular modes} $\omega_{\ell m n}$ with $f_{\ell m n}>0$
 % \footnote{We choose to classify QNMs as either \emph{regular} or \emph{mirror}. This is closely related to, but still distinct from, the prograde/retrograde classification of QNMs used in, for example, \cite{LIGOScientific:2020tif}.}.
@@ -191,6 +188,14 @@ However, it has been proposed that the inclusion of additional QNMs in the model
 
 % Cite some important papers here? Explain what we do in this section...
 
+% Avoid M_f notation since I use M in following subsection?
+
+% The remnant Kerr BH has no hair; it is fully described by only a final mass, $M_f$, and a dimensionless final spin parameter, $\chi_f = |\vb*{\chi}_f|$. 
+% The same is true of the spectrum of QNM frequencies, $\omega_{\ell m n}(M_f, \chi_f)$, which are also functions of only the mass and spin. 
+% Individual QNMs are indexed by the triplet $(\ell, m, n)$ which are the polar ($\ell\geq2$), azimuthal ($-\ell \leq m \leq \ell$) and overtone ($n \geq 0$) numbers respectively. 
+
+% This offers the opportunity for some clean tests of GR... discussed further in Section~\ref{...}
+
 \subsection{Scalar field on a Schwarzschild background}
 
 Polar (even-parity) Schwarzschild metric perturbations are described by the Zerilli equation \cite{Zerilli:1970se, Zerilli:1970wzz}, and axial (odd-parity) perturbations are described by the Regge-Wheeler equation \cite{Regge:1957td} (interestingly, these two equations are isospectral, with identical QNM spectra).
@@ -205,7 +210,7 @@ g_{\mu\nu} = \begin{pmatrix}
 0 & 0 & 0 & r^2 \sin^2\theta
 \end{pmatrix},
 \end{equation}
-where $M$ is the mass of the black hole (BH). 
+where now $M$ is the mass of the BH (and not the total mass of the binary, as before). 
 The scalar field evolves according to the Klein-Gordon equation 
 \begin{equation}
     \nabla_\mu \nabla^\mu \psi = 0.
@@ -270,7 +275,7 @@ Regardless, it has been shown that the Regge-Wheeler and Zerilli equations give 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.8\columnwidth]{Figures/Introduction/rw_potential.pdf}
-    \caption[The Regge-Wheeler potential]{The Regge-Wheeler potential as a function of the tortoise coordinate $r_*$ (with the BH horizon at $r_* = -\infty$), for scalar and gravitational perturbations and for a selection of $\ell$.}
+    \caption[The Regge-Wheeler potential]{The Regge-Wheeler potential as a function of the tortoise coordinate $r_*$ (with the BH horizon at $r_* = -\infty$), for scalar and gravitational perturbations and for a selection of $\ell$. In this subsection $M$ refers to the mass of the Schwarzschild BH, and not the total binary mass.}
     \label{fig:rw_potential}
 \end{figure}
 
@@ -284,11 +289,14 @@ Instead, the potential vanishes for $r_* \rightarrow \pm \infty$, which implies 
 \end{alignat}
 This follows from the consideration that the field should radiate  only inward at the horizon and only outward at spatial infinity.
 When enforcing these boundary conditions, only discrete values of $\omega = \omega_{\ell m n}$ satisfy Eq.~\ref{eq:fd_wave_equation}; these are the QNMs.
+% Not technically true?
 They are indexed by three numbers: the usual angular indices $\ell$ and $m$, % Relate back to where I've already mentioned these?
 and an additional ``overtone'' index $n$.
 
 Several methods have been employed to calculate QNMs, including shooting methods \cite{Chandrasekhar:1975zza}, WKB methods \cite{Schutz:1985km}, and continued fractions \cite{Leaver:1985ax}.
 The latter is known to be highly accurate, and is the method of choice in modern codes such as the \texttt{qnm} Python package \cite{Stein:2019mop} (which is used throughout this thesis).
+
+% Cite the nice vibrating string paper somewhere here? https://arxiv.org/abs/gr-qc/0605118
 
 \subsection{Quasinormal modes from the geodesic correspondence}
 
@@ -423,15 +431,46 @@ In the case of the Kerr metric the light ring orbit has $\Omega_r^2<0$ and is un
 
 \section{Black-hole spectroscopy}
 
-An explanation of the conventions used, and maybe also the general waveform (although it make make sense to have that right at the top). 
+The full Kerr QNM spectrum is nowadays readily available, with modern codes (such as the \texttt{qnm} package~\cite{Stein:2019mop}) making use of a version of Leaver's method~\cite{Leaver:1985ax} to compute them.
+We show the $\ell = 2$, $n = 0$; $\ell = 3$, $n = 0$; and $\ell = 2$, $n = 1$ branches of the spectrum in Fig.~\ref{fig:ch1:qnm_taxonomy} (of course, the full spectrum would extend to infinity in both $\ell$ and $n$, but the branches shown here include the QNMs of most interest at current detector sensitivities).  
+There are different conventions used in the literature to label the modes; we aim to clarify these with Fig.~\ref{fig:ch1:qnm_taxonomy}.
+Firstly, we see the QNMs appear to come in pairs: those with positive real part, and those with negative real part.
+These are the ``regular'' and ``mirror'' (sometimes called ``twin'' or ``conjugate'') QNMs respectively.
+Denoting the mirror QNM frequency with a prime, we can relate $\omega'_{\ell m n}$ to the regular QNMs as follows~\cite{Berti:2005ys}:
+\begin{equation}
+    f'_{\ell m n} = -f_{\ell -m n}, \quad \tau'_{\ell m n} = \tau_{\ell -m n} \nonumber
+\end{equation}
+\begin{equation} 
+    \quad\Rightarrow\quad \omega'_{\ell m n} = - \omega_{\ell -mn}^*.
+    \label{eq:ch1:sym_mirror_modes_conj}
+\end{equation}
+So, for example, when we refer to the ``$(2,-2,0)$ mirror mode'', we are referring to the mode which has a real (imaginary) part negative (the same as) the regular $(2,2,0)$ mode.
+This way of referring to the modes allows us to unambiguously refer to every mode in the spectrum, including the $m=0$ modes, and will be the preferred method in this work.
+
+We can, alternatively, split the spectrum into ``prograde'' and ``retrograde'' modes. 
+This description has the advantage of having a clear physical interpretation; prograde (retrograde) modes are those that are corotating (counterrotating) with the final BH spin.
+This can also be expressed as prograde modes satisfying $\mathrm{sgn}\qty(\Re[\omega_{\ell m n}]) = \mathrm{sgn}\qty(m)$, and retrograde modes satisfying $\mathrm{sgn}\qty(\Re[\omega_{\ell m n}]) = -\mathrm{sgn}\qty(m)$.
+For binaries where the individual BHs have low spin (or aligned spins that rotate in the same sense as the orbit) it is also expected that the retrograde modes will be suppressed compared to the prograde modes, which is simply a result of the geometry of merger exciting prograde modes (this has also been shown by studies, for example in Refs.~\cite{Berti:2005ys, London:2014cma, JimenezForteza:2020cve}).
+This assumption is less clear for precessing systems, and is investigated in Chapter~\ref{Chapter2}.
 
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=\columnwidth]{Introduction/qnm_taxonomy.pdf}
 	\caption[The Kerr quasinormal mode spectrum]{ 
-		The Kerr quasinormal mode spectrum.}
+		Selected modes of the Kerr QNM spectrum. BH QNMs frequencies are conventionally represented as complex numbers, with the real part giving the  angular frequency of the mode and the imaginary part giving (minus) the inverse of the damping time: $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$. Here we plot $f_{\ell m n}$ and $1/\tau_{\ell m n}$, each scaled by the remnant BH mass $M_f$ to make a dimensionless quantity. The spectrum of a Kerr BH also depends on the dimensionless BH spin magnitude, $\chi_f$; as the spin is increased from zero, branches with different $m$ appear and spread out from the points of the Schwarzschild spectrum.
+        }
 	\label{fig:ch1:qnm_taxonomy}
 \end{figure}
+
+As previously mentioned, the remnant Kerr BH is fully described by only a final mass and a dimensionless final spin.
+We now denote these quantities $M_f$ and $\chi_f = \abs{\vb*{\chi}_f}$, where the $f$ denotes ``final'' to avoid confusion with the binary properties.
+Consequently, the Kerr QNM spectrum is also a function of only the remnant mass and spin.
+In Fig.~\ref{fig:ch1:qnm_taxonomy} we can see the mass enters as a scaling on the axes, and the spin gives the position along each branch (we show select spin values along the $(2,-2,1)$ mirror mode branch).
+The Schwarzchild spectrum, which depends only on the BH mass and has no $m$ dependence, can be recovered by plotting points at the branch point of each $(\ell, n)$ group.
+% No-hair... allows us to do tests, in analogy with atomic spectroscopy...
+% p60 of https://arxiv.org/pdf/0905.2975.pdf
+% p151 of https://arxiv.org/pdf/1501.07274.pdf
+% opening of https://arxiv.org/pdf/1905.00869.pdf
 
  \begin{figure}[t]
     \centering
@@ -444,7 +483,7 @@ Fig.~\ref{fig:ch1:bh_spectroscopy} demonstrates the idea behind BH spectroscopy~
 On the left panel we show four branches of the Kerr spectrum of Fig.~\ref{fig:ch1:qnm_taxonomy}; the (2,2,0), (2,2,1), (3,3,0) and (3,3,1) modes.
 The (2,2,1) and (3,3,0) modes are promising targets for a QNM measurement beyond the fundamental mode, and currently they are the only modes for which there is possible evidence in GW observations~\cite{Isi:2019aib, Capano:2021etf} (these claims are, however, disputed).
 In BH spectroscopy, we imagine directly measuring a frequency and damping time in the GW data; say, $f_*$ and $\tau_*$.
-In the $M_f/\tau_{\ell m n}$ -- $M_f f_{\ell m n}$ space, this measurement corresponds to a straight line intersecting with the origin; this simply comes from the fact that our scale is not fixed, since we express everything in terms of $M_f$. 
+In the $M_f f_{\ell m n}$ -- $M_f/\tau_{\ell m n}$ space, this measurement corresponds to a straight line intersecting with the origin; this simply comes from the fact that our scale is not fixed, since we express everything in terms of $M_f$. 
 Fixing the value of $M_f$ would collapse the line to a single point, $(f_*,\tau_*)$.
 The gradient of the line is given by
 \begin{equation}
