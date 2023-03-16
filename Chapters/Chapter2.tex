@@ -9,47 +9,51 @@
 In 2019 Giesler et al.~\cite{Giesler:2019uxc} demonstrated that using QNMs with $n > 0$ (that is, ringdown ``overtones'') could push the validity of the linear ringdown model to times as early as the peak of the GW strain. 
 Their work involved fitting ringdown models to a selection of aligned-spin SXS simulations, and in this chapter we extend their work to misaligned-spin (i.e.\ precessing) systems.
 
-% Sparked many other papers, some exploiting this discovery of the importance of overtones, others arguing against their physical validity.
-% Even at the time of writing no consensus has been reached...
+The 2019 study sparked many other papers which involve fitting ringdown models with overtones to NR simulations~\cite{Bhagwat:2019dtm, Ota:2019bzl, JimenezForteza:2020cve, Cook:2020otn, Dhani:2020nik, Mourier:2020mwa, Forteza:2021wfq, MaganaZertuche:2021syq} (including the present work), but it should be noted that fears of over-fitting and the physical validity of the overtones were also present.
+Even at the time of writing there is not a consensus on this point~\cite{Baibhav:2023clw, Nee:2023osy}, a central issue being that of the ringdown start time.
 
 A prerequisite for any ringdown analysis is a suitable choice for the start time, $t_0$, of the ringdown. 
 Starting too early risks a GW signal contaminated with nonlinearities that cannot be described by a model based solely on QNMs and obtaining biased measurements as a result. 
 On the other hand, starting too late leaves a short signal that is already decaying and without enough signal-to-noise to make useful measurements. 
-The difficulties of defining a suitable start time and some surprising data analysis consequences of this were discussed in Ref.~\cite{Thrane:2017lqn}. 
-Previous studies on numerical relativity (NR) waveforms have tended to use just a single \cite{Flanagan:1997sx} or relatively small number ($\leq 4$) \cite{Kamaretsos:2011um, London:2014cma, Carullo:2018sfu, Bhagwat:2017tkm} of QNMs, and have used a wide range of start times. 
+% The difficulties of defining a suitable start time and some surprising data analysis consequences of this were discussed in Ref.~\cite{Thrane:2017lqn}. 
+Earlier studies on NR waveforms have tended to use just a single~\cite{Flanagan:1997sx} or relatively small number ($\leq 4$)~\cite{Kamaretsos:2011um, London:2014cma, Carullo:2018sfu, Bhagwat:2017tkm} of QNMs, and have used a wide range of start times. 
+\comment{
 Typically, the start time is referred to the maxima of some time-dependent quantity (e.g.\ the 22 mode of the strain, the modulus of the Weyl scalar, or the total GW luminosity; these quantities peak at times that typically differ by a few tens of $M$) and typical choices were $10M$ to $20M$ after the peak (although, see Ref.~\cite{Berti:2007fi} where a range of different start times are explored). 
-Several studies caution against starting too early \cite{JimenezForteza:2020cve, Bhagwat:2019dtm}.
+Several early studies caution against starting too early \cite{JimenezForteza:2020cve, Bhagwat:2019dtm}.
+}
 
-More recently, Ref.~\cite{Giesler:2019uxc} (see also Ref.~\cite{Ota:2019bzl}) looked to allow the ringdown to start significantly earlier by including multiple overtones. 
-In particular, Ref.~\cite{Giesler:2019uxc} found that by including up to seven overtones the ringdown analysis can be started as early as the peak in the 22 mode of the strain. 
+Giesler et al.~\cite{Giesler:2019uxc} found that by including up to seven overtones the ringdown analysis can be started as early as the peak in the 22 mode of the strain. 
 This might be considered a surprising result; the signal peak is expected to occur when the remnant BH (to the extent that it yet even makes sense to consider it as such) is most highly distorted and linear perturbation theory is not expected to be valid. 
 The failure of this intuition was investigated in Ref.~\cite{Okounkova:2020vwu} which suggests much of the nonlinearity is trapped behind a forming common apparent horizon and never makes it out to future null infinity in the form of GWs. 
-Even more surprising, in Ref.~\cite{Dhani:2020nik} this approach was extended by the inclusion of mirror modes along with overtones (thereby doubling the number of QNMs) and it was found that it was possible to start the ringdown analysis even earlier (up to $10M$ before the peak). 
+% Excitation factors? https://inspirehep.net/literature/1925166
+Even more surprising, Dhani~\cite{Dhani:2020nik} extended this approach via the inclusion of mirror modes along with overtones (thereby doubling the number of QNMs) and it was found that it was possible to start the ringdown analysis even earlier (up to $10M$ before the peak). 
 Clearly it is not surprising that a model with so many free parameters is able to fit the GW signal well; the important point is that it is able to do so without obtaining biased values for the final mass and spin. 
-A ringdown model with overtones was successfully applied to GW150914 in Ref.~\cite{Isi:2019aib} to extract the fundamental QNM and the first overtone from the noisy data, and more recently to events in GWTC-2 \cite{LIGOScientific:2020tif}. 
+% A ringdown model with overtones was successfully applied to GW150914 in Ref.~\cite{Isi:2019aib} to extract the fundamental QNM and the first overtone from the noisy data, and more recently to events in GWTC-2 \cite{LIGOScientific:2020tif}. 
 
+% This work represents the first attempt to model the ringdown from NR simulations without aligned-spins.
 To the best of our knowledge, previous studies modelling the ringdown from NR simulations with QNMs have only considered aligned-spin BBH systems. 
 We note that some work on precessing systems has been done in the extreme mass ratio limit, see Refs.~\cite{Hughes:2019zmt,Lim:2019xrb}. 
+% include also https://inspirehep.net/literature/2066547 ?
 It is well known that misalignment between the orbital angular momentum and the spins of the component BHs cause the orbit to precess during the inspiral phase of the evolution leading to qualitatively different GW signals at early times (e.g.\ see Ref.~\cite{Apostolatos:1994mx}). 
 It is less clear what effect, if any, misaligned component spins would have on the late time ringdown signal which is generally associated with the remnant BH. 
-The primary aim of this paper is to address this question by systematically extending the analyses of Refs.~\cite{Giesler:2019uxc, Dhani:2020nik} to a large number of precessing BBH simulations from the SXS catalog \cite{Boyle:2019kee, Mroue:2013xna}. 
+The primary aim of this chapter is to address this question by systematically extending the analyses of Refs.~\cite{Giesler:2019uxc, Dhani:2020nik} to a large number of precessing BBH simulations from the SXS catalog~\cite{Boyle:2019kee}. 
 We find that for BBH systems with misaligned spins, and that exhibit precession during their inspiral phase, a model consisting only of overtones (with or without mirror modes) cannot be reliably applied from the peak of the 22 strain. 
 A more conservative ringdown start time corresponding to the peak of the energy flux improves reliability, but we still see significant variation in performance across different simulations. 
 The introduction of a higher harmonic (QNMs with $\ell > 2$) to the overtone model helps to reduce this variation, hinting at the importance of mode mixing.
 
 Previous studies have also focused on using full NR simulations to test ringdown models. 
-In this paper we briefly investigate the use of surrogates, which provide an opportunity to test models over a continuous parameter space. 
+In this chapter we briefly investigate the use of surrogates, which provide an opportunity to test models over a continuous parameter space. 
 We find caution should be taken, particularly for surrogates of precessing systems, due to errors in the surrogate waveforms.
 
 In section \ref{aligned-spin-section} we reproduce some important results from Refs.~\cite{Giesler:2019uxc, Dhani:2020nik}, which are later compared with those for precessing systems in section \ref{misaligned-spin-section}. 
 With precessing systems, it is necessary to perform a rotation to account for the fact that the spin of the remnant BH will not be aligned with initial coordinate axes used to set up the simulation; the procedure for doing this is also discussed in section \ref{misaligned-spin-section}. 
 In section \ref{surrogate-section} we comment on the use of NR surrogates to test ringdown models. 
 Finally, concluding remarks are presented in section \ref{sec:discussion}. 
-Throughout, we use natural units in which $G=c=1$.
+Throughout, we use units in which $G=c=1$.
 
 \section{Model for the spherical modes}
 
-Numerical relativity expands the gravitational-wave (GW) strain in the basis of (spin-weighted) spherical harmonics
+Numerical relativity expands the GW strain in the basis of (spin-weighted) spherical harmonics
 \begin{equation}\label{eq:spherical_expansion}
     rh = M \sum_{\ell m} h_{\ell m}(t) {}_{-2}Y_{\ell m}(\Omega),
 \end{equation}
@@ -578,10 +582,10 @@ By contrast, the lower-dimensional aligned-spin surrogate NRHybSur3dq8 does appe
 
 \section{Discussion} \label{sec:discussion}
 
-This paper has made a first systematic attempt at using QNMs to model the ringdown of BHs formed from BBHs with misaligned component spins in the inspiral.
+This chapter has made a first systematic attempt at using QNMs to model the ringdown of BHs formed from BBHs with misaligned component spins in the inspiral.
 Previously, for aligned-spin systems, it has been found that the ringdown can be modelled with low mismatch and low remnant errors using a model that includes overtones of the fundamental QNM \cite{Giesler:2019uxc}. For seven overtones, the ringdown can be reliably modelled from the peak of the $h_{22}(t)$ strain for a range of SXS simulations.
 Additionally, the inclusion of mirror modes can allow the ringdown to be modelled from even earlier times \cite{Dhani:2020nik}.
-In this paper, which generalised these studies to precessing systems, we find that while QNM models can reliably achieve small mismatches, in the worst cases the remnant errors are more than a factor of 10 higher.
+In this chapter, which generalised these studies to precessing systems, we find that while QNM models can reliably achieve small mismatches, in the worst cases the remnant errors are more than a factor of 10 higher.
 This is the case even when choosing to start the ringdown at the more conservative (i.e.\ later) peak in GW energy flux. 
 The inclusion of higher harmonics reduces the remnant error in some cases, perhaps a sign that mode mixing in the ringdown is generally more important in precessing systems. However, in other cases, a bias remains in the recovered remnant properties.
 We conclude that it is not possible to reliably model the ringdown from the peak in the flux, or indeed from the peak in the strain. 
@@ -650,7 +654,7 @@ The $N=3$ and $N=0$ model results do change and generally give a worse fit with 
 It is important to remember the finite accuracy of the NR simulations used in ringdown studies.
 This is particularly true when using models with many QNMs which, by their very nature, use a large number of free parameters and regularly achieve very small ($\sim 10^{-6}$) mismatches.
 If care is not taken, we risk fitting our models to the numerical noise. 
-In this appendix we describe the numerical checks performed on the 5 individual simulations used in this paper: SXS:BBH:0305, 1856, and the three simulations shown in Fig.~\ref{misaligned_spin_variation}.
+In this appendix we describe the numerical checks performed on the 5 individual simulations used in this chapter: SXS:BBH:0305, 1856, and the three simulations shown in Fig.~\ref{misaligned_spin_variation}.
 In each case the numerical errors were estimated by comparing results obtained using data from the two highest resolutions (levels) available in the SXS catalog. 
 
 First, we quantify the numerical error in the mismatch.
