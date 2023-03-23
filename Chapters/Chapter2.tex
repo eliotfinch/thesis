@@ -117,13 +117,13 @@ Using Eqs.~\ref{eq:spheroidal_transform} and \ref{eq:spherical_transform} we can
     \int_\Omega \dd{\Omega}& ~ {}_{-2}S'_{\ell m n}(\Omega) ~ {}_{-2}Y^*_{\ell' m'}(\Omega) = \nonumber \\ 
     &= \int_\Omega \dd{\Omega} ~ (-1)^\ell {}_{-2}S^*_{\ell -m}(\pi - \theta, \phi; a\omega_{\ell -m n}) ~ (-1)^{\ell'} ~ {}_{-2}Y_{\ell' -m'}(\pi - \theta, \phi) \nonumber \\
     &= (-1)^{l+l'} \int_\Omega \dd{\Omega} ~ {}_{-2}S^*_{\ell -m}(\pi - \theta, \phi; a\omega_{\ell -m n}) ~ {}_{-2}Y_{\ell' -m'}(\pi - \theta, \phi) \nonumber \\
-    &= (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \delta_{m' m}
+    &= (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \delta_{m' m}.
 \end{align}
 Substituting for both of the integrals of Eq.~\ref{eq:hlm_with_ints} we get
 \begin{align}\label{ch2:eq:hlm_model}
     h_{\ell' m'}(t) &= \sum_{\ell m n} \left[ C_{\ell m n} e^{-i \omega_{\ell m n} t} \mu_{\ell' m' \ell n} \delta_{m' m} + C'_{\ell m n} e^{-i \omega'_{\ell m n} t} (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \delta_{m' m} \right] \nonumber \\
     &= \sum_{\ell n} \left[ C_{\ell m' n} e^{-i \omega_{\ell m' n} t} \mu_{\ell' m' \ell n} + C'_{\ell m' n} e^{-i \omega'_{\ell m' n} t} (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \right] \nonumber \\
-    &= \sum_{\ell n} \left[ C_{\ell m' n} e^{-i \omega_{\ell m' n} t} \mu_{\ell' m' \ell n} + C'_{\ell m' n} e^{-i \omega'_{\ell m' n} t} \mu'_{\ell' m' \ell n} \right]
+    &= \sum_{\ell n} \left[ C_{\ell m' n} e^{-i \omega_{\ell m' n} t} \mu_{\ell' m' \ell n} + C'_{\ell m' n} e^{-i \omega'_{\ell m' n} t} \mu'_{\ell' m' \ell n} \right],
 \end{align}
 where $\mu'_{\ell' m' \ell n} = (-1)^{l+l'} \mu^*_{\ell' -m' \ell n}$.
 
@@ -141,7 +141,7 @@ For simplicity, first consider the case when we want to model a single spherical
 \begin{equation}\label{eq:hlm_matrix_single}
     \vb*{h}_{\ell m} = \vb*{a}_{\ell m} \vdot \vb*{C}
 \end{equation}
-where $\vb*{h}_{\ell m} = \left[h_{\ell m}(t_0),\ h_{\ell m}(t_1), \ldots,\ h_{\ell m}(t_{K-1}) \right]$ is the waveform data evaluated at a total of $K$ times labelled by $t_k$. 
+where $\vb*{h}_{\ell m} = \left[h_{\ell m}(t_0),\ h_{\ell m}(t_1), \ldots,\ h_{\ell m}(t_{K-1}) \right]$ is the waveform data discretely sampled at a total of $K$ times labelled by $t_k$. 
 In general $t_0$ may not exist on the default array of simulation times, so care must be taken (for example, we can interpolate the simulation data and evaluate on a new grid of times, or we could use the first value after $t_0$, or the closest value to $t_0$). 
 % we will have 
 % \begin{equation}
@@ -172,12 +172,16 @@ The vector $\vb*{C}$ contains our complex amplitudes, of which there are a total
 \end{equation}
 When we perform the matrix multiplication of Eq.~\ref{eq:hlm_matrix_single} we are multiplying a matrix of shape $(K,J)$ by a vector of length $J$, so we are left with a vector of length $K$.
 Written in this form, we can easily apply least-squares solvers to invert the equation for the vector of coefficients. 
+This minimises the Euclidean 2-norm $\norm{\vb*{h}_{\ell m} - \vb*{a}_{\ell m} \vdot \vb*{C}}$ (i.e.\ the sum of the squares of the fit residuals).
+In this chapter we will only be dealing with single-mode fits as described here.
+However, for completeness we describe how multimode fits can be implemented % (which has been done in the code...)
 
 \subsection{Multimode fit}
 
 Due to mode mixing, a given QNM contributes to all spherical-harmonic modes with the same $m$. 
 This means we can perform a fit to multiple spherical-harmonic modes with a single set of shared QNM amplitudes $\vb*{C}$.
 We will approach this by joining $\vb*{h}_{\ell m}$ vectors together for each $(\ell, m)$ we want to include in the fit (to effectively form a single timeseries), and similarly by ``stacking'' $\vb*{a}_{\ell m}$ matrices on top of each other.
+
 
 The single-mode matrix equation, Eq.~\ref{eq:hlm_matrix_single}, becomes
 \begin{equation}\label{eq:hlm_matrix_multi}
