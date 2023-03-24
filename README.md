@@ -21,23 +21,7 @@ Sec 2.1
 - Paragraph 2. “The primary aim of this paper…” change to “this study” or “this chapter”.
 
 Sec 2.2
-- Eq. 2.1. Do you want to explain the range of indices for l and m in the sum? Or is this already explained in the introduction?
-- Paragraph 1. “We will assume the above has been rotated”. - make reference to fact that we will need to rotate the precessing systems
-- Eqs. 2.8 and 2.9. Consider adding punctuation at end of equation.
-- Eq. 2.10. Do you want to say that bold quantities refer to vectors containing discretely sampled versions of the waveform model?
-- Eq. 2.11 and surrounding text. Is this really necessary? I’m not sure what exactly you are trying to say here.
-- Eq. 2.12. You refer to this as the “coefficient matrix”. I don’t really like this name because I naturally associate the word coefficient with the C quantities. Does this quantity need a specific name? If not, then I suggest just saying “this matrix encodes the time dependence of all the QNMs included in the model”.
 - In section 2.3.2, did you want to explain why this stacking of all the lm modes is equivalent to doing a least-squares fit averaged over Omega?
-
-Sec 2.5
- - Refs about precessing systems detected in the LIGO catalogs may be somewhat out to date now. You can fix by changing “Several of the GW detections already show signs of precession” -> “Several of the GW detections IN THE SECOND GW TRANSIENT CATALOG already show signs of precession”. And, optionally, you could add a sentence and references about by more recent events as well.
-
-Discussion section: Another instance of “this paper” -> “this chapter”
-
-OVERALL COMMENTS ON CHAPTER 2
-- Figure placement is a nightmare!
-- What was Fig. 12 in the paper… this contains 6 panels and has a table in the figure caption. The layout here is a problem. Taking out could be an option? 
-
 
 Comments on Chapter 3 (Added 06/03/2023)
 
