@@ -7,20 +7,22 @@
 
 At the time of writing the 
 % Laser Interferometer Gravitational-Wave Observatory 
-LIGO~\cite{LIGOScientific:2014pky} and Virgo~\cite{VIRGO:2014yos} detectors have completed three observing runs, accumulating 90 gravitational-wave (GW) signal candidates with probability of astrophysical origin $> 0.5$~\cite{LIGOScientific:2018mvr, LIGOScientific:2020ibl, LIGOScientific:2021usb, LIGOScientific:2021djp}.
+LIGO~\cite{LIGOScientific:2014pky} and Virgo~\cite{VIRGO:2014yos} detectors have completed three observing runs, accumulating 90 confident gravitational-wave (GW) signal candidates~\cite{LIGOScientific:2018mvr, LIGOScientific:2020ibl, LIGOScientific:2021usb, LIGOScientific:2021djp}.
 The signals originate from the mergers of compact objects. 
 The majority of these are binary black holes (BBHs), and these are the systems of interest throughout this thesis.  
 Signals have also been observed from at least one binary neutron star system (GW170817~\cite{LIGOScientific:2017vwq} remains the only unambiguous candidate) and from neutron-star -- black-hole (BH) systems (the most confident candidate being GW200115\_042309~\cite{LIGOScientific:2021qlt}).
 GW150914~\cite{LIGOScientific:2016aoc} marked the first direct observation of GWs, as well as the first observation of a BBH merger.
-It also marked what can be described in simple terms as the first measurement of a ringing BH.
+% It also marked what can be described in simple terms as the first measurement of a ringing BH.
 
-A prediction of general relativity (GR), GWs are produced by accelerating masses; they are transverse waves which act to expand and contract space.
-They can be measured via their influence on freely-falling test masses, which will move relative to each other as space is perturbed.
-This is somewhat analogous %~\cite{Saulson:1997ck} 
-to the expansion of the Universe, which causes distant galaxies (the test masses) to appear to recede from us due to the expansion of space.
-The LIGO and Virgo GW detectors employ interferometry to measure the motion of test masses to extreme precision.
-In this setup the mirrors at the end of the interferometer arms act as the freely-falling masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via the light travel time of the interferometer laser.
-The detector output is a timeseries of a dimensionless scalar quantity called the strain, $h$, which quantifies the change in position of the mirrors (which can also be thought of as changes to the interferometer arm lengths).
+A prediction of general relativity (GR), GWs are produced by accelerating masses.
+As transverse waves which act to expand and contract space, they can be measured via their influence on freely-falling test masses (which will move relative to each other as space is perturbed).
+% This is somewhat analogous~\cite{Saulson:1997ck} to the expansion of the Universe, which causes distant galaxies (the test masses) to appear to recede from us due to the expansion of space.
+The LIGO and Virgo GW detectors employ interferometry to measure the motion of test masses to extreme precision. 
+In this setup the mirrors at the end of the interferometer arms act as the freely-falling masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via measurements of the light phase difference (i.e.\ the light travel time along each arm).
+The detector output is a timeseries of a dimensionless scalar quantity called the strain, $h$, which quantifies the fractional change in position of the mirrors (which can also be thought of as changes to the interferometer arm lengths).
+% Maybe phrase in terms of geodesic deviation, avoid cosmology analogy?
+
+% An extra paragraph here. The idea of a binary, quadrupole formula. Maybe mention the equations used to derive time to merger? At least say time-varying quadrupole. 
 
 It is understood how the dynamics of compact-object mergers translate to the measured strain, which allows us to learn about the signal origin.
 The GW signal from a BBH merger can be split into three stages: the inspiral, merger, and ringdown.
@@ -39,7 +41,7 @@ It is not known beforehand when this perturbative treatment of the final BH beco
     \includegraphics[width=\columnwidth]{Introduction/td_waveform.pdf}
     \caption[The time-domain gravitational-wave signal from a binary black-hole merger]{ 
     The gravitational-wave signal from a binary black-hole merger. 
-    This waveform was generated using the NRSur7dq4 surrogate, and projected onto the Hanford detector using parameters consistent with GW150914.
+    This waveform was generated using the NRSur7dq4 surrogate, and projected onto the Hanford detector using parameters consistent with GW150914 (this includes choosing a sky location and polarisation angle).
     }
     \label{ch1:fig:td_waveform}
 \end{figure}
@@ -65,7 +67,7 @@ This can be compared with what was measured for GW150914 (see Fig.~1 in Ref.~\ci
 The waveform was generated using the NRSur7dq4~\cite{Varma:2019csw} surrogate waveform with zero spins, equal mass ratio, and zero inclination. 
 Surrogates effectively ``interpolate'' the waveforms from full NR simulations, allowing quick waveform generation for any choice of system parameters (within the validity of the model). 
 For NRSur7dq4, the simulations used to build the model came from the SXS catalog~\cite{Boyle:2019kee}, which we also use extensively in Chapter~\ref{Chapter2}. 
-Along with the intrinsic system parameters, to project onto the Hanford detector we also choose an event time, sky location and polarization angle consistent with GW150914. 
+Along with the intrinsic system parameters, to project onto the Hanford detector we also choose an event time, sky location and polarisation angle consistent with GW150914.
 
 \begin{figure}[t]
     \centering
@@ -80,18 +82,18 @@ Along with the intrinsic system parameters, to project onto the Hanford detector
 The above discussion disregards the sensitivity of the detector to different frequencies (i.e.\ the detector noise).
 It is standard to treat the noise in the LIGO and Virgo detectors as stationary and Gaussian~\cite{LIGOScientific:2019hgc}.
 Stationarity means that the noise covariance matrix is diagonal in the frequency domain (meaning there is no correlation between frequency bins), and so we can describe the noise with a power spectral density (PSD) $S_n(f)$.
-The noise in each frequency bin is modelled as following a Gaussian distribution with a random phase and amplitude $\sqrt{S_n(f)}$.
-We show the Hanford PSD in Fig.~\ref{ch1:fig:fd_waveform}, along with a frequency-domain representation of a BBH GW signal. 
+In each frequency bin we model the noise as having a random phase and an amplitude drawn from a Gaussian distribution with standard deviation $\sqrt{S_n(f)}$.
+We show the Hanford PSD in Fig.~\ref{ch1:fig:fd_waveform}, along with a frequency-domain BBH GW signal (both expressed through the characteristic strain, see Eqs.~\ref{ch1:eq:hn} and \ref{ch1:eq:hn}.
 Since we are now comparing with a PSD, we fix the BBH total mass and distance to the example numbers used above ($M = 72\,M_\odot$, $r = 440\,\mathrm{Mpc}$).
 Roughly speaking, the GW signal from a BBH merger increases in frequency over time.
 The majority of the inspiral signal is at too low a frequency to be detected, with the GW signal only entering the detector band ($\sim 20$ to $\sim 1000\,\mathrm{Hz}$) just before merger.
 Although the binary can spend millions of years inspiralling, we observe only the last few tenths of a second of the merger.
 We choose to plot the signal and noise curve in terms of the characteristic strain~\cite{Moore:2014lga}, given by
-\begin{equation}
+\begin{equation}\label{ch1:eq:hc}
     h_c(f) = 2f\abs{\tilde{h}(f)}
 \end{equation}
 for the GW signal (where $\tilde{h}$ is the frequency-domain GW in a given detector), and
-\begin{equation}
+\begin{equation}\label{ch1:eq:hn}
     h_n(f) = \sqrt{fS_n(f)}
 \end{equation}
 for the noise curve.
@@ -99,7 +101,7 @@ The characteristic strain has the property that the area between the signal and 
 \begin{equation}
     \rho^2 = \int_{-\infty}^\infty \dd\log{f} \qty[\frac{h_c(f)}{h_n(f)}]^2.
 \end{equation}
-Evaluating for the above figure we get $\rho \sim 17$, which is consistent with the Hanford SNR for GW150914.
+Evaluating for the above figure we get $\rho \sim 17$, which is consistent with the Hanford SNR for GW150914 (assuming equal SNRs in Hanford and Livingston, a network SNR of 26~\cite{LIGOScientific:2021usb} gives a single detector SNR of $\sim 18$).
 
 Also shown in the figure is the time to merger at select frequencies of the inspiral.
 This is to emphasise how the frequency of the binary evolves over time, spending the vast majority of its life in the inspiral with a slowly shrinking orbit.
@@ -107,9 +109,10 @@ The time to merger, $\tau_\mathrm{merge}$, as a function of GW frequency is give
 \begin{equation}\label{eq:time_to_merger}
     \tau_\mathrm{merge} = \frac{5}{256} \qty(\pi f)^{-\frac{8}{3}} \qty(\frac{G\mathcal{M}}{c^3})^{-\frac{5}{3}},
 \end{equation}
+% Give more details. Lowest order PN, what does it neglect? Valid for circular only...
+% Say a bit about how it is derived.
 where $\mathcal{M}$ is a combination of the two masses in the binary known as the chirp mass.
 We also explicitly show the factors of $G$ and $c$ in this equation for clarity (in geometric units these would be set to 1, and it would be implied that the chirp mass should be expressed in units of time). 
-\comment{This expression comes from equating the time derivative of the orbital energy... worth showing?}
 
 The signal in Fig.~\ref{ch1:fig:fd_waveform} was generated with the IMRPhenomD~\cite{Khan:2015jqa} waveform model, as implemented in the \texttt{ripple}~\cite{Edwards:2023sak} Python package.
 Phenom models produce approximate waveforms using closed-form analytic expressions in the frequency-domain, making evaluation quick and suitable for GW searches.
@@ -120,7 +123,7 @@ The Hanford PSD is estimated from $1024\,\mathrm{s}$ of off-source data at the t
 
 The endpoint of a BBH, the ringdown signal is produced by the remnant BH settling to its stationary state.
 Just as a bell or drum has a characteristic sound, so too does a BH; associated with the BH is a unique spectrum of oscillatory modes, determined purely by its properties (namely, for astrophysical BHs, a mass and spin).
-The characteristic oscillations of the remnant BH are called quasinormal modes (QNMs), so-called because, unlike normal modes, they decay over time~\cite{Berti:2005ys, Berti:2009kk}.
+The characteristic oscillations of the remnant BH are called quasinormal modes (QNMs), so-called because, unlike normal modes, they decay over time (for reviews on the subject, see Refs.~\cite{Kokkotas:1999bd, Nollert:1999ji, Berti:2009kk}).
 The QNM frequencies are complex, $\omega = 2\pi f - i/\tau$, with the real part $f$ giving the oscillation frequency and the reciprocal of the imaginary part $\tau$ giving the damping time. 
 The QNM spectrum is the subject of Section~\ref{ch1:sec:qnms}.
 The ringdown signal consists of a sum of QNMs, each excited a different amount depending on the initial configuration of the binary and how they merged; the excitation of different ringdown modes is among the areas of investigation in Chapter~\ref{Chapter2}.
@@ -144,9 +147,7 @@ For clarity we will drop the $r$ factor for the remainder of the thesis and have
 Overplotted is a simple model for the $h_{22}$ mode: a exponentially damped sinusoid with complex frequency $\omega = 2\pi f - i/\tau$ and amplitude $C = Ae^{i\phi}$. 
 Taking the real part we have
 \begin{align}
-    \Re[Ce^{-i\omega(t-t_0)}] &= \Re[Ae^{i\phi}e^{-i(2\pi f - i/\tau)(t-t_0)}] \nonumber \\
-    &= \Re[Ae^{-i\qty[2\pi f(t-t_0) - \phi]}e^{-(t-t_0)/\tau}] \nonumber \\
-    &= A\cos[2\pi f(t-t_0) - \phi]e^{-(t-t_0)/\tau}.
+    \Re[Ce^{-i\omega(t-t_0)}] = A\cos[2\pi f(t-t_0) - \phi]e^{-(t-t_0)/\tau}.
 \end{align}
 That such a simple model describes the final stages of such a complicated system is a remarkable result, and is part of the power of studying the ringdown.
 A faded red line traces the damped sinusoid to earlier times, where it starts to lose validity.
@@ -155,6 +156,8 @@ Note, however, that our model here only includes a single term (i.e., one ringdo
 A particular subset of QNMs, known as ``overtones'', will be of particular interest throughout the thesis; as well as featuring in the numerical studies of Chapter~\ref{Chapter2}, they will be a target in the analysis of GW data in Chapters~\ref{Chapter3} and \ref{Chapter4}.
 
 A key goal in GW astronomy is the identification of QNMs in the ringdown signal.
+We will see in the following sections that QNMs carry information about the remnant BH, meaning that measurements of QNM frequencies give us a way of inferring the remnant BH properties independently of the rest of the GW signal.
+This forms the basis of important tests of GR, and is discussed further in Section~\ref{ch1:sec:bh_spectroscopy}.
 The testing-GR companion papers for the second~\cite{LIGOScientific:2020tif} and third~\cite{LIGOScientific:2021sio} GW event catalogs featured searches for QNMs; of the detected events, results were reported for 22.
 This can be taken as a rough guide for how many events have at least one measurable ringdown mode.
 On top of this, tentative evidence was reported for the identification of an additional ringdown mode in a few of the loudest events, including GW150914.
@@ -172,15 +175,31 @@ This makes it a promising target for QNM searches, and along with GW150914 it is
 \section{Quasinormal modes}
 \label{ch1:sec:qnms}
 
+The term QNM coined in Ref.~\cite{Press:1971wr}.
+
+Any system which loses energy 
+BH spacetimes are intrinsically dissipative due to the presence of an event horizon.
+
+In a normal-mode analysis, one usually has an ordinary differential equation, or a system of such equations, and imposes boundary conditions to the effect that the perturbation (or whatever wavefunction one is studying) must vanish outside a finite region in space. 
+An example of such a system is a finite string fixed at both ends, otherwise isolated from its surroundings. 
+This system is described by a self-adjoint operator with a discrete spectrum and a complete set of normal modes. 
+See Ref.~\cite{Berti:2006wq} for an interesting discussion, comparing the vibrating string problem to that of QNMs.
+Unfortunately, perturbations of black holes are quite different: the system we have is the metric outside the horizon in the case of a black hole.
+The perturbations will propagate throughout all space; we cannot demand that they should be zero outside a finite region. 
+Instead, we want to make sure that no gravitational radiation unrelated to the initial perturbation disturbs the system at late times.
+
 The QNM frequencies can be calculated within the framework of linearised gravity, treating the gravitational field in the vicinity of the remnant as a small (linear) perturbation of the Kerr metric \cite{Berti:2009kk}.
 Therefore, the QNM description of the GW signal is only expected to be valid at sufficiently late times, when the nonlinearities from the merger have largely decayed away. 
 
 \comment{
 \begin{itemize}
     \item Polar (even-parity) Schwarzschild metric perturbations are described by the Zerilli equation \cite{Zerilli:1970se, Zerilli:1970wzz}, and axial (odd-parity) perturbations are described by the Regge-Wheeler equation \cite{Regge:1957td} (interestingly, these two equations are isospectral, with identical QNM spectra).
-    \item Teukolsky obtains separable wave equations for electromganetic and gravitational perturbations of a rotating BH~\cite{Teukolsky:1972my}.
+    \item Teukolsky obtains separable wave equations for electromagnetic and gravitational perturbations of a rotating BH~\cite{Teukolsky:1972my}.
 \end{itemize}
 }
+
+Vishveshwara found, via numerical studies, that BHs have a characteristic ``sound''~\cite{Vishveshwara:1970zz}. 
+They employed the perturbation techniques developed by Regge and Wheeler. 
 
 \comment{
 The remnant Kerr BH has no hair; it is fully described by only a final mass and a dimensionless final spin parameter. 
@@ -196,6 +215,7 @@ QNMs also have practical uses in waveform modelling. They are used in full inspi
 
 To help build some intuition regarding the origin of the QNMs, we will perform a demonstrative calculation involving a massless scalar field, $\psi(t,r,\theta,\phi)$ on a Schwarzschild background.
 This will lead to equations reminiscent of the Zerilli and Regge-Wheeler equations, without the complication of tensor spherical harmonics that comes with the full gravitational-perturbation treatment.
+
 The metric tensor, in Schwarzschild coordinates, is
 \begin{equation}
 g_{\mu\nu} = \begin{pmatrix}
@@ -207,6 +227,8 @@ g_{\mu\nu} = \begin{pmatrix}
 \end{equation}
 where now $M$ is the mass of the BH (and not the total mass of the binary, as before). 
 The scalar field evolves according to the Klein-Gordon equation 
+% explain kg is a massless wave equation, qualitatively similar to other equations
+% maybe pull all mentions of scalar field from first paragraph and put here. 
 \begin{equation}
     \nabla_\mu \nabla^\mu \psi = 0.
 \end{equation}
@@ -215,12 +237,13 @@ Using the fact that a covariant derivative reduces to the partial derivative on 
     \nabla_\mu \nabla^\mu \psi = \frac{1}{\sqrt{-g}} \partial_\mu \qty(\sqrt{-g} g^{\mu\nu} \partial_\nu \psi) = 0
 \end{equation}
 where $g$ is the determinant of the metric tensor, $g^{\mu\nu}$ is the inverse of the metric tensor, and we have also used $\Gamma^\mu_{\mu\nu} = \partial_\nu \ln{\sqrt{-g}} = \qty(-g)^{-1/2} \partial_\nu \sqrt{-g}$.
-For Schwarzschild we have $g = -r^4 \sin^2{\theta} \implies \sqrt{-g} = r^2 \sin{\theta}$.
+For Schwarzschild we have \comment{maybe don't need both} $g = -r^4 \sin^2{\theta} \implies \sqrt{-g} = r^2 \sin{\theta}$.
 Evaluating, we get
 \begin{multline}
     - \qty(1 - \frac{2M}{r})^{-1} \pdv[2]{\psi}{t} + \frac{1}{r^2} \pdv{r} \qty[r^2 \qty(1 - \frac{2M}{r}) \pdv{\psi}{r} ]\\
     + \frac{1}{r^2} \qty[ \frac{1}{\sin{\theta}} \pdv{\theta} \qty(\sin{\theta} \pdv{\psi}{\theta} ) + \frac{1}{\sin^2{\theta}} \pdv[2]{\psi}{\phi} ] = 0.
 \end{multline}
+% We use scalar Ys here, GW use spin-weighted, refer to later equations?
 Recognising that the spherical harmonics, $Y_{\ell m}(\theta,\phi)$, are the eigenfunctions of the angular part:
 \begin{equation}
     \frac{1}{\sin{\theta}} \pdv{\theta} \qty(\sin{\theta} \pdv{Y_{\ell m}}{\theta} ) + \frac{1}{\sin^2{\theta}} \pdv[2]{Y_{\ell m}}{\phi} = - \ell (\ell + 1) Y_{\ell m},
@@ -255,10 +278,12 @@ where
     V_\ell(r) = \qty( 1 - \frac{2M}{r} ) \qty( \frac{\ell (\ell + 1)}{r^2} + \frac{2M}{r^3} )
 \end{equation}
 is an effective potential.
+% Refer to FT equation used elsewhere in thesis for convention? Or introduce here
 Performing a Fourier transform, we can bring Eq.~\ref{eq:wave_equation} into the form of a one-dimensional Schr\"{o}dinger equation
 \begin{equation}\label{eq:fd_wave_equation}
     \pdv[2]{\tilde{\psi}_{\ell m}(\omega,r)}{r_*} + \qty[ \omega^2 - V_\ell(r)] \tilde{\psi}_{\ell m}(\omega,r) = 0.
 \end{equation}
+% Really polar also obeys the same form, maybe make that clearer?
 Axial gravitational perturbations obey an equation of the same form (i.e. the Regge-Wheeler equation), and in fact the effective potential can be written in the unified form
 \begin{equation}
     V_\ell(r) = \qty( 1 - \frac{2M}{r} ) \qty( \frac{\ell (\ell + 1)}{r^2} + \frac{(1 - s^2)2M}{r^3} )
@@ -274,10 +299,10 @@ Regardless, it has been shown that the Regge-Wheeler and Zerilli equations give 
     \label{fig:rw_potential}
 \end{figure}
 
-We must specify boundary conditions to complete the problem. 
+We must specify boundary conditions to % find the QNM solutions. complete the problem. 
 When solving for the normal modes on a string, or the energy levels of a quantum harmonic oscillator, we require the wavefunction to vanish at the boundaries (either at the string ends, or at $\pm \infty$ for the harmonic oscillator).
 The problem we're considering here is slightly different; the potential, depicted in Fig.~\ref{fig:rw_potential}, clearly does not admit bound states. 
-Instead, the potential vanishes for $r_* \rightarrow \pm \infty$, which implies we need to look for purely outgoing plane waves:
+Instead, the potential vanishes for $r_* \rightarrow \pm \infty$, which implies we need to look for purely outgoing plane waves: %be more precise by outgoing. outgoing to inf, ingoing to -inf
 \begin{alignat}{2}
     &\tilde{\psi}_{\ell m}(\omega, r) \sim e^{i \omega r_*} \qquad &&\qty(r_* \rightarrow -\infty) \nonumber \\
     &\tilde{\psi}_{\ell m}(\omega, r) \sim e^{- i \omega r_*} \qquad &&\qty(r_* \rightarrow \infty).
@@ -290,7 +315,7 @@ They are indexed by three numbers: the usual angular indices $\ell$ and $m$, and
 Several methods have been employed to calculate QNMs, including shooting methods \cite{Chandrasekhar:1975zza}, WKB methods \cite{Schutz:1985km}, and continued fractions \cite{Leaver:1985ax}.
 The latter is known to be highly accurate, and is the method of choice in modern codes such as the \texttt{qnm} Python package \cite{Stein:2019mop} (which is used throughout this thesis).
 
-\comment{Cite the vibrating string paper somewhere here?~\cite{Berti:2006wq}}
+% now have a well-posed problem. just a problem of solving. can be done using above methods. solutions presented in 1.4. first we gain some more physical intuition. 
 
 \subsection{Quasinormal modes from the geodesic correspondence}
 
@@ -298,23 +323,27 @@ First pointed out by Goebel~\cite{1972ApJ...172L..95G}, there exists a relation 
 Having since been developed further~\cite{Ferrari:1984zz, Mashhoon:1985cya, Cardoso:2008bp, Yang:2012he}, this approach provides a physical insight to QNMs; that is, QNMs can be interpreted as GWs slowly leaking out of a light-ring orbit around the BH. 
 Although only valid for $\ell \gg 1$ (known as the eikonal, or geometrical optics, limit), this correspondence greatly simplifies the calculations of QNMs since it only depends on the background metric.
 Consequently, it offers a way to compute QNMs in beyond GR theories (for example, as was done in Ref.~\cite{Blazquez-Salcedo:2016enn}), or for computing the QNM spectrum for charged (Kerr-Newman~\cite{Newman:1965my}) BHs~\cite{Cardoso:2016olt, Wang:2021uuh} (but, see also Ref.~\cite{Carullo:2021oxn} where a more sophisticated analysis was done).
+% We have a reflective symmetry above and below equator. This allows the theta dot = 0 solution? 
 
 The key result is that the QNM frequencies for a Kerr BH in the eikonal limit can be written as
+% Maybe write the f and tau expression again here
 \begin{equation}
     \omega_{\ell m n} = \qty(\ell + \frac{1}{2}) \Omega_\theta + m \Omega_\mathrm{pre} - i \qty(n + \frac{1}{2}) \gamma_L.
 \end{equation}
 Here, $\Omega_\theta$ is the frequency of small geodesic oscillations in the polar direction. 
+% This is a perturbation to one specific geodesic... make that clearer?
 The precessional frequency of the orbital plane, $\Omega_\mathrm{pre}$, is given by $\Omega_\mathrm{pre} = \Omega_\phi - \Omega_\theta$, where $\Omega_\phi$ is the orbital frequency of the light ring.
 Finally, $\gamma_L$ is the Lyapunov exponent of the light ring; this can be thought of as a measure of the stability of the orbit.
 Crucially, these quantities are all determined by the metric. 
 Below we take a simple case of an axisymmetric spacetime and show how one can calculate the relevant quantities.
-As a further simplification we also focus on the $\ell = m$ case, since these modes are associated with equatorial motion. 
+As a further simplification we also focus on the $\ell = m$ case, since these modes are associated with equatorial motion. % specifically prograde motion. 
 Note that, with the assumption $\ell = m \gg 1$, we can write the real part of the QNM frequency as
 \begin{equation}
     \qty(\ell + \frac{1}{2}) \Omega_\theta + m \Omega_\mathrm{pre} \sim \ell \Omega_\theta + \ell \qty(\Omega_\phi - \Omega_\theta) = \ell \Omega_\phi,
 \end{equation}
 which aligns with the interpretation of QNMs originating as GWs in light ring orbits.
 
+% Because we are considering a Schwarsz BH, the metric is stationary and axisymmetric
 First, we need the metric associated with a stationary and axisymmetric spacetime. 
 The stationary and axisymmetric character requires that the metric coefficients be independent of $t$ and $\phi$, so that $g_{\mu \nu} = g_{\mu \nu}(r,\theta)$.
 We also require that the spacetime is invariant to the simultaneous inversion of the time $t$ and the angle $\phi$ (i.e.\ to the transformation $t \rightarrow -t$, $\phi \rightarrow -\phi$). 
@@ -330,7 +359,7 @@ Then we have
 It can be shown \cite{Chandrasekhar:1985kt} that the term in square brackets can be brought to the diagonal form $g_{r'r'}\dd r'^2 +  g_{\theta' \theta'} \dd \theta'^2$ by a change of coordinates $r'=r'(r,\theta)$ and $\theta'=\theta'(r,\theta)$.
 Renaming our variables by removing the primes, this gives
 \begin{equation}
-	\dd s^2 = g_{tt}\dd t^2 + g_{rr}\dd r^2 + g_{\theta \theta}\dd \theta^2 + g_{\phi \phi}\dd \phi^2 + 2g_{t \phi}\dd t\dd \phi
+	\dd s^2 = g_{tt}\dd t^2 + g_{rr}\dd r^2 + g_{\theta \theta}\dd \theta^2 + g_{\phi \phi}\dd \phi^2 + 2g_{t \phi}\dd t\dd \phi.
 \end{equation}
 We can find geodesic curves $x^\mu(\lambda)$ by extremising the action $S=\int\mathrm{d}\lambda\,\mathcal{L}$ where the Lagrangian is given by
 \begin{align}
@@ -350,6 +379,7 @@ Similarly, from the axisymmetry of the spacetime we have another constant of mot
 \begin{equation}\label{eq:el_phi}
 	\pdv{\mathcal{L}}{\dot{\phi}} =L \;\implies\; g_{\phi \phi}\dot{\phi} + g_{t\phi}\dot{t} = L.
 \end{equation}
+% State energy and angular momentum explicitely!
 From Eqs.~\ref{eq:el_t} and \ref{eq:el_phi} we can solve for the two components of the 4-velocity $\dot{t}$ and $\dot{\phi}$ to give
 \begin{gather} \label{eq:tdot_L}
 	\dot{t} = E \frac{g_{\phi \phi} + g_{t \phi}\hat{L}}{\qty(g_{t \phi})^2 - g_{t t}g_{\phi \phi}} \\
@@ -357,12 +387,13 @@ From Eqs.~\ref{eq:el_t} and \ref{eq:el_phi} we can solve for the two components 
 	\dot{\phi} = E \frac{g_{t \phi} + g_{t t}\hat{L}}{g_{t t}g_{\phi \phi} - \qty(g_{t \phi})^2}
 \end{gather}
 where $\hat{L} = L/E$.
+% "Specific angular momentum"
 We are also free to rescale our affine parameter $\lambda\rightarrow E\lambda$ to remove $E$ from the above expressions.
 The azimuthal orbital frequency can also be calculated:
 \begin{gather}
 	\Omega_\phi = \frac{\mathrm{d}\phi}{\mathrm{d}t} =  \frac{\dot{\phi}}{\dot{t}} = -\frac{g_{t\phi}+g_{tt}\hat{L}}{g_{\phi\phi}+g_{t\phi}\hat{L}}
 \end{gather}
-In general, for the remaining two coordinates, $r$ and $\theta$, we can use the EL equations to find the second order differential geodesic equations.
+In general, for the remaining two coordinates, $r$ and $\theta$, we can use the EL equations to find the second order differential geodesic equations. % any hyphens here?
 However, in the special case of equatorial motion ($\theta=\pi/2\;\implies\;\dot{\theta}=0$) we can get a first order equation for $\dot{r}$ by considering the normalization of the four-velocity;
 \begin{equation} \label{eq:rdot}
 	g_{\mu\nu}\dot{x}^\mu\dot{x}^\mu = 0 \;\implies\; \dot{r}^2 = V_{\rm eff}(r;\hat{L}),
@@ -375,7 +406,7 @@ where
 and in the final line we have used Eqs.~\ref{eq:tdot_L} and \ref{eq:phidot_L} to eliminate $\dot{t}$ and $\dot{\phi}$.
 In Eq.~\ref{eq:Veff} it is to be understood that the $g_{\mu\nu}$ metric coefficients are to be evaluated on the equatorial plane $\theta=\pi/2$ and so are only functions of $r$.
 
-A light ring is circular null geodesic orbit. 
+A light ring is a circular null geodesic orbit. 
 The radius, $r_*$, and angular momentum, $\hat{L}_*$, of such an orbit must satisfy $V_{\rm eff} = V'_{\rm eff} = 0$, where a prime denotes a radial derivative with respect to $r$. The first condition yields
 \begin{equation}
 	\hat{L}_*(r) = \frac{-g_{t \phi} \pm \sqrt{g_{t \phi}^2 - g_{t t}g_{\phi \phi}}}{g_{t t}},
@@ -384,6 +415,7 @@ while the second gives an implicit formula for $r_*$:
 \begin{gather}
 	V'_{\rm eff}\big(r_*;\hat{L}_*(r_*)\big) = 0.
 \end{gather}
+% In general we solve numerically, but for Kerr we can get a solution. spin?
 % In the case of the Kerr metric single root $r_*$.
 
 Having found the equations of the light ring, now consider neighbouring geodesics. 
@@ -400,6 +432,7 @@ This gives
 \end{multline}
 which describes simple harmonic motion, $\ddot{\delta\theta}=-\tilde{\Omega}^2_\theta\delta\theta$, where the constant $\tilde{\Omega}_\theta$ is the frequency of the oscillations with respect to the parameter $\lambda$.
 The frequency of the oscillations with respect to coordinate time $t$ is given by
+% A step missing before this equation? At least explain what we do...
 \begin{align}
 	\Omega_\theta = \frac{\tilde{\Omega}_\theta}{\dot{t}} =\sqrt{-\frac{
 			\pdv[2]{g_{t t}}{\theta} +2\pdv[2]{g_{t \phi}}{\theta} \Omega_\phi + \pdv[2]{g_{\phi\phi}}{\theta} \Omega_\phi^2
@@ -499,11 +532,13 @@ The distance of the intersection along the Kerr branch gives the spin.
 The mass is found by, for example, dividing the value of $M_f f_{\ell m n}$ at the intersection by the measured frequency $f_*$.
 Since each measurement line intersects with multiple Kerr branches, they return multiple $(M_f, \chi_f)$ values. 
 However, assuming the BH is indeed described by the Kerr metric, then there will be a single $(M_f,\chi_f)$ combination consistent with all the measurements (indicated by the horizontal and vertical lines in the right panel).
-If no such combination exists, then what is observed is either not an isolated BH, or it is not described by Kerr.
+If no such combination exists, then what is observed is either not an isolated BH, or it is not described by Kerr. 
+% There is the possibility of not intersecting with any branches. Maybe just say "generically". 
 
 Outside of the testing-GR catalog papers mentioned previously~\cite{LIGOScientific:2020tif, LIGOScientific:2021sio}, other groups have attempted to identify additional QNMs in the ringdown data and perform tests of the no-hair theorem. 
 This includes claims of detection of the $(2,2,1)$ overtone in GW150914~\cite{Isi:2019aib} \comment{(see Chapter~\ref{Chapter4} for more details)}, and claims of detection of the $(3,3,0)$ higher harmonic in GW190521~\cite{Capano:2021etf}. 
 By allowing the QNM frequency of the secondary mode to deviate from the GR Kerr prediction, the above works found the measured spectrum to be in agreement with the no-hair hypothesis to within $\sim 20\%$ ($68\%$ credibility) and $\sim 1\%$ ($90\%$ credibility) respectively.
+% Chris suggests moving specific discussion of modes to chapter 4.
 
 \comment{
 The study of QNMs has applications in both astro and fundamental physics. 
