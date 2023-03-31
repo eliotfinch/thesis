@@ -123,7 +123,7 @@ The Hanford PSD is estimated from $1024\,\mathrm{s}$ of off-source data at the t
 
 The endpoint of a BBH, the ringdown signal is produced by the remnant BH settling to its stationary state.
 Just as a bell or drum has a characteristic sound, so too does a BH; associated with the BH is a unique spectrum of oscillatory modes, determined purely by its properties (namely, for astrophysical BHs, a mass and spin).
-The characteristic oscillations of the remnant BH are called quasinormal modes (QNMs), so-called because, unlike normal modes, they decay over time (for reviews on the subject, see Refs.~\cite{Kokkotas:1999bd, Nollert:1999ji, Berti:2009kk}).
+The characteristic oscillations of the remnant BH are called quasinormal modes (QNMs), so-called because, unlike normal modes, they decay over time (for reviews on the subject, see Refs.~\cite{Kokkotas:1999bd, Nollert:1999ji, Ferrari:2007dd, Berti:2009kk}).
 The QNM frequencies are complex, $\omega = 2\pi f - i/\tau$, with the real part $f$ giving the oscillation frequency and the reciprocal of the imaginary part $\tau$ giving the damping time. 
 The QNM spectrum is the subject of Section~\ref{ch1:sec:qnms}.
 The ringdown signal consists of a sum of QNMs, each excited a different amount depending on the initial configuration of the binary and how they merged; the excitation of different ringdown modes is among the areas of investigation in Chapter~\ref{Chapter2}.
@@ -304,11 +304,17 @@ The implication is that we should look for plane wave solutions that are ingoing
 \end{alignat}
 This follows from the consideration that the field should radiate only inward at the horizon and only outward at spatial infinity.
 
-We now have a well-posed problem, and now all that is left is the computation of the QNMs. 
-Several methods have been employed to calculate QNMs, including shooting methods \cite{Chandrasekhar:1975zza}, WKB methods \cite{Schutz:1985km}, and continued fractions \cite{Leaver:1985ax}.
-The latter is known to be highly accurate, and is the method of choice in modern codes such as the \texttt{qnm} Python package \cite{Stein:2019mop} (which is used throughout this thesis).
-\comment{See paper which summarises QNM computations?}
-% https://arxiv.org/pdf/1007.5097.pdf
+This gives us a well-posed problem, and now all that is left is the computation of the QNMs. 
+A variety of methods have been used over the years~\cite{Kokkotas:1999bd, Berti:2004md}, with the first attempts consisting of the aforementioned time-domain evolutions of the Regge-Wheeler and Zerilli equations by Vishveshwara~\cite{Vishveshwara:1970zz} and Press~\cite{Press:1971wr}. 
+In principle the QNM frequencies can be extracted from the resulting waveform, but this approach does not return the complete spectrum (in practice only a subset of modes can be extracted).
+Chandrasekhar and Detweiler~\cite{Chandrasekhar:1975zza} employed a shooting method to directly integrate the wave equation in the frequency domain; this involves picking a value for the QNM frequency, integrating, and checking whether the boundary conditions are satisfied. 
+This is an inefficient way of identifying QNMs, and this approach is also prone to numerical noise.
+Analytical methods were developed by Blome, Mashhoon and Ferrari~\cite{BLOME1984231, Ferrari:1984ozr, Ferrari:1984zz}, which consider the bound states of the inverted BH potential. 
+Although not in general accurate, this approach offers physical insight which we touch upon in the next subsection.
+Motivated by the analogy between Eq.~\ref{eq:wave_equation} and the Schr\"{o}dinger equation, Schutz and Will~\cite{Schutz:1985km} employed WKB methods to calculate a handful of fundamental mode QNM frequencies.
+This approach has since been improved upon~\cite{Iyer:1986np, Iyer:1986nq, Kokkotas:1988fm, Seidel:1989bp, Kokkotas:1991vz, Konoplya:2003ii}, and can give very accurate results for certain modes (but, again, breaks down in some limits). 
+continued fractions \cite{Leaver:1985ax}.
+The latter is known to be highly accurate, and is the method of choice in modern codes such as the \texttt{qnm} Python package~\cite{Stein:2019mop} (which is used throughout this thesis).
 
 In summary, when enforcing the above boundary conditions, only discrete values of $\omega$ satisfy Eq.~\ref{eq:fd_wave_equation}; these are the QNMs.
 In the case of a Kerr BH, we denote the QNMs $\omega_{\ell m n}$.
@@ -320,7 +326,7 @@ We instead consider a simple calculation of QNMs using the geodesic corresponden
 \subsection{Quasinormal modes from the geodesic correspondence}
 
 First pointed out by Goebel~\cite{1972ApJ...172L..95G}, there exists a relation between BH QNMs and null geodesics around the BH spacetime.
-Having since been developed further~\cite{Ferrari:1984zz, Mashhoon:1985cya, Cardoso:2008bp, Yang:2012he}, this approach provides a physical insight to QNMs; that is, QNMs can be interpreted as GWs slowly leaking out of a light-ring orbit around the BH. 
+Having since been developed further~\cite{BLOME1984231, Ferrari:1984ozr, Ferrari:1984zz, Cardoso:2008bp, Yang:2012he}, this approach provides a physical insight to QNMs; that is, QNMs can be interpreted as GWs slowly leaking out of a light-ring orbit around the BH. 
 Although only valid for $\ell \gg 1$ (known as the eikonal, or geometrical optics, limit), this correspondence greatly simplifies the calculations of QNMs since it only depends on the background metric.
 Consequently, it offers a way to compute QNMs in beyond GR theories (for example, as was done in Ref.~\cite{Blazquez-Salcedo:2016enn}), or for computing the QNM spectrum for charged (Kerr-Newman~\cite{Newman:1965my}) BHs~\cite{Cardoso:2016olt, Wang:2021uuh} (but, see also Ref.~\cite{Carullo:2021oxn} where a more sophisticated analysis was done).
 % We have a reflective symmetry above and below equator. This allows the theta dot = 0 solution? 
@@ -455,6 +461,7 @@ Looking for periodic solutions, the frequency of the radial oscillaitons (with r
 	\Omega_{r} = \sqrt{-\frac{V''_{\rm eff}(r_*)}{2\dot{t}^2}}.
 \end{align}
 In the case of the Kerr metric the light ring orbit has $\Omega_r^2<0$ and is unstable in the radial direction; therefore $\gamma_L = (-\Omega_r^2)^{-1/2}$ is the instability (Lyapunov) timescale.
+% Lyapunov exponent of the orbit, the latter of which characterizes how quickly a congruence of null geodesics on the circular photon orbit increases its cross section under infinitesimal radial perturbations
 
 \section{Black-hole spectroscopy}
 \label{ch1:sec:bh_spectroscopy}
