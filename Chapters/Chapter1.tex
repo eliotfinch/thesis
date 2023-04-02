@@ -305,16 +305,18 @@ The implication is that we should look for plane wave solutions that are ingoing
 This follows from the consideration that the field should radiate only inward at the horizon and only outward at spatial infinity.
 
 This gives us a well-posed problem, and now all that is left is the computation of the QNMs. 
-A variety of methods have been used over the years~\cite{Kokkotas:1999bd, Berti:2004md}, with the first attempts consisting of the aforementioned time-domain evolutions of the Regge-Wheeler and Zerilli equations by Vishveshwara~\cite{Vishveshwara:1970zz} and Press~\cite{Press:1971wr}. 
+A variety of methods have been used~\cite{Kokkotas:1999bd, Berti:2004md}, with the first attempts consisting of the aforementioned time-domain evolutions of the Regge-Wheeler and Zerilli equations by Vishveshwara~\cite{Vishveshwara:1970zz} and Press~\cite{Press:1971wr}. 
 In principle the QNM frequencies can be extracted from the resulting waveform, but this approach does not return the complete spectrum (in practice only a subset of modes can be extracted).
 Chandrasekhar and Detweiler~\cite{Chandrasekhar:1975zza} employed a shooting method to directly integrate the wave equation in the frequency domain; this involves picking a value for the QNM frequency, integrating, and checking whether the boundary conditions are satisfied. 
 This is an inefficient way of identifying QNMs, and this approach is also prone to numerical noise.
 Analytical methods were developed by Blome, Mashhoon and Ferrari~\cite{BLOME1984231, Ferrari:1984ozr, Ferrari:1984zz}, which consider the bound states of the inverted BH potential. 
 Although not in general accurate, this approach offers physical insight which we touch upon in the next subsection.
 Motivated by the analogy between Eq.~\ref{eq:wave_equation} and the Schr\"{o}dinger equation, Schutz and Will~\cite{Schutz:1985km} employed WKB methods to calculate a handful of fundamental mode QNM frequencies.
-This approach has since been improved upon~\cite{Iyer:1986np, Iyer:1986nq, Kokkotas:1988fm, Seidel:1989bp, Kokkotas:1991vz, Konoplya:2003ii}, and can give very accurate results for certain modes (but, again, breaks down in some limits). 
-continued fractions \cite{Leaver:1985ax}.
-The latter is known to be highly accurate, and is the method of choice in modern codes such as the \texttt{qnm} Python package~\cite{Stein:2019mop} (which is used throughout this thesis).
+This approach has since been improved upon~\cite{Iyer:1986np, Matyjasek:2017psv, Konoplya:2019hlu}, 
+% Iyer:1986nq, Kokkotas:1988fm, Seidel:1989bp, Kokkotas:1991vz, Konoplya:2003ii, 
+and can give very accurate results for certain modes (but, again, breaks down in some limits). 
+Finally, a numerical method utilising continued fractions (proposed by Leaver~\cite{Leaver:1985ax}, and later improved upon by Nollert~\cite{Nollert:1993zz}) is known to be highly accurate and fast.
+It is the method of choice in modern codes such as the \texttt{qnm} Python package~\cite{Stein:2019mop} (which is used in work throughout this thesis).
 
 In summary, when enforcing the above boundary conditions, only discrete values of $\omega$ satisfy Eq.~\ref{eq:fd_wave_equation}; these are the QNMs.
 In the case of a Kerr BH, we denote the QNMs $\omega_{\ell m n}$.
@@ -332,9 +334,8 @@ Consequently, it offers a way to compute QNMs in beyond GR theories (for example
 % We have a reflective symmetry above and below equator. This allows the theta dot = 0 solution? 
 
 The key result is that the QNM frequencies for a Kerr BH in the eikonal limit can be written as
-% Maybe write the f and tau expression again here
 \begin{equation}
-    \omega_{\ell m n} = \qty(\ell + \frac{1}{2}) \Omega_\theta + m \Omega_\mathrm{pre} - i \qty(n + \frac{1}{2}) \gamma_L.
+    \omega_{\ell m n} = 2\pi f_{\ell m n} - \frac{i}{\tau_{\ell m n}} = \qty(\ell + \frac{1}{2}) \Omega_\theta + m \Omega_\mathrm{pre} - i \qty(n + \frac{1}{2}) \gamma_L.
 \end{equation}
 Here, $\Omega_\theta$ is the frequency of small geodesic oscillations in the polar direction. 
 % This is a perturbation to one specific geodesic... make that clearer?
