@@ -289,7 +289,9 @@ However, it has been shown that the QNM spectrum resulting from the Regge-Wheele
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.8\columnwidth]{Figures/Introduction/rw_potential.pdf}
-    \caption[The Regge-Wheeler potential]{The Regge-Wheeler potential as a function of the tortoise coordinate $r_*$ (with the BH horizon at $r_* = -\infty$), for scalar and gravitational perturbations and for a selection of $\ell$. In this subsection $M$ refers to the mass of the Schwarzschild BH, and not the total binary mass.}
+    \caption[The Regge-Wheeler potential]{
+    The Regge-Wheeler potential as a function of the tortoise coordinate $r_*$ (with the BH horizon at $r_* = -\infty$), for scalar and gravitational perturbations and for a selection of $\ell$. In this subsection $M$ refers to the mass of the Schwarzschild BH, and not the total binary mass.
+    }
     \label{fig:rw_potential}
 \end{figure}
 
@@ -321,7 +323,7 @@ It is the method of choice in modern codes such as the \texttt{qnm} Python packa
 In summary, when enforcing the above boundary conditions, only discrete values of $\omega$ satisfy Eq.~\ref{eq:fd_wave_equation}; these are the QNMs.
 In the case of a Kerr BH, we denote the QNMs $\omega_{\ell m n}$.
 They are indexed by three numbers: the usual angular indices $\ell$ and $m$, and an additional ``overtone'' index $n$.
-We present the solutions in Section~\ref{ch1:sec:bh_spectroscopy} and in Fig.~\ref{fig:ch1:qnm_taxonomy}.
+We present the solutions in Section~\ref{ch1:sec:bh_spectroscopy} and in Fig.~\ref{ch1:fig:qnm_taxonomy}.
 The full computation of the spectrum is beyond the scope of this work.
 We instead consider a simple calculation of QNMs using the geodesic correspondence in order to build some physical intuition.
 
@@ -333,7 +335,7 @@ Although only valid for $\ell \gg 1$ (known as the eikonal, or geometrical optic
 Consequently, it offers a way to compute QNMs in beyond GR theories (for example, as was done in Ref.~\cite{Blazquez-Salcedo:2016enn}), or for computing the QNM spectrum for charged (Kerr-Newman~\cite{Newman:1965my}) BHs~\cite{Cardoso:2016olt, Wang:2021uuh} which can be challenginf with the previously discussed methods (but, see also Ref.~\cite{Carullo:2021oxn} where a more sophisticated analysis was done).
 
 The key result is that the QNM frequencies for a Kerr BH in the eikonal limit can be written as
-\begin{equation}
+\begin{equation}\label{ch1:eq:eikonalomega}
     \omega_{\ell m n} = 2\pi f_{\ell m n} - \frac{i}{\tau_{\ell m n}} = \qty(\ell + \frac{1}{2}) \Omega_\theta + m \Omega_\mathrm{pre} - i \qty(n + \frac{1}{2}) \gamma_L.
 \end{equation}
 Here, $\Omega_\theta$ is the frequency of small oscillations in the polar direction of a perturbed geodesic. 
@@ -434,41 +436,66 @@ We consider small perturbations in the $\theta$ direction about the light ring.
 That is, we set $r = r_*$ and $\theta = \pi/2+\delta\theta$.
 Discarding terms $\mathcal{O}(\delta\theta^2)$ (and with $\dot{t}$ and $\dot{\phi}$ given by Eqs.~\ref{eq:tdot_L} and \ref{eq:phidot_L} respectively) we obtain
 \begin{multline}\label{eq:el_theta_expanded}
-	g_{\theta \theta}(r_*,\pi/2) \ddot{\delta \theta} \\
- = \frac{1}{2} \bigg(\pdv[2]{g_{t t}(r_*,\pi/2)}{\theta} \dot{t}^2 + \pdv[2]{g_{\phi\phi}(r_*,\pi/2)}{\theta} \dot{\phi}^2 + 2\pdv[2]{g_{t \phi}(r_*,\pi/2)}{\theta} \dot{t}\dot{\phi}\bigg)\delta \theta.
+	g_{\theta \theta}(r_*,\pi/2) \delta\ddot{\theta} \\
+ = \frac{1}{2} \bigg(\pdv[2]{g_{t t}(r_*,\pi/2)}{\theta} \dot{t}^2 + \pdv[2]{g_{\phi\phi}(r_*,\pi/2)}{\theta} \dot{\phi}^2 + 2\pdv[2]{g_{t \phi}(r_*,\pi/2)}{\theta} \dot{t}\dot{\phi}\bigg)\delta\theta.
 \end{multline}
-which describes simple harmonic motion, $\ddot{\delta\theta}=-\tilde{\Omega}^2_\theta\delta\theta$, where the constant $\tilde{\Omega}_\theta$ is the frequency of the oscillations with respect to the parameter $\lambda$.
+which describes simple harmonic motion, $\delta\ddot{\theta} = -\tilde{\Omega}^2_\theta \delta\theta$, where the constant $\tilde{\Omega}_\theta$ is the frequency of the oscillations with respect to the parameter $\lambda$.
 The frequency of the oscillations with respect to coordinate time $t$ is given by
 \begin{align}
-    \Omega_\theta = \frac{\tilde{\Omega}_\theta}{\dot{t}} &= \frac{1}{\dot{t}} \sqrt{-\frac{\pdv[2]{g_{t t}}{\theta}\dot{t}^2 + 2\pdv[2]{g_{t \phi}}{\theta} \dot{t} \dot{\phi} + \pdv[2]{g_{\phi\phi}}{\theta} \Omega_\phi^2}{2g_{\theta \theta}}} \nonumber \\
-    &= \sqrt{-\frac{\pdv[2]{g_{t t}}{\theta} +2\pdv[2]{g_{t \phi}}{\theta} \Omega_\phi + \pdv[2]{g_{\phi\phi}}{\theta} \Omega_\phi^2}{2g_{\theta \theta}}}
+    \Omega_\theta = \frac{\tilde{\Omega}_\theta}{\dot{t}} &= \frac{1}{\dot{t}} \sqrt{-\frac{1}{2g_{\theta\theta}}\qty(\pdv[2]{g_{tt}}{\theta}\dot{t}^2 + 2\pdv[2]{g_{t\phi}}{\theta}\dot{t}\dot{\phi} + \pdv[2]{g_{\phi\phi}}{\theta}\dot{\phi}^2)} \nonumber \\
+    &= \sqrt{-\frac{1}{2g_{\theta\theta}}\qty(\pdv[2]{g_{tt}}{\theta} + 2\pdv[2]{g_{t\phi}}{\theta}\Omega_\phi + \pdv[2]{g_{\phi\phi}}{\theta}\Omega_\phi^2)},
 \end{align}
 where all quantities on the right hand side are to be evaluated at the light ring. 
-In the case of the Kerr metric $\Omega_\theta^2>0$ and the light ring is stable in the polar direction.
+In the case of the Kerr metric $\Omega_\theta^2 > 0$ and the light ring is stable in the polar direction.
 
-Now consider motion in the radial direction ($\dot{r}\neq 0$).
+Now consider motion in the radial direction ($\dot{r} \neq 0$).
 Differentiating Eq.~\ref{eq:rdot} with respect to $\lambda$ gives
-\begin{align}
-	\ddot{r} = \frac{1}{2}V'_{\rm eff}(r).
-\end{align}
-Consider small perturbations $r = r_*+\delta r(\lambda)$ with $\theta = \pi/2$ and discarding $\mathcal{O}(\delta r^2)$ terms gives
-\begin{align}
-	\ddot{\delta r} = \frac{1}{2}V''_{\rm eff}(r_*)\delta r.
-\end{align}
-Looking for periodic solutions, the frequency of the radial oscillaitons (with respect to coordinate time) is given by
+\begin{equation}
+	\ddot{r} = \frac{1}{2} \frac{\dot{V}_\mathrm{eff}(r)}{\dot{r}} = \frac{1}{2}V'_\mathrm{eff}(r).
+\end{equation}
+Consider small perturbations $r = r_* + \delta r$ with $\theta = \pi/2$ and discarding $\mathcal{O}(\delta r^2)$ terms gives
+\begin{equation}
+	\delta \ddot{r} = \frac{1}{2}V''_{\rm eff}(r_*)\delta r.
+\end{equation}
+Looking for periodic solutions, the frequency of the radial oscillations (with respect to coordinate time) is given by
 \begin{align}
 	\Omega_{r} = \sqrt{-\frac{V''_{\rm eff}(r_*)}{2\dot{t}^2}}.
 \end{align}
-In the case of the Kerr metric the light ring orbit has $\Omega_r^2<0$ and is unstable in the radial direction; therefore $\gamma_L = (-\Omega_r^2)^{-1/2}$ is the instability (Lyapunov) timescale.
-% Lyapunov exponent of the orbit, the latter of which characterizes how quickly a congruence of null geodesics on the circular photon orbit increases its cross section under infinitesimal radial perturbations
+In the case of the Kerr metric the light ring orbit has $\Omega_r^2 < 0$ and is unstable in the radial direction; we can define the Lyapunov exponent as
+\begin{equation}
+    \gamma_L = -i\Omega_r = \sqrt{\frac{V''_\mathrm{eff}(r_*)}{2\dot{t}}}
+\end{equation}
+and the corresponding decay timescale from Eq.~\ref{ch1:eq:eikonalomega} is
+\begin{equation}
+    \tau_{\ell m n} = \qty(n + \frac{1}{2})^{-1} \sqrt{\frac{2\dot{t}^2}{V''_\mathrm{eff}(r_*)}}.
+\end{equation}
+We conclude this section with a discussion of some the problems associated with QNMs.
+In the next section we will discuss the full (and accurately computed) QNM spectrum further, and the tests of GR that can be done with the observation of QNMs.
+
+\subsection{Limitations of quasinormal modes}
+\label{ch1:sec:limitations}
+
+\comment{It is well known that (even at the level of linearized perturbation theory) the late-time decay of BH fluctuations is not exponential but polynomial~\cite{Price:1971fb}.}
+
+\comment{Thrane et al., claimed that spectroscopy will not possible even in the infinite SNR limit~\cite{Thrane:2017lqn})}
+
+Unfortunately, QNMs are difficult to work with both from a data analysis and a theoretical perspective. 
+The start time is uncertain; even with clean, noise-free numerical simulations an unambiguous determination of the ringdown start time, $t_0$, is impossible (see, for example, Ref.~\cite{Thrane:2017lqn}). 
+The start of the ringdown is also abrupt in the time domain, which makes it non-local in the frequency domain and is the source of spectral leakage problems. 
+Theoretically, the QNM content is uncertain; a priori it is not known which modes should be included in the analysis.
+The mode excitations depend on the initial conditions of the system in a non-trivial way, and which QNMs are detectable is also a function of the chosen ringdown start time and the SNR.
+Also, QNMs do not form a complete basis~\cite{Berti:2009kk}; the late-time signal contains additional components that decay more slowly, known as tails.
+Finally, it is also known that very similar compact objects can nevertheless have completely different QNM spectra~\cite{Nollert:1996rf}.
+
+Validation study~\cite{Baibhav:2017jhs}.
 
 \section{Black-hole spectroscopy}
 \label{ch1:sec:bh_spectroscopy}
 
-The full Kerr QNM spectrum is nowadays readily available, with modern codes (such as the \texttt{qnm} package~\cite{Stein:2019mop}) making use of a version of Leaver's method~\cite{Leaver:1985ax} to compute them.
-We show the $\ell = 2$, $n = 0$; $\ell = 3$, $n = 0$; and $\ell = 2$, $n = 1$ branches of the Kerr spectrum in Fig.~\ref{fig:ch1:qnm_taxonomy} (of course, the full spectrum would extend to infinity in both $\ell$ and $n$, but the branches shown here include the QNMs of most interest at current detector sensitivities).  
+The full Kerr QNM spectrum is nowadays readily available, with modern codes (such as the \texttt{qnm} package~\cite{Stein:2019mop}) making use of a version of Leaver's method~\cite{Leaver:1985ax} to compute them accurately and quickly.
+We show the $\ell = 2$, $n = 0$; $\ell = 3$, $n = 0$; and $\ell = 2$, $n = 1$ branches of the Kerr spectrum in Fig.~\ref{ch1:fig:qnm_taxonomy} (of course, the full spectrum would extend to infinity in both $\ell$ and $n$, but the branches shown here include the QNMs expected to be of most interest at current detector sensitivities).  
 
-There are different conventions used in the literature to label the modes; we aim to clarify these with Fig.~\ref{fig:ch1:qnm_taxonomy}.
+There are different conventions used in the literature to label the modes; we aim to clarify these with Fig.~\ref{ch1:fig:qnm_taxonomy}.
 Firstly, we see the QNMs appear to come in pairs: those with positive real part, and those with negative real part.
 These are the ``regular'' and ``mirror'' (sometimes called ``twin'' or ``conjugate'') QNMs respectively.
 Denoting the mirror QNM frequency with a prime, we can relate $\omega'_{\ell m n}$ to the regular QNMs as follows~\cite{Berti:2005ys}:
@@ -479,16 +506,16 @@ Denoting the mirror QNM frequency with a prime, we can relate $\omega'_{\ell m n
     \quad\Rightarrow\quad \omega'_{\ell m n} = - \omega_{\ell -mn}^*.
     \label{ch1:eq:mirror}
 \end{equation}
-So, for example, when we refer to the ``$(2,-2,0)$ mirror mode'', we are referring to the mode which has a real (imaginary) part negative (the same as) the regular $(2,2,0)$ mode.
+So, for example, when we refer to the ``$(2,-2,0)$ mirror mode'', we are referring to the mode that is the ``mirror image'' of the regular $(2,2,0)$ mode in Fig.~\ref{ch1:fig:qnm_taxonomy}.
 This way of referring to the modes allows us to unambiguously refer to every mode in the spectrum, including the $m=0$ modes, and will be the preferred method in this work.
 
 \begin{figure}[t]
-	\centering
-	\includegraphics[width=\columnwidth]{Introduction/qnm_taxonomy.pdf}
-	\caption[The Kerr quasinormal mode spectrum]{ 
-		Selected modes of the Kerr QNM spectrum. BH QNMs frequencies are conventionally represented as complex numbers, with the real part giving the  angular frequency of the mode and the imaginary part giving (minus) the inverse of the damping time: $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$. Here we plot $f_{\ell m n}$ and $1/\tau_{\ell m n}$, each scaled by the remnant BH mass $M_f$ to make a dimensionless quantity. The spectrum of a Kerr BH also depends on the dimensionless BH spin magnitude, $\chi_f$; as the spin is increased from zero, branches with different $m$ appear and spread out from the points of the Schwarzschild spectrum.
-        }
-	\label{fig:ch1:qnm_taxonomy}
+    \centering
+    \includegraphics[width=\columnwidth]{Introduction/qnm_taxonomy.pdf}
+    \caption[The Kerr quasinormal mode spectrum]{ 
+    Selected modes of the Kerr QNM spectrum. BH QNM frequencies are conventionally represented as complex numbers, with the real part giving the  angular frequency of the mode and the imaginary part giving (minus) the inverse of the damping time: $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$. Here we plot $f_{\ell m n}$ and $1/\tau_{\ell m n}$, each scaled by the remnant BH mass $M_f$ to make a dimensionless quantity. The spectrum of a Kerr BH also depends on the dimensionless BH spin magnitude, $\chi_f$; as the spin is increased from zero, branches with different $m$ branch out from the points of the Schwarzschild spectrum.
+    }
+    \label{ch1:fig:qnm_taxonomy}
 \end{figure}
 
 We can, alternatively, split the spectrum into ``prograde'' and ``retrograde'' modes. 
@@ -496,34 +523,60 @@ This description has the advantage of having a clear physical interpretation; pr
 This can also be expressed as prograde modes satisfying $\mathrm{sgn}\qty(\Re[\omega_{\ell m n}]) = \mathrm{sgn}\qty(m)$, and retrograde modes satisfying $\mathrm{sgn}\qty(\Re[\omega_{\ell m n}]) = -\mathrm{sgn}\qty(m)$.
 For binaries where the individual BHs have low spin (or aligned spins that rotate in the same sense as the orbit) it is also expected that the retrograde modes will be suppressed compared to the prograde modes, which is simply a result of the geometry of merger (this has also been shown by studies of numerical simulations, for example in Refs.~\cite{Berti:2005ys, London:2014cma, JimenezForteza:2020cve}).
 This assumption is less clear for precessing systems, and is investigated in Chapter~\ref{Chapter2}.
+Note that this way of classifying the modes breaks down for $m=0$, leading to some ambiguity. 
+This isn't a problem in current data analysis, which focuses on prograde $\ell = \abs{m}$ modes, but since we also perform fits to numerical simulations in this thesis we opt to use the regular-mirror classification.
+
 In terms of spherical harmonics it is known the $\ell=|m|=2$ family of modes dominate the GW strain, and so we expect the same in the ringdown.
 Since the overtones decay more quickly (i.e.\ $\tau$ decreases) with increasing $n$, at late times the signal will be dominated by the fundamental $n=0$ modes. 
 Therefore, the most prominent QNM in the ringdown is expected to be the $(2,\pm 2,0)$ prograde mode; the observational challenge is usually to detect the presence of other, subdominant modes.
 
-As previously mentioned, the remnant Kerr BH is fully described by only a final mass and a dimensionless final spin.
+As previously mentioned, the remnant Kerr BH is fully described by only a final mass and a dimensionless final spin~\cite{Carter:1971zc}.
 We now denote these quantities $M_f$ and $\chi_f = \abs{\vb*{\chi}_f}$, where the $f$ denotes ``final'' to avoid confusion with the binary properties.
 Consequently, the Kerr QNM spectrum is also a function of only the remnant mass and spin.
-In Fig.~\ref{fig:ch1:qnm_taxonomy} we can see the mass enters as a scaling on the axes, and the spin gives the position along each branch (we show select spin values along the $(2,-2,1)$ mirror mode branch).
+In Fig.~\ref{ch1:fig:qnm_taxonomy} we can see the mass enters as a scaling on the axes, and the spin gives the position along each branch (we show select spin values along the $(2,-2,1)$ mirror-mode branch).
 The Schwarzschild spectrum, which depends only on the BH mass and has no $m$ dependence, can be recovered by taking the branch point of each $(\ell, n)$ group.
-% No-hair... allows us to do tests, in analogy with atomic spectroscopy...
-% possible no-hair cite: https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.26.331
-% p60 of https://arxiv.org/pdf/0905.2975.pdf
-% p151 of https://arxiv.org/pdf/1501.07274.pdf
-% opening of https://arxiv.org/pdf/1905.00869.pdf
 
  \begin{figure}[t]
     \centering
     \includegraphics[width=\columnwidth]{Figures/Introduction/bh_spectroscopy.pdf}
-    \caption[Black-hole spectroscopy illustration]{Black-hole spectroscopy: a frequency -- damping-time measurement corresponds to a straight line in the left panel. Three such measurements are shown, and their intersections with the Kerr spectrum are indicated. Each measurement is associated with a particular marker shape, and each Kerr branch is associated with a particular marker colour. Each intersection can be converted to a remnant BH mass and spin, shown on the right panel. Only one mass and spin is consistent with all three measurements; these are the true BH properties.
+    \caption[Black-hole spectroscopy illustration]{
+    Black-hole spectroscopy (inspired by a similar figure in Ref.~\cite{Dreyer:2003bv}): a frequency -- damping-time measurement corresponds to a straight line in the left panel. Three such measurements are shown, and their intersections with the Kerr spectrum are indicated. Each measurement is associated with a particular marker shape, and each Kerr branch is associated with a particular marker colour. Each intersection can be converted to a remnant BH mass and spin, shown on the right panel. Only one mass and spin is consistent with all three measurements; these are the true BH properties.
     }
     \label{ch1:fig:bh_spectroscopy}
 \end{figure}
 
 This property of Kerr BHs (that they are described by only two parameters in GR) is known as the no-hair theorem, and provides various opportunities for testing GR.
+For example, consistency tests can be performed between the inspiral and ringdown~\cite{Hughes:2004vw, Nakano:2015uja, Ghosh:2016qgn, Ghosh:2017gfp}.
+% https://arxiv.org/pdf/1905.13155.pdf and https://arxiv.org/pdf/1911.05258.pdf ?
+Getting remnant properties from inspiral~\cite{Varma:2018aht}.
+
+% The key idea is to infer the mass and spin of the remnant black hole, using two different parts of the observed signal, and then to compare these independent estimates. 
+% We first estimate the initial masses and spins from the inspiral (low frequency) part of the signal, which allows us to infer the mass and spin of the final black hole making use of fitting formulas calibrated to numerical relativity (NR) simulations of binary black holes. 
+% Next, we estimate the same parameters independently from the merger–ringdown (high frequency) part of the signal and then compare the two estimates. 
+% If the signal is correctly described by the merger of a (quasicircular) binary of Kerr black holes in GR, which is implicit in the waveform models that we use to estimate the parameters and the fits that went in, one should expect the two estimates to be consistent with each other. 
+% On the other hand, if there is a departure from GR, depending on the exact nature of the departure, it can manifest as a discrepancy between the two estimates. 
+% In particular, if the energy and angular momentum radiated during the merger regime (where the gravity is extremely strong and nonlinear) differ significantly from the GR predictions for these quantities, one could expect a discrepancy between the two estimates in the final mass and spin.
+
+For example, a test of the BH area theorem can be performed in this way~\cite{Hawking:1971tu, Cabero:2017avf, Isi:2020tac}.
+
+% For high-mass systems, where only the ringdown signal is observable, this may be the only information available about the nature of the source \cite{Berti:2005ys, Baibhav:2020tma}. 
+
 Most fundamentally, we can test the no-hair theorem directly; by measuring the QNM frequencies in a ringdown signal we can perform BH spectroscopy.
-Fig.~\ref{ch1:fig:bh_spectroscopy} demonstrates the idea behind BH spectroscopy~\cite{Dreyer:2003bv}.
-On the left panel we show four branches of the Kerr spectrum of Fig.~\ref{fig:ch1:qnm_taxonomy}; the (2,2,0), (2,2,1), (3,3,0) and (3,3,1) modes.
-The (2,2,1) and (3,3,0) modes are promising targets for a QNM measurement beyond the fundamental mode, and currently they are the only modes for which there is possible evidence in GW observations~\cite{Isi:2019aib, Capano:2021etf} (these claims are, however, disputed).
+% FINISH
+Studies estimating the precision with which the mass and spin can be measured:
+Echeverria~\cite{Echeverria:1989hg}.
+Improved upon by Finn~\cite{Finn:1992wt}.
+Dreyer et al.\ considered multiple modes~\cite{Dreyer:2003bv}.
+Berti et al.~\cite{Berti:2005ys, Berti:2007zu} significantly developed the multimode formalism (showing that ringdown based tests of the no-hair theorem are possible). 
+Kamaretsos et al.~\cite{Kamaretsos:2011um} formulated the no-hair test in a slightly different way, proposing that any three of the measured frequencies and damping times could be used for consistency checks. 
+The feasibility of this method was explored in Ref.~\cite{Gossan:2011ha}.
+Meidam et al.~\cite{Meidam:2014jpa} considered combining constraints from individual events (such as in Gossan et al.) to place tighter constraints. 
+Prospects of BH spectroscopy with Earth- and space-based GW detectors (and population synthesis)~\cite{Berti:2016lat}
+Study on the detectability of multiple QNMs~\cite{Baibhav:2018rfk}.
+
+Fig.~\ref{ch1:fig:bh_spectroscopy} (inspired by a similar figure in Ref.~\cite{Dreyer:2003bv}) demonstrates the idea behind BH spectroscopy.
+On the left panel we show four branches of the Kerr spectrum; the $(2,2,0)$, $(2,2,1)$, $(3,3,0)$ and $(3,3,1)$ modes.
+The $(2,2,1)$ and $(3,3,0)$ modes are promising targets for a QNM measurement beyond the fundamental mode, and currently they are the only modes for which there is possible evidence in GW observations~\cite{Isi:2019aib, Capano:2021etf} (these claims are, however, disputed; see Chapter~\ref{Chapter4} for further discussion).
 In BH spectroscopy, we imagine directly measuring a frequency and damping time in the GW data; say, $f_*$ and $\tau_*$.
 In the $M_f f_{\ell m n}$ -- $M_f/\tau_{\ell m n}$ space, this measurement corresponds to a straight line intersecting with the origin; this simply comes from the fact that our scale is not fixed, since we express everything in terms of $M_f$. 
 Fixing the value of $M_f$ would collapse the line to a single point, $(f_*,\tau_*)$.
@@ -536,24 +589,24 @@ We show three such measurements, and mark where they intersect the Kerr spectrum
 Each intersection corresponds to a particular remnant BH mass, $M_f$, and spin, $\chi_f$. 
 The distance of the intersection along the Kerr branch gives the spin.
 The mass is found by, for example, dividing the value of $M_f f_{\ell m n}$ at the intersection by the measured frequency $f_*$.
-Since each measurement line intersects with multiple Kerr branches, they return multiple $(M_f, \chi_f)$ values. 
+Since each measurement line will generically intersect with multiple Kerr branches, they return multiple $(M_f, \chi_f)$ values. 
 However, assuming the BH is indeed described by the Kerr metric, then there will be a single $(M_f,\chi_f)$ combination consistent with all the measurements (indicated by the horizontal and vertical lines in the right panel).
-If no such combination exists, then what is observed is either not an isolated BH, or it is not described by Kerr. 
-% There is the possibility of not intersecting with any branches. Maybe just say "generically". 
+If no such combination exists, then what is observed is either not an isolated BH, or it is not described by the Kerr metric in GR. 
 
-Outside of the testing-GR catalog papers mentioned previously~\cite{LIGOScientific:2020tif, LIGOScientific:2021sio}, other groups have attempted to identify additional QNMs in the ringdown data and perform tests of the no-hair theorem. 
-This includes claims of detection of the $(2,2,1)$ overtone in GW150914~\cite{Isi:2019aib} \comment{(see Chapter~\ref{Chapter4} for more details)}, and claims of detection of the $(3,3,0)$ higher harmonic in GW190521~\cite{Capano:2021etf}. 
-By allowing the QNM frequency of the secondary mode to deviate from the GR Kerr prediction, the above works found the measured spectrum to be in agreement with the no-hair hypothesis to within $\sim 20\%$ ($68\%$ credibility) and $\sim 1\%$ ($90\%$ credibility) respectively.
-% Chris suggests moving specific discussion of modes to chapter 4.
-
-\comment{
-The study of QNMs has applications in both astro and fundamental physics. 
-The highly constrained dependence of the QNM spectrum on only the remnant mass and spin means that, conversely, if a QNM frequency is measured, then the mass and spin of the final BH merger can be inferred. 
-For high-mass systems, where only the ringdown signal is observable, this may be the only information available about the nature of the source \cite{Berti:2005ys, Baibhav:2020tma}. 
-For lower-mass systems, measuring QNM frequencies allows us to estimate the remnant properties independently of the rest of the signal, and so consistency tests can be performed. 
-For example, a test of the BH area theorem can be performed in this way \cite{Hawking:1971tu, Cabero:2017avf, Isi:2020tac}. 
-A similar consistency test using full inspiral-merger-ringdown models and a sharp cut in the frequency (rather than time) domain was performed on GW150914 \cite{LIGOScientific:2016lio}. 
-Each additional QNM that can be detected in the ringdown provides a separate estimate of the mass and spin of the remnant. 
-Therefore, if multiple QNM frequencies can be identified, a ringdown-only consistency test on the expected Kerr-like nature of the remnant BH can be performed \cite{Dreyer:2003bv, Carullo:2019flw} (this is possible only if the $(\ell, m, n)$ of the modes are known). 
-In these tests, deviations from the expected results may point to new physics beyond GR. 
-}
+The above describes the key idea behind BH spectroscopy, but in practice the test is performed slightly differently.
+Firstly, in reality it may not be practical to measure multiple QNM frequencies directly due to parameter degeneracies that come with summing functionally equivalent QNMs.
+And secondly, it can be tricky to turn multiple frequency--damping-time measurements into a quantitative statement regarding compatibility with the GR Kerr spectrum.
+With the expectation that what we measure will not be greatly different from the GR Kerr prediction, we can target the loudest QNMs in the data and parameterise all the QNM frequencies with a single mass and spin (according to the Kerr spectrum).
+That is,
+\begin{equation}
+    \omega_{\ell m n} = \omega_{\ell m n}(M_f, \chi_f).
+\end{equation}
+This reduces the dimensions of the problem, and also directly measures the physically relevant properties of the remnant BH.
+To measure any disagreement with the Kerr prediction, we allow a subset of the QNMs in our model to deviate from Kerr in the following way:
+\begin{equation}
+    f = f_{\ell m n}(M_f, \chi_f) e^{\delta f_{\ell m n}} \qquad \tau = \tau_{\ell m n}(M_f, \chi_f) e^{\delta \tau_{\ell m n}}.
+\end{equation}
+We emphasise that not all the modes in the model should be allowed to vary, since then the analysis becomes equivalent to a direct search of frequencies and damping times.
+The new parameters, $\delta f_{\ell m n}$ and $\delta \tau_{\ell m n}$, will have measurements consistent with zero if the data is well described by Kerr.
+Additionally, the uncertainty on the measurements of the $\delta$ parameters give us a natural test confidence. 
+This method of testing the no-hair theorem is described further in Ref.~\cite{Isi:2021iql}, and is employed in Section~\ref{subsec:verify} for our analysis of GW150914.

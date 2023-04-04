@@ -7,18 +7,18 @@
 
 \section{Introduction}\label{ch4:sec:introduction}
 
-The gravitational-wave (GW) signals from binary coalescences provide a unique opportunity to study gravity in the strong-field and dynamical regimes.
-Of particular interest here is the signal from the final stages of a binary black-hole (BH) merger, known as the ringdown, which is associated with the remnant BH settling into its final state.
-The ringdown contains a superposition of exponentially damped oscillations, known as quasinormal modes (QNMs), with a discrete set of (complex) frequencies.
-Identifying these frequencies allows us to measure properties of the remnant and also provides a particularly clean way to test general relativity (GR) and the Kerr metric; this procedure is known as black hole spectroscopy \cite{Dreyer:2003bv}.
-QNMs have now been identified in a few tens of binary BH merger signals in the most recent GW catalogs~\cite{LIGOScientific:2020tif, LIGOScientific:2021sio}.
+% The gravitational-wave (GW) signals from binary coalescences provide a unique opportunity to study gravity in the strong-field and dynamical regimes.
+% Of particular interest here is the signal from the final stages of a binary black-hole (BH) merger, known as the ringdown, which is associated with the remnant BH settling into its final state.
+% The ringdown contains a superposition of exponentially damped oscillations, known as quasinormal modes (QNMs), with a discrete set of (complex) frequencies.
+% Identifying these frequencies allows us to measure properties of the remnant and also provides a particularly clean way to test general relativity (GR) and the Kerr metric; this procedure is known as black hole spectroscopy \cite{Dreyer:2003bv}.
+% QNMs have now been identified in a few tens of binary BH merger signals in the most recent GW catalogs~\cite{LIGOScientific:2020tif, LIGOScientific:2021sio}.
 
-However, the very first GW event, GW150914 \cite{LIGOScientific:2016aoc}, remains probably the best candidate for studying the ringdown.
+The very first GW event, GW150914 \cite{LIGOScientific:2016aoc}, remains probably the best candidate for studying the ringdown.
 This is a result of several factors, including its large signal-to-noise ratio (SNR) of $\rho\sim 24$ and its total mass of $M\sim 70\,M_\odot$ which places the merger and ringdown in the center of the LIGO \cite{LIGOScientific:2014pky} sensitive frequency band at $\sim 200\,\mathrm{Hz}$. 
 Additionally, GW150914 is by now the most well-studied GW event and therefore the signal and the properties of the noise in the surrounding data are extremely well understood.
 
 The first tests of GR performed using GW150914 included an investigation of the ringdown~\cite{LIGOScientific:2016lio}. 
-The ringdown signal, after a fixed starting time $t_0$, was modeled using a single damped sinusoid; the parameters of which were checked for consistency with the predicted least-damped QNM of the remnant BH.
+The ringdown signal, after a fixed starting time $t_0$, was modelled using a single damped sinusoid; the parameters of which were checked for consistency with the predicted least-damped QNM of the remnant BH.
 This first attempt at a ringdown analysis was performed using the standard Whittle frequency-domain log-likelihood~\cite{10.2307/2983994}, commonly used in GW data analysis.
 The ringdown was isolated by choosing a lower limit of $\sim 130\, \mathrm{Hz}$ in the frequency integral, effectively cutting the data mid-signal.
 This approach suffers from several shortcomings. 
@@ -30,8 +30,12 @@ Despite these drawbacks, this approach was successfully used in Ref.~\cite{LIGOS
 Since this initial attempt, several groups have developed new time-domain frameworks specifically for ringdown analyses \cite{Carullo:2019flw, Isi:2019aib, Capano:2021etf}.
 The principle motivation for working in the time domain is that it is easy to impose sharp cuts on the data at specific times (without any spectral leakage) and to analyze only data after a chosen start time (see Ref.~\cite{Isi:2021iql} for details of time-domain analysis methods).
 These approaches have also enabled going beyond the fundamental mode. 
-Generically, the ringdown can be modeled as a superposition of QNMs with complex frequencies $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$, labeled with angular indices $\ell\geq 2$, $\abs{m}\leq\ell$, and an overtone index $n \geq 0$ [the fundamental mode has $(\ell, \abs{m}, n) = (2, 2, 0)$].
+Generically, the ringdown can be modelled as a superposition of QNMs with complex frequencies $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$, labelled with angular indices $\ell\geq 2$, $\abs{m}\leq\ell$, and an overtone index $n \geq 0$ [the fundamental mode has $(\ell, \abs{m}, n) = (2, 2, 0)$].
 Detecting additional QNMs beyond the fundamental increases the scientific potential of ringdown studies, especially for fundamental tests of the Kerr metric, the no-hair theorems, and the BH area law \cite{Dreyer:2003bv, Berti:2005ys, Gossan:2011ha, Brito:2018rfr, Carullo:2019flw, Isi:2019aib, Isi:2020tac}.
+
+Outside of the testing-GR catalog papers mentioned previously~\cite{LIGOScientific:2020tif, LIGOScientific:2021sio}, other groups have attempted to identify additional QNMs in the ringdown data and perform tests of the no-hair theorem. 
+This includes claims of detection of the $(2,2,1)$ overtone in GW150914~\cite{Isi:2019aib} \comment{(see Chapter~\ref{Chapter4} for more details)}, and claims of detection of the $(3,3,0)$ higher harmonic in GW190521~\cite{Capano:2021etf}. 
+By allowing the QNM frequency of the secondary mode to deviate from the GR Kerr prediction, the above works found the measured spectrum to be in agreement with the no-hair hypothesis to within $\sim 20\%$ ($68\%$ credibility) and $\sim 1\%$ ($90\%$ credibility) respectively.
 
 An early application of the time-domain framework was in Ref.~\cite{Isi:2019aib}, where Isi et al. claimed a detection of the first overtone of the fundamental QNM in the GW150914 signal [that is, the $(2, 2, 1)$ mode]. 
 This was quickly followed by a separate detection claim of the $(3,3,0)$ harmonic mode in the signal of the $\sim 150M_\odot$ binary merger GW190521~\cite{LIGOScientific:2020iuh} by Capano et al.~\cite{Capano:2021etf} (this was done using an equivalent formulation of the time-domain method, although expressed in the frequency domain).
@@ -79,7 +83,7 @@ This section briefly describes the frequency-domain method for analyzing BH ring
 the wavelet-ringdown model is described in Sec.~\ref{sec:model}; the data, likelihood and priors are described in Sec.~\ref{sec:details}; and our approach for dealing with changes to the ringdown start time is described in Sec.~\ref{subsec:reweighting}.
 
 
-\subsection{Wavelet-Ringdown Model}\label{sec:model}
+\subsection{Wavelet-ringdown model}\label{sec:model}
 
 Our model consists of two parts: one for early times before $t_0$ which is referred to here as the \emph{inspiral-merger}, and another for the \emph{ringdown} after the start time $t_0$.
 
@@ -128,7 +132,7 @@ So, in particular, $t_0$ refers to the ringdown start time in Hanford.
 By definition, $h_+(t) = \Re\{ h(t) \}$, and $h_\times(t) = \Im \{ h(t) \}$.
 
 
-\subsection{Data and Priors}
+\subsection{Data and priors}
 \label{sec:details}
 
 We use the GW150914 strain data sampled at $4096\, \mathrm{Hz}$ for both the Hanford and Livingston interferometers, which was obtained from \cite{gwosc, LIGOScientific:2019lzm}.
@@ -476,7 +480,7 @@ This waveform reconstruction uses the posterior on all of the model parameters, 
 \end{figure*}
 
 
-\section{Discussion and Conclusions}\label{ch4:sec:discussion}
+\section{Discussion and conclusions}\label{ch4:sec:discussion}
 
 The main motivation for this work comes from the ongoing discussion in the literature about whether a ringdown overtone can be confidently detected in the GW150914 data. 
 In particular, the detection claim made in Ref.~\cite{Isi:2019aib} was disputed by Ref.~\cite{Cotesta:2022pci} where a nearly identical time-domain analysis was reperformed (see also the reply Ref.~\cite{Isi:2022mhy}).
@@ -515,7 +519,7 @@ That is, posteriors on the remnant properties with and without the overtone, pos
 All data products and plot scripts associated with this work are made publicly available at Ref.~\cite{finch_eliot_2022_6949492}.
 
 
-\section{Sampling Frequency and Integration Limits}\label{app:fhigh}
+\section{Sampling frequency and integration limits}\label{app:fhigh}
 
 Overtones ($n \geq 1$) have roughly the same real part of the frequency as the corresponding (i.e.\ with the same $\ell$ and $m$) fundamental model, but they have a shorter damping time. 
 See, for example, Fig.~\ref{fig:other_QNMs}. 

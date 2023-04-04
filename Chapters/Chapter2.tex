@@ -9,7 +9,7 @@
 In 2019 Giesler et al.~\cite{Giesler:2019uxc} demonstrated that using QNMs with $n > 0$ (that is, ringdown ``overtones'') could push the validity of the linear ringdown model to times as early as the peak of the GW strain. 
 Their work involved fitting ringdown models to a selection of aligned-spin SXS simulations, and in this chapter we extend their work to misaligned-spin (i.e.\ precessing) systems.
 
-The 2019 study sparked many other papers which involve fitting ringdown models with overtones to NR simulations~\cite{Bhagwat:2019dtm, Ota:2019bzl, JimenezForteza:2020cve, Cook:2020otn, Dhani:2020nik, Mourier:2020mwa, Forteza:2021wfq, MaganaZertuche:2021syq} (including the present work), but it should be noted that fears of over-fitting and the physical validity of the overtones were also present.
+The 2019 study sparked many other papers which involve fitting ringdown models with overtones to NR simulations~\cite{Bhagwat:2019dtm, Ota:2019bzl, JimenezForteza:2020cve, Cook:2020otn, Dhani:2020nik, Mourier:2020mwa, Dhani:2021vac, Forteza:2021wfq, MaganaZertuche:2021syq} (including the present work), but it should be noted that fears of over-fitting and the physical validity of the overtones were also present.
 Even at the time of writing there is not a consensus on this point~\cite{Baibhav:2023clw, Nee:2023osy}, a central issue being that of the ringdown start time.
 
 A prerequisite for any ringdown analysis is a suitable choice for the start time, $t_0$, of the ringdown. 
@@ -209,7 +209,7 @@ The quantity we're minimising is now
 \end{equation}
 which gives equal ``weight'' to each $(\ell,m)$ mode, and can be shown to be equivalent as averaging the least-squares fit over the sky.
 
-\section{Aligned-spin Systems}\label{aligned-spin-section}
+\section{Aligned-spin systems}\label{aligned-spin-section}
 
 % As well as reproducing important results for spin-aligned systems \cite{Giesler:2019uxc, Dhani:2020nik}, this section introduces QNM modelling and describes our numerical fitting procedure. 
 
@@ -332,7 +332,7 @@ We note, as it will become important later, that the worst cases in these histog
 This demonstrates that, when using the overtone model on systems with aligned spins, the ringdown reliably starts as early as the peak in the $h_{22}(t)$ mode of the strain. 
 
 
-\subsection{Mirror Modes} \label{subsec:mirror_modes}
+\subsection{Mirror modes} \label{subsec:mirror_modes}
 
 For a given $\ell$, $m$ and $n$, the equations governing QNM frequencies allow two solutions: one, $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$, with a positive real part; and another, $\omega'_{\ell m n} = 2\pi f'_{\ell m n} - i/ \tau'_{\ell m n}$, with negative real part \cite{Dhani:2020nik, Berti:2005ys}.
 The frequencies of the mirror modes $\omega'_{\ell m n}$ are related to the regular modes $\omega_{\ell m n}$ by Eq.~\ref{ch1:eq:mirror}.
@@ -365,7 +365,7 @@ The addition of mirror modes gives a small improvement in the mismatch, but this
 However, the $\epsilon$ histogram shows that the overall performance of the mirror-mode model is comparable to that of the $N=7$ overtone model, despite the use of an earlier start time.
 
 
-\section{Misaligned-spin Systems}\label{misaligned-spin-section}
+\section{Misaligned-spin systems}\label{misaligned-spin-section}
 
 The analyses in Section~\ref{aligned-spin-section}, and analyses in previous studies~\cite{Dorband:2006gg, Buonanno:2006ui, Berti:2007fi, Kamaretsos:2011um, Kamaretsos:2012bs, London:2014cma, Baibhav:2017jhs, Giesler:2019uxc, Bhagwat:2019dtm, Ota:2019bzl, JimenezForteza:2020cve, Cook:2020otn, Dhani:2020nik, Mourier:2020mwa, Forteza:2021wfq, MaganaZertuche:2021syq},
 % ~\cite{Flanagan:1997sx, Berti:2007fi, Kamaretsos:2011um, London:2014cma, Carullo:2018sfu, Bhagwat:2017tkm, Giesler:2019uxc, Ota:2019bzl, Dhani:2020nik}
@@ -499,7 +499,7 @@ It would be interesting to investigate whether the binary parameters correlate w
 \end{figure}
 
 
-\subsection{Mirror Modes} \label{subsec:misaligned_mirror_modes}
+\subsection{Mirror modes} \label{subsec:misaligned_mirror_modes}
 
 We repeat the population analysis with the $N=7$ mirror-mode model, again shifting the ringdown start time back by $5M$ to make a clear comparison to Fig.~\ref{aligned_spin_epsilon_hist}. 
 The results are shown by the red dashed lines in Fig.~\ref{misaligned_spin_epsilon_hist}. The histogram for $\epsilon$ doesn't reach values as high as the overtone model (with worst-case values of $\epsilon \sim 0.04$ compared to the overtone model's $\sim 0.2$), but otherwise has a broadly similar distribution.
@@ -528,7 +528,7 @@ The inclusion of mirror modes, as seen in Fig.~\ref{1856_mirror_mode_epsilon_gri
 This behaviour may explain some of the observed widening of the histograms, and perhaps hints something is missing from the ringdown model.
 
 
-\subsection{Higher Harmonics}\label{kitchen-sink}
+\subsection{Higher harmonics}\label{kitchen-sink}
 
 As demonstrated by Fig.~\ref{misaligned_spin_epsilon_hist}, %(and also Fig.~\ref{misaligned_spin_epsilon_hist_m10} in appendix \ref{appendix_a})
 the overtone and mirror-mode models considered so far achieve median values for the remnant error $\epsilon \sim 0.01$, a factor of 10 or more higher than the aligned-spin fits of Fig.~\ref{aligned_spin_epsilon_hist}. In addition, the spread of $\epsilon$ values recovered is significantly larger, leading to values of $\epsilon$ up to $\sim 0.1$. 
@@ -600,7 +600,7 @@ It seems that the high-dimensional precessing surrogate NRsur7dq4 is not yet suf
 By contrast, the lower-dimensional aligned-spin surrogate NRHybSur3dq8 does appear to be sufficiently accurate for such studies.
 
 
-\section{Numerical Relativity Errors}\label{NR_error_appendix}
+\section{Numerical relativity errors}\label{NR_error_appendix}
 
 It is important to remember the finite accuracy of the NR simulations used in ringdown studies.
 This is particularly true when using models with many QNMs which, by their very nature, use a large number of free parameters and regularly achieve very small ($\sim 10^{-6}$) mismatches.

@@ -24,23 +24,16 @@ This early start time is good for the prospects of observing QNMs because it mea
 
 Once QNMs have been correctly identified in an observed signal, they provide an exciting opportunity for testing GR, the Kerr metric hypothesis, and the no-hair theorem. 
 % Move this discussion to intro?
-The idea of using QNM frequencies for such tests, sometimes referred to as \emph{BH spectroscopy}, predates the detection of GWs \cite{Dreyer:2003bv, Berti:2005ys, Berti:2007zu, Berti:2016lat}.
+The idea of using QNM frequencies for such tests, sometimes referred to as \emph{BH spectroscopy}, predates the detection of GWs \cite{Dreyer:2003bv, Berti:2005ys, Berti:2007zu}.
 Therefore, experimental QNM tests of GR started immediately with the first GW observation; Ref.~\cite{LIGOScientific:2016lio} found that the data following the peak of GW150914 was consistent with the least-damped QNM of the expected remnant.
 Subsequently, several groups reanalysed the ringdown of GW150914 with the aim of identifying additional QNMs for use in spectroscopic tests \cite{Carullo:2019flw, Isi:2019aib, Brito:2018rfr}. 
 With the second GW catalog, similar analyses are now routinely performed on all suitable events \cite{LIGOScientific:2020tif}.
+
 % Also move up to intro...
-Besides BH spectroscopy, other types of QNM test are possible; for example, Ref.~\cite{Isi:2020tac} used the QNM frequencies of GW150914 to measure the horizon area of the remnant and thereby test Hawking's area theorem \cite{Hawking:1971tu}.
-The applications mentioned so far use only the QNM frequencies; however, the excitation amplitudes and phases of the QNMs also carry useful information about the progenitor binary (see, for example, Refs.~\cite{Hughes:2019zmt, Berti:2006wq}). 
+% Besides BH spectroscopy, other types of QNM test are possible; for example, Ref.~\cite{Isi:2020tac} used the QNM frequencies of GW150914 to measure the horizon area of the remnant and thereby test Hawking's area theorem \cite{Hawking:1971tu}.
+% The applications mentioned so far use only the QNM frequencies; however, the excitation amplitudes and phases of the QNMs also carry useful information about the progenitor binary (see, for example, Refs.~\cite{Hughes:2019zmt, Berti:2006wq}). 
 
-Unfortunately, QNMs are difficult to work with both from a data analysis and a theoretical perspective. 
-The start time is uncertain; even with clean, noise-free numerical simulations an unambiguous determination of the ringdown start time, $t_0$, is impossible (see, for example, Ref.~\cite{Thrane:2017lqn}). 
-The start of the ringdown is also abrupt in the time domain, which makes it non-local in the frequency domain and is the source of spectral leakage problems. 
-Theoretically, the QNM content is uncertain; \emph{a priori} it is not known which modes should be included in the analysis.
-The mode excitations depend on the initial conditions of the system in a non-trivial way, and which QNMs are detectable is also a function of the chosen ringdown start time and the SNR.
-Also, QNMs do not form a complete basis \cite{Berti:2009kk}; the late-time signal contains additional components that decay more slowly, known as \emph{tails}.
-Finally, it is also known that very similar compact objects can nevertheless have completely different QNM spectra \cite{Nollert:1996rf}.
-
-Despite the difficulties, detecting and characterising QNMs is a key goal in GW astronomy. 
+Despite the difficulties \comment{discussed in Section~\ref{ch1:sec:limitations}}, detecting and characterising QNMs is a key goal in GW astronomy. 
 The most natural approach to deal with the abrupt ringdown start is to work in the time domain. 
 This differs from other GW data analysis which is almost universally performed in the frequency domain. 
 However, by working in the time domain, the data can be cut precisely at a chosen $t_0$ and an analysis performed on only the ringdown part of the signal, $t \geq t_0$, without any spectral leakage.
@@ -92,7 +85,7 @@ Section~\ref{subsec:motivation} motivates our frequency-domain approach by descr
 Finally, Section~\ref{subsec:model} describes the combination of truncated wavelets and QNMs that comprise our waveform model.
 
 
-\subsection{Time- and Frequency-Domain Likelihoods}\label{subsec:data_analysis}
+\subsection{Time- and frequency-domain likelihoods}\label{subsec:data_analysis}
 
 Most GW data analysis is done in the frequency domain because, with the usual assumptions of stationary zero-mean Gaussian noise, the instrumental noise is fully described by the (one-sided) noise power spectral density (PSD), $S_n(f)$.
 In the literature, the most commonly encountered expression for the log-likelihood in one interferometer is the integral
@@ -150,7 +143,7 @@ This makes it difficult to isolate the ringdown region of a GW signal in some da
 In the following sections we describe how these problems can also be overcome in a frequency-domain analysis.
 
 
-\subsection{Marginalizing Over the Inspiral-Merger}\label{subsec:motivation}
+\subsection{Marginalizing over the inspiral-merger}\label{subsec:motivation}
 
 We now motivate our approach to analyzing the ringdown by first discussing a special case in which it becomes formally equivalent to the standard time-domain approach. 
 
@@ -546,7 +539,7 @@ We can then compute the evidence, $\mathcal{B}_{1\mathrm{QNM}}^{2\mathrm{QNM}}$,
 The log-Bayes' factors for each of the different SNR injections are shown in Table.~\ref{tab:bayes_factors} where it can be seen that the time- and frequency-domain approaches are equally sensitive to the overtone mode.
 
 
-\section{GW150914-like Injection}\label{app:GW150914}
+\section{GW150914-like injection}\label{app:GW150914}
 
 % In the main body of the paper the frequency-domain ringdown analysis was tested on GW190521-like injections with varying SNR and observed using a network of two or three interferometers. 
 % It was found to perform well. 
