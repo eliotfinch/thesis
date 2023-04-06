@@ -20,16 +20,68 @@ As transverse waves which act to expand and contract space, they can be measured
 The LIGO and Virgo GW detectors employ interferometry to measure the motion of test masses to extreme precision. 
 In this setup the mirrors at the end of the interferometer arms act as the freely-falling masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via measurements of the light phase difference (i.e.\ the light travel time along each arm).
 The detector output is a timeseries of a dimensionless scalar quantity called the strain, $h$, which quantifies the fractional change in position of the mirrors (which can also be thought of as changes to the interferometer arm lengths).
-% Maybe phrase in terms of geodesic deviation, avoid cosmology analogy?
 
+Being metric perturbations, GWs themselves are not scalar quantities but tensors ($h$ is merely the measurement we make when GWs are ``projected'' onto the interferometer).
+They are described by two dimensionless amplitudes, $h_+$ and $h_\times$, which are the ``plus'' and ``cross'' polarisations respectively.
+These two polarisations are encapsulated in the GW strain tensor, $h_{ij}$.
+Einstein~\cite{Einstein:1918btx} showed the GW emission from slowly changing and weakly gravitating sources is quadrupolar to leading order, and far from the source the GW strain tensor can be written
+\begin{equation}\label{ch1:eq:quadrupole_strain}
+    h_{ij} = \frac{2G}{c^4 r}\ddot{Q}_{ij}.
+\end{equation}
+Here, $r$ is the distance to the source, and $Q_{ij}$ is the traceless mass quadrupole of the source:
+\begin{equation}\label{ch1:eq:quadrupole}
+    Q_{ij} = \int \dd[3]{\vb*{x}} \rho(\vb*{x}) \qty(x_i x_j - \frac{1}{3} \abs{\vb*{x}} \delta_{ij}),
+\end{equation}
+with $\vb*{x} = (x_1, x_2, x_3) = (x,y,z)$ and some suitable choice of origin.
+It was also shown that the GW luminosity is given by
+\begin{equation}\label{ch1:eq:gw_luminosity}
+    \dot{E}_\mathrm{GW} = \frac{G}{5c^5} \bigl \langle \dddot{Q}_{ij} \dddot{Q}^{ij} \bigr \rangle,
+\end{equation}
+where the average (denoted by the angled brackets) is to be taken over $\sim$ a few GW wavelengths.
 
+To perform some simple order-of-magnitude calculations we can introduce a characteristic mass, length and timescale of the radiating system: $M$, $R$, and $T$ respectively.
+Starting with the GW luminosity, from dimensional arguments we approximate the quadrupole moment as 
+\begin{equation}
+    \dddot{Q} \sim \frac{MR^2}{T^3} \sim \frac{Mv^3}{R}
+\end{equation}
+where $v$ is the characteristic velocity of the system.
+Subbing into Eq.~\ref{ch1:eq:gw_luminosity}, we can express the order-of-magnitude GW luminosity as
+\begin{equation}\label{ch1:eq:gw_luminosity_oom}
+    \dot{E}_\mathrm{GW} \sim \frac{G}{5c^5} \qty(\frac{Mv^3}{R})^2 \sim \frac{c^5}{G} \qty(\frac{r_s}{R})^2 \qty(\frac{v}{c})^6
+\end{equation}
+where $r_s = 2GM/c^2$ is the Schwarzschild radius (note that we have dropped all constants of order 1 in Eq.~\ref{ch1:eq:gw_luminosity_oom}.
+From Eq.~\ref{ch1:eq:gw_luminosity_oom} we immediately see that to maximise energy radiated as GWs we need compact ($R \sim r_s$) and relativistic ($v \sim c$) systems; the mergers of compact binaries, then, make ideal systems.
+We can similarly obtain the order-of-magnitude GW strain. 
+Assuming that our source is indeed a binary system, we can use Kepler's third law to relate the characteristic length scale and frequency $f = 1/T$:
+\begin{equation}
+    R^3 \sim \frac{GM}{f^2}.
+\end{equation}
+Our expression for the strain, Eq.~\ref{ch1:eq:quadrupole_strain}, then becomes
+\begin{equation}
+    h \sim \frac{G}{c^4 r} \frac{MR^2}{T^2} \sim \frac{(GM)^{5/3}f^{2/3}}{c^4 r}.
+\end{equation}
+The first GW event, GW150914, occurred roughly $440\,\mathrm{Mpc}$ from Earth and had a total binary mass of $72\,M_\odot$.
+And, as we will see, current GW detectors are most sensitive to frequencies $\sim 100\,\mathrm{Hz}$.
+Expressing the GW strain in terms of these numbers gives
+\begin{equation}\label{ch1:eq:quadrupole_strain_oom}
+    h \sim 10^{-21} \qty(\frac{M}{72\,M_\odot}) \qty(\frac{f}{100\,\mathrm{Hz}}) \qty(\frac{440\,\mathrm{Mpc}}{r}),
+\end{equation}
+emphasising the just how sensitive the interferometers need to be.
 
-% An extra paragraph here. The idea of a binary, quadrupole formula. Maybe mention the equations used to derive time to merger? At least say time-varying quadrupole. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{Introduction/td_waveform.pdf}
+    \caption[The time-domain gravitational-wave signal from a binary black-hole merger]{ 
+    The GW signal from a BBH merger. 
+    This waveform was generated using the NRSur7dq4 surrogate, and projected onto the Hanford detector using parameters consistent with GW150914 (this includes choosing a sky location and polarisation angle).
+    }
+    \label{ch1:fig:td_waveform}
+\end{figure}
 
-It is understood how the dynamics of compact-object mergers translate to the measured strain, which allows us to learn about the signal origin.
+Going beyond these simple calculations, it is well-understood how the dynamics of compact-object mergers translate to the measured strain, which allows us to learn about the signal origin.
 The GW signal from a BBH merger can be split into three stages: the inspiral, merger, and ringdown.
 The inspiral corresponds to the two BHs in the binary orbiting each other. 
-Unlike in the Newtonian case, the generation of GWs causes the system to lose energy and for the orbit to shrink and spiral. 
+Unlike in the Newtonian case, the generation of GWs causes the system to lose energy (Eq.~\ref{ch1:eq:gw_luminosity}) and for the orbit to shrink and spiral. 
 This stage in the binary evolution, where the motion of the orbit is slow compared to the speed of light, can be modelled with corrections to the Newtonian case in a post-Newtonian framework~\cite{Blanchet:2013haa}. 
 Eventually, the BHs come together in the highly energetic and dynamical merger; this process requires the full nonlinear equations of GR, and is the subject of numerical relativity (NR)~\cite{Duez:2018jaf}. 
 Immediately after merging, the final BH is highly distorted. 
@@ -38,44 +90,34 @@ This is analogous to the ringing a bell makes after it has been struck, and this
 Just as the early inspiral can be studied by considering deviations to a Newtonian system, the ringdown can be studied by considering perturbations to a static BH spacetime~\cite{Sasaki:2003xr, Pound:2021qin}. 
 It is not known beforehand when this perturbative treatment of the final BH becomes valid (i.e., when the ringdown actually starts), and so care must be taken; this will be a recurring theme throughout this work.
 
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=\columnwidth]{Introduction/td_waveform.pdf}
-    \caption[The time-domain gravitational-wave signal from a binary black-hole merger]{ 
-    The gravitational-wave signal from a binary black-hole merger. 
-    This waveform was generated using the NRSur7dq4 surrogate, and projected onto the Hanford detector using parameters consistent with GW150914 (this includes choosing a sky location and polarisation angle).
-    }
-    \label{ch1:fig:td_waveform}
-\end{figure}
-
 The GW signal from these three stages is shown in Fig.~\ref{ch1:fig:td_waveform}.
-Plotted is the (noiseless) GW signal projected onto the LIGO Hanford detector, $h$, multiplied by the distance to the source, $r$, as a function of time. 
+Plotted is the (noiseless) GW strain signal projected onto the LIGO Hanford detector, $h$, multiplied by the distance to the source, $r$, as a function of time. 
 We use geometric units ($G = c = 1$) to express these quantities in units of the total binary mass, $M$. 
 In geometric units we can convert between lengths, masses, and times with appropriate combinations of $G$ and $c$; this means $\mathrm{time}/M$ and $rh/M$ can be made dimensionless quantities. 
-Say we had a system with total mass $M = 72\, M_\odot \approx 1.43 \times 10^{32}\,$kg at a distance $r = 440\,$Mpc $\approx 1.36 \times 10^{25}\,$m (chosen because these are consistent with the system properties of the first GW event, GW150914). 
+Using GW150914 again as an example, say we had a system with total mass $M = 72\,M_\odot \approx 1.43 \times 10^{32}\,\mathrm{kg}$ at a distance $r = 440\,\mathrm{Mpc} \approx 1.36 \times 10^{25}\,\mathrm{m}$. 
 Expressing $M$ in seconds gives us the conversion factor for time:
 \begin{equation}
     M \times \frac{G}{c^3} \approx 1.43 \times 10^{32}\, \mathrm{kg} \times \frac{6.67 \times 10^{-11}\, \mathrm{m}^3\, \mathrm{kg}^{-1}\, \mathrm{s}^{-2}}{\qty(3 \times 10^8\, \mathrm{m}\, \mathrm{s}^{-1})^3} \approx 3.6 \times 10^{-4}\, \mathrm{s}.
 \end{equation}
-So, for these system properties, in Fig.~\ref{ch1:fig:td_waveform} we have a ringdown duration of $\sim 50\, M \approx 50 \times 3.6 \times 10^{-4}\, \mathrm{s} \approx 0.018\, \mathrm{s}$. 
+So, for these system properties, in Fig.~\ref{ch1:fig:td_waveform} we have a ringdown duration of $\sim 50\,M \approx 50 \times 3.6 \times 10^{-4}\,\mathrm{s} \approx 0.018\,\mathrm{s}$. 
 Calculating the dimensionless quantity $M/r$ gives us the conversion for the GW amplitude. 
 One way to do this is to express $r$ in seconds by dividing by $c$, then use our previous result for $M$:
 \begin{equation}
-    \frac{M \times G/c^3}{r/c} \approx \frac{3.6 \times 10^{-4}\, \mathrm{s}}{1.36 \times 10^{25}\, \mathrm{m}/3 \times 10^8\, \mathrm{m}\, \mathrm{s}^{-1}} \approx 7.85 \times 10^{-21}.
+    \frac{M \times G/c^3}{r/c} \approx \frac{3.6 \times 10^{-4}\,\mathrm{s}}{1.36 \times 10^{25}\, \mathrm{m}/3 \times 10^8\, \mathrm{m}\, \mathrm{s}^{-1}} \approx 7.85 \times 10^{-21}.
 \end{equation}
-This gives a peak strain amplitude in Fig.~\ref{ch1:fig:td_waveform} of $\sim 0.2 \times 7.85 \times 10^{-21} \approx 1.60 \times 10^{-21}$. 
-This can be compared with what was measured for GW150914 (see Fig.~1 in Ref.~\cite{LIGOScientific:2016aoc}), and we see these numbers are consistent.
+This gives a peak strain amplitude in Fig.~\ref{ch1:fig:td_waveform} of $\sim 0.2 \times 7.85 \times 10^{-21} \approx 1.60 \times 10^{-21}$, in agreement with our order-of-magnitude calculation in Eq.~\ref{ch1:eq:quadrupole_strain_oom}. 
+This can also be compared with what was actually measured for GW150914 (see Fig.~1 in Ref.~\cite{LIGOScientific:2016aoc}), and we see these numbers are consistent.
 
 The waveform was generated using the NRSur7dq4~\cite{Varma:2019csw} surrogate waveform with zero spins, equal mass ratio, and zero inclination. 
 Surrogates effectively ``interpolate'' the waveforms from full NR simulations, allowing quick waveform generation for any choice of system parameters (within the validity of the model). 
 For NRSur7dq4, the simulations used to build the model came from the SXS catalog~\cite{Boyle:2019kee}, which we also use extensively in Chapter~\ref{Chapter2}. 
 Along with the intrinsic system parameters, to project onto the Hanford detector we also choose an event time, sky location and polarisation angle consistent with GW150914.
 
-\begin{figure}[t]
+\begin{figure}
     \centering
     \includegraphics[width=\columnwidth]{Introduction/fd_waveform.pdf}
     \caption[The frequency-domain gravitational-wave signal from a binary black-hole merger]{ 
-    The frequency-domain gravitational-wave signal from a binary black-hole merger, shown with the Hanford sensitivity curve (both expressed through the characteristic strain). 
+    The frequency-domain GW signal from a BBH merger, shown with the Hanford sensitivity curve (both expressed through the characteristic strain). 
     The signal was generated with IMRPhenomD using parameters consistent with GW150914.
     }
     \label{ch1:fig:fd_waveform}
@@ -101,13 +143,13 @@ for the GW signal (where $\tilde{h}$ is the frequency-domain GW in a given detec
 for the noise curve.
 The characteristic strain has the property that the area between the signal and noise curve is related to the signal-to-noise ratio (SNR) $\rho$ via
 \begin{equation}
-    \rho^2 = \int_{-\infty}^\infty \dd\log{f} \qty[\frac{h_c(f)}{h_n(f)}]^2.
+    \rho^2 = \int_{-\infty}^\infty \dd{\log{f}} \qty[\frac{h_c(f)}{h_n(f)}]^2.
 \end{equation}
 Evaluating for the above figure we get $\rho \sim 17$, which is consistent with the Hanford SNR for GW150914 (assuming equal SNRs in Hanford and Livingston, a network SNR of 26~\cite{LIGOScientific:2021usb} gives a single detector SNR of $\sim 18$).
 
 Also shown in the figure is the time to merger at select frequencies of the inspiral.
 This is to emphasise how the frequency of the binary evolves over time, spending the vast majority of its life in the inspiral with a slowly shrinking orbit.
-The time to merger, $\tau_\mathrm{merge}$, as a function of GW frequency is given by
+The leading-order time to merger, $\tau_\mathrm{merge}$, as a function of GW frequency is given by
 \begin{equation}\label{eq:time_to_merger}
     \tau_\mathrm{merge} = \frac{5}{256} \qty(\pi f)^{-\frac{8}{3}} \qty(\frac{G\mathcal{M}}{c^3})^{-\frac{5}{3}},
 \end{equation}
@@ -115,6 +157,7 @@ The time to merger, $\tau_\mathrm{merge}$, as a function of GW frequency is give
 % Say a bit about how it is derived.
 where $\mathcal{M}$ is a combination of the two masses in the binary known as the chirp mass.
 We also explicitly show the factors of $G$ and $c$ in this equation for clarity (in geometric units these would be set to 1, and it would be implied that the chirp mass should be expressed in units of time). 
+Eq.~\ref{eq:time_to_merger} is valid in the quasi-circular orbit regime; it can be derived by equating the time derivative of the orbital energy of a binary system (
 
 The signal in Fig.~\ref{ch1:fig:fd_waveform} was generated with the IMRPhenomD~\cite{Khan:2015jqa} waveform model, as implemented in the \texttt{ripple}~\cite{Edwards:2023sak} Python package.
 Phenom models produce approximate waveforms using closed-form analytic expressions in the frequency-domain, making evaluation quick and suitable for GW searches.
@@ -571,7 +614,7 @@ This multimode formalism was developed significantly by Berti et al.~\cite{Berti
     \centering
     \includegraphics[width=\columnwidth]{Figures/Introduction/bh_spectroscopy.pdf}
     \caption[Black-hole spectroscopy illustration]{
-    Black-hole spectroscopy (inspired by a similar figure in Ref.~\cite{Dreyer:2003bv}): a frequency -- damping-time measurement corresponds to a straight line in the left panel. Three such measurements are shown, and their intersections with the Kerr spectrum are indicated. Each measurement is associated with a particular marker shape, and each Kerr branch is associated with a particular marker colour. Each intersection can be converted to a remnant BH mass and spin, shown on the right panel. Only one mass and spin is consistent with all three measurements; these are the true BH properties.
+    BH spectroscopy (inspired by a similar figure in Ref.~\cite{Dreyer:2003bv}): a frequency -- damping-time measurement corresponds to a straight line in the left panel. Three such measurements are shown, and their intersections with the Kerr spectrum are indicated. Each measurement is associated with a particular marker shape, and each Kerr branch is associated with a particular marker colour. Each intersection can be converted to a remnant BH mass and spin, shown on the right panel. Only one mass and spin is consistent with all three measurements; these are the true BH properties.
     }
     \label{ch1:fig:bh_spectroscopy}
 \end{figure}
