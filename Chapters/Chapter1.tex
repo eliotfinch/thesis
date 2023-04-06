@@ -15,15 +15,16 @@ GW150914~\cite{LIGOScientific:2016aoc} marked the first direct observation of GW
 % It also marked what can be described in simple terms as the first measurement of a ringing BH.
 
 A prediction of general relativity (GR), GWs are produced by accelerating masses.
-As transverse waves which act to expand and contract space, they can be measured via their influence on freely-falling test masses (which will move relative to each other as space is perturbed).
+As transverse waves which act to expand and contract space, they can be measured via their influence on freely-falling test masses (which will move relative to each other due to geodesic deviation).
 % This is somewhat analogous~\cite{Saulson:1997ck} to the expansion of the Universe, which causes distant galaxies (the test masses) to appear to recede from us due to the expansion of space.
 The LIGO and Virgo GW detectors employ interferometry to measure the motion of test masses to extreme precision. 
 In this setup the mirrors at the end of the interferometer arms act as the freely-falling masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via measurements of the light phase difference (i.e.\ the light travel time along each arm).
 The detector output is a timeseries of a dimensionless scalar quantity called the strain, $h$, which quantifies the fractional change in position of the mirrors (which can also be thought of as changes to the interferometer arm lengths).
 % Maybe phrase in terms of geodesic deviation, avoid cosmology analogy?
 
+
+
 % An extra paragraph here. The idea of a binary, quadrupole formula. Maybe mention the equations used to derive time to merger? At least say time-varying quadrupole. 
-% See Riccardo thesis and Carroll textbook
 
 It is understood how the dynamics of compact-object mergers translate to the measured strain, which allows us to learn about the signal origin.
 The GW signal from a BBH merger can be split into three stages: the inspiral, merger, and ringdown.
@@ -476,26 +477,33 @@ In Section~\ref{ch1:sec:bh_spectroscopy} we will discuss the full (and accuratel
 \subsection{Limitations of quasinormal modes}
 \label{ch1:sec:limitations}
 
-There is no doubt that QNMs offer a powerful tool to learn about the remnant BH and test our theories (see Section~\ref{ch1:sec:bh_spectroscopy}).
-However, there are some subtleties regarding the QNM spectrum and the ringdown signal that should be pointed out. 
+Although QNMs offer a powerful tool to learn about the remnant BH and test our theories (see Section~\ref{ch1:sec:bh_spectroscopy}), there are some subtleties regarding the QNM spectrum and the ringdown signal that should be pointed out. 
 
-It is known that QNMs do not form a complete basis, meaning that there are other contributions to the ringdown waveform beyond the QNMs.
+It is known that QNMs do not form a complete basis~\cite{Ching:1993gt, Ching:1995rt, Nollert:1998ys, Ching:1998mxl, Nollert:1999ji}, meaning that there are other contributions to the ringdown waveform beyond the QNMs.
 In particular, it is known that at late times the ringdown consists of a power-law tail~\cite{Price:1971fb, Leaver:1986gd, Ching:1995tj} (see also Ref.~\cite{Gleiser:2007ti}, and references therein, for a more recent discussion about our knowledge of tails).
-Although much more suppressed than the QNM ringing, particularly at current detector sensitivities, at sufficient SNRs these may need to be considered to avoid biases.
-This idea was touched upon in Ref.~\cite{Thrane:2017lqn}, where it was found that their ability to constrain remnant parameters from the ringdown signal degraded at high SNRs (although it is unlikely that tails were responsible for their results).
+Although at a much lower amplitude than the QNM ringing and not resolvable at current detector sensitivities, at sufficient SNRs these may need to be considered to avoid biases.
+This idea was touched upon in Ref.~\cite{Thrane:2017lqn}, where it was found that their ability to constrain remnant parameters from the ringdown signal actually degraded at high SNRs (late-time tails were suggested as an explanation for this, but it is not clear if they were responsible in this study).
 % See also Ref.~\cite{Nee:2023osy}, who point out that the tendency for their QNM fits to perform worse at late times is a sign of tails.
-See Ref.~\cite{Baibhav:2017jhs} for a study on how neglecting these beyond-QNM contributions could bias future studies.
+See also Ref.~\cite{Baibhav:2017jhs} for a study on how neglecting these beyond-QNM contributions could bias future studies.
 
+Motivated by work done in Refs.~\cite{Ching:1993gt, Ching:1995rt}, Nollert~\cite{Nollert:1996rf} attempted to make the QNM spectrum complete via modifications to the effective potential (for example, in the case of Schwarzschild, the Regge-Wheeler potential depicted in Fig.~\ref{fig:rw_potential}).
+However, it was found that the QNM spectrum is highly unstable to changes in the potential (no matter how small).
+That is, perturbations to the potential (which do not significantly change the physical ringdown waveform) can lead to very different QNM spectra; this brings the physical meaning of the QNMs into question.
+This fact was commented on again in Nollert and Price~\cite{Nollert:1998ys}, later revisited by Daghigh et al.~\cite{Daghigh:2020jyk}, and additional recent work is ongoing~\cite{Jaramillo:2020tuu, Qian:2020cnz, Jaramillo:2021tmt, Cheung:2021bol, Berti:2022xfj}.
 
-Finally, it is also known that very similar compact objects can nevertheless have completely different QNM spectra~\cite{Nollert:1996rf}.
+Putting these subtleties aside, we know we can calculate the QNM spectrum (as described throughout this section, and see Fig.~\ref{ch1:fig:qnm_taxonomy} below) and based on the GW observations made so far it seems that there is physical significance to the QNMs.
+However, the excitations of each mode (that is, the amplitudes of each QNM in the ringdown waveform) are harder to predict. 
+In principle the QNM amplitudes are a function of the initial conditions of the binary; the perturbation of the remnant BH depends on the way the binary merged.
+Unfortunately this mapping is non-trivial, particularly in the case of precessing BBHs.
+The QNMs we include in our models and target in the data must then be motivated by numerical studies.
+We contribute to this in Chapter~\ref{Chapter2}, where we also discuss this issue in more detail.
 
-Unfortunately, QNMs are difficult to work with both from a data analysis and a theoretical perspective. 
-The start time is uncertain; even with clean, noise-free numerical simulations an unambiguous determination of the ringdown start time, $t_0$, is impossible (see, for example, Ref.~\cite{Thrane:2017lqn}). 
-The start of the ringdown is also abrupt in the time domain, which makes it non-local in the frequency domain and is the source of spectral leakage problems. 
-Theoretically, the QNM content is uncertain; a priori it is not known which modes should be included in the analysis.
-The mode excitations depend on the initial conditions of the system in a non-trivial way, and which QNMs are detectable is also a function of the chosen ringdown start time and the SNR.
+Similarly to the mode amplitudes, a priori it is not known what the start time of the ringdown is.
+Even with clean, noise-free numerical simulations it is not clear if the start time can be determined unambiguously.
+This is an issue which will be present throughout the thesis, and in the data-analysis context (Chapters~\ref{Chapter3} and \ref{Chapter4}) we propose a method to alleviate this concern.
 
-data analysis... overtones?
+Finally, on the subject of data analysis, the fact that ringdown models are fundamentally discontinuous leads to data analysis problems; GW analysis is usually done in the frequency domain, but Fourier transforms of a discontinuous model leads to spectral leakage.
+This is discussed further in Chapters~\ref{Chapter3} and \ref{Chapter4}, where we also propose a solution.
 
 \section{Black-hole spectroscopy}
 \label{ch1:sec:bh_spectroscopy}
