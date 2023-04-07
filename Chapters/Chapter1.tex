@@ -32,7 +32,8 @@ Here, $r$ is the distance to the source, and $Q_{ij}$ is the traceless mass quad
 \begin{equation}\label{ch1:eq:quadrupole}
     Q_{ij} = \int \dd[3]{\vb*{x}} \rho(\vb*{x}) \qty(x_i x_j - \frac{1}{3} \abs{\vb*{x}} \delta_{ij}),
 \end{equation}
-with $\vb*{x} = (x_1, x_2, x_3) = (x,y,z)$ and some suitable choice of origin.
+were $\rho(\vb*{x})$ is the mass density and $\vb*{x} = (x_1, x_2, x_3) = (x,y,z)$ with some suitable choice of origin.
+
 It was also shown that the GW luminosity is given by
 \begin{equation}\label{ch1:eq:gw_luminosity}
     \dot{E}_\mathrm{GW} = \frac{G}{5c^5} \bigl \langle \dddot{Q}_{ij} \dddot{Q}^{ij} \bigr \rangle,
@@ -153,11 +154,9 @@ The leading-order time to merger, $\tau_\mathrm{merge}$, as a function of GW fre
 \begin{equation}\label{eq:time_to_merger}
     \tau_\mathrm{merge} = \frac{5}{256} \qty(\pi f)^{-\frac{8}{3}} \qty(\frac{G\mathcal{M}}{c^3})^{-\frac{5}{3}},
 \end{equation}
-% Give more details. Lowest order PN, what does it neglect? Valid for circular only...
-% Say a bit about how it is derived.
 where $\mathcal{M}$ is a combination of the two masses in the binary known as the chirp mass.
 We also explicitly show the factors of $G$ and $c$ in this equation for clarity (in geometric units these would be set to 1, and it would be implied that the chirp mass should be expressed in units of time). 
-Eq.~\ref{eq:time_to_merger} is valid in the quasi-circular orbit regime; it can be derived by equating the time derivative of the orbital energy of a binary system (
+Eq.~\ref{eq:time_to_merger} is valid in the quasi-circular orbit regime; it can be derived by equating the time derivative of the orbital energy of a binary system (\comment{give expression?}) to (negative) the GW luminosity Eq.~\ref{ch1:eq:gw_luminosity}, where the quadrupolar moment is most easily calculated using the equivalent one-body problem with a reduced mass.
 
 The signal in Fig.~\ref{ch1:fig:fd_waveform} was generated with the IMRPhenomD~\cite{Khan:2015jqa} waveform model, as implemented in the \texttt{ripple}~\cite{Edwards:2023sak} Python package.
 Phenom models produce approximate waveforms using closed-form analytic expressions in the frequency-domain, making evaluation quick and suitable for GW searches.
@@ -222,7 +221,8 @@ This makes it a promising target for QNM searches, and along with GW150914 it is
 
 The characteristic vibrational modes of dissipative systems are known as QNMs.
 As stated above, these differ from usual normal modes because they decay over time.
-Although not limited to BHs (any real-world physical systems which are subject to damping will exhibit decaying modes), BH spacetimes are a unique case because even idealised systems are intrinsically dissipative. % ; this is due to the presence of the event horizon.
+Although not limited to BHs (any real-world physical systems which are subject to damping will exhibit decaying modes), BH spacetimes are a unique case because even idealised systems are intrinsically dissipative. 
+% ; this is due to the presence of the event horizon.
 
 Gravitational perturbations of the Schwarzschild geometry~\cite{Schwarzschild:1916uq} were first studied by Regge and Wheeler~\cite{Regge:1957td}, and this work was extended by Zerilli to a more general class of perturbations~\cite{Zerilli:1970se, Zerilli:1970wzz}.
 Employing the perturbation techniques developed by Regge and Wheeler, Vishveshwara~\cite{Vishveshwara:1970zz} performed numerical studies involving the scattering of GWs off a Schwarzschild BH.
@@ -235,14 +235,6 @@ Describing rotating BHs, these are expected to be the most general class of astr
 A remnant Kerr BH has ``no hair''~\cite{Carter:1971zc}; it is fully described by only a final mass and a an angular momentum (which we will express via a dimensionless spin parameter). 
 The same is true of the spectrum of Kerr QNM frequencies, which are also functions of only the mass and spin. 
 This is how QNMs carry information about the remnant BH, and this fact forms the basis of the GR tests discussed further in Section~\ref{ch1:sec:bh_spectroscopy}.
-
-% In a normal-mode analysis, one usually has an ordinary differential equation, or a system of such equations, and imposes boundary conditions to the effect that the perturbation (or whatever wavefunction one is studying) must vanish outside a finite region in space. 
-% An example of such a system is a finite string fixed at both ends, otherwise isolated from its surroundings. 
-% This system is described by a self-adjoint operator with a discrete spectrum and a complete set of normal modes. 
-% See Ref.~\cite{Berti:2006wq} for an interesting discussion, comparing the vibrating string problem to that of QNMs.
-% Unfortunately, perturbations of black holes are quite different: the system we have is the metric outside the horizon in the case of a black hole.
-% The perturbations will propagate throughout all space; we cannot demand that they should be zero outside a finite region. 
-% Instead, we want to make sure that no gravitational radiation unrelated to the initial perturbation disturbs the system at late times.
 
 The QNM frequencies can be calculated within the framework of linearised gravity, treating the gravitational field in the vicinity of the remnant as a small (linear) perturbation of the Kerr metric.
 Therefore, the QNM description of the GW signal is only expected to be valid at sufficiently late times, when the nonlinearities from the merger have largely decayed away. 
