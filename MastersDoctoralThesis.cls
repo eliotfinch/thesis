@@ -200,6 +200,8 @@
 
 \RequirePackage{booktabs} % Required for better table rules
 
+\RequirePackage[dvipsnames]{xcolor}
+
 \RequirePackage{caption} % Required for customising the captions
 \captionsetup{
     % justification=centerlast,
@@ -529,7 +531,7 @@ bookmarksopenlevel=0,
 hypertexnames=false,
 colorlinks=true,% Set to false to disable coloring links
 citecolor=magenta,% The color of citations
-linkcolor=red,% The color of references to document elements (sections, figures, etc)
+linkcolor=Mahogany,% The color of references to document elements (sections, figures, etc)
 urlcolor=mdtRed,% The color of hyperlinks (URLs)
 pdfstartview={FitV},
 unicode,

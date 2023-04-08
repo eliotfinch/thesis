@@ -283,15 +283,16 @@ A ringdown model can be said to perform well if it yields small values for \emph
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/305_mismatch_vs_t0_with_error.pdf}
+    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/305_mismatch_vs_t0_with_error.pdf}
     \caption[Mismatch as a function of ringdown start time for an overtone model fitted to SXS:BBH:0305]{ 
-    Mismatch for the overtone model (Eq.~\ref{GieslerRD}) when fitting to the NR simulation SXS:BBH:0305 as a function of ringdown start time $t_0$. When using only a single QNM (the fundamental $(\ell,m,n)=(2,2,0)$) the start time that gives the lowest mismatch with the NR data is well after the merger (the rising mismatch at late times is a numerical artefact). However, reproducing the results from \cite{Giesler:2019uxc}, we find that by including $N=7$ overtones the GW signal can be modelled using QNMs starting from as early as the peak strain. The dashed grey curve shows the estimate of the error in the underlying NR simulation and is described in appendix \ref{NR_error_appendix}.}
-	\label{305_mismatch_vs_t0}
+    Mismatch for the overtone model (Eq.~\ref{GieslerRD}) when fitting to the NR simulation SXS:BBH:0305 as a function of ringdown start time $t_0$. When using only a single QNM (the fundamental $(\ell,m,n)=(2,2,0)$) the start time that gives the lowest mismatch with the NR data is well after the merger (the rising mismatch at late times is a numerical artefact). However, reproducing the results from \cite{Giesler:2019uxc}, we find that by including $N=7$ overtones the GW signal can be modelled using QNMs starting from as early as the peak strain. The dashed grey curve shows the estimate of the error in the underlying NR simulation and is described in appendix \ref{NR_error_appendix}.
+    }
+    \label{305_mismatch_vs_t0}
 \end{figure}
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/305_epsilon_grid.pdf}
+    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/305_epsilon_grid.pdf}
     \caption[Recovery of the SXS:BBH:0305 remnant properties using an overtone model starting from the peak of the $h_{22}$ strain]{ 
     Recovery of the remnant properties for the overtone model (Eq.~\ref{GieslerRD}) when fitting to the NR simulation SXS:BBH:0305 starting from the peak in the $h_{22}$ strain.
     The heat map shows the mismatch for the fit with $N=7$ overtones, which shows a pronounced minimum close ($\epsilon=3.4\times 10^{-4}$) to the true remnant parameters (indicated by the horizontal and vertical lines).
@@ -408,6 +409,18 @@ The rotation $\mathbf{R}$ can be obtained from the direction of the remnant BH s
 We now apply the overtone model to the ringdown of an example precessing simulation SXS:BBH:1856 \cite{Varma:2019csw}. 
 This simulation initially (at the reference time) has a mass ratio of $q=2.78$ and dimensionless spins $\vb*{\chi}_1=(0.18, -0.54, -0.45)$ and $\vb*{\chi}_2=(-0.12, -0.31, -0.031)$ on the heavier and lighter components respectively. This simulation was chosen because it exhibits strong precession effects visible as amplitude modulations in $h_{22}(t)$. The final spin vector is $\vb*{\chi}_f=(-0.03,-0.19,0.42)$ and the rotated mode $h'_{22}(t)$ was computed using Eq.~\ref{Yrotation_wignerD}.
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/tEdot-t22_hist.pdf}
+    \caption[Differences between the times of peak strain and peak GW energy flux]{  
+    Histogram of the differences between the two possible start times considered in section \ref{misaligned-spin-section}: the peak of the (rotated) strain mode $h'_{22}$, and the peak of the GW energy flux.
+    The normalised distribution of the differences between these times is shown both for the 85 spin-aligned systems used in section \ref{aligned-spin-section} and for the 252 precessing simulations considered in section \ref{misaligned-spin-section}. 
+    The peak of the flux almost always occurs later than the peak of the strain, making this a more conservative choice for the ringdown start time. 
+    We note that there is a much greater variation amongst the population with misaligned spins.
+    }
+    \label{tEdot-t22}
+\end{figure}
+
 The overtone model in Eq.~\ref{GieslerRD} was fitted to the rotated $\ell=m=2$ mode of the strain, $h'_{22}(t)$, in the same way as was done for the aligned-spin systems in section \ref{aligned-spin-section}.
 There is some ambiguity in how to choose the ringdown start time $t_0$ in a way that gives as fair a comparison as possible with the non-precessing case.
 We cannot use the peak of the $h_{22}(t)$ strain, as was done in section \ref{aligned-spin-section}, as this mode suffers from precession induced amplitude modulations. 
@@ -417,14 +430,12 @@ The use of the peak in the flux is also a conservative choice in the sense that 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/tEdot-t22_hist.pdf}
-    \caption[Differences between the times of peak strain and peak GW energy flux]{  
-    Histogram of the differences between the two possible start times considered in section \ref{misaligned-spin-section}: the peak of the (rotated) strain mode $h'_{22}$, and the peak of the GW energy flux.
-    The normalised distribution of the differences between these times is shown both for the 85 spin-aligned systems used in section \ref{aligned-spin-section} and for the 252 precessing simulations considered in section \ref{misaligned-spin-section}. 
-    The peak of the flux almost always occurs later than the peak of the strain, making this a more conservative choice for the ringdown start time. 
-    We note that there is a much greater variation amongst the population with misaligned spins.
+    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_mismatch_vs_t0_with_error_edit.pdf}
+    \caption[Mismatch as a function of ringdown start time for an overtone model fitted to SXS:BBH:1856]{
+    The mismatch for the overtone model (Eq.~\ref{GieslerRD}) when fitting to the NR simulation SXS:BBH:1856 as a function of ringdown start time $t_0$. When using $N=7$ overtones, the lowest mismatch is achieved starting slightly ($\sim 10M$) before the peak in the GW energy flux.
+    However, the minimum mismatch is $\sim 100$ times larger than that obtained for the example spin-aligned system SXS:BBH:0305 in Fig.~\ref{305_mismatch_vs_t0}. The dashed grey curve shows the estimate of the error in the underlying NR simulation and is described in appendix \ref{NR_error_appendix}.
     }
-    \label{tEdot-t22}
+    \label{1856_mismatch_vs_t0}
 \end{figure}
 
 Fig.~\ref{1856_mismatch_vs_t0} shows how the mismatch varies for SXS:BBH:1856 as a function of ringdown start time, for different values of $N$ in the overtone model Eq.~\ref{GieslerRD}.
@@ -438,17 +449,7 @@ The greater variation amongst the misaligned-spin population has already been hi
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_mismatch_vs_t0_with_error_edit.pdf}
-    \caption[Mismatch as a function of ringdown start time for an overtone model fitted to SXS:BBH:1856]{
-    The mismatch for the overtone model (Eq.~\ref{GieslerRD}) when fitting to the NR simulation SXS:BBH:1856 as a function of ringdown start time $t_0$. When using $N=7$ overtones, the lowest mismatch is achieved starting slightly ($\sim 10M$) before the peak in the GW energy flux.
-    However, the minimum mismatch is $\sim 100$ times larger than that obtained for the example spin-aligned system SXS:BBH:0305 in Fig.~\ref{305_mismatch_vs_t0}. The dashed grey curve shows the estimate of the error in the underlying NR simulation and is described in appendix \ref{NR_error_appendix}.
-    }
-    \label{1856_mismatch_vs_t0}
-\end{figure}
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_epsilon_grid_alt.pdf}
+    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_epsilon_grid_alt.pdf}
     \caption[Recovery of the SXS:BBH:1856 remnant properties using an overtone model starting from the peak of the GW energy flux]{
     The recovery of the remnant properties for the overtone model (Eq.~\ref{GieslerRD}) when fitting to the NR simulation SXS:BBH:1856 starting from the peak in the flux.
     The heat map shows the mismatch for the fit with $N=7$, while the crosses show the locations of the minima in the mismatch for fits performed with different values of $N$.
@@ -491,7 +492,7 @@ It would be interesting to investigate whether the binary parameters correlate w
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_mismatch_vs_t0_mirror_modes_with_error_edit.pdf}
+    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_mismatch_vs_t0_mirror_modes_with_error_edit.pdf}
     \caption[Mismatch as a function of ringdown start time for the mirror-mode model fitted to SXS:BBH:1856]{ 
     The mismatch for the mirror-mode model (Eq.~\ref{ch2:eq:mirror_model}) fitted to the NR simulation SXS:BBH:1856 as a function of ringdown start time $t_0$. Comparing with Fig.~\ref{1856_mismatch_vs_t0}, the locations of the mismatch minima are roughly unchanged in time, but the inclusion of mirror modes reduces the mismatch to values similar to those in Fig.~\ref{305_mismatch_vs_t0}. The dashed grey curve shows the estimate of the error in the underlying NR simulation and is described in appendix \ref{NR_error_appendix}.
     }
@@ -510,7 +511,7 @@ We see significantly smaller mismatches, and a stronger mismatch peak around the
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_epsilon_grid_mirror_modes_m5.pdf}
+    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_epsilon_grid_mirror_modes_m5.pdf}
     \caption[Recovery of the SXS:BBH:1856 remnant properties using the mirror-mode model starting from $5M$ before the peak of the GW energy flux]{ 
     The recovery of the remnant properties for the mirror-mode model (Eq.~\ref{ch2:eq:mirror_model}) when fitting to the NR simulation SXS:BBH:1856, starting from $5M$ before the peak of the flux. The heat map shows the mismatch for the fit with $N=7$, while the crosses show the locations of the minima in the mismatch for fits performed with different values of $N$ ($N=0$ lies outside the figure, and is not included for clarity). Comparing with Fig.~\ref{1856_epsilon_grid}, the inclusion of mirror modes sharpens the mismatch peak and achieves smaller mismatch values. However, when averaged across the population of precessing simulations, the mirror-mode model doesn't give smaller values for the remnant error (see dashed curve in Fig.~\ref{misaligned_spin_epsilon_hist}). Here, $\epsilon = 0.014$ for the $N=7$ model.
     }
@@ -578,7 +579,7 @@ When attempting to fit QNM ringdown models with overtones to NRSur7dq4 \cite{Var
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/surrogate_epsilon_and_mass_ratio.pdf}
+    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/surrogate_epsilon_and_mass_ratio.pdf}
     \caption[Comparison of the error on measured remnant mass and spin from two surrogate models and a selection of SXS simulations.]{
     Comparison of the remnant error $\epsilon$ from two surrogate models and a selection of SXS simulations. All are zero initial spin. The fits were performed on the $h_{22}$ mode with the $N=7$ overtone model, Eq.~\ref{GieslerRD}, starting from the time of peak strain. The labels on each cross correspond to the SXS ID. The dashed line indicates where we are outside the training range of NRSur7dq4.
     }

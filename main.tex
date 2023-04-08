@@ -23,6 +23,8 @@
 % New title page
 % Adjust caption settings (found in the class)
 % Changed geometry headheight from 4ex to 24pt to avoid a warning (found in the class)
+% Re-organised order of opening sections
+% Changed link colour (found in the class)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -56,6 +58,9 @@ headsepline, % Uncomment to get a line under the header
 % \usepackage{aas_macros}
 % \usepackage{aastex631}
 
+% Link colours
+\usepackage[dvipsnames]{xcolor}
+
 % Side-by-side subfigures/captions
 \usepackage[caption=false]{subfig}
 
@@ -76,13 +81,17 @@ headsepline, % Uncomment to get a line under the header
 %----------------------------------------------------------------------------------------
 
 \geometry{
-	paper=a4paper, % Change to letterpaper for US letter
-	inner=2.5cm, % Inner margin
-	outer=3.8cm, % Outer margin
-	bindingoffset=.5cm, % Binding offset
-	top=1.5cm, % Top margin
-	bottom=1.5cm, % Bottom margin
-	%showframe, % Uncomment to show how the type block is set on the page
+    paper=a4paper, % Change to letterpaper for US letter
+    top=3cm,
+    bottom=3cm,
+    inner=3cm,
+    outer=2cm,
+    % inner=2.5cm, % Inner margin
+    % outer=3.8cm, % Outer margin
+    % bindingoffset=.5cm, % Binding offset
+    % top=1.5cm, % Top margin
+    % bottom=1.5cm, % Bottom margin
+    %showframe, % Uncomment to show how the type block is set on the page
 }
 
 %----------------------------------------------------------------------------------------
@@ -123,22 +132,23 @@ headsepline, % Uncomment to get a line under the header
 \begin{titlepage}
 \begin{center}
 
-\vspace*{.06\textheight}
-\includegraphics[width=0.2\columnwidth]{logo.png}
-\vspace{.03\textheight}
+% \vspace*{.06\textheight}
+\includegraphics[width=0.8\columnwidth]{Figures/full-colour-logo.eps}
+% \vspace{.03\textheight}
 
-\HRule \\[0.4cm] % Horizontal line
-{\scshape\huge \ttitle\par}\vspace{0.4cm} % Thesis title
-Quasinormal Modes in Numerical-relativity Simulations and Gravitational-wave Observations
-\HRule \\[1.1cm] % Horizontal line
+\HRule \\[0.2cm] % Horizontal line
+{\scshape\huge \ttitle:\par}\vspace{0.4cm} % Thesis title
+Quasinormal Modes in Numerical-relativity Simulations and \\
+Gravitational-wave Observations\vspace{0.1cm}
+\HRule \\[1.cm] % Horizontal line
 
 by\\[0.9cm]
-{\scshape \large \authorname}\\[2.5cm]
+{\scshape \large \authorname}\\[2.cm]
 
 A thesis submitted to the University of Birmingham for the degree of \\[0.1cm]
 {\textsc \degreename}\\[2cm]
 
-\vfill
+% \vfill
 
 \begin{flushright} \normalsize
 \groupname\\
@@ -156,37 +166,27 @@ A thesis submitted to the University of Birmingham for the degree of \\[0.1cm]
 %	DECLARATION PAGE
 %----------------------------------------------------------------------------------------
 
-\begin{declaration}
-\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
-\noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
+% \begin{declaration}
+% \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+% \noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
 
-\begin{itemize} 
-\item This work was done wholly or mainly while in candidature for a research degree at this University.
-\item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
-\item Where I have consulted the published work of others, this is always clearly attributed.
-\item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
-\item I have acknowledged all main sources of help.
-\item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
-\end{itemize}
+% \begin{itemize} 
+% \item This work was done wholly or mainly while in candidature for a research degree at this University.
+% \item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+% \item Where I have consulted the published work of others, this is always clearly attributed.
+% \item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
+% \item I have acknowledged all main sources of help.
+% \item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+% \end{itemize}
  
-\noindent Signed:\\
-\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+% \noindent Signed:\\
+% \rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
  
-\noindent Date:\\
-\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
-\end{declaration}
+% \noindent Date:\\
+% \rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+% \end{declaration}
 
-\cleardoublepage
-
-%----------------------------------------------------------------------------------------
-%	QUOTATION PAGE
-%----------------------------------------------------------------------------------------
-
-\vspace*{0.2\textheight}
-
-\noindent\enquote{\itshape A quote.}\bigbreak
-
-\hfill A name
+% \cleardoublepage
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT PAGE
@@ -198,6 +198,12 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+% \dedicatory{For/Dedicated to/To my\ldots} 
+
+%----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
 
@@ -205,6 +211,18 @@ The Thesis Abstract is written here (and usually kept to just this page). The pa
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 The acknowledgments and the people to thank go here, don't forget to include your project advisor\ldots
 \end{acknowledgements}
+
+\end{singlespacing}
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+% \vspace*{0.2\textheight}
+
+% \noindent\enquote{\itshape A quote.}\bigbreak
+
+% \hfill A name
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -220,12 +238,12 @@ The acknowledgments and the people to thank go here, don't forget to include you
 %	ABBREVIATIONS
 %----------------------------------------------------------------------------------------
 
-\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+% \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
 
-\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere\\
-\textbf{WSF} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or\\
+% \textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere\\
+% \textbf{WSF} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or\\
 
-\end{abbreviations}
+% \end{abbreviations}
 
 %----------------------------------------------------------------------------------------
 %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
@@ -257,14 +275,6 @@ The acknowledgments and the people to thank go here, don't forget to include you
 % \end{symbols}
 
 %----------------------------------------------------------------------------------------
-%	DEDICATION
-%----------------------------------------------------------------------------------------
-
-\dedicatory{For/Dedicated to/To my\ldots} 
-
-\end{singlespacing}
-
-%----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CONTRIBUTIONS
 %----------------------------------------------------------------------------------------
 
@@ -294,12 +304,12 @@ Supplementary material and data releases:~\cite{finch_eliot_2021_4538194, finch_
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
 
-\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+%\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
 
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-\include{Appendices/AppendixA}
+%\include{Appendices/AppendixA}
 %\include{Appendices/AppendixB}
 %\include{Appendices/AppendixC}
 
