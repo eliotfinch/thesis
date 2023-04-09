@@ -1,9 +1,6 @@
-# Thesis
-PhD Thesis: "*Black-hole Ringdown: Quasinormal Modes in Numerical-relativity Simulations and Gravitational-wave Observations*"
+# PhD Thesis
 
-Other subtitle ideas:
-- Modelling and Data Analysis
-- Numerical-relativity and Gravitational-wave observations
+### "*Black-hole Ringdown: Quasinormal Modes in Numerical-relativity Simulations and Gravitational-wave Observations*"
 
 ---
 
@@ -18,7 +15,6 @@ Comments on Chapter 2
 
 Sec 2.1 
 - Paragraph 2. When discussing why this is a “surprising” result you might also consider adding some more recent references, perhaps to some of the nonlinear QNM studies from 2022.
-- Paragraph 2. “The primary aim of this paper…” change to “this study” or “this chapter”.
 
 Sec 2.2
 - In section 2.3.2, did you want to explain why this stacking of all the lm modes is equivalent to doing a least-squares fit averaged over Omega?
@@ -26,39 +22,31 @@ Sec 2.2
 Comments on Chapter 3 (Added 06/03/2023)
 
 Sec 3.1
- - paragraph 2. You could (but don’t have to) go into a little more detail on the “no hair” theorem here. Or maybe you discuss this in the intro?
  - end of paragraph 3, “The applications mentioned so far use only the QNM frequencies; however, the excitation amplitudes and phases of the QNMs also carry useful information about the progenitor binary”. There are some recent papers you could cite here. E.g. by Swetha.
-
-Sec. 3.4
-- FInal paragraph… “In future we hope to test our method on a larger set of simulated signals, including those with more extreme mass ratios and different spin configurations, and to apply the method to real GW data”. You have now done this and the results are in the next chapter.
-
-
 
 ## Outline
 
 ### Introduction
 
-#### Black-hole ringdown
-- High-level overview of binary black hole mergers, gravitational waves, time and length scales, and why the ringdown is useful.
-- A breif summary of the history either in here or throughout the introduction.
-- This will lead into a discussion of quasinormal modes...
-
-#### Quasinormal modes
-- We can do a demonstrative calculation of a massless **scalar field evolving according to the Klein-Gordon equation on a Schwarzschild background**. This gets the form of the potential.
-- We can calculate QNMs easily with a **geodesic picture**.
-- Show the full Kerr spectrum taxonomy and conventions. 
+> #### Binary black-hole mergers
+>
+> #### Black-hole ringdown
+>
+> #### Quasinormal modes
+>  - Scalar field on a Schwarzschild background
+>  - Quasinormal modes from the geodesic correspondence
+>  - Limitations of quasinormal modes
+> 
+> #### Black-hole spectroscopy
   
 ### Modelling the Ringdown from Precessing Black-hole Binaries
-- Flesh out NR sims, what they are and how they're set up.
-- Explain the framework for the full multimode fitting code.
+> [Phys. Rev. D 103, 084048 (2021)](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.103.084048) | [arXiv:2102.07794](https://arxiv.org/abs/2102.07794)
 
-### Developments to my Ringdown Fitting Code
-- The code has developed a lot since the first paper. I would like to include a description of the more developed fitting procedure somewhere. Things I can do (which were not presented in my first paper) include multimode fits with mixing coefficients, fits to CCE waveforms, and fits with nonlinear QNMs.
-
-### Frequency-domain Analysis of Black Hole Ringdown
-- Expand detector response, TD vs FD analysis methods.
+### Frequency-domain Analysis of Black-hole Ringdowns
+> [Phys. Rev. D 104, 123034 (2021)](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.104.123034) | [arXiv:2108.09344](https://arxiv.org/abs/2108.09344)
 
 ### Searching for a Ringdown Overtone in GW150914
+> [Phys. Rev. D 106, 043005 (2022)](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.106.043005) | [arXiv:2205.07809](https://arxiv.org/abs/2205.07809)
 
 ---
 
