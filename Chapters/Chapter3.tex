@@ -188,7 +188,7 @@ We choose a sum of sine-Gaussian wavelets, which are then truncated at the ringd
 With this method, we aim to model the full inspiral-merger-ringdown signal.
 
 The ringdown model is zero for early times, and after a start time $t_0$ takes the form
-\begin{equation}
+\begin{equation}\label{ch3:eq:hr}
     h^\mathrm{R}(t) = h_+^\mathrm{R}(t) - ih_\times^\mathrm{R}(t) = \sum_{\ell m n} A_{\ell m n} e^{-i[\omega_{\ell m n}(t-t_0) - \phi_{\ell m n}]}, \quad t \geq t_0,
 \end{equation}
 where the complex QNM frequencies $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$ are functions of the remnant BH mass $M_f$ and dimensionless spin magnitude $\chi_f$. Here, $f_{\ell m n}$ is the oscillation frequency, and $\tau_{\ell m n}$ is the damping time.
@@ -561,8 +561,6 @@ We have tested our frequency-domain approach by analysing a series of numerical 
 We find that our frequency-domain approach is equally sensitive to additional QNMs compared to the time-domain approach.
 However, we find that it generally yields more precise measurements of the remnant BH mass and spin parameters which we speculate is due to some small coupling with the inspiral and merger signal.
 We also paid particular attention to the choice of prior on $t_0$; although this appears as a model parameter in our approach it was found that, unfortunately, it was not possible to reliably determine it solely from the data.
-
-% In future we hope to test our method on a larger set of simulated signals, including those with more extreme mass ratios and different spin configurations, and to apply the method to real GW data.
 
 In the next chapter we apply this method to real GW data.
 Specifically the first GW event, GW150914, in a search for a ringdown overtone.
