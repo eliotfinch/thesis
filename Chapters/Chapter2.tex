@@ -88,7 +88,7 @@ We can then extract $h_{\ell m}$ using spherical-harmonic orthogonality:
     + &C'_{\ell m n} e^{-i \omega'_{\ell m n} t} \left(\int_\Omega \dd{\Omega} ~ {}_{-2}S'_{\ell m n}(\Omega) ~ {}_{-2}Y^*_{\ell' m'}(\Omega)\right) \bigg].
 \end{align}
 Following the convention of Ref.~\cite{Stein:2019mop}, the first integral is the spherical-spheroidal mixing coefficient:
-\begin{equation}
+\begin{equation}\label{ch2:eq:mu}
     \int_\Omega \dd{\Omega} ~ {}_{-2}S_{\ell m n}(\Omega) ~ {}_{-2}Y^*_{\ell' m'}(\Omega) = \mu_{\ell' m' \ell n} \delta_{m' m}.
 \end{equation}
 To evaluate the second integral we first rewrite the primed spheroidal harmonic as 
@@ -230,7 +230,7 @@ When fitting models with very small mismatches, the finite accuracy of the NR si
 As noted in Ref.~\cite{Giesler:2019uxc}, a small mismatch is not sufficient by itself to justify the model.
 The overtone model contains more parameters as $N$ is increased, and it is necessary to check for over-fitting.
 To address this, we check to see if the remnant BH properties are correctly recovered by the model. 
-The combined error on the remnant mass and spin is quantified by \cite{Giesler:2019uxc}
+The combined error on the remnant mass and spin is quantified by~\cite{Giesler:2019uxc}
 \begin{equation} \label{eq:epsilon}
     \epsilon = \sqrt{ \left( \frac{\delta M_f}{M} \right)^2 + \left( \delta\chi_f \right)^2 },
 \end{equation}
@@ -240,7 +240,7 @@ A ringdown model can be said to perform well if it yields small values for both 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/305_mismatch_vs_t0_with_error.pdf}
+    \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/305_mismatch_vs_t0_with_error.pdf}
     \caption[Mismatch as a function of ringdown start time for an overtone model fitted to SXS:BBH:0305]{ 
     Mismatch as a function of ringdown start time for the overtone model (Eq.~\ref{GieslerRD}) when fitting to the $h_{22}$ mode of the NR simulation SXS:BBH:0305. 
     When using only the fundamental $\ell = m = 2$, $n = 0$ QNM the start time that gives the lowest mismatch with the NR data is well after the merger (the rising mismatch at late times is a numerical artefact). 
@@ -252,7 +252,7 @@ A ringdown model can be said to perform well if it yields small values for both 
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/305_epsilon_grid.pdf}
+    \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/305_epsilon_grid.pdf}
     \caption[Recovery of the SXS:BBH:0305 remnant properties using an overtone model starting from the peak of the $h_{22}$ strain]{ 
     Recovery of the SXS:BBH:0305 remnant properties when fitting the overtone model (Eq.~\ref{GieslerRD}) to the $h_{22}$ mode from the time of its peak strain.
     The heat map shows the mismatch for the fit with $N=7$ overtones, which shows a pronounced minimum close ($\epsilon=3.4\times 10^{-4}$) to the true remnant parameters (indicated by the horizontal and vertical lines).
@@ -262,7 +262,7 @@ A ringdown model can be said to perform well if it yields small values for both 
     \label{305_epsilon_grid}
 \end{figure}
 
-Following Ref.~\cite{Giesler:2019uxc}, we now apply these ideas to the simulation SXS:BBH:0305 \cite{Lovelace:2016uwp}.
+Following Ref.~\cite{Giesler:2019uxc}, we now apply these ideas to the simulation SXS:BBH:0305~\cite{Lovelace:2016uwp}.
 This simulation has source parameters consistent with GW150914 and was originally chosen to demonstrate the success of the overtone model. 
 Fig.~\ref{305_mismatch_vs_t0} shows the mismatch values obtained with the overtone model when using the true values of $M_f$ and $\chi_f$.
 With $N=7$ (that is, eight QNMs = the fundamental mode + seven overtones) the $h_{22}$ mode can be fitted all the way back to the time of its peak amplitude, $t_{\mathrm{peak}}^{h_{22}}$, while still achieving the smallest possible mismatch.
@@ -295,22 +295,14 @@ This demonstrates that, when using the overtone model on systems with aligned sp
 
 \subsection{Mirror modes} \label{subsec:mirror_modes}
 
-For a given $\ell$, $m$ and $n$, the equations governing QNM frequencies allow two solutions: one, $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$, with a positive real part; and another, $\omega'_{\ell m n} = 2\pi f'_{\ell m n} - i/ \tau'_{\ell m n}$, with negative real part \cite{Dhani:2020nik, Berti:2005ys}.
+For a given $\ell$, $m$ and $n$, the equations governing QNM frequencies allow two solutions: one, $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$, with a positive real part; and another, $\omega'_{\ell m n} = 2\pi f'_{\ell m n} - i/ \tau'_{\ell m n}$, with negative real part~\cite{Dhani:2020nik, Berti:2005ys}.
 The frequencies of the mirror modes $\omega'_{\ell m n}$ are related to the regular modes $\omega_{\ell m n}$ by Eq.~\ref{ch1:eq:mirror}.
-% \begin{equation}\label{mirrorsymmetry}
-%     f'_{\ell m n} = -f_{\ell -m n}, \quad \tau'_{\ell m n} = \tau_{\ell -m n} \nonumber
-% \end{equation}
-% \begin{equation} 
-%     \quad\Rightarrow\quad \omega'_{\ell mn} = - \omega_{\ell -mn}^*.
-%     \label{eq:sym_mirror_modes_conj}
-% \end{equation}
 
 A new ringdown model which explicitly includes the mirror modes can be written as
 \begin{equation}
     h_{\ell m}^{N,\, {\rm mirror}}(t) = \sum_{n=0}^N \qty[ C_{\ell m n} e^{-i \omega_{\ell m n}(t-t_0)} + C'_{\ell m n} e^{-i \omega'_{\ell m n}(t-t_0)} ]\quad \textrm{for} \quad t \geq t_0.
 \end{equation}
-This mirror-mode model is an extension of the overtone model in Eq.~\ref{GieslerRD};
-if $C'_{\ell m n} = 0$ the mirror modes aren't excited and we recover the previous overtone model. 
+This \emph{mirror-mode} model is an extension of the overtone model in Eq.~\ref{GieslerRD}; if $C'_{\ell m n} = 0$ the mirror modes aren't excited and we recover the previous overtone model. 
 This model has twice as many free parameters as the overtone model; $4(N+1)$ in the complex amplitudes, plus the two remnant parameters $M_f,\; \chi_f$.
 The mirror-mode model is still a restriction of the full sum in Eq.~\ref{ch2:eq:hlm_model} as overlaps between modes with different $\ell$ indices (i.e.\ mode mixing) are still not included.
 Substituting for $\omega'_{\ell m n}$ using the conjugate symmetry property in Eq.~\ref{ch1:eq:mirror}, we can rewrite the mirror-mode model in the form
@@ -332,9 +324,9 @@ The analyses in Section~\ref{aligned-spin-section}, and analyses in previous stu
 % ~\cite{Dorband:2006gg, Buonanno:2006ui, Berti:2007fi, Kamaretsos:2011um, Kamaretsos:2012bs, London:2014cma, Baibhav:2017jhs, Giesler:2019uxc, Bhagwat:2019dtm, Ota:2019bzl, JimenezForteza:2020cve, Cook:2020otn, Dhani:2020nik, Mourier:2020mwa, Forteza:2021wfq, MaganaZertuche:2021syq},
 was limited to BBH systems with component spins that are aligned with the orbital angular momentum, $\vb*{L}$.
 This is a potentially serious limitation as misaligned spins are expected to be a generic feature of astrophysical BBHs.
-Misaligned spins generally lead to precession of the orbital plane during the inspiral phase of the evolution and a richer phenomenology in the GW signals \cite{Apostolatos:1994mx}.
+Misaligned spins generally lead to precession of the orbital plane during the inspiral phase of the evolution and a richer phenomenology in the GW signals~\cite{Apostolatos:1994mx}.
 There is strong evidence for precession in the GW events observed so far when looking at the population level~\cite{LIGOScientific:2020kqk, LIGOScientific:2021psn}, and tentative evidence in individual events. 
-This includes high-mass event GW190521~\cite{LIGOScientific:2020iuh, LIGOScientific:2020ufj}, the asymmetric-mass event GW190412~\cite{LIGOScientific:2020stg}, and recently there have been claims of precession in the GWTC-3 event GW200129\_065458~\cite{Hannam:2021pit} (but we note that there are potential data-quality issues associated with this event~\cite{Payne:2022spz})
+This includes high-mass event GW190521~\cite{LIGOScientific:2020iuh, LIGOScientific:2020ufj}, the asymmetric-mass event GW190412~\cite{LIGOScientific:2020stg}, and recently there have been claims of precession in the GWTC-3 event GW200129\_065458~\cite{Hannam:2021pit} (but we note that there are potential data-quality issues associated with this event~\cite{Payne:2022spz}).
 In this section we investigate the effect of precession on the modelling of the ringdown by repeating analyses like those in Section~\ref{aligned-spin-section}, but now on precessing NR simulations.
 
 As already mentioned, the remnant BH will not have a spin vector aligned with the $z$-axis in the NR frame if it has undergone precession. 
@@ -349,32 +341,32 @@ The idea is to re-expand the NR data in the ``ringdown frame'' as follows:
 \begin{equation}\label{hprimedecomp}
     h' = \sum_{\ell = 2}^\infty \sum_{m = -\ell}^\ell h'_{\ell m}(t) {}_{-2}Y_{\ell m}(\Omega'),
 \end{equation}
-where the prime on $\Omega$ indicates we are using new coordinates where the remnant spin is aligned is aligned with the $z$-axis.
+where the prime on $\Omega$ indicates we are using new coordinates where the remnant spin is aligned with the $z$-axis.
 The coefficients in this expansion, $h'_{\ell m}$, are what we now fit our ringdown models to. 
 In particular, we will focus on modelling the $\ell = m = 2$ spherical harmonic mode in the ringdown frame, $h'_{22}$.
 
 For aligned-spin systems, the $h_{2\pm2}$ are usually the dominant modes in the sum in Eq.~\ref{ch2:eq:spherical_expansion}. This is related to the fact that the GW signal amplitude is largest when viewed along the direction of the orbital angular momentum: $\vb*{L}$ or $-\vb*{L}$. For misaligned-spin systems undergoing precession, other modes become important. This in turn is related to the constantly changing direction of the orbital angular momentum, $\vb*{L}(t)$.
 Changing into the non-inertial, coprecessing frame in which $\vb*{L}$ always points along the $z$-direction has been found to account for most precessional effects and makes the precessing waveform remarkably similar to a non-precessing one.
-This transformation into the coprecessing frame has been successfully used to help model the full inspiral-merger-ringdown waveforms for precessing systems \cite{Schmidt:2010it,Schmidt:2012rh} in the context of phenomenological \cite{Hannam:2013oca, Khan:2018fmp, Pratten:2020ceb}, effective-one-body \cite{Pan:2013rra, Ossokine:2020kjp} and NR surrogate \cite{Blackman:2017dfb, Blackman:2017pcm, Varma:2019csw} modelling.
+This transformation into the coprecessing frame has been successfully used to help model the full inspiral-merger-ringdown waveforms for precessing systems~\cite{Schmidt:2010it, Schmidt:2012rh} in the context of phenomenological~\cite{Hannam:2013oca, Khan:2018fmp, Pratten:2020ceb}, effective-one-body~\cite{Pan:2013rra, Ossokine:2020kjp} and NR surrogate~\cite{Blackman:2017dfb, Blackman:2017pcm, Varma:2019csw} modelling.
 There is an analogy with the approach taken here for the modelling of the ringdown. In order to simplify the task, we choose to work in a frame adapted to final spin angular momentum of the remnant, $\vb*{\chi}_f$.
 Although, in our case, the rotation required to get into this frame is not time dependent and our chosen frame is therefore inertial.
 
 The spin-weighted spherical harmonics, ${}_{-2}Y_{\ell m}$, transform in a particularly simple manner under rotations.
 Rotations have the effect of mixing together modes with different $m$ indices, but preserving the same $\ell$. 
 The mixing coefficients for a rotation $\mathbf{R}$ are the Wigner $D$-matrices $D^{\ell}_{\mu m} (\mathbf{R})$.
-The transformation properties of the ${}_{-2}Y_{\ell m}$ functions under rotations means that the rotated $h'_{\ell m}$ modes in the ringdown frame are related to the $h_{\ell m}$ modes in the NR frame (included in the NR output, and as used in Section~\ref{aligned-spin-section}) by the sum (see, for example \cite{Boyle:2013nka, Schmidt:2010it, OShaughnessy:2011pmr})
+The transformation properties of the ${}_{-2}Y_{\ell m}$ functions under rotations means that the rotated $h'_{\ell m}$ modes in the ringdown frame are related to the $h_{\ell m}$ modes in the NR frame (included in the NR output, and as used in Section~\ref{aligned-spin-section}) by the sum (see, for example, Refs.~\cite{Boyle:2013nka, Schmidt:2010it, OShaughnessy:2011pmr})
 \begin{align}\label{Yrotation_wignerD}
     h'_{\ell m}(t) &= \sum_{\mu = -\ell}^{\ell} D^{\ell}_{\mu m} (\mathbf{R}) ~ h_{\ell \mu}(t).
 \end{align}
 The rotation $\mathbf{R}$ can be obtained from the direction of the remnant BH spin vector (which is provided as metadata for all SXS simulations). Specifically, $\mathbf{R}$ is any rotation that maps the $z$-axis onto the final spin vector.
 
-We now apply the overtone model to the ringdown of an example precessing simulation SXS:BBH:1856 \cite{Varma:2019csw}. 
+We now apply the overtone model to the ringdown of an example precessing simulation SXS:BBH:1856~\cite{Varma:2019csw}. 
 This simulation (at the reference time) has a mass ratio of $q=2.78$ and dimensionless spins $\vb*{\chi}_1=(0.18, -0.54, -0.45)$ and $\vb*{\chi}_2=(-0.12, -0.31, -0.031)$ on the heavier and lighter components respectively. 
 This simulation was chosen because it exhibits strong precession effects visible as amplitude modulations in $h_{22}(t)$. The final spin vector is $\vb*{\chi}_f=(-0.03,-0.19,0.42)$ and the rotated mode $h'_{22}(t)$ was computed using Eq.~\ref{Yrotation_wignerD}.
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/tEdot-t22_hist.pdf}
+    \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/tEdot-t22_hist.pdf}
     \caption[Differences between the times of peak strain and peak GW energy flux]{  
     Histogram of the differences between the two possible start times considered in Section~\ref{misaligned-spin-section}: the peak of the (rotated) strain mode $h'_{22}$, and the peak of the GW energy flux.
     The normalised distribution of the differences between these times is shown both for the 85 spin-aligned systems used in Section~\ref{aligned-spin-section} and for the 252 precessing simulations considered in Section~\ref{misaligned-spin-section}. 
@@ -393,7 +385,7 @@ The use of the peak in the energy flux is also a conservative choice in the sens
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_mismatch_vs_t0_with_error_edit.pdf}
+    \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_mismatch_vs_t0_with_error_edit.pdf}
     \caption[Mismatch as a function of ringdown start time for an overtone model fitted to SXS:BBH:1856]{
     Mismatch as a function of ringdown start time for the overtone model (Eq.~\ref{GieslerRD}) when fitting to the rotated $h'_{22}$ mode of the NR simulation SXS:BBH:1856.
     When using $N=7$ overtones, the lowest mismatch is achieved starting slightly ($\sim 10M$) before the peak in the GW energy flux.
@@ -409,12 +401,11 @@ However, the values of the minimum mismatch are a factor of $\sim 100$ larger th
 
 The $N=7$ model achieves a minimum mismatch $\sim 10M$ before the time of peak GW energy flux. This is fairly typical behaviour among the misaligned-spin SXS simulations considered.
 However, we note there is a much greater variety of possible behaviours for misaligned-spin systems than for the aligned-spin population. 
-% In order to emphasise this greater variation, in appendix \ref{appendix_a} we repeat the analysis in Figs.~\ref{1856_mismatch_vs_t0} and \ref{1856_epsilon_grid} for three more misaligned-spin simulations and highlight some of the observed differences. 
 The greater variation amongst the misaligned-spin population has already been hinted at in Fig.~\ref{tEdot-t22}, where the spread of start times is greater than in the aligned-spin cases.
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_epsilon_grid_alt.pdf}
+    \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_epsilon_grid_alt.pdf}
     \caption[Recovery of the SXS:BBH:1856 remnant properties using an overtone model starting from the peak of the GW energy flux]{
     Recovery of the SXS:BBH:1856 remnant properties when fitting the overtone model (Eq.~\ref{GieslerRD}) to the rotated $h'_{22}$ mode from the time of its peak energy flux.
     The heat map shows the mismatch for the fit with $N=7$, while the crosses show the locations of the minima in the mismatch for fits performed with different values of $N$.
@@ -451,7 +442,7 @@ When compared to the $N=0$ model, the addition of three overtones reduces the re
 However, the inclusion of additional overtones does not change the $\epsilon$ histogram, and produces only a minor reduction in the mismatch.
 Comparing the $N=7$ histogram for $\epsilon$ to that found in Fig.~\ref{aligned_spin_epsilon_hist}, we see that, on average, $\epsilon$ increases by a factor of $\sim 10$ and, in the worst cases, by a factor of $\sim 20$ (however, the overtone model does still perform similarly well for a small fraction of simulations). 
 The histograms for $\epsilon$ reflect the behaviour of Fig.~\ref{1856_epsilon_grid}, where models with $N \geq 1$ don't show systematic improvements. 
-It would be interesting to investigate whether the binary parameters correlate with $\epsilon$, and if certain binary configurations are responsible for the largest remnant errors. We have performed preliminary studies which reveal no clear correlations of $\epsilon$ with either the amount of precession (quantified via $\chi_p$ \cite{Schmidt:2014iyl}) or the recoil velocity. We defer a more detailed study of this question to future work.
+It would be interesting to investigate whether the binary parameters correlate with $\epsilon$, and if certain binary configurations are responsible for the largest remnant errors. We have performed preliminary studies which reveal no clear correlations of $\epsilon$ with either the amount of precession (quantified via $\chi_p$~\cite{Schmidt:2014iyl}) or the recoil velocity. We defer a more detailed study of this question to future work.
 
 It was checked if using an earlier start time of $t_{\mathrm{peak}}^{\dot{E}} - 10M$ changed the recovered distribution on $\epsilon$. 
 This choice was motivated by the location of the mismatch minimum typically seen for misaligned-spin simulations (e.g.\ see Fig.~\ref{1856_mismatch_vs_t0}). 
@@ -472,27 +463,32 @@ We see significantly smaller mismatches, and a stronger mismatch peak around the
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_mismatch_vs_t0_mirror_modes_with_error_edit.pdf}
-    \caption[Mismatch as a function of ringdown start time for the mirror-mode model fitted to SXS:BBH:1856]{ 
-    \comment{The mismatch for the mirror-mode model (Eq.~\ref{ch2:eq:mirror_model}) fitted to the NR simulation SXS:BBH:1856 as a function of ringdown start time $t_0$. Comparing with Fig.~\ref{1856_mismatch_vs_t0}, the locations of the mismatch minima are roughly unchanged in time, but the inclusion of mirror modes reduces the mismatch to values similar to those in Fig.~\ref{305_mismatch_vs_t0}. The dashed grey curve shows the estimate of the error in the underlying NR simulation and is described in Section~\ref{NR_error_appendix}.}
+    \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_mismatch_vs_t0_mirror_modes_with_error_edit.pdf}
+    \caption[Mismatch as a function of ringdown start time for the mirror-mode model fitted to SXS:BBH:1856]{
+    Mismatch as a function of ringdown start time for the mirror-mode model (Eq.~\ref{ch2:eq:mirror_model}) when fitting to the rotated $h'_{22}$ mode of the NR simulation SXS:BBH:1856.
+    Comparing with Fig.~\ref{1856_mismatch_vs_t0}, the locations of the mismatch minima are roughly unchanged in time, but the inclusion of mirror modes reduces the mismatch to values similar to those in Fig.~\ref{305_mismatch_vs_t0}. The dashed grey curve shows the estimate of the error in the underlying NR simulation and is described in Section~\ref{NR_error_appendix}.
     }
     \label{1856_mirror_mode_mismatch_vs_t0}
 \end{figure}
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_epsilon_grid_mirror_modes_m5.pdf}
+    \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_epsilon_grid_mirror_modes_m5.pdf}
     \caption[Recovery of the SXS:BBH:1856 remnant properties using the mirror-mode model starting from $5M$ before the peak of the GW energy flux]{ 
-    The recovery of the remnant properties for the mirror-mode model (Eq.~\ref{ch2:eq:mirror_model}) when fitting to the NR simulation SXS:BBH:1856, starting from $5M$ before the peak of the flux. The heat map shows the mismatch for the fit with $N=7$, while the crosses show the locations of the minima in the mismatch for fits performed with different values of $N$ ($N=0$ lies outside the figure, and is not included for clarity). Comparing with Fig.~\ref{1856_epsilon_grid}, the inclusion of mirror modes sharpens the mismatch peak and achieves smaller mismatch values. However, when averaged across the population of precessing simulations, the mirror-mode model doesn't give smaller values for the remnant error (see dashed curve in Fig.~\ref{misaligned_spin_epsilon_hist}). Here, $\epsilon = 0.014$ for the $N=7$ model.
+    Recovery of the SXS:BBH:1856 remnant properties when fitting the mirror-mode model (Eq.~\ref{ch2:eq:mirror_model}) to the rotated $h'_{22}$ mode from $5M$ before the time of its peak energy flux.
+    The heat map shows the mismatch for the fit with $N=7$, while the crosses show the locations of the minima in the mismatch for fits performed with different values of $N$ ($N=0$ lies outside the figure, and is not included for clarity). 
+    Comparing with Fig.~\ref{1856_epsilon_grid}, the inclusion of mirror modes sharpens the mismatch peak and achieves smaller mismatch values. 
+    However, when averaged across the population of precessing simulations, the mirror-mode model doesn't give smaller values for the remnant error (see dashed curve in Fig.~\ref{misaligned_spin_epsilon_hist}). 
+    Here, $\epsilon = 0.014$ for the $N=7$ model.
     }
     \label{1856_mirror_mode_epsilon_grid}
 \end{figure}
 
 To investigate whether the choice of ringdown start time could be contributing to the wider histograms seen in Fig.~\ref{misaligned_spin_epsilon_hist}, the behaviour of the mismatch heat maps (e.g.\ Figs.~\ref{305_epsilon_grid}, \ref{1856_epsilon_grid}, \ref{1856_mirror_mode_epsilon_grid}) with varying start time was explored for selected SXS simulations. 
-Animations of ringdown fits with varying start time can be found at \cite{finch_eliot_2021_4538194}.
+Animations of ringdown fits with varying start time can be found at Ref.~\cite{finch_eliot_2021_4538194}.
 For the aligned-spin simulation SXS:BBH:0305, we see that the location of the mismatch minimum in the mass-spin plane settles on the true remnant properties for a sufficiently late choice of the start time ($t_0 \geq t_{\mathrm{peak}}^{h_{22}}$ for the $N=7$ overtone model). 
 In addition, the mismatch minimum stays centred on the true remnant properties until numerical noise takes over.
-For earlier choices of the start time, the $N=7$ overtone model gives biased values for the final mass and spin, see \cite{finch_eliot_2021_4538194}.
+For earlier choices of the start time, the $N=7$ overtone model gives biased values for the final mass and spin, see Ref.~\cite{finch_eliot_2021_4538194}.
 Applying the $N=7$ overtone model to the misaligned-spin simulation SXS:BBH:1856, we see that the location of the mismatch minimum moves around the mass-spin plane as start time is varied. Even at late times, it never settles on the true remnant properties.
 The inclusion of mirror modes, as seen in Fig.~\ref{1856_mirror_mode_epsilon_grid}, narrows the mismatch minimum. The movement of the mismatch minimum around the mass-spin plane is reduced as well, however it still doesn't settle on the location of the true remnant properties.
 This behaviour may explain some of the observed widening of the histograms, and perhaps hints something is missing from the ringdown model.
@@ -507,13 +503,9 @@ These models perform significantly worse in some cases for precessing systems th
 We now investigate whether the inclusion of higher harmonics (that is, QNMs with $\ell > 2$) can improve the fits to $h'_{22}(t)$.
 These higher harmonics were neglected by both the overtone (Eq.~\ref{GieslerRD}) and mirror-mode (Eq.~\ref{ch2:eq:mirror_model}) models.
 However, mode mixing does occur as a consequence of the different angular basis functions used in the waveform decompositions in Eqs.~\ref{ch2:eq:spherical_expansion} and \ref{ch2:eq:spheroidal_expansion} and the fact that these basis functions are not mutually orthogonal~\cite{Berti:2014fga}.
-The amount of mode mixing between the spherical mode ${}_{-2}Y_{\ell m}$ and the spheroidal mode ${}_{-2}S_{\ell m n}$ is determined by the remnant spin $\chi_f$ and the QNM frequency. This can be quantified by how much these functions fail to be orthogonal; i.e.\ by the integral
-\begin{align}
-     \mu_{\ell m, \ell' m' n'} = \delta_{mm'}\int_{\Omega} {}_{-2}Y_{\ell m}(\Omega)  ~ {}_{-2}S^*_{\ell ' m' n'}(\Omega) ~ \dd{\Omega},
-\end{align}
-where $\Omega$ denotes the angles $\theta,\,\phi$.
-A translational offset between the NR and ringdown frames (e.g.\ due to a kick) can also lead to mixing between $m$-modes \cite{Boyle:2015nqa}; this effect is neglected here.
-To include the contribution from higher harmonics, we define a new ringdown model for the spherical harmonic modes which now allows for a sum over different $\ell$:
+The amount of mode mixing between the spherical mode ${}_{-2}Y_{\ell m}$ and the spheroidal mode ${}_{-2}S_{\ell m n}$ is determined by the remnant spin $\chi_f$ and the QNM frequency. This can be quantified by how much these functions fail to be orthogonal; i.e.\ by the spherical-spheroidal mixing coefficients (Eq.~\ref{ch2:eq:mu}).
+A translational offset between the NR and ringdown frames (e.g.\ due to a kick) can also lead to mixing between $m$-modes~\cite{Boyle:2015nqa}; this effect is neglected here.
+To include the contribution from higher harmonics, we define a new ringdown model for the spherical-harmonic modes which now allows for a sum over different $\ell$:
 \begin{equation}\label{full_ringdown}
     h_{\ell m}^{N,\,L,\, {\rm mirror}}(t) = \sum_{n=0}^N \sum_{l=2}^{L} \qty[ C_{l m n} e^{-i \omega_{l m n}(t-t_0)} + C'_{l m n} e^{i \omega^*_{l m n}(t-t_0)} ]\quad \textrm{for} \quad t \geq t_0.
 \end{equation}
@@ -523,7 +515,14 @@ This comes at the expense of a large number of free parameters; there are $4(N+1
 \begin{figure}[t]
     \centering
     \includegraphics[width=\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/misaligned_spin_epsilon_M_hist_harmonics.pdf}
-    \caption[Remnant error and mismatches for fits to misaligned-spin SXS simulations using the harmonic model]{Left: histograms of the mass-spin remnant error $\epsilon$ from harmonic model fits (Eq.~\ref{full_ringdown}) to same 252 misaligned-spin SXS simulations used in Fig.\ref{misaligned_spin_epsilon_hist}. Shown (in dashed lines) are the $N=7$, $L=3$ and $L=4$ models with mirror modes. Also shown in green is the overtone model with $N=7$ and $L=2$ (no mirror modes); this is the same as the green histogram in Fig.~\ref{misaligned_spin_epsilon_hist} and is included here to aid comparison. Right: histograms of the mismatch from a fit with the true remnant mass and spin parameters, with the same models and SXS simulations as in the left histogram. The harmonic model, which includes many free parameters, achieves small mismatches but without significant improvement in the remnant error. We note that the inclusion of $L=4$ does not bring any additional improvements over $L=3$.}
+    \caption[Remnant error and mismatches for fits to misaligned-spin SXS simulations using the harmonic model]{
+    \emph{Left:} histograms of the mass-spin remnant error $\epsilon$ from harmonic model fits (Eq.~\ref{full_ringdown}) to the same 252 misaligned-spin SXS simulations used in Fig.\ref{misaligned_spin_epsilon_hist}. 
+    Shown (in dashed lines) are the $N=7$, $L=3$ and $L=4$ models with mirror modes. 
+    Also shown in green is the overtone model with $N=7$ and $L=2$ (no mirror modes); this is the same as the green histogram in Fig.~\ref{misaligned_spin_epsilon_hist} and is included here to aid comparison. 
+    \emph{Right:} histograms of the mismatch from a fit with the true remnant mass and spin parameters, with the same models and SXS simulations as in the left histogram. 
+    The harmonic model, which includes many free parameters, achieves small mismatches but without significant improvement in the remnant error. 
+    We note that the inclusion of $L=4$ does not bring any additional improvements over $L=3$.
+    }
     \label{misaligned_spin_epsilon_hist_harmonics}
 \end{figure}
 
@@ -539,16 +538,16 @@ There is a modest reduction in $\epsilon$ for some systems, and in particular we
 \section{Surrogates}\label{surrogate-section}
 
 NR simulations are computationally expensive, and although the number of simulations available in public catalogs is growing they are still limited in their parameter space coverage. 
-NR surrogate models \cite{Blackman:2015pia, Blackman:2017pcm, Varma:2019csw, Varma:2018mmi} would appear to be an attractive alternative.
+NR surrogate models~\cite{Blackman:2015pia, Blackman:2017pcm, Varma:2019csw, Varma:2018mmi} would appear to be an attractive alternative.
 These models use reduced-order and surrogate modelling techniques to extend the results of a set of NR simulations smoothly across parameter space. 
-The use of surrogates could, in principle, allow us to extend the results of the previous section to include many more systems as well as allowing us to study how the excitations of the various QNMs vary during a smooth exploration of parameter space.
+The use of surrogates could, in principle, allow us to extend the results of this chapter to include many more systems as well as allowing us to study how the excitations of the various QNMs vary during a smooth exploration of parameter space.
 However, care must be taken as the surrogate modelling necessarily introduces an additional source of error into the waveforms, on top of the errors originally in the NR waveforms themselves.
  
-When attempting to fit QNM ringdown models with overtones to NRSur7dq4 \cite{Varma:2019csw} waveforms, it was found that incorrect values for $M_f$ and $\chi_f$ were being recovered (particularly at high mass ratios). This being the case even for aligned-spin or non-spinning systems. Although the NRSur7dq4 waveforms do not provide the remnant properties, these can be obtained via NRSur7dq4Remnant \cite{Varma:2019csw} (it was found the problem did not lie with the values returned by NRSur7dq4Remnant but rather with the waveform surrogate).
+When attempting to fit QNM ringdown models with overtones to NRSur7dq4~\cite{Varma:2019csw} waveforms, it was found that incorrect values for $M_f$ and $\chi_f$ were being recovered (particularly at high mass ratios). This being the case even for aligned-spin or non-spinning systems. Although the NRSur7dq4 waveforms do not provide the remnant properties, these can be obtained via NRSur7dq4Remnant~\cite{Varma:2019csw} (it was found the problem did not lie with the values returned by NRSur7dq4Remnant but rather with the waveform surrogate).
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/surrogate_epsilon_and_mass_ratio.pdf}
+    \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/surrogate_epsilon_and_mass_ratio.pdf}
     \caption[Comparison of the error on measured remnant mass and spin from two surrogate models and a selection of SXS simulations.]{
     Comparison of the remnant error $\epsilon$ from two surrogate models and a selection of SXS simulations. All are zero initial spin. The fits were performed on the $h_{22}$ mode with the $N=7$ overtone model, Eq.~\ref{GieslerRD}, starting from the time of peak strain. The labels on each cross correspond to the SXS ID. The dashed line indicates where we are outside the training range of NRSur7dq4.
     }
@@ -560,7 +559,7 @@ The $N=7$ overtone model (Eq.~\ref{GieslerRD}) was fitted to the $h_{22}(t)$ mod
 and the remnant error $\epsilon$ (Eq.~\ref{eq:epsilon}) was calculated for each.
 The results are shown in Fig.~\ref{surrogate_epsilon_vs_q}, along with the results for similar fits performed directly on 11 zero-spin SXS simulations at discrete values of the mass ratio. 
 The fits to the NRSur7dq4 surrogate produce values for $\epsilon$ that are 1-2 orders of magnitude higher than for the equivalent SXS simulations. 
-Also shown are the results from a similar analysis with the more restrictive aligned-spin surrogate NRHybSur3dq8 \cite{Varma:2018mmi}; this was found to be in close agreement with the SXS simulations.
+Also shown are the results from a similar analysis with the more restrictive aligned-spin surrogate NRHybSur3dq8~\cite{Varma:2018mmi}; this was found to be in close agreement with the SXS simulations.
 
 Residuals and mismatches can also be computed between surrogate and NR waveforms (taking care to align the waveforms in both time and phase).
 For SXS:BBH:0168, the $q=3$, zero-spin simulation used in Fig.~\ref{surrogate_epsilon_vs_q}, we find $\sim 2\%$ residuals in the ringdown when comparing to the NRSur7dq4 surrogate with the same parameters. 
@@ -575,26 +574,28 @@ By contrast, the lower-dimensional aligned-spin surrogate NRHybSur3dq8 does appe
 It is important to remember the finite accuracy of the NR simulations used in ringdown studies.
 This is particularly true when using models with many QNMs which, by their very nature, use a large number of free parameters and regularly achieve very small ($\sim 10^{-6}$) mismatches.
 If care is not taken, we risk fitting our models to the numerical noise. 
-In this section we describe the numerical checks performed on the two individual simulations used in this chapter: SXS:BBH:0305, and 1856. %, and the three simulations shown in Fig.~\ref{misaligned_spin_variation}.
+In this section we describe the numerical checks performed on the two individual simulations used in this chapter: SXS:BBH:0305, and SXS:BBH:1856. %, and the three simulations shown in Fig.~\ref{misaligned_spin_variation}.
 In each case the numerical errors were estimated by comparing results obtained using data from the two highest resolutions (levels) available in the SXS catalog. 
 
 First, we quantify the numerical error in the mismatch.
-This was done by calculating the mismatch between the two NR resolutions from a time $t_0$ to a time $T = t_0 + 100M$, for a range of $t_0$. For each start time, we optimally align the two waveforms in time (taking the absolute value in the mismatch automatically optimises the mismatch over phase). The alignment in time can be done by matching the time of peak strain, for example, or by numerically rolling the waveform to find the optimal time shift for each mismatch calculation.
+This was done by calculating the mismatch between the two highest NR resolutions from a time $t_0$ to a time $T = t_0 + 100M$, for a range of $t_0$. For each start time, we optimally align the two waveforms in time (taking the absolute value in the mismatch automatically optimises the mismatch over phase). The alignment in time can be done by matching the time of peak strain, for example, or by numerically rolling the waveform to find the optimal time shift for each mismatch calculation.
 The results are shown by the grey dashed lines in the mismatch vs start time plots in Figs.~\ref{305_mismatch_vs_t0}, \ref{1856_mismatch_vs_t0} (duplicated in Fig.~\ref{1856_mirror_mode_mismatch_vs_t0}). % and the 3 panels of Fig.~\ref{misaligned_spin_variation}.
 Generally, we see numerical error estimates at or below the model mismatches, particularly at late times, indicating that we are not fitting to the numerical noise.
 The main exception is Fig.~\ref{1856_mirror_mode_mismatch_vs_t0} where the mirror-mode model is applied to a precessing system. This is expected; precessing NR simulations, and those with high mass ratios are generally expected to have larger numerical errors. Additionally, the mirror mode and harmonic models have the highest numbers of free parameters making them more likely to reach the accuracy of the NR simulation. 
 
 Second, we investigate the numerical error on the remnant mass and spin.
 We quantify the numerical error with $\epsilon_{\mathrm{NR}}$, the Euclidean distance (Eq.~\ref{eq:epsilon}) between the remnant properties reported in the two highest resolution levels of the NR simulation.
-The $\epsilon_{\mathrm{NR}}$ values are reported in the main text. % and in the table in appendix \ref{appendix_a}.
-In all cases $\epsilon_{\mathrm{NR}} < \epsilon$. This supports the conclusions in the main text and indicates they are likely to be robust against numerical noise in the underlying NR simulations used.
+The $\epsilon_{\mathrm{NR}}$ values are reported in the previous sections. % and in the table in appendix \ref{appendix_a}.
+In all cases $\epsilon_{\mathrm{NR}} < \epsilon$. 
+This supports the conclusions in this chapter and indicates they are likely to be robust against numerical noise in the underlying NR simulations used.
 
 
 \section{Discussion} \label{sec:discussion}
 
 This chapter has made a first systematic attempt at using QNMs to model the ringdown of BHs formed from BBHs with misaligned component spins in the inspiral.
-Previously, for aligned-spin systems, it has been found that the ringdown can be modelled with low mismatch and low remnant errors using a model that includes overtones of the fundamental QNM \cite{Giesler:2019uxc}. For seven overtones, the ringdown can be reliably modelled from the peak of the $h_{22}(t)$ strain for a range of SXS simulations.
-Additionally, the inclusion of mirror modes can allow the ringdown to be modelled from even earlier times \cite{Dhani:2020nik}.
+Previously, for aligned-spin systems, it has been found that the ringdown can be modelled with low mismatch and low remnant errors using a model that includes overtones of the fundamental QNM~\cite{Giesler:2019uxc}. 
+For seven overtones, the ringdown can be reliably modelled from the peak of the $h_{22}(t)$ strain for a range of SXS simulations.
+Additionally, the inclusion of mirror modes can allow the ringdown to be modelled from even earlier times~\cite{Dhani:2020nik}.
 In this chapter, which generalised these studies to precessing systems, we find that while QNM models can reliably achieve small mismatches, in the worst cases the remnant errors are more than a factor of 10 higher.
 This is the case even when choosing to start the ringdown at the more conservative (i.e.\ later) peak in GW energy flux. 
 The inclusion of higher harmonics reduces the remnant error in some cases, perhaps a sign that mode mixing in the ringdown is generally more important in precessing systems. However, in other cases, a bias remains in the recovered remnant properties.

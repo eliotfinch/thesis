@@ -169,16 +169,6 @@ The Hanford PSD is estimated from $1024\,\mathrm{s}$ of off-source data at the t
 \section{Black-hole ringdown}
 \label{ch1:sec:bh_ringdown}
 
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[width=0.75\columnwidth]{Introduction/ringdown_waveform.pdf}
-    \caption[The gravitational-wave ringdown signal]{ 
-    The ringdown waveform from a BBH, fitted with a simple damped sinusoid. 
-    At early times this simple description breaks down. The waveform is a NR simulation from the SXS catalog.
-    }
-    \label{ch1:fig:rd_waveform}
-\end{figure}
-
 The endpoint of a BBH, the ringdown signal is produced by the remnant BH settling to its stationary state.
 Just as a bell or drum has a characteristic sound, so too does a BH; associated with the BH is a unique spectrum of oscillatory modes, determined purely by its properties (namely, for astrophysical BHs, a mass and spin).
 The characteristic oscillations of the remnant BH are called quasinormal modes (QNMs), so-called because, unlike normal modes, they decay over time (for reviews on the subject, see Refs.~\cite{Kokkotas:1999bd, Nollert:1999ji, Ferrari:2007dd, Berti:2009kk}).
@@ -191,6 +181,17 @@ This simulation has properties consistent with GW150914, and will be among the N
 NR waveforms are decomposed into spherical-harmonic modes indexed by $\ell$ and $m$ (see Section~\ref{ch2:sec:model} and Eq.~\ref{ch2:eq:spherical_expansion} for more details), and here we plot the real part of the dominant $\ell = m = 2$ mode.
 The radial dependence of GW waveforms goes predominantly as $r^{-1}$, so the SXS catalog provides the strain multiplied by $r$ (just as what was plotted in Fig.~\ref{ch1:fig:td_waveform}).
 For clarity we will drop the $r$ factor for the remainder of the thesis and have the $r^{-1}$ scaling implied (just keep in mind when we refer to the GW signal $h$ or a mode $h_{\ell m}$, we really mean $rh$ and $rh_{\ell m}$). 
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Introduction/ringdown_waveform.pdf}
+    \caption[The gravitational-wave ringdown signal]{ 
+    The ringdown waveform from a BBH, fitted with a simple damped sinusoid. 
+    At early times this simple description breaks down. 
+    The waveform is a NR simulation from the SXS catalog.
+    }
+    \label{ch1:fig:rd_waveform}
+\end{figure}
 
 Overplotted is a simple model for the $h_{22}$ mode: a exponentially damped sinusoid with complex frequency $\omega = 2\pi f - i/\tau$ and amplitude $C = Ae^{i\phi}$. 
 Taking the real part we have
@@ -330,7 +331,7 @@ However, it has been shown that the QNM spectrum resulting from the Regge-Wheele
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\columnwidth]{Figures/Introduction/rw_potential.pdf}
+    \includegraphics[width=0.6\columnwidth]{Figures/Introduction/rw_potential.pdf}
     \caption[The Regge-Wheeler potential]{
     The Regge-Wheeler potential as a function of the tortoise coordinate $r_*$ (with the BH horizon at $r_* = -\infty$), for scalar and gravitational perturbations and for a selection of $\ell$. In this subsection $M$ refers to the mass of the Schwarzschild BH, and not the total binary mass.
     }
