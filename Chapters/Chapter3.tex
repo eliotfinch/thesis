@@ -343,7 +343,7 @@ The ringdown start time, $t_0$, appears as a model parameter in our frequency-do
 This raises two interesting questions: what prior should be placed on $t_0$, and how well can $t_0$ be measured from the data?
 The possibility of determining $t_0$ from the data is particularly enticing because the ringdown start time is theoretically uncertain and its choice is crucial for any ringdown analysis.
 
-\begin{figure}[t!]
+\begin{figure}[b!]
     \centering
     \includegraphics[width=0.6\columnwidth]{FrequencyDomainAnalysisofBlackHoleRingdowns/mass_spin_corner_widths.pdf}
     \caption[Similar to Fig.~\ref{fig:mass_spin_corner_zero_spin}, posteriors on the remnant mass and spin for the GW190521-like injection using a single wavelet ($W=1$) and a single QNM using different priors on $t_0$]{ 
@@ -449,13 +449,7 @@ This suggests the time- and frequency-domain approaches are equally sensitive to
     \label{fig:A221_posterior}
 \end{figure}
 
-Further evidence supporting this conclusion comes from the odds ratios (aka Bayes' factors) in favour of the overtone.
-The Bayes' factors $\mathcal{B}^{2\mathrm{QNM}}_{1\mathrm{QNM}}$ (computed with equal prior odds) in favour of the second QNM were computed from both the time- and frequency-domain analyses. 
-In order to do this, we perform an additional set of analyses on the series of injections used in Fig.~\ref{fig:A221_posterior} with the same ringdown start time (fixed at the peak for the time-domain analysis, and a Gaussian prior centred on the peak in Hanford for the frequency-domain) but without the overtone included.
-We can then compute the evidence, $\mathcal{B}_{1\mathrm{QNM}}^{2\mathrm{QNM}}$, in favour of the 2QNM analysis (with an overtone) over the 1QNM analysis (fundamental mode only) keeping every other part of the analysis identical. 
-The log-Bayes' factors for each of the different SNR injections are shown in Table.~\ref{tab:bayes_factors} where it can be seen that the time- and frequency-domain approaches are equally sensitive to the overtone mode.
-
-\begin{table}[h!]
+\begin{table}[b!]
     \centering
     \begin{tabular}{c|cccc}
     SNR & 15   & 12   & 9   & 6  \\ \hline
@@ -468,6 +462,12 @@ The log-Bayes' factors for each of the different SNR injections are shown in Tab
     }
     \label{tab:bayes_factors}
 \end{table}
+
+Further evidence supporting this conclusion comes from the odds ratios (aka Bayes' factors) in favour of the overtone.
+The Bayes' factors $\mathcal{B}^{2\mathrm{QNM}}_{1\mathrm{QNM}}$ (computed with equal prior odds) in favour of the second QNM were computed from both the time- and frequency-domain analyses. 
+In order to do this, we perform an additional set of analyses on the series of injections used in Fig.~\ref{fig:A221_posterior} with the same ringdown start time (fixed at the peak for the time-domain analysis, and a Gaussian prior centred on the peak in Hanford for the frequency-domain) but without the overtone included.
+We can then compute the evidence, $\mathcal{B}_{1\mathrm{QNM}}^{2\mathrm{QNM}}$, in favour of the 2QNM analysis (with an overtone) over the 1QNM analysis (fundamental mode only) keeping every other part of the analysis identical. 
+The log-Bayes' factors for each of the different SNR injections are shown in Table.~\ref{tab:bayes_factors} where it can be seen that the time- and frequency-domain approaches are equally sensitive to the overtone mode.
 
 
 \section{GW150914-like injection}\label{app:GW150914}
@@ -506,6 +506,15 @@ Following the same procedure as in Section~\ref{sec:injection_study}, a time-dom
 The prior on the remnant mass was adjusted to reflect the lower injected value (flat between $50\,M_\odot$ and $100\,M_\odot$), but otherwise the analysis was unchanged from the time-domain analyses described in the main text.
 The resultant remnant mass and spin posterior is shown by the blue solid line in Fig.~\ref{fig:GW150914_mass_spin_corner}.
 
+Secondly, a series of frequency-domain analyses were carried out using an increasing number of wavelets.
+Results for $W=1$, 3, and 5 are shown in Fig.~\ref{fig:GW150914_mass_spin_corner}.
+We found a slightly more restrictive prior on the wavelet central times, $\eta_w$, was required to aid the inference; the Gaussian width was reduced to $10\,\mathrm{ms}$ ($\sim 30\,M_f$).
+This encouraged the wavelets to fit near the ringdown start time, which is the part of the signal we are most interested in.
+The upper bound on the wavelet frequencies was also increased to $500\,\mathrm{Hz}$ ($\sim 0.17\,M_f^{-1}$), as the lower binary mass means the merger-ringdown occurs at a higher frequency.
+We see that a single wavelet is not quite sufficient to avoid bias in the remnant parameters, which may be expected when working with a longer inspiral.
+As the number of wavelets is increased the bias disappears, and the remnant posteriors seem to converge to a solution that is stable against the inclusion of additional wavelets. 
+As was the case for the GW190521-like analysis, we find the frequency-domain model achieves tighter constraints on the remnant parameters in comparison to the time-domain analysis. 
+
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.9\columnwidth]{FrequencyDomainAnalysisofBlackHoleRingdowns/GW150914_whitened_waveforms.pdf}
@@ -522,15 +531,6 @@ The resultant remnant mass and spin posterior is shown by the blue solid line in
     }
     \label{fig:GW150914_whitened_waveforms}
 \end{figure}
-
-Secondly, a series of frequency-domain analyses were carried out using an increasing number of wavelets.
-Results for $W=1$, 3, and 5 are shown in Fig.~\ref{fig:GW150914_mass_spin_corner}.
-We found a slightly more restrictive prior on the wavelet central times, $\eta_w$, was required to aid the inference; the Gaussian width was reduced to $10\,\mathrm{ms}$ ($\sim 30\,M_f$).
-This encouraged the wavelets to fit near the ringdown start time, which is the part of the signal we are most interested in.
-The upper bound on the wavelet frequencies was also increased to $500\,\mathrm{Hz}$ ($\sim 0.17\,M_f^{-1}$), as the lower binary mass means the merger-ringdown occurs at a higher frequency.
-We see that a single wavelet is not quite sufficient to avoid bias in the remnant parameters, which may be expected when working with a longer inspiral.
-As the number of wavelets is increased the bias disappears, and the remnant posteriors seem to converge to a solution that is stable against the inclusion of additional wavelets. 
-As was the case for the GW190521-like analysis, we find the frequency-domain model achieves tighter constraints on the remnant parameters in comparison to the time-domain analysis. 
 
 Finally, we inspect the whitened waveform reconstructions for all four analyses shown in Fig.~\ref{fig:GW150914_mass_spin_corner}.
 We focus on the waveform in the Hanford detector.

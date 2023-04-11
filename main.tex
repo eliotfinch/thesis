@@ -53,6 +53,8 @@ headsepline, % Uncomment to get a line under the header
 
 % \usepackage{mathpazo} % Use the Palatino font by default
 
+\usepackage{microtype}
+
 \usepackage{physics}
 \usepackage{amssymb}
 % \usepackage{aas_macros}
@@ -308,32 +310,63 @@ Chapter~\ref{Chapter1} is an introductory chapter and contains no original work.
 
 \vspace{0.2cm}
 
-\noindent In this chapter we provide wider context to the study of black-hole ringdown.
+\noindent In Chapter~\ref{Chapter1} we provide wider context to the study of black-hole ringdown.
 This includes gravitational waves, their production via binary black-hole mergers, and the formation of a initially perturbed remnant black hole.
 We discuss the basic morphology of the ringdown signal, and provide details on its constituent quasinormal modes. 
 This includes some basic calculations to build intuition.
 Finally, we provide motivation for the study of the ringdown in the form of tests of general relativity. 
 
-\vspace{0.5cm}
+\begin{center}
+    \rule[.5ex]{.5\textwidth}{.5pt}
+\end{center}
 
 \noindent Chapter~\ref{Chapter2} is a reformatted version of Ref.~\cite{Finch:2021iip}.
-The introduction has been re-worked to fit into the thesis format, and some minor edits have been made to the text to improve readability. 
-The study was conceived with my supervisor, Christopher J.\ Moore.
+The introduction has been re-worked to fit into the thesis format, and some minor edits have been made to the text to include new references and improve readability. 
+The study was conceived with help from my supervisor and co-author, Christopher J.\ Moore.
 I performed all analyses, wrote the code (available at Ref.~\cite{qnmfits}), and created all figures.
 I wrote the majority of the text, with input from my supervisor.
 
 \vspace{0.2cm}
 
-\noindent In this chapter we...
+\noindent The study of Chapter~\ref{Chapter2} was prompted by numerical work of Giesler et al., who found that the linear ringdown description could be extended to relatively early times if multiple quasinormal-mode overtones were included in the model.
+We generalised this work (which considered only aligned-spin systems) to precessing systems, testing the validity of the model across a wider parameter space.
+We find a much greater variation in the performance of ringdown fits than in the aligned-spin case. 
+The inclusion of mirror modes and higher harmonics, along with overtones, improves the reliability of ringdown fits with an early start time (perhaps a sign that mode mixing in the ringdown is generally more important in precessing systems); however, there remain cases with poor performing fits.
+This suggests that it is not possible to reliably model the ringdown from as early a time as claimed in the work of Giesler et al.
 
-\vspace{0.5cm}
+\begin{center}
+    \rule[.5ex]{.5\textwidth}{.5pt}
+\end{center}
 
 \noindent Chapter~\ref{Chapter3} is a reformatted version of Ref.~\cite{Finch:2021qph}. 
-Ref.~\cite{fdringdown}.
+The introduction has been re-worked to fit into the thesis format, and some minor edits have been made to the text to include new references and improve readability. 
+The idea for the data-analysis method presented in this chapter was proposed by my supervisor, and jointly developed to its final form.
+I performed all analyses, wrote the code (available at Ref.~\cite{fdringdown}), and created all figures. 
+I wrote the majority of the text, with input from my supervisor.
 
-\vspace{0.5cm}
+\vspace{0.2cm}
+
+\noindent In Chapter~\ref{Chapter3} we propose a novel frequency-domain ringdown analysis method, and demonstrate its use with simulated gravitational-wave signals.
+Our approach avoids the issues of spectral leakage that would normally be expected (associated with the abrupt start of the ringdown) by modelling the inspiral and merger parts of the signal using a flexible sum of sine-Gaussian wavelets truncated at the onset of the ringdown. 
+Performing the analysis in the frequency domain allows us to use standard (and by now well-established) Bayesian inference pipelines for gravitational wave data as well as giving us the ability to readily search over the sky position and the ringdown start time, although we find that it is necessary to use an informative prior for the latter. 
+We test our method by using it to analyse several simulated signals with varying signal-to-noise ratios injected into two- and three-detector networks. 
+We find that our frequency-domain approach is generally able to place tighter constraints on the remnant black-hole mass and spin than a standard time-domain analysis.
+
+\begin{center}
+    \rule[.5ex]{.5\textwidth}{.5pt}
+\end{center}
 
 \noindent Chapter~\ref{Chapter4} is a reformatted version of Ref.~\cite{Finch:2022ynt}. 
+The introduction has been re-worked to fit into the thesis format, and some minor edits have been made to the text to improve readability. 
+I conceived the study, and performed all analyses with input from my supervisor.
+With the exception of Figs.~\ref{fig:other_QNMs} and \ref{fig:skymap} (created by my supervisor) I created all figures, and wrote the majority of the text.
+
+\vspace{0.2cm}
+
+\noindent Prompted by disagreements in the literature, in Chapter~\ref{Chapter4} we reanalyse the GW150914 data searching for quasinormal mode overtone using our frequency-domain approach.
+Our analysis has several advantages compared to other analyses; in particular, the source sky position and the ringdown start time are marginalised over (as opposed to simply being fixed) as part of a Bayesian ringdown analysis. 
+We find tentative evidence for an overtone in GW150914, but at a lower significance than reported elsewhere. 
+Our preferred analysis, marginalising over the uncertainty in the time of peak strain amplitude, gives a posterior on the overtone amplitude peaked away from zero at $\sim 1.8 \sigma$.
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
