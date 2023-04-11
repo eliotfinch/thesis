@@ -161,11 +161,12 @@ Written in this form, we can easily apply least-squares solvers to invert the eq
 This minimises the Euclidean 2-norm $\norm{\vb*{h}_{\ell m} - \vb*{a}_{\ell m} \vdot \vb*{C}}$ (i.e.\ the sum of the squares of the fit residuals).
 In this chapter we will only be dealing with single-mode fits as described here.
 However, for completeness, below we describe how multimode fits can be implemented (available in the code developed for this work~\cite{qnmfits}).
+We also note that the multimode-fit formalism is used in Fig.~\ref{fig:amp_ratio} to predict QNM amplitudes.
 
 \subsection{Multimode fit}
 
 Due to mode mixing, a given QNM contributes to all spherical-harmonic modes with the same $m$. 
-This means we can perform a fit to multiple spherical-harmonic modes with a single set of shared QNM amplitudes $\vb*{C}$.
+This means we can perform a fit to multiple spherical-harmonic modes with a single set of shared QNM amplitudes $\vb*{C}$ (see, e.g.\ Fig.~\ref{fig:amp_ratio}).
 We will approach this by joining $\vb*{h}_{\ell m}$ vectors together for each $(\ell, m)$ we want to include in the fit (to effectively form a single time series), and similarly by ``stacking'' $\vb*{a}_{\ell m}$ matrices on top of each other.
 
 The single-mode matrix equation, Eq.~\ref{eq:hlm_matrix_single}, becomes
@@ -195,6 +196,7 @@ The quantity we're minimising is now
     \norm{\vb*{h} - \vb*{a} \vdot \vb*{C}} = \sqrt{ \sum_{\ell m} \norm{\vb*{h}_{\ell m} - \vb*{a}_{\ell m} \vdot \vb*{C}}^2 }
 \end{equation}
 which gives equal ``weight'' to each $(\ell,m)$ mode, and can be shown to be equivalent as averaging the least-squares fit over the sky.
+
 
 \section{Aligned-spin systems}\label{aligned-spin-section}
 

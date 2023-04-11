@@ -15,7 +15,7 @@ The first tests of GR performed using GW150914 included an investigation of the 
 The ringdown signal, after a fixed starting time $t_0$, was modelled using a single damped sinusoid; the parameters of which were checked for consistency with the predicted least-damped QNM of the remnant BH.
 This first attempt at a ringdown analysis was performed using the standard Whittle frequency-domain log-likelihood~\cite{10.2307/2983994}, commonly used in GW data analysis.
 The ringdown was isolated by choosing a lower limit of $\sim 130\, \mathrm{Hz}$ in the frequency integral, effectively cutting the data mid-signal.
-This approach suffers from several shortcomings. 
+As discussed in the previous chapter, this approach suffers from several shortcomings. 
 Firstly the frequency-domain cut at $\sim 130\, \mathrm{Hz}$ only approximately separates the ringdown from the early-time signal due to the breakdown of the stationary phase approximation near merger. 
 Secondly the nonzero amplitude at the start of the signal model breaks the assumption of circularity for the Fourier transform, thereby introducing contamination in the form of spectral leakage. 
 Therefore, this approach does not scale well to higher SNRs where noise will no longer dominate over the systematic errors introduced by the sharp frequency-domain cut.
@@ -24,23 +24,22 @@ Despite these drawbacks, this approach was successfully used in Ref.~\cite{LIGOS
 Since this initial attempt, several groups have developed new time-domain frameworks specifically for ringdown analyses~\cite{Carullo:2019flw, Isi:2019aib, Capano:2021etf}.
 The principle motivation for working in the time domain is that it is easy to impose sharp cuts on the data at specific times (without any spectral leakage) and to analyse only data after a chosen start time (see Ref.~\cite{Isi:2021iql} for details of time-domain analysis methods).
 These approaches have also enabled going beyond the fundamental mode. 
-Generically, the ringdown can be modelled as a superposition of QNMs with complex frequencies $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$, labelled with angular indices $\ell\geq 2$, $\abs{m}\leq\ell$, and an overtone index $n \geq 0$ [the fundamental mode has $(\ell, \abs{m}, n) = (2, 2, 0)$].
-Detecting additional QNMs beyond the fundamental increases the scientific potential of ringdown studies, especially for fundamental tests of the Kerr metric, the no-hair theorems, and the BH area law~\cite{Dreyer:2003bv, Berti:2005ys, Gossan:2011ha, Brito:2018rfr, Carullo:2019flw, Isi:2019aib, Isi:2020tac}.
-
-Outside of the testing-GR catalog papers mentioned previously~\cite{LIGOScientific:2020tif, LIGOScientific:2021sio}, other groups have attempted to identify additional QNMs in the ringdown data and perform tests of the no-hair theorem. 
-This includes claims of detection of the $(2,2,1)$ overtone in GW150914~\cite{Isi:2019aib}, and claims of detection of the $(3,3,0)$ harmonic in GW190521~\cite{Capano:2021etf}. 
+% Generically, the ringdown can be modelled as a superposition of QNMs with complex frequencies $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$, labelled with angular indices $\ell\geq 2$, $\abs{m}\leq\ell$, and an overtone index $n \geq 0$ [the fundamental mode has $(\ell, \abs{m}, n) = (2, 2, 0)$].
+% Detecting additional QNMs beyond the fundamental increases the scientific potential of ringdown studies, especially for fundamental tests of the Kerr metric, the no-hair theorems, and the BH area law~\cite{Dreyer:2003bv, Berti:2005ys, Gossan:2011ha, Brito:2018rfr, Carullo:2019flw, Isi:2019aib, Isi:2020tac}.
+Outside of the testing-GR catalog papers~\cite{LIGOScientific:2020tif, LIGOScientific:2021sio}, other groups have attempted to identify additional QNMs in the ringdown data and perform tests of the no-hair theorem. 
+This includes claims of detection of the $(2,2,1)$ overtone in GW150914 by Isi et al.~\cite{Isi:2019aib}, and claims of detection of the $(3,3,0)$ harmonic in GW190521 by Capano et al.~\cite{Capano:2021etf}. 
 By allowing the QNM frequency of the secondary mode to deviate from the GR Kerr prediction, the above works found the measured spectrum to be in agreement with the no-hair hypothesis to within $\sim 20\%$ ($68\%$ credibility) and $\sim 1\%$ ($90\%$ credibility) respectively.
+More recently, the QNM filter approach of Ma et al.~\cite{Ma:2022wpv} was also applied to GW150914.
+They found results broadly in agreement with Isi et al., with a test of the no-hair hypothesis at a similar level~\cite{Ma:2023vvr, Ma:2023cwe}.
 
-An early application of the time-domain framework was in Ref.~\cite{Isi:2019aib}, where Isi et al. claimed a detection of the first overtone of the fundamental QNM in the GW150914 signal [that is, the $(2, 2, 1)$ mode]. 
-This was quickly followed by a separate detection claim of the $(3,3,0)$ harmonic mode in the signal of the $\sim 150M_\odot$ binary merger GW190521~\cite{LIGOScientific:2020iuh} by Capano et al.~\cite{Capano:2021etf} (this was done using a formally-equivalent formulation of the time-domain method, although expressed in the frequency domain).
-The claimed detection of an overtone was made possible partly because, compared to earlier studies, the authors chose to use an earlier start time for the ringdown; this was motivated by contemporary NR studies~\cite{Giesler:2019uxc} (see also Refs.~\cite{Bhagwat:2019dtm, Ota:2019bzl, Cook:2020otn, JimenezForteza:2020cve, Dhani:2020nik, Finch:2021iip, Forteza:2021wfq, Dhani:2021vac, MaganaZertuche:2021syq}) that demonstrated that when overtones are included the ringdown can be considered to start as early as the time of peak strain amplitude. 
+The detection of an overtone in GW150914 was made possible partly because, compared to earlier studies, the authors chose to use an earlier start time for the ringdown; this was motivated by contemporary NR studies discussed in Chapter~\ref{Chapter2}, that demonstrated that when overtones are included the ringdown can be considered to start as early as the time of peak strain amplitude. 
 
 However, a recent paper by Cotesta et al.~\cite{Cotesta:2022pci} reanalysed the GW150914 signal using very similar methods and found no significant evidence for an overtone.
 It was also suggested that the earlier detection claims of Ref.~\cite{Isi:2019aib} were noise dominated.
 (This prompted a response from Isi et al.~\cite{Isi:2022mhy} where they restated their claim to have detected an overtone in GW150914.) 
 Ref.~\cite{Bustillo:2020buq} also found weaker evidence for an overtone using an analysis method closer to that of Ref.~\cite{LIGOScientific:2016lio}.
-Similarly, the claim in Ref.~\cite{Capano:2021etf} that a harmonic had been detected in GW190521 has also been debated and no evidence for a harmonic was found by Ref.~\cite{LIGOScientific:2021sio}.
-Amid this confusion, it is particularly concerning that the supposedly identical analyses in Refs.~\cite{Isi:2019aib, Isi:2022mhy}, and~\cite{Cotesta:2022pci} come to such different conclusions concerning which QNMs are in the data. 
+There are similar disagreements regarding the claim of a higher harmonic in GW190521 made in Ref.~\cite{Capano:2021etf}, as these are in tension with the results of Ref.~\cite{LIGOScientific:2021sio}.
+Amid this confusion, it is particularly concerning that the supposedly identical analyses in Refs.~\cite{Isi:2019aib, Isi:2022mhy}, and \cite{Cotesta:2022pci} come to such different conclusions concerning which QNMs are in the data. 
 Discrepancies of this sort risk jeopardising the science that can be done using future ringdown observations.
 
 These discrepancies highlight some of the difficulties inherent in time-domain ringdown analysis, where important choices (that affect the results) for fixed quantities such as the ringdown start time have to be made and care must be taken with the noise covariance estimation.
@@ -110,19 +109,10 @@ The full signal model is given by discontinuously joining the inspiral-merger to
 \begin{equation}
 	h(t) = h^\mathrm{IM}(t) + h^\mathrm{R}(t).
 \end{equation}
-
-Finally, the detector response must be considered.
-We project the waveform polarisations onto each interferometer (IFO) with the antenna patterns, $F^\mathrm{IFO}_{+,\times}$.
-The detector response for each ${\mathrm{IFO}\in \{\mathrm{H}, \mathrm{L}\}}$ is given by
-\begin{align} \label{ch4:eq:projection_antenna}
-	h^\mathrm{IFO}(t) = F^\mathrm{IFO}_+(\alpha, \delta, \psi) ~ &h_+(t + \Delta t_\mathrm{IFO}) \nonumber \\
-	+ F^\mathrm{IFO}_\times(\alpha, \delta, \psi) ~ &h_\times(t + \Delta t_\mathrm{IFO}),
-\end{align}
-where $\alpha$, $\delta$ are the source right ascension and declination, and $\psi$ is the GW polarisation angle.
-The time delay $\Delta t_\mathrm{IFO}(\alpha, \delta)$ accounts for the different signal arrival times at the detectors and is also a function of the source sky location.
+And finally the detector response must be considered; we project the waveform polarisations onto each interferometer (IFO) with the antenna patterns, $F^\mathrm{IFO}_{+,\times}$.
+The detector response for each ${\mathrm{IFO}\in \{\mathrm{H}, \mathrm{L}\}}$ is given by Eq.~\ref{eq:projection_antenna}, which also accounts for the different signal arrival times at each detector.
 Throughout this chapter we quote times in the Hanford frame.
 So, in particular, $t_0$ refers to the ringdown start time in Hanford.
-By definition, $h_+(t) = \Re\{ h(t) \}$, and $h_\times(t) = \Im \{ h(t) \}$.
 
 
 \subsection{Data and priors}
@@ -182,7 +172,7 @@ The Bayesian evidence under the new prior, $\hat{\pi}(\params)$, is $\hat{Z}=\in
 	\hat{Z} = Z\frac{\hat{W}}{W}.
 \end{align}
 
-\begin{figure}[t]
+\begin{figure}[b!]
     \centering
     \includegraphics[width=0.6\columnwidth]{SearchingforaRingdownOvertoneinGW150914/start_time_plot.pdf}
     \caption[Priors on the ringdown start time used for the GW150914 analysis]{ 
@@ -329,10 +319,10 @@ Secondly, exploiting the fact that the $N=0$ model is nested within the $N=1$ mo
 Our results in the bottom panel of Fig.~\ref{fig:overtone_amplitude} can be compared to the corresponding results of the time-domain analyses shown in Fig.~7 of Ref.~\cite{Isi:2022mhy} and Fig.~2 of Ref.~\cite{Cotesta:2022pci}.
 Ref.~\cite{Cotesta:2022pci} computes the Bayes' factors using the ratio of evidences evaluated with nested sampling, whereas Ref.~\cite{Isi:2022mhy} computes Bayes' factors using Savage-Dickey density ratios.
 All sets of authors find Bayes' factors that decrease for later ringdown start times, although they disagree on the exact value.
-Ref.~\cite{Isi:2022mhy} finds the strongest log-evidence of $\sim 1.7$ at $t_0-t_{\rm ref} \sim 0$.
-Ref.~\cite{Cotesta:2022pci} finds slightly negative log-evidence starting at this time.
-Again, our result lies somewhere in between, we find a moderate log-evidence of $\sim 1.0$ when marginalising over a narrow prior on $t_0$ centred at this time.
-If we instead marginalise over the time of peak strain using the broader IMRP $t_{\rm peak}$ prior, the evidence is slightly negative.
+Ref.~\cite{Isi:2022mhy} finds the strongest log-Bayes' factor of $\sim 1.7$ at $t_0-t_{\rm ref} \sim 0$.
+Ref.~\cite{Cotesta:2022pci} finds a slightly negative log-Bayes' factor starting at this time.
+Again, our result lies somewhere in between, we find a moderate log-Bayes' factor of $\sim 1.0$ when marginalising over a narrow prior on $t_0$ centred at this time.
+If we instead marginalise over the time of peak strain using the broader IMRP $t_{\rm peak}$ prior, the log-Bayes' factor is slightly negative.
 However, as discussed in Section~\ref{ch4:sec:discussion} below, we consider the actual values of the Bayes factors to be less important than their trend with varying start time.
 
 
@@ -410,7 +400,7 @@ Our two-dimensional posteriors on the amplitude ratio and ringdown start time ar
 As expected we find that the amplitude ratio decreases for later start times, and the error on the amplitude ratio increases for later start times because of the decreasing SNR in the ringdown.
 
 In order to check whether this is consistent with the theoretical expectation for an overtone we compare with fits to the NR simulation SXS:BBH:0305~\cite{Lovelace:2016uwp} which has parameters consistent with GW150914.
-Fixing the remnant mass and spin to the values reported in the simulation metadata, we perform QNM least-squares fits to this simulation for a range of ringdown start times using the code previously developed in Ref.~\cite{Finch:2021iip}.
+Fixing the remnant mass and spin to the values reported in the simulation metadata, we perform QNM least-squares fits to this simulation for a range of ringdown start times using the method developed in Chapter~\ref{Chapter2} (see Section~\ref{ch2:sec:fitting} for details on the fitting implementation, and Ref.~\cite{qnmfits} for the code).
 Results are shown in Fig.~\ref{fig:amp_ratio} for two such fits. 
 Firstly, we performed a two-QNM fit intended to mimic the analysis of the real GW150914 data described in Section~\ref{subsec:overtone} above. 
 In this analysis the ${}_{-2}Y_{22}$ spherical harmonic mode of the simulation is modelled as a sum of the $(2,2,0)$ and $(2,2,1)$ QNMs and the amplitude ratio is recorded. 
@@ -456,7 +446,7 @@ The posteriors on $t_0$ from both the $N=0$ and $N=1$ analyses are shown in Fig.
 We do not consider these posteriors to be physically meaningful results because they were obtained with a prior that does not correctly describe our state of knowledge about when the ringdown should start.
 These results are produced merely as an intermediate step in our analysis, before the reweighting was applied, and are shown here only to further illustrate the reweighting procedure described in Section~\ref{subsec:reweighting}.
 
-\begin{figure}[b!]
+\begin{figure}[t]
     \centering
     \includegraphics[width=0.6\columnwidth]{SearchingforaRingdownOvertoneinGW150914/unweighted_t0_posteriors.pdf}
     \caption[Posteriors on the GW150914 ringdown start time, using a flat prior]{ 
@@ -541,7 +531,7 @@ As expected, in order to describe the ``chirping'' inspiral signal, the wavelets
 
 \subsection{Other results}\label{subsec:other_results}
 
-\begin{figure}[b!]
+\begin{figure}[t]
     \centering
     \includegraphics[width=0.9\columnwidth]{SearchingforaRingdownOvertoneinGW150914/skymap.pdf}
     \caption[Posterior on the GW150914 sky location]{ 
@@ -615,5 +605,3 @@ This field is still very young, and that there is already significant controvers
 And, as discussed in the introduction, this is a conceptual issue that will not be resolved with more observations, even at higher SNRs.
 This issue needs input from the whole community; however, we suggest that (as a minimum) future claims of an overtone detection are accompanied by the investigations in Fig.~\ref{fig:mass_spin_post}, both panels of Fig.~\ref{fig:overtone_amplitude} and Fig.~\ref{fig:delta_f}.
 That is, posteriors on the remnant properties with and without the overtone, posteriors on the overtone amplitude, a study of the Bayes' factor trends for different start times, and posteriors on deviations from Kerr when the overtone frequency is allowed to vary.
-
-All data products and plot scripts associated with this work are made publicly available at Ref.~\cite{finch_eliot_2022_6949492}.

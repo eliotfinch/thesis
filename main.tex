@@ -389,22 +389,33 @@ Our preferred analysis, marginalising over the uncertainty in the time of peak s
 %	THESIS CONTENT - CONCLUSIONS
 %----------------------------------------------------------------------------------------
 
-\chapter*{Conclusions and Prospects}
+\chapter{Conclusions and Prospects}
 
-Unanswered questions in ringdown modelling.
-How physical are the overtones?
-Mapping binary configuration to QNM amplitudes in the precessing case.
-Nonlinear QNMs.
-Superrest frame. 
-QNM studies are now being limited by the accuracy of state-of-the-art numerical relativity waveforms. 
-Typically, numerical relativity waveforms extrapolate the signal to large distances from the source.
+In this thesis we have investigated the ringdown in two ways; fits of ringdown models to noiseless NR simulations inform us what to look for in GW observations, and analysis of GW data tests our expectations.
+For the former, we extended the work of Giesler et al.~\cite{Giesler:2019uxc} to precessing BBH mergers.
+It was shown that overtones alone are not sufficient to model the ringdown at early times in this extended parameter space, and even the inclusion of mirror modes and mode mixing fail in some cases.
+Although beyond the limits of current detector sensitivities, these studies are valuable for understanding the nature of the ringdown, and also for testing our waveform models.
+For example, we also showed that the current state-of-the-art surrogate waveform, NRSur7dq4, is not sufficiently accurate in the ringdown for studies of this sort.
+
+Regarding the nature of the ringdown, there remain many unanswered questions in ringdown modelling. 
+It is still unclear if ringdown overtones are actually physical, despite convincing evidence for their effectiveness in fitting ringdown waveforms and improving constraints on remnant properties.
+Their tendency to destructively interfere with each other, resulting in inflated amplitudes, and their rapid decay naturally raises suspicions of over-fitting.
+Where, exactly, the nonlinearities from the merger go (if the linear ringdown model can indeed be extended to early times) is also the subject of ongoing study.
+
+In principle, the QNM amplitudes encode information about how the remnant BH was perturbed, i.e., the initial binary configurations.
+Mappings between aligned-spin binary properties and QNM amplitudes have been found~\cite{London:2014cma}, but a similar relationship for precessing systems remains elusive.
+This is closely related to the issue of ringdown start time, for which choosing a reliable value becomes complicated in the precessing case.
+With the code~\cite{qnmfits} developed for the work in Chapter~\ref{Chapter2}, studies of QNM amplitudes is a natural target.
+Since the publication of Ref.~\cite{Finch:2021iip} the code has been developed to incorporate multimode ringdown fitting, and also has the capability to do fits of nonlinear QNM frequencies.
+
+A second-order effect, nonlinear QNMs can be thought of as QNMs sources by their first-order counterparts.
+These quadratic QNMs have now been identified in NR waveforms~\cite{Cheung:2022rbm, Mitman:2022qdl}, hinting at their importance in waveform modelling.
+
+But, it is now clear that QNM studies are being limited by the accuracy of state-of-the-art NR waveforms. 
+Typically, NR waveforms extrapolate the signal to large distances from the source.
 However, this is known to be sub-optimal for the ringdown.
 One solution is to work with CCE waveforms~\cite{MaganaZertuche:2021syq}, which allows for more control over subtle choices of the waveform frame.
-% which is more involved and requires an understanding of the BMS transformation properties of the waveform.
-% , which is more involved but allows the signal to be transformed to the superrest frame~\cite{MaganaZertuche:2021syq}.
-% Existing NR waveforms typically extrapolate to find the GW signal at large distances from the source; this is known to perform poorly in the ringdown [KEEFE]. The next step in this field will require working instead with CCE waveforms which is more involved and requires an understanding of the BMS transformation properties of the waveform.
-% In collaboration with Leo Stein and Keefe Mitman, I have started using the \texttt{scri}~\cite{boyle_michael_2022_7222697} package to transform CCE waveforms to the superrest frame for use in ringdown studies.
-This machinery provides opportunities for studying in detail topics such as nonlinear QNMs and GW memory. 
+This machinery provides opportunities for studying in detail topics such as nonlinear QNMs and GW memory, and is readily compatible with our code.
 
 Turning to the analysis of real data, the ringdown presents some unique challenges. 
 These include low SNR signals, uncertainties with model mode content and start time, and that it is more natural to work in the time domain (due to the ringdown's abrupt start) instead of the more commonly used frequency domain.
