@@ -386,6 +386,38 @@ Our preferred analysis, marginalising over the uncertainty in the time of peak s
 \include{Chapters/Chapter4} 
 
 %----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CONCLUSIONS
+%----------------------------------------------------------------------------------------
+
+\chapter*{Conclusions and Prospects}
+
+Unanswered questions in ringdown modelling.
+How physical are the overtones?
+Mapping binary configuration to QNM amplitudes in the precessing case.
+Nonlinear QNMs.
+Superrest frame. 
+QNM studies are now being limited by the accuracy of state-of-the-art numerical relativity waveforms. 
+Typically, numerical relativity waveforms extrapolate the signal to large distances from the source.
+However, this is known to be sub-optimal for the ringdown.
+One solution is to work with CCE waveforms~\cite{MaganaZertuche:2021syq}, which allows for more control over subtle choices of the waveform frame.
+% which is more involved and requires an understanding of the BMS transformation properties of the waveform.
+% , which is more involved but allows the signal to be transformed to the superrest frame~\cite{MaganaZertuche:2021syq}.
+% Existing NR waveforms typically extrapolate to find the GW signal at large distances from the source; this is known to perform poorly in the ringdown [KEEFE]. The next step in this field will require working instead with CCE waveforms which is more involved and requires an understanding of the BMS transformation properties of the waveform.
+% In collaboration with Leo Stein and Keefe Mitman, I have started using the \texttt{scri}~\cite{boyle_michael_2022_7222697} package to transform CCE waveforms to the superrest frame for use in ringdown studies.
+This machinery provides opportunities for studying in detail topics such as nonlinear QNMs and GW memory. 
+
+Turning to the analysis of real data, the ringdown presents some unique challenges. 
+These include low SNR signals, uncertainties with model mode content and start time, and that it is more natural to work in the time domain (due to the ringdown's abrupt start) instead of the more commonly used frequency domain.
+Differences in the choices made for the analyses have already led to disagreements in the literature regarding the QNM content present in the data; in particular, the presence of an overtone in GW150914, and the presence of a higher harmonic in GW190521. 
+To resolve this uncertainty I have developed the \texttt{fdringdown}~\cite{fdringdown} package, a frequency-domain ringdown analysis pipeline.
+By employing sine-Gaussian wavelets to model the pre-ringdown signal we can move back into the frequency domain and make use of well-established analysis methods. 
+The details of the method are outlined in Ref.~\cite{Finch:2021qph}, and the method was employed to quantify evidence for a GW150914 overtone in Ref.~\cite{Finch:2022ynt}.
+
+There is also scope for further studies, in particular for GW190521; the method can be readily applied to other GW events with any choice of QNM content. 
+The code is in active development, and I plan to develop it further into a full and easily-accessible package.
+
+
+%----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
 %----------------------------------------------------------------------------------------
 
