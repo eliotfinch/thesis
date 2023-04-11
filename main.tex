@@ -205,10 +205,9 @@ Firstly, we develop our ringdown models by performing fits directly to state-of-
 Our analysis considers, for the first time, a large selection of black-hole binaries with misaligned spins.
 In this clean and noise-free regime we can understand which quasinormal modes are important to include in our models, and it also informs us on the choice of ringdown start time.
 These studies help to guide our expectations when we analyse real gravitational-wave data.
-
-Secondly, we develop a novel frequency-domain ringdown analysis method for use with real data, applying it to simulated gravitational-wave signals and to GW150914.
-Our method avoids some of the problems associated with conventional ringdown-only analyses.
-Applying the method to GW150914, we contribute to the uncertain significance with which a ringdown overtone can be found in the data.
+Secondly, we develop a novel frequency-domain ringdown analysis method for use with real data, applying it to both simulated signals and to real gravitational-wave data.
+Our method solves many of the problems associated with conventional ringdown-only analyses.
+Applying the method to GW150914, we quantify the significance with which a ringdown overtone can be found in the data.
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -223,6 +222,7 @@ Applying the method to GW150914, we contribute to the uncertain significance wit
 
 \begin{acknowledgements}
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+
 The acknowledgments and the people to thank go here, don't forget to include your project advisor\ldots
 \end{acknowledgements}
 
@@ -306,7 +306,8 @@ Supplementary material and data releases for the above works are available at Re
 
 \section*{Chapter contributions and synopses}
 
-Chapter~\ref{Chapter1} is an introductory chapter and contains no original work.
+Chapter~\ref{Chapter1} is an introductory chapter, containing standard results and calculations. 
+I wrote this chapter with input from my supervisor, and I created all figures. 
 
 \vspace{0.2cm}
 
@@ -347,7 +348,7 @@ I wrote the majority of the text, with input from my supervisor.
 \vspace{0.2cm}
 
 \noindent In Chapter~\ref{Chapter3} we propose a novel frequency-domain ringdown analysis method, and demonstrate its use with simulated gravitational-wave signals.
-Our approach avoids the issues of spectral leakage that would normally be expected (associated with the abrupt start of the ringdown) by modelling the inspiral and merger parts of the signal using a flexible sum of sine-Gaussian wavelets truncated at the onset of the ringdown. 
+Our approach avoids the issues of spectral leakage that would normally be expected (associated with the abrupt start of the ringdown) by modelling the inspiral and merger parts of the signal using a flexible sum of sine-Gaussian wavelets truncated at the onset of the ringdown; these effectively marginalise out the inspiral and merger.
 Performing the analysis in the frequency domain allows us to use standard (and by now well-established) Bayesian inference pipelines for gravitational wave data as well as giving us the ability to readily search over the sky position and the ringdown start time, although we find that it is necessary to use an informative prior for the latter. 
 We test our method by using it to analyse several simulated signals with varying signal-to-noise ratios injected into two- and three-detector networks. 
 We find that our frequency-domain approach is generally able to place tighter constraints on the remnant black-hole mass and spin than a standard time-domain analysis.
