@@ -392,10 +392,10 @@ Our preferred analysis, marginalising over the uncertainty in the time of peak s
 \chapter{Conclusions and Prospects}
 
 In this thesis we have investigated the ringdown in two ways; fits of ringdown models to noiseless NR simulations inform us about what to look for in GW observations, and analysis of GW data tests our expectations.
-For the former, we extended the work of Giesler et al.~\cite{Giesler:2019uxc} to precessing BBH mergers.
+For the former, we performed (for the first time) a systematic analysis of QNM fits to precessing BBH mergers.
 It was shown that overtones alone are not sufficient to model the ringdown at early times in this extended parameter space, and even the inclusion of mirror modes and mode mixing (although improving the model in many instances) fail in some cases.
 Although beyond the limits of current detector sensitivities, these studies are valuable for understanding the nature of the ringdown, and also for testing our waveform models.
-For example, we also showed that a current state-of-the-art surrogate waveform, NRSur7dq4, is not sufficiently accurate in the ringdown for studies of this sort.
+We also showed that a current state-of-the-art surrogate waveform, NRSur7dq4, is not sufficiently accurate in the ringdown for studies of this sort.
 
 Regarding the nature of the ringdown, there remain many unanswered questions in ringdown modelling. 
 It is still unclear if ringdown overtones are actually physical, despite convincing evidence for their effectiveness in fitting ringdown waveforms and improving constraints on remnant properties.
@@ -404,7 +404,7 @@ Where, exactly, the nonlinearities from the merger go (if the linear ringdown mo
 
 In principle, the QNM amplitudes encode information about how the remnant BH was perturbed, i.e., the initial binary configuration.
 Mappings between aligned-spin binary properties and QNM amplitudes have been found~\cite{London:2014cma}, but a similar relationship for precessing systems remains elusive.
-This is closely related to the issue of ringdown start time, for which choosing a reliable value becomes complicated in the precessing case.
+This is closely related to the issue of ringdown start time, for which choosing a reliable value becomes even more complicated in the precessing case.
 With the code~\cite{qnmfits} developed for the work in Chapter~\ref{Chapter2}, studies of QNM amplitudes is a natural target.
 Since the publication of Ref.~\cite{Finch:2021iip} the code has been developed to incorporate multimode ringdown fitting, and also has the capability to do fits of nonlinear QNM frequencies.
 A second-order effect, nonlinear QNMs can be thought of as QNMs sourced by their first-order counterparts.
@@ -413,7 +413,7 @@ These quadratic QNMs have now been identified in NR waveforms~\cite{Cheung:2022r
 But, it is now clear that QNM studies are being limited by the accuracy of state-of-the-art NR waveforms. 
 Typically, NR waveforms extrapolate the signal to large distances from the source.
 However, this is known to be sub-optimal for the ringdown.
-One solution is to work with CCE waveforms~\cite{MaganaZertuche:2021syq}, which allows for more control over subtle choices of the waveform frame.
+The future of work in this area is to utilise CCE waveforms~\cite{MaganaZertuche:2021syq}, which allows for more control over subtle choices of the waveform frame.
 This machinery provides opportunities for studying in detail topics such as nonlinear QNMs and GW memory, and is readily compatible with our code.
 
 Turning to the analysis of real data, the ringdown presents some unique challenges. 
@@ -421,11 +421,25 @@ These include low SNR signals, uncertainties with model mode content and start t
 Differences in the choices made for the analyses have already led to disagreements in the literature regarding the QNM content present in the data; in particular, the presence of an overtone in GW150914, and the presence of a higher harmonic in GW190521. 
 To resolve this uncertainty I have developed a frequency-domain ringdown analysis pipeline.
 This approach is introduced in Chapter~\ref{Chapter3}, and the code is available at Ref.~\cite{fdringdown}.
-By employing sine-Gaussian wavelets to model the pre-ringdown signal we can move back into the frequency domain and make use of well-established analysis methods. 
+By employing sine-Gaussian wavelets to model the pre-ringdown signal we can effectively marginalise it out, leaving a ringdown-only analysis. 
+With this approach we can move back into the frequency domain and make use of well-established analysis methods.
+
 The method was then employed to quantify evidence for a GW150914 overtone in Chapter~\ref{Chapter4}, contributing to an ongoing discussion in the literature with a method which marginalises over multiple uncertainties to report a single significance which was not possible before.
+There is also scope for further studies, in particular for GW190521, and the method can be readily applied to other GW events with any choice of QNM content. 
 
-There is also scope for further studies, in particular for GW190521; the method can be readily applied to other GW events with any choice of QNM content. 
+My studies at Birmingham have coincided with the birth of GW astronomy, and the field is rapidly evolving.
+From the first measurement of a GW signal in 2015, we now have a catalog of nearly 100.
+And with the fourth LIGO-Virgo observing run due to start soon, we expect hundreds of additional events over the next few years.
+This abundance of data leaves plenty of opportunities for the application of tools and techniques I have developed during the PhD, providing greater insight into the ringdown and the nature of gravity.
 
+% My time studying physics in Birmingham has coincided with the birth of GW astronomy. 
+% As a community, we have rapidly progressed from the first direct detection of GWs to producing large-scale catalogs that analyse scores of new events at a time. 
+% With the fourth LIGO/Virgo observing run due to start imminently, hundreds more events are expected in the next few years. 
+% Therefore, there will be ample scope to apply the tools and techniques I have developed during this PhD to many more observations in the near future.
+
+% In conclusion, as gravitational-wave astronomy continues to advance and our detection capabilities improve, we can anticipate an exciting future with an abundance of new signals that will unveil the mysteries of the universe.
+
+% In conclusion, the field of gravitational-wave astronomy is rapidly evolving, and we can expect to see many more exciting discoveries in the coming years. With the continued development of sensitive detectors like LIGO, Virgo, and KAGRA, as well as the construction of new facilities like LISA and Einstein Telescope, we will be able to detect gravitational waves from an increasing variety of astrophysical sources, including binary black holes, neutron stars, and possibly even cosmic strings. The analysis and interpretation of these signals will provide unprecedented insights into the nature of gravity, the properties of matter under extreme conditions, and the evolution of the universe as a whole. In short, the future of gravitational-wave astronomy is bright, and we are poised to make many more groundbreaking discoveries in the years to come.
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
