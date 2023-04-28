@@ -1,5 +1,5 @@
 with open('bibliography.bib') as f:
-    bib_in = f.read()
+    bib_in = f.read().strip()
 
 # Split bib entries and strip comments
 entries_list = [e for e in bib_in.split('\n\n') if e[0] == '@']
@@ -14,6 +14,26 @@ for entry in entries_list:
     
     if ID not in entries_dict:
         entries_dict[ID] = (entry_type, entry)
+        
+# Group entries according to type
+
+inspire_articles = {}
+other_articles = {}
+books = {}
+misc = {}
+
+for key, value in entries_dict.items():
+    if (value[0] == 'article') and (':' in key) and ('doi' not in key):
+        inspire_articles[key] = value
+    elif value[0].lower() == 'article':
+        other_articles[key] = value
+    elif value[0] == 'book':
+        books[key] = value
+    else:
+        misc[key] = value
+        
+# Sort inspire articles
+# keys.sort(key = lambda x: int(x[x.index(':')+1:x.index(':')+5]))
 
 # Construct the output bib file
 bib_out = ''        
