@@ -224,7 +224,7 @@ Applying the method to GW150914, we quantify the significance with which a ringd
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 First and foremost I would like to thank my supervisor, Chris Moore, for all the guidance and support. 
 I’ll always be grateful for the time you have invested in me, and for your patience and understanding.
-I would also like to thank Alberto Vecchio for introducing me to gravitational-wave astronomy, and for being a deeply-caring head of a brilliant research group. 
+I would also like to thank Alberto Vecchio for introducing me to gravitational-wave astronomy, and for being a caring head of a brilliant research group. 
 It’s been a pleasure to be a part of it.
 
 A special thanks goes to all the PhD students (Aysha, Diganta, Tom, Alice, Riccardo, Cressida, Daria, Alex, Matt, Paige, Dan, Evan, Xinyue, Lucy and Natalie) for the help, friendship, pubs, parties and board games. 
@@ -364,7 +364,7 @@ I wrote the majority of the text, with input from my supervisor.
 
 \noindent In Chapter~\ref{Chapter3} we propose a novel frequency-domain ringdown analysis method, and demonstrate its use with simulated gravitational-wave signals.
 Our approach avoids the issues of spectral leakage that would normally be expected (associated with the abrupt start of the ringdown) by modelling the inspiral and merger parts of the signal using a flexible sum of sine-Gaussian wavelets truncated at the onset of the ringdown; these effectively marginalise out the inspiral and merger.
-Performing the analysis in the frequency domain allows us to use standard (and by now well-established) Bayesian inference pipelines for gravitational wave data as well as giving us the ability to readily search over the sky position and the ringdown start time, although we find that it is necessary to use an informative prior for the latter. 
+Performing the analysis in the frequency domain allows us to use standard (and by now well-established) Bayesian inference pipelines for gravitational-wave data as well as giving us the ability to readily search over the sky position and the ringdown start time, although we find that it is necessary to use an informative prior for the latter. 
 We test our method by using it to analyse several simulated signals with varying signal-to-noise ratios injected into two- and three-detector networks. 
 We find that our frequency-domain approach is generally able to place tighter constraints on the remnant black-hole mass and spin than a standard time-domain analysis.
 
@@ -379,7 +379,7 @@ With the exception of Figs.~\ref{fig:other_QNMs} and \ref{fig:skymap} (created b
 
 \vspace{0.2cm}
 
-\noindent Prompted by disagreements in the literature, in Chapter~\ref{Chapter4} we reanalyse the GW150914 data searching for quasinormal mode overtone using our frequency-domain approach.
+\noindent Prompted by disagreements in the literature, in Chapter~\ref{Chapter4} we reanalyse the GW150914 data searching for a quasinormal-mode overtone using our frequency-domain approach.
 Our analysis has several advantages compared to other analyses; in particular, the source sky position and the ringdown start time are marginalised over (as opposed to simply being fixed) as part of a Bayesian ringdown analysis. 
 We find tentative evidence for an overtone in GW150914, but at a lower significance than reported elsewhere. 
 Our preferred analysis, marginalising over the uncertainty in the time of peak strain amplitude, gives a posterior on the overtone amplitude peaked away from zero at $\sim 1.8 \sigma$.
@@ -417,7 +417,7 @@ It is still unclear if ringdown overtones are actually physical, despite convinc
 Their tendency to destructively interfere with each other, resulting in inflated amplitudes, and their rapid decay naturally raises suspicions of over-fitting.
 Where, exactly, the nonlinearities from the merger go (if the linear ringdown model can indeed be extended to early times) is also the subject of ongoing study.
 
-In principle, the QNM amplitudes encode information about how the remnant BH was perturbed, i.e., the initial binary configuration.
+In principle, the QNM amplitudes encode information about how the remnant BH was perturbed (i.e., the initial binary configuration).
 Mappings between aligned-spin binary properties and QNM amplitudes have been found~\cite{London:2014cma}, but a similar relationship for precessing systems remains elusive.
 This is closely related to the issue of ringdown start time, for which choosing a reliable value becomes even more complicated in the precessing case.
 With the code~\cite{qnmfits} developed for the work in Chapter~\ref{Chapter2}, studies of QNM amplitudes is a natural target.
@@ -432,7 +432,7 @@ The future of work in this area is to utilise CCE waveforms~\cite{MaganaZertuche
 This machinery provides opportunities for studying in detail topics such as nonlinear QNMs and GW memory, and is readily compatible with our code.
 
 Turning to the analysis of real data, the ringdown presents some unique challenges. 
-These include low SNR signals, uncertainties with model mode content and start time, and that it is more natural to work in the time domain (due to the ringdown's abrupt start) instead of the more commonly used frequency domain.
+These include low SNR signals, uncertainties with mode content and start time, and that it is more natural to work in the time domain (due to the ringdown's abrupt start) instead of the more commonly used frequency domain.
 Differences in the choices made for the analyses have already led to disagreements in the literature regarding the QNM content present in the data; in particular, the presence of an overtone in GW150914, and the presence of a higher harmonic in GW190521. 
 To resolve this uncertainty I have developed a frequency-domain ringdown analysis pipeline.
 This approach is introduced in Chapter~\ref{Chapter3}, and the code is available at Ref.~\cite{fdringdown}.

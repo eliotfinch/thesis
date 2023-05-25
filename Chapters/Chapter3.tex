@@ -47,9 +47,9 @@ But, although advantageous in some ways, the lack of measurements on QNM amplitu
 The latter QNM filter method requires a fixed sky location in order to align data from multiple detectors.
 
 In this chapter, we present a new approach to performing ringdown analyses in the frequency domain. 
-We employ a flexible sum of truncated wavelets to model the inspiral-merger signal (inspired by \texttt{BayesWave}~\cite{Cornish:2014kda, Cornish:2020dwh}) and QNMs to model the ringdown.
+We employ a flexible sum of truncated wavelets to model the inspiral-merger signal (inspired by \textsc{BayesWave}~\cite{Cornish:2014kda, Cornish:2020dwh}) and QNMs to model the ringdown.
 The general idea behind our approach is illustrated in Fig.~\ref{fig:demo}.
-By working in the frequency domain, we can use the standard, and now very mature, GW data analysis pipelines (our analysis pipeline borrows from the public \texttt{Bilby} package~\cite{Ashton:2018jfp}).
+By working in the frequency domain, we can use the standard, and now very mature, GW data analysis pipelines (our analysis pipeline borrows from the public \textsc{Bilby} package~\cite{Ashton:2018jfp}).
 Also, working in the frequency domain makes it trivial to search and marginalise over the sky position the ringdown start time, $t_0$. 
 We hope this approach can complement existing time-domain analyses.
 The code associated with this work is available at Ref.~\cite{fdringdown}, and a complete set of posterior samples from this work are made available at Ref.~\cite{finch_eliot_2021_5569759}.
@@ -340,7 +340,7 @@ This choice of prior is quite restrictive (i.e.\ assuming good prior knowledge o
 The resultant posteriors on the remnant parameters are shown in Fig.~\ref{fig:mass_spin_corner_zero_spin}, and we see that the performance of our frequency-domain approach is not significantly degraded when the searching over $\alpha$, $\delta$, $\psi$ and $t_0$.
 Shown in Fig.~\ref{fig:t0_prior_posterior} are the posteriors on the ringdown start time, $t_0$ which are discussed in more detail in the next section.
 
-Stochastic sampling was performed using the \texttt{dynesty}~\cite{Speagle:2019ivv} implementation of the nested sampling algorithm~\cite{doi:10.1063/1.1835238, Skilling:2006gxv}.
+Stochastic sampling was performed using the \textsc{dynesty}~\cite{Speagle:2019ivv} implementation of the nested sampling algorithm~\cite{doi:10.1063/1.1835238, Skilling:2006gxv}.
 For the sampling method, we used random walks with fixed proposals.
 Typically, the minimum number of steps used in the random walk was 2000, and the number of live points was 4000.
 We note that our frequency-domain ringdown analysis has many more parameters than a time-domain analysis due to the $5W$ parameters used in the wavelet sum.

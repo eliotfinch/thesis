@@ -20,11 +20,20 @@ As transverse waves which act to expand and contract space, they can be measured
 % This is somewhat analogous~\cite{Saulson:1997ck} to the expansion of the Universe, which causes distant galaxies (the test masses) to appear to recede from us due to the expansion of space.
 The LIGO and Virgo GW detectors employ interferometry to measure the motion of test masses to extreme precision. 
 In this setup the mirrors at the end of the interferometer arms act as the freely-falling masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via measurements of the light phase difference (i.e.\ the light travel time along each arm).
-The detector output is a time series of a dimensionless scalar quantity called the strain, $h$, which quantifies the fractional change in position of the mirrors (which can also be thought of as changes to the interferometer arm lengths).
+The detector output is a time series of a dimensionless scalar quantity called the strain, $h$, which quantifies the fractional change of the interferometer arm lengths (which can also be thought of as changes in the position of the mirrors). 
 
 Being metric perturbations, GWs themselves are not scalar quantities but tensors ($h$ is merely the measurement we make when GWs are ``projected'' onto the interferometer).
-They are described by two dimensionless amplitudes, $h_+$ and $h_\times$, which are the ``plus'' and ``cross'' polarisations respectively.
+GWs are described by two dimensionless amplitudes, $h_+$ and $h_\times$, which are the ``plus'' and ``cross'' polarisations respectively.
 These two polarisations, which represent small perturbations to a flat background metric, are encapsulated in the GW strain tensor, $h_{ij}$.
+To understand the response of a interferometer to incoming GWs, consider a setup where the interferometer beam-splitter is at the origin and the mirrors are at the coordinates $(L_x,0)$ and $(0,L_y)$. \comment{Figure?}
+A GW incoming from the positive $z$ direction will influence the propagation of light in the interferometer arms. 
+In the proper detector frame, the GW acts to displace the mirrors and can be intuitively described in terms of Newtonian forces. 
+However, GWs take on a simple description when working in the transverse-traceless (TT) frame.
+In this description coordinates are defined by freely-falling masses, meaning the interferometer mirrors do not move under the influence of passing GWs. 
+Instead, the 
+
+\comment{For example, taking the plus, its effect on the interferoemter arm is...}
+
 Einstein~\cite{Einstein:1918btx} showed the GW emission from slowly changing and weakly gravitating sources is quadrupolar to leading order, and far from the source the GW strain tensor can be written
 \begin{equation}\label{ch1:eq:quadrupole_strain}
     h_{ij} = \frac{2G}{c^4 r}\ddot{Q}_{ij}.
@@ -48,7 +57,7 @@ Starting with the GW luminosity, from dimensional arguments we approximate the q
     \dddot{Q} \sim \frac{MR^2}{T^3} \sim \frac{Mv^3}{R}
 \end{equation}
 where $v$ is the characteristic velocity of the system.
-Subbing into Eq.~\ref{ch1:eq:gw_luminosity}, we can express the order-of-magnitude GW luminosity as
+Substituting into Eq.~\ref{ch1:eq:gw_luminosity}, we can express the order-of-magnitude GW luminosity as
 \begin{equation}\label{ch1:eq:gw_luminosity_oom}
     \dot{E}_\mathrm{GW} \sim \frac{G}{5c^5} \qty(\frac{Mv^3}{R})^2 \sim \frac{c^5}{G} \qty(\frac{r_s}{R})^2 \qty(\frac{v}{c})^6
 \end{equation}
@@ -68,7 +77,7 @@ The first GW event, GW150914, occurred roughly $440\,\mathrm{Mpc}$ from Earth an
 And, as we will see, current GW detectors are most sensitive to frequencies $\sim 100\,\mathrm{Hz}$.
 Expressing the GW strain in terms of these numbers gives
 \begin{equation}\label{ch1:eq:quadrupole_strain_oom}
-    h \sim 10^{-21} \qty(\frac{M}{72\,M_\odot}) \qty(\frac{f}{100\,\mathrm{Hz}}) \qty(\frac{440\,\mathrm{Mpc}}{r}),
+    h \sim 10^{-21} \qty(\frac{M}{72\,M_\odot})^{5/3} \qty(\frac{f}{100\,\mathrm{Hz}})^{2/3} \qty(\frac{440\,\mathrm{Mpc}}{r}),
 \end{equation}
 emphasising the just how sensitive the interferometers need to be.
 
@@ -114,28 +123,27 @@ This can also be compared with what was actually measured for GW150914 (see Fig.
 
 The waveform was generated using the NRSur7dq4~\cite{Varma:2019csw} surrogate waveform with zero spins, equal mass ratio, and zero inclination. 
 Surrogates effectively ``interpolate'' the waveforms from full NR simulations, allowing quick waveform generation for any choice of system parameters (within the validity of the model). 
-For NRSur7dq4, the simulations used to build the model came from the SXS catalog~\cite{Boyle:2019kee}, which we also use extensively in Chapter~\ref{Chapter2}. 
+For NRSur7dq4 the simulations used to build the model came from the SXS catalog~\cite{Boyle:2019kee}, which we use extensively in Chapter~\ref{Chapter2}. 
 Along with the intrinsic system parameters, to project onto the Hanford detector we also choose an event time, sky location and polarisation angle consistent with GW150914.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\columnwidth]{Introduction/fd_waveform.pdf}
-    \caption[Frequency-domain gravitational-wave signal from a binary black-hole merger]{ 
-    The frequency-domain GW signal from a BBH merger, shown with the Hanford sensitivity curve (both expressed through the characteristic strain). 
-    The signal was generated with IMRPhenomD using parameters consistent with GW150914.
-    }
-    \label{ch1:fig:fd_waveform}
-\end{figure}
 
 The above discussion disregards the sensitivity of the detector to different frequencies (i.e.\ the detector noise).
 It is standard to treat the noise in the LIGO and Virgo detectors as stationary and Gaussian~\cite{LIGOScientific:2019hgc}.
 Stationarity means that the noise covariance matrix is diagonal in the frequency domain (meaning there is no correlation between frequency bins), and so we can describe the noise with a power spectral density (PSD) $S_n(f)$.
 In each frequency bin we model the noise as having a random phase and an amplitude drawn from a Gaussian distribution with standard deviation $\sqrt{S_n(f)}$.
-We show the Hanford PSD in Fig.~\ref{ch1:fig:fd_waveform}, along with a frequency-domain BBH GW signal (both expressed through the characteristic strain, see Eqs.~\ref{ch1:eq:hn} and \ref{ch1:eq:hn}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Introduction/fd_waveform.pdf}
+    \caption[Frequency-domain gravitational-wave signal from a binary black-hole merger]{ 
+    The frequency-domain GW signal from a BBH merger, shown with the Hanford sensitivity curve (both expressed through the characteristic strain). 
+    The signal was generated with \textsc{IMRPhenomD} using parameters consistent with GW150914.
+    }
+    \label{ch1:fig:fd_waveform}
+\end{figure}
+We show the Hanford PSD in Fig.~\ref{ch1:fig:fd_waveform}, along with a frequency-domain BBH GW signal (both expressed through the characteristic strain, see Eqs.~\ref{ch1:eq:hn} and \ref{ch1:eq:hn}).
 Since we are now comparing with a PSD, we fix the BBH total mass and distance to the example numbers used above ($M = 72\,M_\odot$, $r = 440\,\mathrm{Mpc}$).
 Roughly speaking, the GW signal from a BBH merger increases in frequency over time.
 The majority of the inspiral signal is at too low a frequency to be detected, with the GW signal only entering the detector band ($\sim 20$ to $\sim 1000\,\mathrm{Hz}$) just before merger.
-Although the binary can spend millions of years inspiralling, we observe only the last few tenths of a second of the merger.
+Although the binary can spend billions of years inspiralling, we observe only the last few tenths of a second of the merger.
 We choose to plot the signal and noise curve in terms of the characteristic strain~\cite{Moore:2014lga}, given by
 \begin{equation}\label{ch1:eq:hc}
     h_c(f) = 2f\abs{\tilde{h}(f)}
@@ -145,7 +153,7 @@ for the GW signal (where $\tilde{h}$ is the frequency-domain GW in a given detec
     h_n(f) = \sqrt{fS_n(f)}
 \end{equation}
 for the noise curve.
-The characteristic strain has the property that the area between the signal and noise curve is related to the signal-to-noise ratio (SNR) $\rho$ via
+The characteristic strain has the property that the area between the signal and noise curve (on a log-log scale) is related to the signal-to-noise ratio (SNR) $\rho$ via
 \begin{equation}
     \rho^2 = \int_{-\infty}^\infty \dd{\log{f}} \qty[\frac{h_c(f)}{h_n(f)}]^2.
 \end{equation}
@@ -161,9 +169,9 @@ where $\mathcal{M}$ is a combination of the two masses in the binary known as th
 We also explicitly show the factors of $G$ and $c$ in this equation for clarity (in geometric units these would be set to 1, and it would be implied that the chirp mass should be expressed in units of time). 
 Eq.~\ref{ch1:eq:time_to_merger} is valid in the quasi-circular orbit regime; it can be derived by equating the time derivative of the orbital energy of a binary system to (negative) the GW luminosity Eq.~\ref{ch1:eq:gw_luminosity}, where the quadrupolar moment is most easily calculated using the equivalent one-body problem with a reduced mass.
 
-The signal in Fig.~\ref{ch1:fig:fd_waveform} was generated with the IMRPhenomD~\cite{Khan:2015jqa} waveform model, as implemented in the \texttt{ripple}~\cite{Edwards:2023sak} Python package.
+The signal in Fig.~\ref{ch1:fig:fd_waveform} was generated with the \textsc{IMRPhenomD}~\cite{Khan:2015jqa} waveform model, as implemented in the \textsc{ripple}~\cite{Edwards:2023sak} Python package.
 Phenom models produce approximate waveforms using closed-form analytic expressions in the frequency-domain, making evaluation quick and suitable for GW searches.
-The Hanford PSD is estimated from $1024\,\mathrm{s}$ of off-source data at the time of GW150914, using a Welch periodogram~\cite{1161901}.
+The Hanford PSD is estimated from $1024\,\mathrm{s}$ of off-source data at the time of GW150914 using a Welch periodogram~\cite{1161901}.
 
 
 \section{Black-hole ringdown}
@@ -180,7 +188,8 @@ Fig.~\ref{ch1:fig:rd_waveform} shows (in blue) the ringdown portion of the wavef
 This simulation has properties consistent with GW150914, and will be among the NR simulations studied in Chapter~\ref{Chapter2}.
 NR waveforms are decomposed into spherical-harmonic modes indexed by $\ell$ and $m$ (see Section~\ref{ch2:sec:model} and Eq.~\ref{ch2:eq:spherical_expansion} for more details), and here we plot the real part of the dominant $\ell = m = 2$ mode.
 The radial dependence of GW waveforms goes predominantly as $r^{-1}$, so the SXS catalog provides the strain multiplied by $r$ (just as what was plotted in Fig.~\ref{ch1:fig:td_waveform}).
-For clarity we will drop the $r$ factor for the remainder of the thesis and have the $r^{-1}$ scaling implied (just keep in mind when we refer to the GW signal $h$ or a mode $h_{\ell m}$, we really mean $rh$ and $rh_{\ell m}$). 
+For clarity, when dealing with NR simulations (as we do throughout Chapter~\ref{Chapter2}), we will drop the $r$ factor and have the $r^{-1}$ scaling implied.
+% (just keep in mind when we refer to the GW signal $h$ or a mode $h_{\ell m}$, we really mean $rh$ and $rh_{\ell m}$). 
 
 \begin{figure}[t!]
     \centering
@@ -226,18 +235,18 @@ This makes it a promising target for QNM searches, and along with GW150914 it is
 
 The characteristic vibrational modes of dissipative systems are known as QNMs.
 As stated above, these differ from usual normal modes because they decay over time.
-Although not limited to BHs (any real-world physical systems which are subject to damping will exhibit decaying modes), BH spacetimes are a interesting case because even idealised systems are intrinsically dissipative. 
+Although not limited to BHs (any real-world physical systems which are subject to damping will exhibit decaying modes), BH spacetimes are an interesting case because even idealised systems are intrinsically dissipative. 
 % ; this is due to the presence of the event horizon.
 
 Gravitational perturbations of the Schwarzschild geometry~\cite{Schwarzschild:1916uq} were first studied by Regge and Wheeler~\cite{Regge:1957td}, and this work was extended by Zerilli to a more general class of perturbations~\cite{Zerilli:1970se, Zerilli:1970wzz}.
 Employing the perturbation techniques developed by Regge and Wheeler, Vishveshwara~\cite{Vishveshwara:1970zz} performed numerical studies involving the scattering of GWs off a Schwarzschild BH.
 It was found that the late-time GW waveform consisted of damped sinusoids, the form of which carried information about the BH mass. 
 Further numerical work by Press~\cite{Press:1971wr}, studying the evolution of perturbations to the Schwarzschild geometry, identified the damped sinusoids as the ``free oscillation of a black hole''.
-This work was also the first instance of the describing the vibration of a BH as a ``quasi-normal mode''.
+This work was also the first instance of describing the vibration of a BH as a ``quasi-normal mode''.
 
 Equations governing the perturbations of the Kerr metric~\cite{Kerr:1963ud} were found by Teukolsky~\cite{Teukolsky:1972my}. 
 Describing rotating BHs, these are expected to be the most general class of astrophysical BH and will be the focus throughout this thesis. 
-A remnant Kerr BH has ``no hair''~\cite{Carter:1971zc}; it is fully described by only a final mass and an angular momentum (which we will express via a dimensionless spin parameter). 
+A remnant Kerr BH has ``no hair''~\cite{Carter:1971zc}, meaning it is fully described by only a final mass and an angular momentum (which we will express via a dimensionless spin parameter). 
 The same is true of the spectrum of Kerr QNM frequencies, which are also functions of only the mass and spin. 
 This is how QNMs carry information about the remnant BH, and this fact forms the basis of the GR tests discussed further in Section~\ref{ch1:sec:bh_spectroscopy}.
 
@@ -251,7 +260,7 @@ In the following subsections we discuss the calculation and physical picture of 
 \subsection{Scalar field on a Schwarzschild background}
 \label{ch1:sec:scalar}
 
-To help build some intuition regarding the origin of the QNMs, we will perform a demonstrative calculation involving a massless scalar field, $\psi(t,r,\theta,\phi)$ on a Schwarzschild background.
+To help build some intuition regarding the origin of the QNMs, we will perform a demonstrative calculation involving a massless scalar field, $\psi(t,r,\theta,\phi)$, on a Schwarzschild background.
 This will lead to equations reminiscent of the Zerilli and Regge-Wheeler equations, without the complication of tensor spherical harmonics that comes with the full gravitational-perturbation treatment.
 
 The metric tensor, in Schwarzschild coordinates, is
@@ -341,7 +350,7 @@ However, it has been shown that the QNM spectrum resulting from the Regge-Wheele
 We must specify boundary conditions to find the QNM solutions.
 When solving for the normal modes on a string, or the energy levels of a quantum harmonic oscillator, we require the wavefunction to vanish at the boundaries (either at the string ends, or at $\pm \infty$ for the harmonic oscillator).
 The problem we're considering here is slightly different; the potential, depicted in Fig.~\ref{ch1:fig:rw_potential}, clearly does not admit bound states. 
-It does not have a minima, and $V_\ell(r) > 0$ for all $r$.
+It does not have any minima, and $V_\ell(r) > 0$ for all $r$.
 The implication is that we should look for plane wave solutions that are ingoing to the BH horizon, and outgoing to infinity:
 \begin{alignat}{2}
     &\tilde{\psi}_{\ell m}(\omega, r) \sim e^{i \omega r_*} \qquad &&\qty(r_* \rightarrow -\infty) \nonumber \\
@@ -361,7 +370,7 @@ This approach has since been improved upon~\cite{Iyer:1986np, Matyjasek:2017psv,
 % Iyer:1986nq, Kokkotas:1988fm, Seidel:1989bp, Kokkotas:1991vz, Konoplya:2003ii, 
 and can give very accurate results for certain modes (but, again, breaks down in some limits). 
 Finally, a numerical method utilising continued fractions (proposed by Leaver~\cite{Leaver:1985ax}, and later improved upon by Nollert~\cite{Nollert:1993zz}) is known to be highly accurate and fast.
-It is the method of choice in modern codes such as the \texttt{qnm} Python package~\cite{Stein:2019mop} (which is used in work throughout this thesis).
+It is the method of choice in modern codes such as the \textsc{qnm} Python package~\cite{Stein:2019mop} (which is used in work throughout this thesis).
 
 In summary, when enforcing the above boundary conditions, only discrete values of $\omega$ satisfy Eq.~\ref{ch1:eq:fd_wave_equation}; these are the QNMs.
 In the case of a Kerr BH, we denote the QNMs $\omega_{\ell m n}$.
@@ -543,13 +552,13 @@ Similarly to the mode amplitudes, a priori it is not known what the start time o
 Even with clean, noise-free numerical simulations it is not clear if the start time can be determined unambiguously.
 This is an issue which will be present throughout the thesis, and in the data-analysis context (Chapters~\ref{Chapter3} and \ref{Chapter4}) we propose a method to alleviate this concern.
 
-Finally, on the subject of data analysis, the fact that ringdown models are fundamentally discontinuous leads to data analysis problems; GW analysis is usually done in the frequency domain, but Fourier transforms of a discontinuous model leads to spectral leakage.
+Finally, on the subject of data analysis, the fact that ringdown models are fundamentally discontinuous leads to problems; GW analysis is usually done in the frequency domain, but Fourier transforms of a discontinuous model leads to spectral leakage.
 This is discussed further in Chapters~\ref{Chapter3} and \ref{Chapter4}, where we also propose a solution.
 
 \section{Black-hole spectroscopy}
 \label{ch1:sec:bh_spectroscopy}
 
-The full Kerr QNM spectrum is nowadays readily available, with modern codes (such as the \texttt{qnm} package~\cite{Stein:2019mop}) making use of a version of Leaver's method~\cite{Leaver:1985ax} to compute them accurately and quickly.
+The full Kerr QNM spectrum is nowadays readily available, with modern codes (such as the \textsc{qnm} package~\cite{Stein:2019mop}) making use of a version of Leaver's method~\cite{Leaver:1985ax} to compute them accurately and quickly.
 We show the $\ell = 2$, $n = 0$; $\ell = 3$, $n = 0$; and $\ell = 2$, $n = 1$ branches of the Kerr spectrum in Fig.~\ref{ch1:fig:qnm_taxonomy} (of course, the full spectrum would extend to infinity in both $\ell$ and $n$, but the branches shown here include the QNMs expected to be of most interest at current detector sensitivities).  
 
 There are different conventions used in the literature to label the modes; we aim to clarify these with Fig.~\ref{ch1:fig:qnm_taxonomy}.
@@ -568,7 +577,7 @@ This way of referring to the modes allows us to unambiguously refer to every mod
     \centering
     \includegraphics[width=0.9\columnwidth]{Introduction/qnm_taxonomy.pdf}
     \caption[Kerr quasinormal-mode spectrum]{ 
-    Selected modes of the Kerr QNM spectrum. BH QNM frequencies are conventionally represented as complex numbers, with the real part giving the  angular frequency of the mode and the imaginary part giving (minus) the inverse of the damping time: $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$. Here we plot $f_{\ell m n}$ and $1/\tau_{\ell m n}$, each scaled by the remnant BH mass $M_f$ to make a dimensionless quantity. The spectrum of a Kerr BH also depends on the dimensionless BH spin magnitude, $\chi_f$; as the spin is increased from zero, branches with different $m$ branch out from the points of the Schwarzschild spectrum.
+    Selected modes of the Kerr QNM spectrum. BH QNM frequencies are conventionally represented as complex numbers, with the real part giving the  angular frequency of the mode and the imaginary part giving (minus) the inverse of the damping time: $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$. Here we plot $f_{\ell m n}$ and $1/\tau_{\ell m n}$, each scaled by the remnant BH mass $M_f$ to make a dimensionless quantity. The spectrum of a Kerr BH also depends on the dimensionless BH spin magnitude, $\chi_f$; as the spin is increased from zero, branches with different $m$ grow from the points of the Schwarzschild spectrum.
     }
     \label{ch1:fig:qnm_taxonomy}
 \end{figure}
@@ -600,7 +609,7 @@ Put another way, in a BBH merger, the total area of the two initial BHs must be 
 As the BH area is a simple function of the mass and spin, this test offers an alternative way of testing consistency between measurements of the inspiral and merger (and it does not rely on projecting inspiral parameters forward to merger).
 See Refs.~\cite{Cabero:2017avf, Isi:2020tac} for examples of applying this test.
 
-Alternatively, we can test the no-hair theorem directly; by simply measuring the QNM frequencies in a ringdown signal we can perform BH spectroscopy.
+Additionally, we can test the no-hair theorem directly; by simply measuring the QNM frequencies in a ringdown signal we can perform BH spectroscopy.
 In analogy with using spectral lines to identify atomic elements, in BH spectroscopy we use the QNM frequencies to identify BHs and their properties.
 Initial studies by Echeverria~\cite{Echeverria:1989hg} and Finn~\cite{Finn:1992wt} considered the precision with which the mass and spin of the remnant BH could be measured with a single QNM.
 It was in a work by Dreyer et al.~\cite{Dreyer:2003bv} that the importance of measuring multiple QNMs was emphasised, since this leads to tests of the Kerr metric in GR (discussed further below).
@@ -637,13 +646,13 @@ If no such combination exists, then what is observed is either not an isolated B
 The above describes the key idea behind BH spectroscopy, but in practice the test is performed slightly differently.
 Firstly, in reality it may not be practical to measure multiple QNM frequencies directly due to parameter degeneracies that come with summing functionally equivalent QNMs.
 And secondly, it can be tricky to turn multiple frequency--damping-time measurements into a quantitative statement regarding compatibility with the GR Kerr spectrum.
-With the expectation that what we measure will not be greatly different from the GR Kerr prediction, we can target the loudest QNMs in the data and parameterise all the QNM frequencies with a single mass and spin (according to the Kerr spectrum).
+Instead, we can target the loudest QNMs in the data and parameterise all the QNM frequencies with a single mass and spin (according to the Kerr spectrum).
 That is,
 \begin{equation}
     \omega_{\ell m n} = \omega_{\ell m n}(M_f, \chi_f).
 \end{equation}
 This reduces the dimensions of the problem, and also directly measures the physically relevant properties of the remnant BH.
-To measure any disagreement with the Kerr prediction, we allow a subset of the QNMs in our model to deviate from Kerr in the following way:
+With the expectation that what we measure will not be greatly different from the GR Kerr prediction, we can measure any disagreement by allowing a subset of the QNMs in our model to deviate from Kerr in the following way:
 \begin{equation}
     f = f_{\ell m n}(M_f, \chi_f) e^{\delta f_{\ell m n}} \qquad \tau = \tau_{\ell m n}(M_f, \chi_f) e^{\delta \tau_{\ell m n}}.
 \end{equation}
