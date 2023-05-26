@@ -25,14 +25,53 @@ The detector output is a time series of a dimensionless scalar quantity called t
 Being metric perturbations, GWs themselves are not scalar quantities but tensors ($h$ is merely the measurement we make when GWs are ``projected'' onto the interferometer).
 GWs are described by two dimensionless amplitudes, $h_+$ and $h_\times$, which are the ``plus'' and ``cross'' polarisations respectively.
 These two polarisations, which represent small perturbations to a flat background metric, are encapsulated in the GW strain tensor, $h_{ij}$.
-To understand the response of a interferometer to incoming GWs, consider a setup where the interferometer beam-splitter is at the origin and the mirrors are at the coordinates $(L_x,0)$ and $(0,L_y)$. \comment{Figure?}
+To understand the response of a interferometer to incoming GWs, consider a setup where the interferometer arms are aligned with the $x$- and $y$-axes such that the beam-splitter is at the origin and the mirrors are at the coordinates $(L_x,0)$ and $(0,L_y)$. \comment{Figure?}
 A GW incoming from the positive $z$ direction will influence the propagation of light in the interferometer arms. 
-In the proper detector frame, the GW acts to displace the mirrors and can be intuitively described in terms of Newtonian forces. 
-However, GWs take on a simple description when working in the transverse-traceless (TT) frame.
+In the proper detector frame, the GW acts to displace the mirrors. 
+This is an intuitive picture, and the response of the mirrors to the passing GWs can be described in terms of Newtonian forces. 
+However, GWs take on a very simple form (and become easier to work with) when working in the transverse-traceless (TT) frame.
 In this description coordinates are defined by freely-falling masses, meaning the interferometer mirrors do not move under the influence of passing GWs. 
-Instead, the 
-
-\comment{For example, taking the plus, its effect on the interferoemter arm is...}
+Instead, the propagation of the light in the interferometer arms is modified via the GWs influence on the space-time interval.
+In the simple case of a GW with only plus polarisation incoming from positive $z$, the space-time interval becomes
+\begin{equation}
+    \dd{s}^2 = -c^2 \dd{t}^2 + \qty[1 + h_+(t)] \dd{x}^2 + \qty[1 - h_+(t)] \dd{y}^2 + \dd{z}^2,
+\end{equation}
+where $h_+(t)$ is the GW amplitude.
+Light (here, the laser in the interferometer arms) follows null geodesics, $\dd{s}^2 = 0$, so for the light propagation in the $x$-arm we can write
+\begin{equation}
+    \dd{x} = \pm c\dd{t} \qty[1 + h_+(t)]^{-1/2} \approx \pm c\dd{t} \qty[1 - \frac{1}{2} h_+(t)]
+\end{equation}
+for small $h_+$ (as is the case in practice, see Eq.~\ref{ch1:eq:quadrupole_strain_oom}).
+The plus sign corresponds to light travelling from the beam-splitter to the mirror in the positive $x$-direction; integrating along the length of the arm (where $t_0$ is the time the light leaves the beam-splitter and $t_1$ is the arrival time at the mirror) we have
+\begin{gather}
+    \int_0^{L_x} \dd{x} = \int_{t_0}^{t_1} c\dd{t} \qty[1 - \frac{1}{2} h_+(t)] \\
+    \implies L_x = c(t_1 - t_0) - \frac{c}{2} \int_{t_0}^{t_1} \dd{t} h_+(t). \label{ch1:eq:lx_outward}
+\end{gather}
+Similarly, for the return trip we have
+\begin{equation}\label{ch1:eq:lx_return}
+    L_x = c(t_2 - t_1) - \frac{c}{2} \int_{t_1}^{t_2} \dd{t} h_+(t)
+\end{equation}
+where $t_2$ is the arrival time back at the beam-splitter.
+Summing Eqs.~\ref{ch1:eq:lx_outward} and \ref{ch1:eq:lx_return} we obtain
+\begin{equation}
+    T_x = t_2 - t_1 = \frac{2L_x}{c} + \frac{1}{2}\int_{t_0}^{t_2} \dd{t} h_+(t),
+\end{equation}
+so the GW acts to modify the usual round-trip travel time $2L_x/c$.
+If we set $h_+(t) = h$ (that is, if we consider a GW of constant amplitude), we can write
+\begin{equation}
+    T_x = \frac{2L_x}{c}\qty(1-\frac{1}{2}h)^{-1} \approx \frac{2L_x}{c}\qty(1+\frac{1}{2}h).
+\end{equation}
+Repeating the above for the $y$-arm, we obtain
+\begin{equation}
+    T_y = \frac{2L_y}{c}\qty(1-\frac{1}{2}h).
+\end{equation}
+Since the GW alters the round-trip time in the $y$-arm differently, light that left the photodetector initially in-phase will arrive back at the photodetector out of phase.
+Setting $L_x = L_y = L$, we can write the difference in arrival time as
+\begin{equation}
+    \Delta T = T_x - T_y = \frac{2L}{c}h \implies \Delta \phi = \omega \Delta T = \frac{2\omega L}{c}h
+\end{equation}
+where $\omega$ is the light angular frequency. 
+This difference in phase, $\Delta\phi$, is what is how the GW influences the power measured at the photodetector. 
 
 Einstein~\cite{Einstein:1918btx} showed the GW emission from slowly changing and weakly gravitating sources is quadrupolar to leading order, and far from the source the GW strain tensor can be written
 \begin{equation}\label{ch1:eq:quadrupole_strain}
@@ -43,7 +82,7 @@ Here, $r$ is the distance to the source, and $Q_{ij}$ is the traceless mass quad
     Q_{ij} = \int \dd[3]{\vb*{x}} \rho(\vb*{x}) \qty(x_i x_j - \frac{1}{3} \abs{\vb*{x}} \delta_{ij}),
 \end{equation}
 were $\rho(\vb*{x})$ is the mass density and we have used Cartesian coordinates $\vb*{x} = (x_1, x_2, x_3) = (x,y,z)$ with some suitable choice of origin.
-Note that the above is valid when $h_{ij}$ is chosen to be in the transverse-traceless, or TT, gauge.
+Note that the above is valid when $h_{ij}$ is chosen to be in the TT gauge.
 
 It was also shown that the GW luminosity is given by
 \begin{equation}\label{ch1:eq:gw_luminosity}
@@ -209,7 +248,7 @@ Taking the real part we have
 \end{align}
 That such a simple model describes the final stages of such a complicated system is a remarkable result, and is part of the power of studying the ringdown.
 A faded red line traces the damped sinusoid to earlier times, where it starts to lose validity.
-This is to be expected: at earlier times we approach the nonlinear and strong-gravity merger, where BH perturbation theory (which is where this linear description comes from) starts to break down.
+This is to be expected: at earlier times we approach the nonlinear and strong-gravity merger, where BH perturbation theory (which is where this simple linear description comes from) starts to break down.
 Note, however, that our model here only includes a single term (i.e., one ringdown QNM); with additional QNMs we may be able to get a better fit to the NR waveform, or to describe the waveform at earlier times (this idea is explored at length in Chapter~\ref{Chapter2}).
 A particular subset of QNMs, known as ``overtones'', will be of particular interest throughout the thesis; as well as featuring in the numerical studies of Chapter~\ref{Chapter2}, they will be a target in the analysis of GW data in Chapters~\ref{Chapter3} and \ref{Chapter4}.
 
@@ -298,7 +337,7 @@ With the expectation that the radial dependence of the field will go as $1/r$ (a
     \psi(t, r, \theta, \phi) = \frac{1}{r} \sum_{\ell = 0}^\infty \sum_{m = -\ell}^\ell \psi_{\ell m}(t, r) Y_{\ell m}(\theta, \phi).
 \end{equation}
 Note that here, in the scalar case, the sum over $\ell$ starts from $\ell = 0$.
-In general, the sum will start from $\ell = \abs{s}$, where $s$ is the spin weight of the field ($s=0$, $-1$ and $-2$ for scalar, electrical, and gravitational perturbations respectively).
+\comment{In general, the sum will start from $\ell = \abs{s}$, where $s$ is the spin weight of the field ($s=0$, $-1$ and $-2$ for scalar, electrical, and gravitational perturbations respectively)}.
 Substituting, we are left with an equation for the radial part:
 \begin{multline}
     - \pdv[2]{\psi_{\ell m}}{t} + \frac{1}{r} \qty(1 - \frac{2M}{r}) \pdv{r} \qty[r^2 \qty(1 - \frac{2M}{r}) \pdv{r}\qty(\frac{\psi_{\ell m}}{r}) ]\\
