@@ -19,20 +19,29 @@ A prediction of general relativity (GR), GWs are produced by accelerating masses
 As transverse waves which act to expand and contract space, they can be measured via their influence on freely-falling test masses (which will move relative to each other due to geodesic deviation).
 % This is somewhat analogous~\cite{Saulson:1997ck} to the expansion of the Universe, which causes distant galaxies (the test masses) to appear to recede from us due to the expansion of space.
 The LIGO and Virgo GW detectors employ interferometry to measure the motion of test masses to extreme precision. 
-In this setup the mirrors at the end of the interferometer arms act as the freely-falling masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via measurements of the light phase difference (i.e.\ the light travel time along each arm).
+In this setup the mirrors at the end of the interferometer arms act as the freely-falling masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via measurements of the light travel time along each arm.
 The detector output is a time series of a dimensionless scalar quantity called the strain, $h$, which quantifies the fractional change of the interferometer arm lengths (which can also be thought of as changes in the position of the mirrors). 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Figures/Introduction/interferometer.pdf}
+    \caption[Schematic diagram of an interferometer]{ 
+    A simple representation of an interferometer, such as those used by LIGO and Virgo to detect GWs. Light from a laser is separated by a beam-splitter and travels down the two interferometer arms. Mirrors at the end of the arms (which are isolated from the environment and act as test masses) reflect the light, before it is recombined at the beam-splitter and sent to a photodetector.
+    }
+    \label{ch1:fig:interferometer}
+\end{figure}
 
 Being metric perturbations, GWs themselves are not scalar quantities but tensors ($h$ is merely the measurement we make when GWs are ``projected'' onto the interferometer).
 GWs are described by two dimensionless amplitudes, $h_+$ and $h_\times$, which are the ``plus'' and ``cross'' polarisations respectively.
 These two polarisations, which represent small perturbations to a flat background metric, are encapsulated in the GW strain tensor, $h_{ij}$.
-To understand the response of a interferometer to incoming GWs, consider a setup where the interferometer arms are aligned with the $x$- and $y$-axes such that the beam-splitter is at the origin and the mirrors are at the coordinates $(L_x,0)$ and $(0,L_y)$. \comment{Figure?}
-A GW incoming from the positive $z$ direction will influence the propagation of light in the interferometer arms. 
+To understand the response of an interferometer to incoming GWs, consider a setup (depicted in Fig.~\ref{ch1:fig:interferometer}) where the interferometer arms are aligned with the $x$- and $y$-axes such that the beam-splitter is at the origin and the mirrors are at the coordinates $(L_x,0)$ and $(0,L_y)$.
+Incident GWs will influence the propagation of light in the interferometer arms. 
 In the proper detector frame, the GW acts to displace the mirrors. 
 This is an intuitive picture, and the response of the mirrors to the passing GWs can be described in terms of Newtonian forces. 
 However, GWs take on a very simple form (and become easier to work with) when working in the transverse-traceless (TT) frame.
 In this description coordinates are defined by freely-falling masses, meaning the interferometer mirrors do not move under the influence of passing GWs. 
 Instead, the propagation of the light in the interferometer arms is modified via the GWs influence on the space-time interval.
-In the simple case of a GW with only plus polarisation incoming from positive $z$, the space-time interval becomes
+In the simple case of a GW with only plus polarisation incoming from the positive $z$-direction (i.e.\, into the page in Fig.~\ref{ch1:fig:interferometer}), the space-time interval becomes
 \begin{equation}
     \dd{s}^2 = -c^2 \dd{t}^2 + \qty[1 + h_+(t)] \dd{x}^2 + \qty[1 - h_+(t)] \dd{y}^2 + \dd{z}^2,
 \end{equation}
@@ -49,14 +58,14 @@ The plus sign corresponds to light travelling from the beam-splitter to the mirr
 \end{gather}
 Similarly, for the return trip we have
 \begin{equation}\label{ch1:eq:lx_return}
-    L_x = c(t_2 - t_1) - \frac{c}{2} \int_{t_1}^{t_2} \dd{t} h_+(t)
+    L_x = c(t_2 - t_1) - \frac{c}{2} \int_{t_1}^{t_2} \dd{t} h_+(t),
 \end{equation}
 where $t_2$ is the arrival time back at the beam-splitter.
 Summing Eqs.~\ref{ch1:eq:lx_outward} and \ref{ch1:eq:lx_return} we obtain
 \begin{equation}
-    T_x = t_2 - t_1 = \frac{2L_x}{c} + \frac{1}{2}\int_{t_0}^{t_2} \dd{t} h_+(t),
+    T_x = t_2 - t_0 = \frac{2L_x}{c} + \frac{1}{2}\int_{t_0}^{t_2} \dd{t} h_+(t),
 \end{equation}
-so the GW acts to modify the usual round-trip travel time $2L_x/c$.
+so the GW acts to modify the usual round-trip travel time of $2L_x/c$.
 If we set $h_+(t) = h$ (that is, if we consider a GW of constant amplitude), we can write
 \begin{equation}
     T_x = \frac{2L_x}{c}\qty(1-\frac{1}{2}h)^{-1} \approx \frac{2L_x}{c}\qty(1+\frac{1}{2}h).
@@ -71,7 +80,7 @@ Setting $L_x = L_y = L$, we can write the difference in arrival time as
     \Delta T = T_x - T_y = \frac{2L}{c}h \implies \Delta \phi = \omega \Delta T = \frac{2\omega L}{c}h
 \end{equation}
 where $\omega$ is the light angular frequency. 
-This difference in phase, $\Delta\phi$, is what is how the GW influences the power measured at the photodetector. 
+This difference in phase, $\Delta\phi$, is how the GW influences the power measured at the photodetector. 
 
 Einstein~\cite{Einstein:1918btx} showed the GW emission from slowly changing and weakly gravitating sources is quadrupolar to leading order, and far from the source the GW strain tensor can be written
 \begin{equation}\label{ch1:eq:quadrupole_strain}
@@ -204,17 +213,32 @@ The leading-order time to merger, $\tau_\mathrm{merge}$, as a function of GW fre
 \begin{equation}\label{ch1:eq:time_to_merger}
     \tau_\mathrm{merge} = \frac{5}{256} \qty(\pi f)^{-\frac{8}{3}} \qty(\frac{G\mathcal{M}}{c^3})^{-\frac{5}{3}},
 \end{equation}
-where $\mathcal{M}$ is a combination of the two masses in the binary known as the chirp mass.
-We also explicitly show the factors of $G$ and $c$ in this equation for clarity (in geometric units these would be set to 1, and it would be implied that the chirp mass should be expressed in units of time). 
-Eq.~\ref{ch1:eq:time_to_merger} is valid in the quasi-circular orbit regime; it can be derived by equating the time derivative of the orbital energy of a binary system to (negative) the GW luminosity Eq.~\ref{ch1:eq:gw_luminosity}, where the quadrupolar moment is most easily calculated using the equivalent one-body problem with a reduced mass.
+where $\mathcal{M}$ is a combination of the two masses in the binary known as the chirp mass,
+\begin{equation}
+    \mathcal{M} = \frac{(m_1 m_2)^{3/5}}{(m_1 + m_2)^{1/5}}.
+\end{equation}
+For GW150914, we have $m_1 = 39\,M_\odot$ and $m_2 = 33\,M_\odot$.
+In Eq.~\ref{ch1:eq:time_to_merger} we also explicitly show the factors of $G$ and $c$ for clarity (in geometric units these would be set to 1, and it would be implied that the chirp mass should be expressed in units of time). 
+This expression for the time to merger is valid in the quasi-circular orbit regime; it can be derived by equating the time derivative of the orbital energy of a binary system to (negative) the GW luminosity (Eq.~\ref{ch1:eq:gw_luminosity}), where the quadrupolar moment is most easily calculated using the equivalent one-body problem with a reduced mass.
 
 The signal in Fig.~\ref{ch1:fig:fd_waveform} was generated with the \textsc{IMRPhenomD}~\cite{Khan:2015jqa} waveform model, as implemented in the \textsc{ripple}~\cite{Edwards:2023sak} Python package.
-Phenom models produce approximate waveforms using closed-form analytic expressions in the frequency-domain, making evaluation quick and suitable for GW searches.
+Phenom models produce approximate waveforms using closed-form analytic expressions in the frequency-domain, making evaluation quick and suitable for GW searches and parameter estimation.
 The Hanford PSD is estimated from $1024\,\mathrm{s}$ of off-source data at the time of GW150914 using a Welch periodogram~\cite{1161901}.
 
 
 \section{Black-hole ringdown}
 \label{ch1:sec:bh_ringdown}
+
+\begin{figure}[t!]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Introduction/ringdown_waveform.pdf}
+    \caption[Gravitational-wave ringdown waveform]{ 
+    The ringdown waveform from a BBH, fitted with a simple damped sinusoid. 
+    At early times this simple description breaks down. 
+    The waveform is a NR simulation from the SXS catalog.
+    }
+    \label{ch1:fig:rd_waveform}
+\end{figure}
 
 The endpoint of a BBH, the ringdown signal is produced by the remnant BH settling to its stationary state.
 Just as a bell or drum has a characteristic sound, so too does a BH; associated with the BH is a unique spectrum of oscillatory modes, determined purely by its properties (namely, for astrophysical BHs, a mass and spin).
@@ -228,18 +252,6 @@ This simulation has properties consistent with GW150914, and will be among the N
 NR waveforms are decomposed into spherical-harmonic modes indexed by $\ell$ and $m$ (see Section~\ref{ch2:sec:model} and Eq.~\ref{ch2:eq:spherical_expansion} for more details), and here we plot the real part of the dominant $\ell = m = 2$ mode.
 The radial dependence of GW waveforms goes predominantly as $r^{-1}$, so the SXS catalog provides the strain multiplied by $r$ (just as what was plotted in Fig.~\ref{ch1:fig:td_waveform}).
 For clarity, when dealing with NR simulations (as we do throughout Chapter~\ref{Chapter2}), we will drop the $r$ factor and have the $r^{-1}$ scaling implied.
-% (just keep in mind when we refer to the GW signal $h$ or a mode $h_{\ell m}$, we really mean $rh$ and $rh_{\ell m}$). 
-
-\begin{figure}[t!]
-    \centering
-    \includegraphics[width=0.6\columnwidth]{Introduction/ringdown_waveform.pdf}
-    \caption[Gravitational-wave ringdown waveform]{ 
-    The ringdown waveform from a BBH, fitted with a simple damped sinusoid. 
-    At early times this simple description breaks down. 
-    The waveform is a NR simulation from the SXS catalog.
-    }
-    \label{ch1:fig:rd_waveform}
-\end{figure}
 
 Overplotted is a simple model for the $h_{22}$ mode: a exponentially damped sinusoid with complex frequency $\omega = 2\pi f - i/\tau$ and amplitude $C = Ae^{i\phi}$. 
 Taking the real part we have
@@ -248,7 +260,7 @@ Taking the real part we have
 \end{align}
 That such a simple model describes the final stages of such a complicated system is a remarkable result, and is part of the power of studying the ringdown.
 A faded red line traces the damped sinusoid to earlier times, where it starts to lose validity.
-This is to be expected: at earlier times we approach the nonlinear and strong-gravity merger, where BH perturbation theory (which is where this simple linear description comes from) starts to break down.
+This is to be expected: at earlier times we approach the nonlinear and strong-gravity merger, where BH perturbation theory (which is where this simple damped-sinusoid description comes from) starts to break down.
 Note, however, that our model here only includes a single term (i.e., one ringdown QNM); with additional QNMs we may be able to get a better fit to the NR waveform, or to describe the waveform at earlier times (this idea is explored at length in Chapter~\ref{Chapter2}).
 A particular subset of QNMs, known as ``overtones'', will be of particular interest throughout the thesis; as well as featuring in the numerical studies of Chapter~\ref{Chapter2}, they will be a target in the analysis of GW data in Chapters~\ref{Chapter3} and \ref{Chapter4}.
 
@@ -283,7 +295,7 @@ It was found that the late-time GW waveform consisted of damped sinusoids, the f
 Further numerical work by Press~\cite{Press:1971wr}, studying the evolution of perturbations to the Schwarzschild geometry, identified the damped sinusoids as the ``free oscillation of a black hole''.
 This work was also the first instance of describing the vibration of a BH as a ``quasi-normal mode''.
 
-Equations governing the perturbations of the Kerr metric~\cite{Kerr:1963ud} were found by Teukolsky~\cite{Teukolsky:1972my}. 
+Equations governing the perturbations of the Kerr metric~\cite{Kerr:1963ud} were found by Teukolsky~\cite{Teukolsky:1972my, Teukolsky:1973ha}. 
 Describing rotating BHs, these are expected to be the most general class of astrophysical BH and will be the focus throughout this thesis. 
 A remnant Kerr BH has ``no hair''~\cite{Carter:1971zc}, meaning it is fully described by only a final mass and an angular momentum (which we will express via a dimensionless spin parameter). 
 The same is true of the spectrum of Kerr QNM frequencies, which are also functions of only the mass and spin. 
@@ -293,9 +305,6 @@ The QNM frequencies can be calculated within the framework of linearised gravity
 Therefore, the QNM description of the GW signal is only expected to be valid at sufficiently late times, when the nonlinearities from the merger have largely decayed away. 
 In the following subsections we discuss the calculation and physical picture of QNMs further to help build some intuition.
 
-% QNMs also have practical uses in waveform modelling. 
-% They are used in full inspiral-merger-ringdown BBH waveforms produced in both the phenomenological \cite{Pratten:2020ceb, Garcia-Quiros:2020qpx, Pratten:2020fqn} and effective-one-body approaches \cite{Buonanno:2006ui, Buonanno:2007pf, Pan:2011gk}.
-
 \subsection{Scalar field on a Schwarzschild background}
 \label{ch1:sec:scalar}
 
@@ -303,7 +312,7 @@ To help build some intuition regarding the origin of the QNMs, we will perform a
 This will lead to equations reminiscent of the Zerilli and Regge-Wheeler equations, without the complication of tensor spherical harmonics that comes with the full gravitational-perturbation treatment.
 
 The metric tensor, in Schwarzschild coordinates, is
-\begin{equation}
+\begin{equation}\label{ch1:eq:schwarzschild}
 g_{\mu\nu} = \begin{pmatrix}
 - \left(1 - \frac{2M}{r}\right) & 0 & 0 & 0 \\
 0 & \left(1 - \frac{2M}{r}\right)^{-1} & 0 & 0 \\
@@ -328,16 +337,16 @@ Evaluating, we get
     + \frac{1}{r^2} \qty[ \frac{1}{\sin{\theta}} \pdv{\theta} \qty(\sin{\theta} \pdv{\psi}{\theta} ) + \frac{1}{\sin^2{\theta}} \pdv[2]{\psi}{\phi} ] = 0.
 \end{multline}
 Recognising that the scalar spherical harmonics, $Y_{\ell m}(\theta,\phi)$, are the eigenfunctions of the angular part:
-\begin{equation}
+\begin{equation}\label{ch1:eq:spherical}
     \frac{1}{\sin{\theta}} \pdv{\theta} \qty(\sin{\theta} \pdv{Y_{\ell m}}{\theta} ) + \frac{1}{\sin^2{\theta}} \pdv[2]{Y_{\ell m}}{\phi} = - \ell (\ell + 1) Y_{\ell m},
 \end{equation}
-we will attempt a spherical harmonic decomposition of the scalar field. 
+we will attempt a spherical-harmonic decomposition of the scalar field. 
 With the expectation that the radial dependence of the field will go as $1/r$ (and also anticipating a change in radial coordinate) we write the scalar field as
-\begin{equation}
+\begin{equation}\label{ch1:eq:scalar_spherical_expansion}
     \psi(t, r, \theta, \phi) = \frac{1}{r} \sum_{\ell = 0}^\infty \sum_{m = -\ell}^\ell \psi_{\ell m}(t, r) Y_{\ell m}(\theta, \phi).
 \end{equation}
-Note that here, in the scalar case, the sum over $\ell$ starts from $\ell = 0$.
-\comment{In general, the sum will start from $\ell = \abs{s}$, where $s$ is the spin weight of the field ($s=0$, $-1$ and $-2$ for scalar, electrical, and gravitational perturbations respectively)}.
+% Note that here, in the scalar case, the sum over $\ell$ starts from $\ell = 0$.
+% \comment{In general, the sum will start from $\ell = \abs{s}$, where $s$ is the spin weight of the field ($s=0$, $-1$ and $-2$ for scalar, electrical, and gravitational perturbations respectively)}.
 Substituting, we are left with an equation for the radial part:
 \begin{multline}
     - \pdv[2]{\psi_{\ell m}}{t} + \frac{1}{r} \qty(1 - \frac{2M}{r}) \pdv{r} \qty[r^2 \qty(1 - \frac{2M}{r}) \pdv{r}\qty(\frac{\psi_{\ell m}}{r}) ]\\
@@ -370,12 +379,12 @@ we can bring Eq.~\ref{ch1:eq:wave_equation} into the form of a one-dimensional S
     \pdv[2]{\tilde{\psi}_{\ell m}(\omega,r)}{r_*} + \qty[ \omega^2 - V_\ell(r)] \tilde{\psi}_{\ell m}(\omega,r) = 0.
 \end{equation}
 Gravitational perturbations obey an equation of the same form (i.e. the Regge-Wheeler and Zerilli equations), and in fact the effective potential can be written in the unified form
-\begin{equation}
+\begin{equation}\label{ch1:eq:rw_potential}
     V_\ell(r) = \qty( 1 - \frac{2M}{r} ) \qty( \frac{\ell (\ell + 1)}{r^2} + \frac{(1 - s^2)2M}{r^3} )
 \end{equation}
 with $s = 0$, $-1$ and $-2$ for scalar, electrical, and gravitational perturbations respectively. 
-The effective potential in the Zerilli equation has a slightly different form (the Zerilli equation describes polar, or even-parity, perturbations, whereas the Regge-Wheeler equations describes axial, or odd-parity, perturbations). 
-However, it has been shown that the QNM spectrum resulting from the Regge-Wheeler and Zerilli equations are identical~\cite{Chandrasekhar:1975nkd}.
+We plot $V_\ell(r)$ in Fig.~\ref{ch1:fig:rw_potential} for the scalar and gravitational perturbation cases, and for a few different values of $\ell$. 
+Note that the minimum value of $\ell$ permitted is given by $\abs{s}$.
 
 \begin{figure}[t]
     \centering
@@ -386,7 +395,32 @@ However, it has been shown that the QNM spectrum resulting from the Regge-Wheele
     \label{ch1:fig:rw_potential}
 \end{figure}
 
-We must specify boundary conditions to find the QNM solutions.
+When studying gravitational perturbations, we write the metric as
+\begin{equation}
+    g'_{\mu\nu} = g_{\mu\nu} + h_{\mu\nu},
+\end{equation}
+where $g_{\mu\nu}$ is the unperturbed BH spacetime (i.e., for Schwarzschild, Eq.~\ref{ch1:eq:schwarzschild}) and $h_{\mu\nu}$ is a perturbation. 
+An analogous procedure to the above is followed, and it is worth noting that the angular dependence is now described by spin-weighted functions that are generalisations of the usual spherical harmonics.
+In the case of Schwarzschild, these are the spin-weighted spherical harmonics, ${}_sY_{\ell m}(\theta,\phi)$.
+These are also the functions commonly used as the basis in the expansion of NR waveforms; see the discussion around Eq.~\ref{ch2:eq:spherical_expansion} for more details.
+\comment{Spin-weighted functions differ from their usual scalar counterparts via their transformation properties, see Sec.~\ref{misaligned-spin-section} for more details.}
+In the case of Kerr, a set of functions called the spin-weighted spheroidal harmonics, ${}_{s}S_{\ell m}(\theta, \phi; \gamma)$ are required~\cite{Teukolsky:1973ha}.
+The quantity $\gamma$ is called the spheroidicity or oblateness, and it depends on the BH spin (see the discussion around Eq.~\ref{ch2:eq:spheroidal_expansion} for more details).
+The spheroidal harmonics are solutions of the equation
+\begin{equation}\label{ch1:eq:spheroidal}
+    \qty[\frac{1}{\sin{\theta}} \pdv{\theta} \qty(\sin{\theta} \pdv{\theta} ) - \frac{(m + s\cos{\theta})^2}{\sin^2{\theta}} + (\gamma\cos{\theta} - s)^2 - s(s-1) + {}_sA_{\ell m}] {}_{s}S_{\ell m}  = 0,
+\end{equation}
+where ${}_sA_{\ell m}(\gamma)$ is known as the angular separation constant.
+In the limit $\gamma \rightarrow 0$ (corresponding to the Schwarzschild limit), the solutions to Eq.~\ref{ch1:eq:spheroidal} are the spin-weighted spherical harmonics and we have
+\begin{equation}
+    {}_sA_{\ell m} = \ell(\ell + 1) - s(s + 1).
+\end{equation}
+If we then set $s = 0$, we recover Eq.~\ref{ch1:eq:spherical} (since we have a $\phi$-dependence of the form $e^{im\phi}$) and the solutions become the normal spherical harmonics.
+
+Returning to the effective potential, Eq.~\ref{ch1:eq:rw_potential}, we note that the Zerilli equation has a slightly different form (the Zerilli equation describes polar, or even-parity, perturbations, whereas the Regge-Wheeler equations describes axial, or odd-parity, perturbations). 
+However, it has been shown that the QNM spectrum resulting from the Regge-Wheeler and Zerilli equations are identical~\cite{Chandrasekhar:1975nkd}.
+
+Given Eq.~\ref{ch1:eq:fd_wave_equation} and the effective potential, we must specify boundary conditions to find the QNM solutions.
 When solving for the normal modes on a string, or the energy levels of a quantum harmonic oscillator, we require the wavefunction to vanish at the boundaries (either at the string ends, or at $\pm \infty$ for the harmonic oscillator).
 The problem we're considering here is slightly different; the potential, depicted in Fig.~\ref{ch1:fig:rw_potential}, clearly does not admit bound states. 
 It does not have any minima, and $V_\ell(r) > 0$ for all $r$.
@@ -404,12 +438,22 @@ Chandrasekhar and Detweiler~\cite{Chandrasekhar:1975zza} employed a shooting met
 This is an inefficient way of identifying QNMs, and this approach is also prone to numerical noise.
 Analytical methods were developed by Blome, Mashhoon and Ferrari~\cite{BLOME1984231, Ferrari:1984ozr, Ferrari:1984zz}, which consider the bound states of the inverted BH potential. 
 Although not in general accurate, this approach offers physical insight which we touch upon in the next subsection.
-Motivated by the analogy between Eq.~\ref{ch1:eq:wave_equation} and the Schr\"{o}dinger equation, Schutz and Will~\cite{Schutz:1985km} employed WKB methods to calculate a handful of fundamental mode QNM frequencies.
+Motivated by the analogy between Eq.~\ref{ch1:eq:fd_wave_equation} and the Schr\"{o}dinger equation, Schutz and Will~\cite{Schutz:1985km} employed WKB methods to calculate a handful of fundamental mode QNM frequencies.
 This approach has since been improved upon~\cite{Iyer:1986np, Matyjasek:2017psv, Konoplya:2019hlu}, 
 % Iyer:1986nq, Kokkotas:1988fm, Seidel:1989bp, Kokkotas:1991vz, Konoplya:2003ii, 
 and can give very accurate results for certain modes (but, again, breaks down in some limits). 
 Finally, a numerical method utilising continued fractions (proposed by Leaver~\cite{Leaver:1985ax}, and later improved upon by Nollert~\cite{Nollert:1993zz}) is known to be highly accurate and fast.
 It is the method of choice in modern codes such as the \textsc{qnm} Python package~\cite{Stein:2019mop} (which is used in work throughout this thesis).
+The \textsc{qnm} package actually employs a spectral method, developed in Ref.~\cite{Cook:2014cta}, alongside Leaver's method to solve for the QNM frequencies and angular separation constants. 
+In brief, when a separation of variables (similar to Eq.~\ref{ch1:eq:scalar_spherical_expansion}, but with spin-weighted spheroidal harmonics) is applied to the equation governing perturbations to the Kerr metric we obtain coupled radial and angular equations (the Teukolsky equations). 
+The \textsc{qnm} package uses Leaver's method to solve the radial equation, but the solutions for the angular equation (the spin-weighted spheroidal harmonics) are expanded in the basis of the spin-weighted spherical harmonics as
+\begin{equation}
+    {}_{s}S_{\ell m}(\theta,\phi;\gamma) = \sum_{\ell'=\ell_\mathrm{min}}^\infty \mu_{\ell'm\ell}(\gamma) ~ {}_{s}Y_{\ell'm}(\theta,\phi),
+\end{equation}
+where $\ell_\mathrm{min} = \mathrm{max}(\abs{m},\abs{s})$.
+The coefficients, $\mu_{\ell'm\ell}(\gamma)$, are the spherical-spheroidal mixing coefficients~\cite{Berti:2014fga} and will become important when modelling NR data (which is decomposed into spin-weighted spherical harmonics) as a sum of QNMs (whose natural basis is the spin-weighted spheroidal harmonics); see Section~\ref{ch2:sec:fitting} for more details.
+When the spheroidal harmonics are expanded in this way (and the upper limit on the sum is replaced by some finite $\ell_\mathrm{max}$), the angular equation becomes an eigenvalue problem with ${}_{s}A_{\ell m}(\gamma)$ as the eigenvalues and $\mu_{\ell'm\ell}(\gamma)$ as the eigenvectors.
+So, the spectral approach has the advantage of returning the spherical-spheroidal mixing coefficients as part of the solution.
 
 In summary, when enforcing the above boundary conditions, only discrete values of $\omega$ satisfy Eq.~\ref{ch1:eq:fd_wave_equation}; these are the QNMs.
 In the case of a Kerr BH, we denote the QNMs $\omega_{\ell m n}$.
