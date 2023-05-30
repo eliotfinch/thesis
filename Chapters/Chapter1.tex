@@ -14,7 +14,6 @@ GW150914~\cite{LIGOScientific:2016aoc} marked the first direct observation of GW
 
 A prediction of general relativity (GR), GWs are produced by accelerating masses.
 As transverse waves which act to expand and contract space, they can be measured via their influence on freely-falling test masses (which will move relative to each other due to geodesic deviation).
-% This is somewhat analogous~\cite{Saulson:1997ck} to the expansion of the Universe, which causes distant galaxies (the test masses) to appear to recede from us due to the expansion of space.
 The LIGO and Virgo GW detectors employ interferometry to measure the motion of test masses to extreme precision. 
 In this setup the mirrors at the end of the interferometer arms act as the freely-falling masses (they are hung as pendulums to isolate them from the environment), and changes in their position can be determined via measurements of the light travel time along each arm.
 The detector output is a time series of a dimensionless scalar quantity called the strain, $h$, which quantifies the fractional change of the interferometer arm lengths (which can also be thought of as changes in the position of the mirrors). 
@@ -272,19 +271,12 @@ This is particularly true for one of the most massive BBH mergers observed so fa
 Its large mass means this event enters the detector band only very near merger, and so is ringdown dominated.
 This makes it a promising target for QNM searches, and along with GW150914 it is an event that will be referenced throughout this thesis. 
 
-% GWTC-2: GW150914 and GW190521_074359 show some signs of an overtone. Mention contention re overtone? Probably best to save for later. 
-% An event on the same day, known just as GW190521 CITE, is of particular interest to ringdown studies because of its exceptionally high mass. Not much inspiral... ringdown dominated... and analyses by others have claimed the identification of a higher harmonic.
-% GWTC-3: GW200224_222234 shows log10B ~ 0.95 evidence for overtone
-
-% If a system has a set of characteristic frequencies associated with it, then if we excite the system we can attempt to measure those frequencies and characterise the system. This is spectroscopy...
-
 \section{Quasinormal modes}
 \label{ch1:sec:qnms}
 
 The characteristic vibrational modes of dissipative systems are known as QNMs.
 As stated above, these differ from usual normal modes because they decay over time.
 Although not limited to BHs (any real-world physical systems which are subject to damping will exhibit decaying modes), BH spacetimes are an interesting case because even idealised systems are intrinsically dissipative. 
-% ; this is due to the presence of the event horizon.
 
 Gravitational perturbations of the Schwarzschild geometry~\cite{Schwarzschild:1916uq} were first studied by Regge and Wheeler~\cite{Regge:1957td}, and this work was extended by Zerilli to a more general class of perturbations~\cite{Zerilli:1970se, Zerilli:1970wzz}.
 Employing the perturbation techniques developed by Regge and Wheeler, Vishveshwara~\cite{Vishveshwara:1970zz} performed numerical studies involving the scattering of GWs off a Schwarzschild BH.
@@ -342,8 +334,6 @@ With the expectation that the radial dependence of the field will go as $1/r$ (a
 \begin{equation}\label{ch1:eq:scalar_spherical_expansion}
     \psi(t, r, \theta, \phi) = \frac{1}{r} \sum_{\ell = 0}^\infty \sum_{m = -\ell}^\ell \psi_{\ell m}(t, r) Y_{\ell m}(\theta, \phi).
 \end{equation}
-% Note that here, in the scalar case, the sum over $\ell$ starts from $\ell = 0$.
-% \comment{In general, the sum will start from $\ell = \abs{s}$, where $s$ is the spin weight of the field ($s=0$, $-1$ and $-2$ for scalar, electrical, and gravitational perturbations respectively)}.
 Substituting, we are left with an equation for the radial part:
 \begin{multline}
     - \pdv[2]{\psi_{\ell m}}{t} + \frac{1}{r} \qty(1 - \frac{2M}{r}) \pdv{r} \qty[r^2 \qty(1 - \frac{2M}{r}) \pdv{r}\qty(\frac{\psi_{\ell m}}{r}) ]\\
@@ -436,9 +426,7 @@ This is an inefficient way of identifying QNMs, and this approach is also prone 
 Analytical methods were developed by Blome, Mashhoon and Ferrari~\cite{BLOME1984231, Ferrari:1984ozr, Ferrari:1984zz}, which consider the bound states of the inverted BH potential. 
 Although not in general accurate, this approach offers physical insight which we touch upon in the next subsection.
 Motivated by the analogy between Eq.~\ref{ch1:eq:fd_wave_equation} and the Schr\"{o}dinger equation, Schutz and Will~\cite{Schutz:1985km} employed WKB methods to calculate a handful of fundamental mode QNM frequencies.
-This approach has since been improved upon~\cite{Iyer:1986np, Matyjasek:2017psv, Konoplya:2019hlu}, 
-% Iyer:1986nq, Kokkotas:1988fm, Seidel:1989bp, Kokkotas:1991vz, Konoplya:2003ii, 
-and can give very accurate results for certain modes (but, again, breaks down in some limits). 
+This approach has since been improved upon~\cite{Iyer:1986np, Matyjasek:2017psv, Konoplya:2019hlu}, and can give very accurate results for certain modes (but, again, breaks down in some limits). 
 Finally, a numerical method utilising continued fractions (proposed by Leaver~\cite{Leaver:1985ax}, and later improved upon by Nollert~\cite{Nollert:1993zz}) is known to be highly accurate and fast.
 It is the method of choice in modern codes such as the \textsc{qnm} Python package~\cite{Stein:2019mop} (which is used in work throughout this thesis).
 The \textsc{qnm} package actually employs a spectral method, developed in Ref.~\cite{Cook:2014cta}, alongside Leaver's method to solve for the QNM frequencies and angular separation constants. 
@@ -613,7 +601,6 @@ It is known that QNMs, in contrast to normal modes, do not form a complete basis
 In particular, it is known that at late times the ringdown consists of a power-law tail~\cite{Price:1971fb, Leaver:1986gd, Ching:1995tj} (see also Ref.~\cite{Gleiser:2007ti}, and references therein, for a more recent discussion about our knowledge of tails), and nonlinear effects such as GW memory~\cite{Favata:2010zu} may also be present.
 Although at a much lower amplitude than the QNM ringing and not resolvable at current detector sensitivities, at sufficient SNRs these effects may need to be considered to avoid biases.
 This idea was touched upon in Ref.~\cite{Thrane:2017lqn}, where it was found that their ability to constrain remnant parameters from the ringdown signal actually degraded at high SNRs (late-time tails were suggested as an explanation for this, but it is not clear if they were responsible in this study).
-% See also Ref.~\cite{Nee:2023osy}, who point out that the tendency for their QNM fits to perform worse at late times is a sign of tails.
 See also Ref.~\cite{Baibhav:2017jhs} for a study on how neglecting these beyond-QNM contributions could bias future studies.
 
 Motivated by work done in Refs.~\cite{Ching:1993gt, Ching:1995rt}, Nollert~\cite{Nollert:1996rf} attempted to make the QNM spectrum complete via modifications to the effective potential (for example, in the case of Schwarzschild, the Regge-Wheeler potential depicted in Fig.~\ref{ch1:fig:rw_potential}).
