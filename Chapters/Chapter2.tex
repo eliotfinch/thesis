@@ -599,8 +599,8 @@ To make a clear comparison with the previous models, we again use a ringdown sta
 
 The inclusion of higher harmonics with the mirror modes drastically improves the mismatch.
 A small mismatch is not surprising for a model with so many free parameters, and in some of these cases we are likely pushing beyond the limits of accuracy of the NR simulations. See Section~\ref{NR_error_appendix} for a discussion of the numerical errors.
-There is a modest reduction in $\epsilon$ for some systems, and in particular we see less systems with $\epsilon > 0.01$ (at least for $L=3$). This hints at the importance of higher harmonics in some precessing systems. Despite this, we still see worst-case values of $\epsilon \sim 0.04$.
-% We also note that 
+There is a modest reduction in $\epsilon$ for some systems, and in particular we see less systems with $\epsilon > 0.01$. This hints at the importance of higher harmonics in some precessing systems. Despite this, we still see worst-case values of $\epsilon \sim 0.04$.
+We also note that higher harmonics alone (i.e.\ without mirror modes, shown with the grey histograms) leads to a greater spread of mismatches, and more systems with $\epsilon > 0.01$. 
 
 \section{Surrogates}\label{surrogate-section}
 
@@ -641,12 +641,12 @@ By contrast, the lower-dimensional aligned-spin surrogate NRHybSur3dq8 does appe
 It is important to remember the finite accuracy of the NR simulations used in ringdown studies.
 This is particularly true when using models with many QNMs which, by their very nature, use a large number of free parameters and regularly achieve very small ($\sim 10^{-6}$) mismatches.
 If care is not taken, we risk fitting our models to the numerical noise. 
-In this section we describe the numerical checks performed on the two individual simulations used in this chapter: SXS:BBH:0305, and SXS:BBH:1856. %, and the three simulations shown in Fig.~\ref{misaligned_spin_variation}.
+In this section we describe the numerical checks performed on the two individual simulations used in this chapter: SXS:BBH:0305, and SXS:BBH:1856.
 In each case the numerical errors were estimated by comparing results obtained using data from the two highest resolutions (levels) available in the SXS catalog. 
 
 First, we quantify the numerical error in the mismatch.
 This was done by calculating the mismatch between the two highest NR resolutions from a time $t_0$ to a time $T = t_0 + 100M$, for a range of $t_0$. For each start time, we optimally align the two waveforms in time (taking the absolute value in the mismatch automatically optimises the mismatch over phase). The alignment in time can be done by matching the time of peak strain, for example, or by numerically rolling the waveform to find the optimal time shift for each mismatch calculation.
-The results are shown by the grey dashed lines in the mismatch vs start time plots in Figs.~\ref{305_mismatch_vs_t0}, \ref{1856_mismatch_vs_t0} (duplicated in Fig.~\ref{1856_mirror_mode_mismatch_vs_t0}). % and the 3 panels of Fig.~\ref{misaligned_spin_variation}.
+The results are shown by the grey dashed lines in the mismatch vs start time plots in Figs.~\ref{305_mismatch_vs_t0} and \ref{1856_mismatch_vs_t0} (duplicated in Fig.~\ref{1856_mirror_mode_mismatch_vs_t0}).
 Generally, we see numerical error estimates at or below the model mismatches, particularly at late times, indicating that we are not fitting to the numerical noise.
 The main exception is Fig.~\ref{1856_mirror_mode_mismatch_vs_t0} where the mirror-mode model is applied to a precessing system. This is expected; precessing NR simulations, and those with high mass ratios are generally expected to have larger numerical errors. Additionally, the mirror mode and harmonic models have the highest numbers of free parameters making them more likely to reach the accuracy of the NR simulation. 
 
