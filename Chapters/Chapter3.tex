@@ -63,9 +63,9 @@ The code associated with this work is available at Ref.~\cite{fdringdown}, and a
     For the purpose of illustration, we use the simplest version of our model where a single, truncated sine-Gaussian wavelet is used to model the inspiral-merger part of the signal and the fundamental $\ell=m=2$, $n=0$ QNM is used to model the ringdown.
     The ringdown start time, $t_0$, is allowed to vary as part of a Bayesian analysis which also searches over different values of wavelet parameters, the source sky position, the QNM amplitude and phase, and over the remnant BH mass and spin. 
     Full details of this analysis will be presented elsewhere.
-    The top panel shows the maximum likelihood waveform broken down into its wavelet ($h^{\rm IM}$, orange) and ringdown ($h^{\rm R}$, purple) parts as well as into plus (solid) and cross (dashed) polarisations. 
+    The top panel shows the maximum-likelihood waveform broken down into its wavelet ($h^{\rm IM}$, orange) and ringdown ($h^{\rm R}$, purple) parts as well as into plus (solid) and cross (dashed) polarisations. 
     The discontinuity in our model can be clearly seen in the coloured lines. 
-    However, when these polarisations are combined and projected (see Eq.~\ref{eq:projection_antenna}) onto the interferometer (black line) the result is nearly continuous; we emphasise that this continuity has not been imposed by the model but is rather ``learnt'' from the data. When the projected maximum likelihood waveform is whitened according to the detector noise curve it becomes completely continuous, this is plotted as the central blue line in the bottom panel.
+    However, when these polarisations are combined and projected (see Eq.~\ref{eq:projection_antenna}) onto the interferometer (black line) the result is nearly continuous; we emphasise that this continuity has not been imposed by the model but is rather ``learnt'' from the data. When the projected maximum-likelihood waveform is whitened according to the detector noise curve it becomes completely continuous, this is plotted as the central blue line in the bottom panel.
     In the bottom panel we also plot the uncertainty (90\% credible region; blue shaded band) on the recovered signal.
     }
     \label{fig:demo}
@@ -206,7 +206,7 @@ The ringdown model is zero for early times, and after a start time $t_0$ takes t
 where the complex QNM frequencies $\omega_{\ell m n} = 2\pi f_{\ell m n} - i/\tau_{\ell m n}$ are functions of the remnant BH mass $M_f$ and dimensionless spin magnitude $\chi_f$. Here, $f_{\ell m n}$ is the oscillation frequency, and $\tau_{\ell m n}$ is the damping time.
 Each QNM is further described by an amplitude, $A_{\ell m n}$, and phase parameter, $\phi_{\ell m n}$. 
 It is possible to analytically take the Fourier transform of this expression and thereby write the ringdown model in the frequency domain as
-\begin{equation}
+\begin{equation}\label{ch3:eq:hr_fd}
     \Tilde{h}^{\mathrm{R}}(f) = \int_{-\infty}^\infty \dd{t} \qty[h_+^\mathrm{R}(t) - ih_\times^\mathrm{R}(t)] e^{-2\pi i f t} = \sum_{\ell m n} \frac{A_{\ell m n} e^{-i[2\pi ft_0 - \phi_{\ell m n}]}}{i(\omega_{\ell m n} + 2\pi f)}.
 \end{equation}
 
@@ -217,10 +217,10 @@ The inspiral-merger model is zero for late times, but before the start time $t_0
 	&= \sum_{w=1}^{W} \mathcal{A}_w \exp \Bigg[-2\pi i \nu_w(t-\eta_w) - \qty(\frac{t-\eta_w}{\tau_w})^2 + i\varphi_w \Bigg], \quad t < t_0.
 \end{align}
 The limit on time is equivalent to a model which is multiplied by a Heaviside step function, $H(t_0 - t)$. Each wavelet is described by five parameters: $\mathcal{A}_w$ and $\varphi_w$ are the wavelet amplitudes and phases, $\tau_w$ are the wavelet widths, $\nu_w$ are the wavelet frequencies, and $\eta_w$ are the wavelet central times. Again, it is possible to analytically take the Fourier transform of this expression and thereby write the inspiral-merger model in the frequency domain as
-\begin{align}
+\begin{align}\label{ch3:eq:him_fd}
 	\Tilde{h}^\mathrm{IM}(f) &= \int_{-\infty}^\infty \dd{t} \qty[h_+^\mathrm{IM}(t) - ih_\times^\mathrm{IM}(t)] e^{-2\pi i f t} \\
-	&= \sum_{w=1}^{W} \mathcal{A}_w \exp[-2\pi i\nu_w \eta_w -\pi^2(f+\nu_w)^2\tau_w^2 +i\varphi] \nonumber\\
-	&\quad\times \frac{\sqrt{\pi}}{2}\tau_w \left(1 + \mathrm{erf} \left[ \frac{t_0-\eta_w}{\tau_w} + \pi i(f+\eta_w)\tau_w \right] \right).\nonumber
+	&= \sum_{w=1}^{W} \mathcal{A}_w \exp[-2\pi if \eta_w -\pi^2(f+\nu_w)^2\tau_w^2 +i\varphi_w] \nonumber\\
+	&\quad\times \frac{\sqrt{\pi}}{2}\tau_w \left(1 + \mathrm{erf} \left[ \frac{t_0-\eta_w}{\tau_w} + \pi i(f+\nu_w)\tau_w \right] \right).\nonumber
 \end{align}
 
 The full IMR model is simply given by
@@ -236,7 +236,7 @@ Finally, the ringdown start time ($t_0$) can also be treated as a model paramete
 For a typical choice of these parameters, our IMR model is discontinuous at $t_0$.
 The inspiral-merger part of the model contains no information of the physics of the source and no attempt is made to enforce continuity between the two parts; this helps to decouple the ringdown inference from the inspiral-merger parts of the data and thereby ensure that we are really performing a ringdown analysis. 
 
-To complete the description of our model, the detector response is given by projecting the waveform polarisations onto each interferometer (IFO) with the appropriate antenna patterns, $F^\mathrm{IFO}_{+,\times}$.
+To complete the description of our model, the detector response is given by projecting the waveform polarisations onto each interferometer (IFO) with the appropriate antenna patterns, $F^\mathrm{IFO}_{+,\times}$ (see, for example, Ref.~\cite{Anderson:2000yy}).
 For a given sky location and GW polarisation angle the detector response for each ${\mathrm{IFO}\in \{\mathrm{H}, \mathrm{L}, \mathrm{V} \}}$ is given by
 \begin{equation} \label{eq:projection_antenna}
     h^\mathrm{IFO}(t) = F^\mathrm{IFO}_+(\alpha, \delta, \psi) ~ h_+(t + \Delta t_\mathrm{IFO}) + F^\mathrm{IFO}_\times(\alpha, \delta, \psi) ~ h_\times(t + \Delta t_\mathrm{IFO}).
@@ -257,7 +257,7 @@ Results from the GW190521-like analyses are shown here while the results from th
 
 For all the GW190521-like injections, the surrogate was initialised with a total mass of $271\,M_\odot$ (all masses are given in the detector frame) and a mass ratio of $1.27$. 
 For simplicity, all of the component spins were set to zero and the inclination angle was also chosen to be zero (i.e.\ the source was injected ``face-on'').
-The simulated sky location and GW polarisation angle were taken to be the maximum likelihood values from the NRSur7dq4 analysis in Refs.~\cite{LIGOScientific:2020ibl, gwtc2datarelease} ($\alpha = 0.164$, $\delta = -1.14$, $\psi = 2.38$).
+The simulated sky location and GW polarisation angle were taken to be the maximum-likelihood values from the NRSur7dq4 analysis in Refs.~\cite{LIGOScientific:2020ibl, gwtc2datarelease} ($\alpha = 0.164$, $\delta = -1.14$, $\psi = 2.38$).
 The distance to the binary was chosen so that it gives a particular value of the optimal SNR in Livingston; this was usually chosen to be 15 (corresponding to a distance of $4016\,\mathrm{Mpc}$) so that it would likely be possible to detect multiple QNMs (in particular overtones), but several smaller values are also considered in Section~\ref{subsec:overtones}.
 We perform zero-noise injections (i.e. analysing simulated data with a noise realisation of zero) into a three-interferometer H-L-V LIGO-Virgo network (except in Section~\ref{subsec:t0} where a two-interferometer H-L injection is performed for comparison) and use the average PSDs from the first three months of O3 (available at Ref.~\cite{o3psd}).
 
@@ -300,8 +300,8 @@ From Fig.~\ref{fig:mass_spin_corner_fixed_sky} we see that our frequency-domain 
 We see slight variations in the results of the frequency-domain analyses depending on the number of wavelets used.
 This is a high-mass injection with a short inspiral-merger in-band, so it would be expected that a small number of wavelets would be sufficient.
 In all cases our frequency-domain approach yields slightly more precise measurements of the remnant properties than the time-domain approach.
-We speculate that this is because of some coupling between the ringdown and inspiral-merger parts of the model, which leads to information from the early-time data informing our measurement of the remnant properties.
-Indeed, the inspiral-merger model with finite $W$ is only an approximation to the maximally flexible model described in Section~\ref{subsec:motivation}.
+\comment{We speculate that this is because of some coupling between the ringdown and inspiral-merger parts of the model, which leads to information from the early-time data informing our measurement of the remnant properties.
+Indeed, the inspiral-merger model with finite $W$ is only an approximation to the maximally flexible model described in Section~\ref{subsec:motivation}.}
 
 It is also possible to visually check the performance of the frequency-domain approach by plotting the whitened waveform reconstructions.
 These reconstructions, which are the relevant time series that enter the frequency-domain log-likelihood, were found to be in excellent agreement with the injected data. 
@@ -340,6 +340,17 @@ This choice of prior is quite restrictive (i.e.\ assuming good prior knowledge o
 The resultant posteriors on the remnant parameters are shown in Fig.~\ref{fig:mass_spin_corner_zero_spin}, and we see that the performance of our frequency-domain approach is not significantly degraded when the searching over $\alpha$, $\delta$, $\psi$ and $t_0$.
 Shown in Fig.~\ref{fig:t0_prior_posterior} are the posteriors on the ringdown start time, $t_0$ which are discussed in more detail in the next section.
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Figures/FrequencyDomainAnalysisofBlackHoleRingdowns/fd_median_wfs.pdf}
+    \caption[Frequency-domain waveforms with the maximum-likelihood parameters obtained from the analysis of Fig.~\ref{fig:mass_spin_corner_zero_spin}]{
+    Frequency-domain waveforms in Livingston for the wavelet ($h^\mathrm{IM}$, Eq.~\ref{ch3:eq:him_fd}) and ringdown ($h^\mathrm{R}$, Eq.~\ref{ch3:eq:hr_fd}) parts of the model evaluated at the maximum-likelihood parameters from the $W=1$ analysis of Fig.~\ref{fig:mass_spin_corner_zero_spin}. We choose to plot the characteristic strain, as in Fig.~\ref{ch1:fig:fd_waveform}, with the Livingston O3 noise curve (which was used in the analysis) also plotted for reference. 
+    }
+    \label{ch3:fig:fd_median_wfs}
+\end{figure}
+
+In Fig.~\ref{ch3:fig:fd_median_wfs} we show an example 
+
 Stochastic sampling was performed using the \textsc{dynesty}~\cite{Speagle:2019ivv} implementation of the nested sampling algorithm~\cite{doi:10.1063/1.1835238, Skilling:2006gxv}.
 For the sampling method, we used random walks with fixed proposals.
 Typically, the minimum number of steps used in the random walk was 2000, and the number of live points was 4000.
@@ -361,7 +372,7 @@ The possibility of determining $t_0$ from the data is particularly enticing beca
     \includegraphics[width=0.6\columnwidth]{FrequencyDomainAnalysisofBlackHoleRingdowns/mass_spin_corner_widths.pdf}
     \caption[Posteriors on the remnant mass and spin for a GW190521-like injection, for different choices of ringdown start-time prior]{ 
     Similar to Fig.~\ref{fig:mass_spin_corner_zero_spin}, posteriors on the remnant mass and spin for the GW190521-like injection using a single wavelet ($W=1$) and a single QNM, but using different priors on $t_0$.
-    The markers indicate the maximum likelihood values.
+    The markers indicate the maximum-likelihood values.
     The dashed orange curve is identical to that in Fig.~\ref{fig:mass_spin_corner_zero_spin}.
     }
     \label{fig:start_time_prior}
@@ -462,7 +473,7 @@ This suggests the time- and frequency-domain approaches are equally sensitive to
     Overtone amplitude posteriors from a $W=1$ frequency-domain (FD) analysis, where the fundamental $(\ell,m,n) = (2,2,0)$ QNM and its first overtone $(2,2,1)$ are included in the ringdown model. 
     For comparison, the overtone amplitudes from a time-domain (TD) analysis are shown with the dashed lines. 
     The injected SNR in Livingston is controlled by changing the injection luminosity distance: $D_L = \{4016.3,\ 5020.4,\ 6693.9,\ 10040.8\}$ Mpc for $\mathrm{SNR} = \{15,\ 12,\ 9,\ 6\}$ respectively. 
-    The maximum likelihood values scale as $D_L^{-1}$.
+    The maximum-likelihood values scale as $D_L^{-1}$.
     }
     \label{fig:A221_posterior}
 \end{figure}
