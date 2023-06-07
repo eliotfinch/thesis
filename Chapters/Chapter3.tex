@@ -300,8 +300,9 @@ From Fig.~\ref{fig:mass_spin_corner_fixed_sky} we see that our frequency-domain 
 We see slight variations in the results of the frequency-domain analyses depending on the number of wavelets used.
 This is a high-mass injection with a short inspiral-merger in-band, so it would be expected that a small number of wavelets would be sufficient.
 In all cases our frequency-domain approach yields slightly more precise measurements of the remnant properties than the time-domain approach.
-\comment{We speculate that this is because of some coupling between the ringdown and inspiral-merger parts of the model, which leads to information from the early-time data informing our measurement of the remnant properties.
-Indeed, the inspiral-merger model with finite $W$ is only an approximation to the maximally flexible model described in Section~\ref{subsec:motivation}.}
+We speculate that this is because of some coupling between the ringdown and inspiral-merger parts of the model, which leads to information from the early-time data informing our measurement of the remnant properties.
+Indeed, the inspiral-merger model with finite $W$ is only an approximation to the maximally flexible model described in Section~\ref{subsec:motivation}.
+We demonstrate this in Fig.~\ref{ch3:fig:fd_wfs}, which shows our model in the frequency domain.
 
 It is also possible to visually check the performance of the frequency-domain approach by plotting the whitened waveform reconstructions.
 These reconstructions, which are the relevant time series that enter the frequency-domain log-likelihood, were found to be in excellent agreement with the injected data. 
@@ -338,18 +339,23 @@ Therefore, for the ringdown start time, we choose to place a Gaussian prior on t
 The Gaussian prior was centred on the fixed value used in the time-domain analysis and has a relatively narrow width of $1\,\mathrm{ms}$ ($\sim 0.8\,M_f$).
 This choice of prior is quite restrictive (i.e.\ assuming good prior knowledge of $t_0$) and the reasons for this are discussed further in Section~\ref{subsec:t0}; although, we note here that this is still more flexible than the delta-function prior used above.
 The resultant posteriors on the remnant parameters are shown in Fig.~\ref{fig:mass_spin_corner_zero_spin}, and we see that the performance of our frequency-domain approach is not significantly degraded when the searching over $\alpha$, $\delta$, $\psi$ and $t_0$.
-Shown in Fig.~\ref{fig:t0_prior_posterior} are the posteriors on the ringdown start time, $t_0$ which are discussed in more detail in the next section.
+Shown in Fig.~\ref{fig:t0_prior_posterior} are the posteriors on the ringdown start time, $t_0$, which are discussed in more detail in the next section.
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.6\columnwidth]{Figures/FrequencyDomainAnalysisofBlackHoleRingdowns/fd_median_wfs.pdf}
-    \caption[Frequency-domain waveforms with the maximum-likelihood parameters obtained from the analysis of Fig.~\ref{fig:mass_spin_corner_zero_spin}]{
-    Frequency-domain waveforms in Livingston for the wavelet ($h^\mathrm{IM}$, Eq.~\ref{ch3:eq:him_fd}) and ringdown ($h^\mathrm{R}$, Eq.~\ref{ch3:eq:hr_fd}) parts of the model evaluated at the maximum-likelihood parameters from the $W=1$ analysis of Fig.~\ref{fig:mass_spin_corner_zero_spin}. We choose to plot the characteristic strain, as in Fig.~\ref{ch1:fig:fd_waveform}, with the Livingston O3 noise curve (which was used in the analysis) also plotted for reference. 
+    \includegraphics[width=0.6\columnwidth]{Figures/FrequencyDomainAnalysisofBlackHoleRingdowns/fd_wfs.pdf}
+    \caption[Maximum-likelihood frequency-domain waveform from the analysis of Fig.~\ref{fig:mass_spin_corner_zero_spin}]{
+    The maximum-likelihood waveform in Livingston from the $W=1$ analysis of Fig.~\ref{fig:mass_spin_corner_zero_spin}. 
+    Shown are the separate wavelet ($h^\mathrm{IM}$, Eq.~\ref{ch3:eq:him_fd}) and ringdown ($h^\mathrm{R}$, Eq.~\ref{ch3:eq:hr_fd}) parts of the model, along with sum ($h$). 
+    We choose to plot the characteristic strain, as in Fig.~\ref{ch1:fig:fd_waveform}, with the Livingston O3 noise curve (which was used in the analysis) also plotted for reference. 
     }
-    \label{ch3:fig:fd_median_wfs}
+    \label{ch3:fig:fd_wfs}
 \end{figure}
 
-In Fig.~\ref{ch3:fig:fd_median_wfs} we show an example 
+In Fig.~\ref{ch3:fig:fd_wfs} we show the maximum-likelihood waveform from the $W=1$ analysis, projected onto the Livingston detector.
+Complementary to the time-domain waveform shown in Fig.~\ref{fig:demo}, this representation shows clearly the overlap that exists between the two parts of the model in the frequency domain.
+Although there is a clear ordering of frequencies, with the inspiral-merger occurring at lower frequencies than the ringdown (and so the wavelet power peaks at a lower frequency than the ringdown), in the frequency domain there is not a clear transition between the inspiral-merger and the ringdown.
+This may be responsible for the ringdown inference being coupled to the wavelet inference, resulting in the observed differences with the time-domain analyses.
 
 Stochastic sampling was performed using the \textsc{dynesty}~\cite{Speagle:2019ivv} implementation of the nested sampling algorithm~\cite{doi:10.1063/1.1835238, Skilling:2006gxv}.
 For the sampling method, we used random walks with fixed proposals.
