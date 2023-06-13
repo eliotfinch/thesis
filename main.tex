@@ -416,7 +416,7 @@ We also showed that a current state-of-the-art surrogate waveform, NRSur7dq4, is
 Regarding the nature of the ringdown, there remain many unanswered questions in ringdown modelling. 
 It is still unclear if ringdown overtones are actually physical, despite convincing evidence for their effectiveness in fitting ringdown waveforms and improving constraints on remnant properties.
 Their tendency to destructively interfere with each other, resulting in inflated amplitudes, and their rapid decay naturally raises suspicions of over-fitting.
-Where, exactly, the nonlinearities from the merger go (if the linear ringdown model can indeed be extended to early times) is also the subject of ongoing study.
+Where, exactly, the nonlinearities from the merger go (if the linear ringdown model can indeed be extended to early times) is also the subject of ongoing study~\cite{Okounkova:2020vwu}.
 
 In principle, the QNM amplitudes encode information about how the remnant BH was perturbed (i.e., the initial binary configuration).
 Mappings between aligned-spin binary properties and QNM amplitudes have been found~\cite{London:2014cma}, but a similar relationship for precessing systems remains elusive.
@@ -435,14 +435,15 @@ This machinery provides opportunities for studying in detail topics such as nonl
 
 Turning to the analysis of real data, the ringdown presents some unique challenges. 
 These include low SNR signals, uncertainties with mode content and start time, and that it is more natural to work in the time domain (due to the ringdown's abrupt start) instead of the more commonly used frequency domain.
-Differences in the choices made for the analyses have already led to disagreements in the literature regarding the QNM content present in the data; in particular, the presence of an overtone in GW150914, and the presence of a higher harmonic in GW190521. 
-To resolve this uncertainty I have developed a frequency-domain ringdown analysis pipeline.
+Differences in analysis choices have already led to disagreements in the literature regarding the QNM content present in the data; in particular, the presence of an overtone in GW150914, and the presence of a higher harmonic in GW190521. 
+To resolve this uncertainty we have developed a frequency-domain ringdown analysis pipeline.
 This approach is introduced in Chapter~\ref{Chapter3}, and the code is available at Ref.~\cite{fdringdown}.
 By employing sine-Gaussian wavelets to model the pre-ringdown signal we can effectively marginalise it out, leaving a ringdown-only analysis. 
 With this approach we can move back into the frequency domain and make use of well-established analysis methods.
 
-The method was then employed to quantify evidence for a GW150914 overtone in Chapter~\ref{Chapter4}, contributing to an ongoing discussion in the literature with a method which marginalises over multiple uncertainties to report a single significance which was not possible before.
+The method was then employed to quantify evidence for a GW150914 overtone in Chapter~\ref{Chapter4}, contributing to an ongoing discussion in the literature by marginalising over multiple uncertainties to report a single significance which was not possible before.
 There is also scope for further studies, in particular for GW190521, and the method can be readily applied to other GW events with any choice of QNM content. 
+With a frequency-domain likelihood we can marginalise over uncertainty in the noise curve, and with closed-form waveform expressions there is also scope for speeding up sampling (for example, by using the waveform derivatives).
 
 My studies at Birmingham have coincided with the birth of GW astronomy, and the field is rapidly evolving.
 From the first measurement of a GW signal in 2015, we now have a catalog of nearly 100.
