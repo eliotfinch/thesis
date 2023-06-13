@@ -183,11 +183,11 @@ In each frequency bin we model the noise as having a random phase and an amplitu
     }
     \label{ch1:fig:fd_waveform}
 \end{figure}
-We show the Hanford PSD in Fig.~\ref{ch1:fig:fd_waveform}, along with a frequency-domain BBH GW signal (both expressed through the characteristic strain, see Eqs.~\ref{ch1:eq:hn} and \ref{ch1:eq:hn}).
+We show the Hanford PSD in Fig.~\ref{ch1:fig:fd_waveform}, along with a frequency-domain BBH GW signal (both expressed through the characteristic strain, see Eqs.~\ref{ch1:eq:hc} and \ref{ch1:eq:hn}).
 Since we are now comparing with a PSD, we fix the BBH total mass and distance to the example numbers used above ($M = 72\,M_\odot$, $r = 440\,\mathrm{Mpc}$).
 Roughly speaking, the GW signal from a BBH merger increases in frequency over time.
 The majority of the inspiral signal is at too low a frequency to be detected, with the GW signal only entering the detector band ($\sim 20$ to $\sim 1000\,\mathrm{Hz}$) just before merger.
-Although the binary can spend billions of years inspiralling, we observe only the last few tenths of a second of the merger.
+Although the binary can spend billions of years inspiralling~\cite{Belczynski:2016obo, Rodriguez:2016avt}, we observe only the last few tenths of a second of the merger.
 We choose to plot the signal and noise curve in terms of the characteristic strain~\cite{Moore:2014lga}, given by
 \begin{equation}\label{ch1:eq:hc}
     h_c(f) = 2f\abs{\tilde{h}(f)}
@@ -390,9 +390,9 @@ where $g_{\mu\nu}$ is the unperturbed BH spacetime (i.e., for Schwarzschild, Eq.
 An analogous procedure to the above is followed, and it is worth noting that the angular dependence is now described by spin-weighted functions that are generalisations of the usual spherical harmonics.
 In the case of Schwarzschild, these are the spin-weighted spherical harmonics, ${}_sY_{\ell m}(\theta,\phi)$.
 These are also the functions commonly used as the basis in the expansion of NR waveforms; see the discussion around Eq.~\ref{ch2:eq:spherical_expansion} for more details.
-Spin-weighted functions differ from their usual scalar counterparts via their transformation properties, see Sec.~\ref{misaligned-spin-section} for more details.
+Spin-weighted functions differ from their usual scalar counterparts via their transformation properties, which is discussed in more detail in Sec.~\ref{misaligned-spin-section}.
 In the case of Kerr, a set of functions called the spin-weighted spheroidal harmonics, ${}_{s}S_{\ell m}(\theta, \phi; \gamma)$ are required~\cite{Teukolsky:1973ha}.
-The quantity $\gamma$ is called the spheroidicity or oblateness, and it depends on the BH spin (see the discussion around Eq.~\ref{ch2:eq:spheroidal_expansion} for more details).
+The quantity $\gamma$ is called the spheroidicity or oblateness, and it depends on the BH spin (see the discussion around Eq.~\ref{ch2:eq:spheroidal_expansion}).
 The spheroidal harmonics are solutions of the equation
 \begin{equation}\label{ch1:eq:spheroidal}
     \qty[\frac{1}{\sin{\theta}} \pdv{\theta} \qty(\sin{\theta} \pdv{\theta} ) - \frac{(m + s\cos{\theta})^2}{\sin^2{\theta}} + (\gamma\cos{\theta} - s)^2 - s(s-1) + {}_sA_{\ell m}] {}_{s}S_{\ell m}  = 0,
@@ -402,15 +402,14 @@ In the limit $\gamma \rightarrow 0$ (corresponding to the Schwarzschild limit), 
 \begin{equation}
     {}_sA_{\ell m} = \ell(\ell + 1) - s(s + 1).
 \end{equation}
-If we then set $s = 0$, we recover Eq.~\ref{ch1:eq:spherical} (since we have a $\phi$-dependence of the form $e^{im\phi}$) and the solutions become the normal spherical harmonics.
+If we then set $s = 0$, we recover Eq.~\ref{ch1:eq:spherical} (since we have a $\phi$-dependence of the form $e^{im\phi}$) and the solutions become the usual spherical harmonics.
 
 Returning to the effective potential, Eq.~\ref{ch1:eq:rw_potential}, we note that the Zerilli equation has a slightly different form (the Zerilli equation describes polar, or even-parity, perturbations, whereas the Regge-Wheeler equations describes axial, or odd-parity, perturbations). 
 However, it has been shown that the QNM spectrum resulting from the Regge-Wheeler and Zerilli equations are identical~\cite{Chandrasekhar:1975nkd}.
 
 Given Eq.~\ref{ch1:eq:fd_wave_equation} and the effective potential, we must specify boundary conditions to find the QNM solutions.
 When solving for the normal modes on a string, or the energy levels of a quantum harmonic oscillator, we require the wavefunction to vanish at the boundaries (either at the string ends, or at $\pm \infty$ for the harmonic oscillator).
-The problem we're considering here is slightly different; the potential, depicted in Fig.~\ref{ch1:fig:rw_potential}, clearly does not admit bound states. 
-It does not have any minima, and $V_\ell(r) > 0$ for all $r$.
+The problem we're considering here is slightly different; the potential, depicted in Fig.~\ref{ch1:fig:rw_potential}, clearly does not admit bound states (it does not have any minima, and $V_\ell(r) > 0$ for all $r$).
 The implication is that we should look for plane wave solutions that are ingoing to the BH horizon, and outgoing to infinity:
 \begin{alignat}{2}
     &\tilde{\psi}_{\ell m}(\omega, r) \sim e^{i \omega r_*} \qquad &&\qty(r_* \rightarrow -\infty) \nonumber \\
@@ -425,7 +424,7 @@ Chandrasekhar and Detweiler~\cite{Chandrasekhar:1975zza} employed a shooting met
 This is an inefficient way of identifying QNMs, and this approach is also prone to numerical noise.
 Analytical methods were developed by Blome, Mashhoon and Ferrari~\cite{BLOME1984231, Ferrari:1984ozr, Ferrari:1984zz}, which consider the bound states of the inverted BH potential. 
 Although not in general accurate, this approach offers physical insight which we touch upon in the next subsection.
-Motivated by the analogy between Eq.~\ref{ch1:eq:fd_wave_equation} and the Schr\"{o}dinger equation, Schutz and Will~\cite{Schutz:1985km} employed WKB methods to calculate a handful of fundamental mode QNM frequencies.
+Motivated by the analogy between Eq.~\ref{ch1:eq:fd_wave_equation} and the Schr\"{o}dinger equation, Schutz and Will~\cite{Schutz:1985km} employed WKB methods to calculate a handful of fundamental-mode QNM frequencies.
 This approach has since been improved upon~\cite{Iyer:1986np, Matyjasek:2017psv, Konoplya:2019hlu}, and can give very accurate results for certain modes (but, again, breaks down in some limits). 
 Finally, a numerical method utilising continued fractions (proposed by Leaver~\cite{Leaver:1985ax}, and later improved upon by Nollert~\cite{Nollert:1993zz}) is known to be highly accurate and fast.
 It is the method of choice in modern codes such as the \textsc{qnm} Python package~\cite{Stein:2019mop} (which is used in work throughout this thesis).

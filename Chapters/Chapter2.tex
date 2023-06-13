@@ -166,9 +166,8 @@ We also note that the multimode-fit formalism is used in Fig.~\ref{fig:amp_ratio
 \subsection{Multimode fit}
 
 Due to mode mixing, a given QNM contributes to all spherical-harmonic modes with the same $m$. 
-This means we can perform a fit to multiple spherical-harmonic modes with a single set of shared QNM amplitudes $\vb*{C}$ (see, e.g.\ Fig.~\ref{fig:amp_ratio}).
+This means we can perform a fit to multiple spherical-harmonic modes with a single set of shared QNM amplitudes $\vb*{C}$.
 We will approach this by joining $\vb*{h}_{\ell m}$ vectors together for each $(\ell, m)$ we want to include in the fit (to effectively form a single time series), and similarly by ``stacking'' $\vb*{a}_{\ell m}$ matrices on top of each other.
-
 The single-mode matrix equation, Eq.~\ref{eq:hlm_matrix_single}, becomes
 \begin{equation}\label{eq:hlm_matrix_multi}
     \vb*{h} = \vb*{a} \vdot \vb*{C},
@@ -192,10 +191,8 @@ which has shape $(I \times K, J)$.
 We see that when we multiply this new coefficient matrix by the vector $\vb*{C}$ (length $J$) in Eq.~\ref{eq:hlm_matrix_multi} we recover a vector of correct length $I \times K$.
 The quantity we're minimising is now
 \begin{equation}
-    \norm{\vb*{h} - \vb*{a} \vdot \vb*{C}} = \sqrt{ \sum_{\ell m} \norm{\vb*{h}_{\ell m} - \vb*{a}_{\ell m} \vdot \vb*{C}}^2 }
+    \norm{\vb*{h} - \vb*{a} \vdot \vb*{C}} = \sqrt{ \sum_{\ell m} \norm{\vb*{h}_{\ell m} - \vb*{a}_{\ell m} \vdot \vb*{C}}^2 }.
 \end{equation}
-which gives equal ``weight'' to each $(\ell,m)$ mode.
-%, and can be shown to be equivalent as averaging the least-squares fit over the sky.
 
 
 \section{Aligned-spin systems}\label{aligned-spin-section}
@@ -273,23 +270,13 @@ Using a smaller number of overtones requires a later choice for the start time t
 A larger number of overtones can also be used (shown with the light grey lines in the figure), and low-mismatch fits as early as $\sim 10M$ before the time of peak amplitude can be achieved.
 We show mismatch curves with up to 20 overtones, by which point the inclusion of extra modes does not significantly help.
 Ref.~\cite{Giesler:2019uxc} refer to the values of the QNM amplitudes to justify stopping at $N=7$; when performing fits at the time of peak strain the $n=4$ mode has the largest amplitude, with the amplitude of higher overtones decaying rapidly. 
-We perform a brief study of the overtone amplitudes in SXS:BBH:0305 (see Fig.~\ref{305_even_more_overtones}), and we also refer the reader to Ref.~\cite{Forteza:2021wfq} for a more in-depth study and for the $(2,2,8)$ QNM frequency data used here).
+We perform a brief study of the overtone amplitudes in SXS:BBH:0305 (see Fig.~\ref{305_even_more_overtones}), and we also refer the reader to Ref.~\cite{Forteza:2021wfq} for a more in-depth study (and for the $(2,2,8)$ QNM frequency data used in Fig.~\ref{305_even_more_overtones}).
 
 In addition to giving a small ($\sim 10^{-6}$) mismatch, the $N=7$ overtone model, with $t_0 = t_{\mathrm{peak}}^{h_{22}}$, also achieves this minimum mismatch with the correct values for the remnant properties; this is shown by the heat map in Fig.~\ref{305_epsilon_grid} where the values of $M_f$ and $\chi_f$ are now allowed to vary. 
 We find, for the $N=7$ model, a remnant error $\epsilon = 3.4 \cross 10^{-4}$. 
 Importantly, this is larger than the NR error on the remnant properties (which is estimated to be $\epsilon_{\mathrm{NR}} = 2.1 \cross 10^{-5}$, see Section~\ref{NR_error_appendix} for details). This confirms that this is really the true scale of the bias in the inferred remnant parameters when using the overtone model, and not just the numerical noise floor in the NR simulation.
-Again, using a smaller number of overtones and starting the ringdown as early as $t_{\mathrm{peak}}^{h_{22}}$ gives inferior results with the minimum in the mismatch being biased away from the true parameters.
+Using a smaller number of overtones and starting the ringdown as early as $t_{\mathrm{peak}}^{h_{22}}$ gives inferior results with the minimum in the mismatch being biased away from the true parameters.
 The results in Figs.~\ref{305_mismatch_vs_t0} and \ref{305_epsilon_grid} show that the overtone model performs well for SXS:BBH:0305 (i.e.\ yields small $\mathcal{M}$ and $\epsilon$) even when starting the ringdown as early as the peak in the strain.
-
-In the top panel of Fig.~\ref{305_even_more_overtones} we show the values of $\epsilon$ obtained with different numbers of overtones (up to $N=20$) and for three different ringdown start times (at the time of the $h_{22}$ amplitude peak, and $5M$ before/after the peak time). 
-We see that, when $t_0 = h_\mathrm{peak}^{h_{22}}$ (black line), $N=7$ overtones does the best job at recovering the remnant properties. 
-As expected, lower numbers of overtones perform worse (this is already shown in Fig.~\ref{305_epsilon_grid} by the coloured markers).
-Interestingly, larger numbers of overtones also perform worse.
-We speculate that this is due to over-fitting; as shown in Fig.~\ref{305_mismatch_vs_t0}, using more than seven overtones at this start time does not improve the mismatch significantly, and so the extra free parameters in the model are not necessary.
-We have found that using more QNMs than needed in the fits can lead to unstable behaviour (for example, in terms of the QNM amplitudes, which start to vary significantly as more overtones are added). 
-Starting at a later time, $5M$ after the peak (red line), we see a similar behaviour but with $N=4$ overtones giving the lowest $\epsilon$ (specifically, the first minimum in the $\epsilon$ vs $N$ curve occurs at $N=4$; the curve eventually reaches lower values of $\epsilon$ at high $N$, but this could be a non-physical result of over-fitting).
-This is consistent with what we see in Fig.~\ref{305_mismatch_vs_t0}, where the mismatch curve levels-out with four overtones when starting $\sim 5M$ after the peak (and the above argument regarding over-fitting with additional overtones still holds).
-Starting at the earlier time of $5M$ before the peak (blue line), we find that $N=13$ overtones recovers a value of $\epsilon$ which is comparable to the result when seven overtones are fitted from the peak amplitude. 
 
 \begin{figure}[t]
     \centering
@@ -300,6 +287,16 @@ Starting at the earlier time of $5M$ before the peak (blue line), we find that $
     }
     \label{305_even_more_overtones}
 \end{figure}
+
+In the top panel of Fig.~\ref{305_even_more_overtones} we show the values of $\epsilon$ obtained with different numbers of overtones (up to $N=20$) and for three different ringdown start times (at the time of the $h_{22}$ amplitude peak, and $5M$ before/after the peak time). 
+We see that, when $t_0 = h_\mathrm{peak}^{h_{22}}$ (black line), $N=7$ overtones does the best job at recovering the remnant properties. 
+As expected, lower numbers of overtones perform worse (this is already shown in Fig.~\ref{305_epsilon_grid} by the coloured markers).
+Interestingly, larger numbers of overtones also perform worse.
+We speculate that this is due to over-fitting; as shown in Fig.~\ref{305_mismatch_vs_t0}, using more than seven overtones at this start time does not improve the mismatch significantly, and so the extra free parameters in the model are not necessary.
+We have found that using more QNMs than needed in the fits can lead to unstable behaviour (for example, in terms of the QNM amplitudes, which start to vary significantly as more overtones are added). 
+Starting at a later time, $5M$ after the peak (red line), we see a similar behaviour but with $N=4$ overtones giving the lowest $\epsilon$ (specifically, the first minimum in the $\epsilon$ vs $N$ curve occurs at $N=4$; the curve eventually reaches lower values of $\epsilon$ at high $N$, but this could be a non-physical result of over-fitting).
+This is consistent with what we see in Fig.~\ref{305_mismatch_vs_t0}, where the mismatch curve levels-out with four overtones when starting $\sim 5M$ after the peak (and the above argument regarding over-fitting with additional overtones still holds).
+Starting at the earlier time of $5M$ before the peak (blue line), we find that $N=13$ overtones recovers a value of $\epsilon$ which is comparable to the result when seven overtones are fitted from the peak amplitude. 
 
 This hints at the interesting possibility of using even more overtones and starting the fit at even earlier times, but we note that care should be taken.
 Firstly, as shown in Fig.~\ref{305_mismatch_vs_t0}, as we use more overtones we are reaching mismatches further below the estimated waveform accuracy (dashed grey line) and so we are at risk of over-fitting.
@@ -392,8 +389,16 @@ In particular, we will focus on modelling the $\ell = m = 2$ spherical harmonic 
 For aligned-spin systems, the $h_{2\pm2}$ are usually the dominant modes in the sum in Eq.~\ref{ch2:eq:spherical_expansion}. This is related to the fact that the GW signal amplitude is largest when viewed along the direction of the orbital angular momentum: $\vb*{L}$ or $-\vb*{L}$. For misaligned-spin systems undergoing precession, other modes become important. This in turn is related to the constantly changing direction of the orbital angular momentum, $\vb*{L}(t)$.
 Changing into the non-inertial, coprecessing frame in which $\vb*{L}$ always points along the $z$-direction has been found to account for most precessional effects and makes the precessing waveform remarkably similar to a non-precessing one.
 This transformation into the coprecessing frame has been successfully used to help model the full inspiral-merger-ringdown waveforms for precessing systems~\cite{Schmidt:2010it, Schmidt:2012rh} in the context of phenomenological~\cite{Hannam:2013oca, Khan:2018fmp, Pratten:2020ceb}, effective-one-body~\cite{Pan:2013rra, Ossokine:2020kjp} and NR surrogate~\cite{Blackman:2017dfb, Blackman:2017pcm, Varma:2019csw} modelling.
-There is an analogy with the approach taken here for the modelling of the ringdown. In order to simplify the task, we choose to work in a frame adapted to final spin angular momentum of the remnant, $\vb*{\chi}_f$.
-Although, in our case, the rotation required to get into this frame is not time dependent and our chosen frame is therefore inertial.
+There is an analogy with the approach taken here for the modelling of the ringdown. 
+
+In order to simplify the task, we choose to work in a frame adapted to final spin angular momentum of the remnant, $\vb*{\chi}_f$.
+So, in our case, the rotation required to get into this frame is not time dependent and our chosen frame is therefore inertial.
+This approach does not account for changes to the ringdown frame throughout the duration of the ringdown; the system is still radiating angular momentum even after the time of peak strain, meaning the direction of the remnant spin vector will move throughout the ringdown. 
+Although this effect is small, it may become important for the mismatches achieved in this work; a typical ringdown mismatch between a waveform with the final spin vector aligned along the $z$-axis (the transformation used in this work) and a waveform with the spin at the time of peak strain aligned along $z$ (a typical choice for the ringdown start time) is $\sim 10^{-4}$.
+That the system is still radiating angular momentum and energy throughout the ringdown also raises the question of whether applying a fixed QNM spectrum given by the final Kerr BH makes sense.
+It may be that the frequencies and damping times should be time dependant, perhaps in response to the changing mass and spin of the oscillating remnant BH.
+Preliminary studies suggest that a time-dependant spectrum obtained by integrating the energy and angular momentum of the system backwards does not improve the fits; at earlier times the frequency of the signal decreases, but the spin magnitude increases and results in higher QNM frequencies (the increasing mass at earlier times does act to decrease the QNM frequencies, which may help the fits).
+The approach we take here avoids these issues and addresses the most important aspect of the final BH frame, and we leave these other points to future work.
 
 To obtain an expression for $h'_{\ell m}$ in terms of the $h_{\ell m}$ provided by NR, we invert Eq.~\ref{hprimedecomp} to obtain
 \begin{equation}
@@ -431,7 +436,7 @@ This simulation was chosen because it exhibits strong precession effects visible
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/tEdot-t22_hist.pdf}
-    \caption[Differences in the times of peak strain amplitude and peak gravitational-wave luminosity]{  
+    \caption[Differences in the times of peak strain amplitude and peak gravitational-wave luminosity for aligned- and misaligned-spin SXS simulations]{  
     Histogram of the differences between the two possible start times considered in Section~\ref{misaligned-spin-section}: the peak of the (rotated) strain mode $h'_{22}$, and the peak of the GW energy flux.
     The normalised distribution of the differences between these times is shown both for the 85 aligned-spin systems used in Section~\ref{aligned-spin-section} and for the 252 precessing simulations considered in Section~\ref{misaligned-spin-section}. 
     The peak of the flux almost always occurs later than the peak of the strain, making this a more conservative choice for the ringdown start time. 
@@ -522,9 +527,6 @@ We repeat the population analysis with the $N=7$ mirror-mode model, again shifti
 The results are shown by the red dashed lines in Fig.~\ref{misaligned_spin_epsilon_hist}. The histogram for $\epsilon$ doesn't reach values as high as the overtone model (with worst-case values of $\epsilon \sim 0.04$ compared to the overtone model's $\sim 0.2$), but otherwise has a broadly similar distribution.
 However, there is a significant improvement on the recovered mismatch values. This is expected because of the large number of parameters. And, as discussed, this alone isn't enough to say the model is successful.
 
-Inspecting individual simulations, we see that the inclusion of mirror modes can make the mismatch minima in the mass-spin plane more pronounced (advantageous, as it reduces uncertainty on $\epsilon$). For example, Figs.~\ref{1856_mirror_mode_mismatch_vs_t0} and \ref{1856_mirror_mode_epsilon_grid} show how mirror mode fits perform for SXS:BBH:1856. 
-We see significantly smaller mismatches, and a stronger mismatch peak around the true remnant properties. However, on average this does not translate to smaller values of $\epsilon$ for the $N=7$ model (as can be seen from the red dashed histogram in Fig.~\ref{misaligned_spin_epsilon_hist}). For SXS:BBH:1856, the $N=7$ model gives $\epsilon = 0.014$, which is not a significant improvement.
-
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/1856_mismatch_vs_t0_mirror_modes_with_error_edit.pdf}
@@ -534,6 +536,9 @@ We see significantly smaller mismatches, and a stronger mismatch peak around the
     }
     \label{1856_mirror_mode_mismatch_vs_t0}
 \end{figure}
+
+Inspecting individual simulations, we see that the inclusion of mirror modes can make the mismatch minima in the mass-spin plane more pronounced (advantageous, as it reduces uncertainty on $\epsilon$). For example, Figs.~\ref{1856_mirror_mode_mismatch_vs_t0} and \ref{1856_mirror_mode_epsilon_grid} show how mirror mode fits perform for SXS:BBH:1856. 
+We see significantly smaller mismatches, and a stronger mismatch peak around the true remnant properties. However, on average this does not translate to smaller values of $\epsilon$ for the $N=7$ model (as can be seen from the red dashed histogram in Fig.~\ref{misaligned_spin_epsilon_hist}). For SXS:BBH:1856, the $N=7$ model gives $\epsilon = 0.014$, which is not a significant improvement.
 
 \begin{figure}[t]
     \centering
@@ -615,7 +620,7 @@ When attempting to fit QNM ringdown models with overtones to NRSur7dq4~\cite{Var
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.6\columnwidth]{ModellingTheRingdownFromPrecessingBlackHoleBinaries/surrogate_epsilon_and_mass_ratio.pdf}
-    \caption[Comparison of remnant-property errors from two surrogate models and a selection of SXS simulations]{
+    \caption[Comparison of remnant-property errors from ringdown fits to two surrogate models and a selection of SXS simulations]{
     Comparison of the remnant error $\epsilon$ from two surrogate models and a selection of SXS simulations. All are zero initial spin. The fits were performed on the $h_{22}$ mode with the $N=7$ overtone model, Eq.~\ref{GieslerRD}, starting from the time of peak strain. The labels on each cross correspond to the SXS ID. The dashed line indicates where we are outside the training range of NRSur7dq4.
     }
     \label{surrogate_epsilon_vs_q}
@@ -652,7 +657,7 @@ The main exception is Fig.~\ref{1856_mirror_mode_mismatch_vs_t0} where the mirro
 
 Second, we investigate the numerical error on the remnant mass and spin.
 We quantify the numerical error with $\epsilon_{\mathrm{NR}}$, the Euclidean distance (Eq.~\ref{eq:epsilon}) between the remnant properties reported in the two highest resolution levels of the NR simulation.
-The $\epsilon_{\mathrm{NR}}$ values are reported in the previous sections. % and in the table in appendix \ref{appendix_a}.
+The $\epsilon_{\mathrm{NR}}$ values are reported in the previous sections.
 In all cases $\epsilon_{\mathrm{NR}} < \epsilon$. 
 This supports the conclusions in this chapter and indicates they are likely to be robust against numerical noise in the underlying NR simulations used.
 

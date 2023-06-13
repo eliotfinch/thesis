@@ -15,9 +15,6 @@ This early start time is good for the prospects of observing QNMs because it mea
 
 Once QNMs have been correctly identified in an observed signal, they provide an exciting opportunity for testing GR, the Kerr metric hypothesis, and the no-hair theorem. 
 The idea of using QNM frequencies for such tests predates the detection of GWs, and so experimental QNM tests of GR started immediately with the first GW observation.
-% Ref.~\cite{LIGOScientific:2016lio} found that the data following the peak of GW150914 was consistent with the least-damped QNM of the expected remnant.
-% Subsequently, several groups reanalysed the ringdown of GW150914 with the aim of identifying additional QNMs for use in spectroscopic tests~\cite{Carullo:2019flw, Isi:2019aib, Brito:2018rfr}. 
-% With the second and third GW catalogs, similar analyses are now routinely performed on all suitable events~\cite{LIGOScientific:2020tif, LIGOScientific:2021sio}.
 Despite the difficulties discussed in Section~\ref{ch1:sec:limitations}, detecting and characterising QNMs is a key goal in GW astronomy. 
 GW data analysis is almost universally performed in the frequency domain, where it is most natural to characterise the noise.
 To satisfy the periodicity requirements of the Fourier transform and avoid spectral leakage, the data is windowed before and after the GW signal.
@@ -26,6 +23,7 @@ Applying any window functions would suppress the ringdown signal, or (if the ana
 See Ref.~\cite{Isi:2021iql} for a discussion.
 This problem can be solved by instead working in the time domain, where the ringdown can be isolated cleanly from a chosen start time, $t_0$, and the noise is instead characterised by a non-diagonal covariance matrix.
 However, as the particular segment of data to be analysed is chosen before the analysis begins, the ringdown start time (and consequently the source sky location) usually must be fixed in these analyses. 
+We note that it is possible to extend the analysis data such that the ringdown start time and sky position can be varied (as was done in Ref.~\cite{Carullo:2019flw}), but a ringdown-only model may be biased towards early start times due to the presence of an inspiral in the signal.
 Another drawback of working in the time domain is that, as the noise covariance matrix is no longer diagonal, the computational cost of the likelihood is increased. 
 The covariance matrix is constructed with the autocovariance function, which characterises the noise in the time domain.
 And, as discussed in Ref.~\cite{Isi:2021iql}, care must be taken when estimating the autocovariance to avoid corrupting the ringdown data. 
@@ -44,22 +42,14 @@ An additional QNM ``frequency-filter'' method has also been proposed~\cite{Ma:20
 How consistent the remaining data is with noise can be used to infer remnant properties without requiring any knowledge of the QNM amplitudes, and to estimate when the linear ringdown regime begins.
 These approaches are a valuable way of investigating the QNM content of GW data. 
 But, although advantageous in some ways, the lack of measurements on QNM amplitude means there is one less way to quantify the presence of the modes.
-The latter QNM filter method requires a fixed sky location in order to align data from multiple detectors.
-
-In this chapter, we present a new approach to performing ringdown analyses in the frequency domain. 
-We employ a flexible sum of truncated wavelets to model the inspiral-merger signal (inspired by \textsc{BayesWave}~\cite{Cornish:2014kda, Cornish:2020dwh}) and QNMs to model the ringdown.
-The general idea behind our approach is illustrated in Fig.~\ref{fig:demo}.
-By working in the frequency domain, we can use the standard, and now very mature, GW data analysis pipelines (our analysis pipeline borrows from the public \textsc{Bilby} package~\cite{Ashton:2018jfp}).
-Also, working in the frequency domain makes it trivial to search and marginalise over the sky position the ringdown start time, $t_0$. 
-We hope this approach can complement existing time-domain analyses.
-The code associated with this work is available at Ref.~\cite{fdringdown}, and a complete set of posterior samples from this work are made available at Ref.~\cite{finch_eliot_2021_5569759}.
+The latter QNM filter method also requires a fixed sky location in order to align data from multiple detectors.
 
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.9\columnwidth]{FrequencyDomainAnalysisofBlackHoleRingdowns/demo.pdf}
     \caption[Illustration of the frequency-domain ringdown analysis method]{ 
     This figure is intended to illustrate the idea behind our approach for analysing the ringdown in the frequency domain.
-    The grey line in the bottom panel shows the whitened and band-passed Livingston time-series data around GW190521. % ; this loud GW signal comes from a high-mass BBH merger and exhibits a clear ringdown.
+    The grey line in the bottom panel shows the whitened and band-passed Livingston time-series data around GW190521.
     For the purpose of illustration, we use the simplest version of our model where a single, truncated sine-Gaussian wavelet is used to model the inspiral-merger part of the signal and the fundamental $\ell=m=2$, $n=0$ QNM is used to model the ringdown.
     The ringdown start time, $t_0$, is allowed to vary as part of a Bayesian analysis which also searches over different values of wavelet parameters, the source sky position, the QNM amplitude and phase, and over the remnant BH mass and spin. 
     Full details of this analysis will be presented elsewhere.
@@ -70,6 +60,14 @@ The code associated with this work is available at Ref.~\cite{fdringdown}, and a
     }
     \label{fig:demo}
 \end{figure}
+
+In this chapter, we present a new approach to performing ringdown analyses in the frequency domain. 
+We employ a flexible sum of truncated wavelets to model the inspiral-merger signal (inspired by \textsc{BayesWave}~\cite{Cornish:2014kda, Cornish:2020dwh}) and QNMs to model the ringdown.
+The general idea behind our approach is illustrated in Fig.~\ref{fig:demo}.
+By working in the frequency domain, we can use the standard, and now very mature, GW data analysis pipelines (our analysis pipeline borrows from the public \textsc{Bilby} package~\cite{Ashton:2018jfp}).
+Also, working with a complete description of the signal makes it trivial to search and marginalise over the sky position the ringdown start time, $t_0$. 
+We hope this approach can complement the existing analysis methods.
+The code associated with this work is available at Ref.~\cite{fdringdown}, and a complete set of posterior samples from this work are made available at Ref.~\cite{finch_eliot_2021_5569759}.
 
 The details of our method are described in Section~\ref{sec:methods}, where we compare and contrast the time- and frequency-domain likelihood functions before introducing our frequency-domain approach.
 In Section~\ref{sec:injection_study} we present the results of a series of analyses on simulated GW signals where we test the performance of our approach and compare it with time-domain methods.
@@ -376,7 +374,7 @@ The possibility of determining $t_0$ from the data is particularly enticing beca
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.6\columnwidth]{FrequencyDomainAnalysisofBlackHoleRingdowns/mass_spin_corner_widths.pdf}
-    \caption[Posteriors on the remnant mass and spin for a GW190521-like injection, for different choices of ringdown start-time prior]{ 
+    \caption[Posteriors on the remnant mass and spin for a GW190521-like injection analysed with different choices of ringdown start-time prior]{ 
     Similar to Fig.~\ref{fig:mass_spin_corner_zero_spin}, posteriors on the remnant mass and spin for the GW190521-like injection using a single wavelet ($W=1$) and a single QNM, but using different priors on $t_0$.
     The markers indicate the maximum-likelihood values.
     The dashed orange curve is identical to that in Fig.~\ref{fig:mass_spin_corner_zero_spin}.
@@ -397,19 +395,19 @@ The possibility of determining $t_0$ from the data is particularly enticing beca
 \end{figure}
 
 Unfortunately, we find that when using wide priors on $t_0$, early ringdown start times are generally favoured and this leads to a bias in the recovered remnant mass and spin.
-This can be seen in the results in Fig.~\ref{fig:start_time_prior}, where the $W=1$ analysis previously shown in Fig.~\ref{fig:mass_spin_corner_zero_spin} is repeated with increased values of the $t_0$ prior width.
-The posterior on $t_0$ is also affected by the number of wavelets used;
-as can be seen from the Fig.~\ref{fig:start_time_posterior}, larger values of $W$ tend to favour later ringdown start times. 
-We have repeated the analyses in Fig.~\ref{fig:start_time_prior} with larger values of $W$ to see if this counteracts the preference for an early start time (and hence removes biases in the remnant parameters), however, this was found not to be the case.
+This can be seen in Figs.~\ref{fig:start_time_prior} and \ref{fig:start_time_posterior}, where the $W=1$ analysis previously shown in Fig.~\ref{fig:mass_spin_corner_zero_spin} is repeated with increased values of the $t_0$ prior width.
+The posterior on $t_0$ is also affected by the number of wavelets used; as can be seen from the Fig.~\ref{fig:t0_prior_posterior}, larger values of $W$ tend to favour later ringdown start times. 
+We have repeated the analyses in Figs.~\ref{fig:start_time_prior} and \ref{fig:start_time_posterior} with larger values of $W$ to see if this counteracts the preference for an early start time (and hence removes biases in the remnant parameters), however, this was found not to be the case.
 These calculations show that the posterior obtained on the parameter $t_0$ in our approach depends on the prior and on the number of wavelets used in the (unphysical) model of the inspiral-merger signal.
 Therefore, it does not seem to be possible to reliably measure the ringdown start time from the data alone.
+In the next chapter we draw similar conclusions from the analysis of GW150914; wide priors on the ringdown start time lead to some biases and also uninformative posteriors that are hard to interpret (see Fig.~\ref{fig:t0_posterior}).
 It is for this reason that a narrow, informative, $t_0$ prior must be used in the analyses described in the previous section.
 Although not desirable, this is still an improvement over the fixed $t_0$ routinely used in most time-domain analyses.
 
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.9\columnwidth]{FrequencyDomainAnalysisofBlackHoleRingdowns/t0_geocent_posterior.pdf}
-    \caption[Posteriors on the ringdown start time in the geocentric frame for a GW190521-like injection, for two- and three- detector networks]{ 
+    \caption[Posteriors on the ringdown start time in the geocentric frame for a GW190521-like injection analysed with two- and three- detector networks]{ 
     \emph{Main panel:} posterior on the ringdown start time in the geocentric frame. The orange line corresponds to the $W=1$ model applied to the three-detector network injection (this is the same analysis presented in Figs.~\ref{fig:mass_spin_corner_zero_spin} and \ref{fig:start_time_prior}, which was plotted with a dashed orange line). 
     The dashed blue line corresponds to a similar analysis on a two-detector network injection (with Virgo removed). This is to motivate the choice to parameterise $t_0$ in the frame of a detector; in the geocentric frame, a multimodal structure appears as a result of different possible sky locations. This makes it harder to place a sensible prior.
     \emph{Left inset plot:} the sky location posterior on the southern hemisphere (orthographic projection). This contains the injected source location (indicated by the star) which is correctly recovered with sky area $\sim 77\ \mathrm{deg}^2$ (90\% confidence) for the three-detector network, and $\sim 1800\ \mathrm{deg}^2$ for the two-detector network.
@@ -437,7 +435,7 @@ In this section we show, using our GW190521-like injection, that our frequency-d
 \begin{figure}
     \centering
     \includegraphics[width=0.9\columnwidth]{FrequencyDomainAnalysisofBlackHoleRingdowns/overtone_corner.pdf}
-    \caption[Posteriors on the remnant mass and spin and on the quasinormal-mode amplitudes for a GW190521-like injection, for analyses with and without an overtone]{ 
+    \caption[Posteriors on the remnant mass and spin and on the quasinormal-mode amplitudes for a GW190521-like injection analysed with and without an overtone]{ 
     Posteriors on the QNM amplitudes and remnant mass and spin for one- and two-mode analyses (1QNM and 2QNM respectively) of the GW190521-like injection, performed in the frequency domain.
     The results in blue are for the recovery using two QNMs [the fundamental $(\ell,m,n)=(2,2,0)$ and its first overtone $(2,2,1)$] which are both detected with non-zero amplitudes using a $t_0$ prior centred on the time of the peak strain and with a width of $1\,\mathrm{ms}$.
     %
@@ -447,7 +445,6 @@ In this section we show, using our GW190521-like injection, that our frequency-d
     %
     The difference in the $A_{220}$ amplitude between the two analyses can be explained by the different ringdown start times and the decay of the $(2,2,0)$ QNM.
     Over a time $\sim 12.7$ ms, we expect the $A_{220}$ amplitude to decay by a factor $\sim \exp[-12.7\,\mathrm{ms}/\tau_{220}] \sim 0.5$; this is shown in the shaded grey posterior in the top-left panel where the 2QNM posterior is used to predict the value of the amplitude at the later start time.
-    % This is shown in the shaded grey posterior in the top-left panel where the results of the 2QNM analysis are used to predict the value of the amplitude at the later start time used by the 1QNM analysis.
     }
     \label{fig:overtone_corner}
 \end{figure}
@@ -527,7 +524,7 @@ This is an important test case for our model as there is a much larger fraction 
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.6\columnwidth]{FrequencyDomainAnalysisofBlackHoleRingdowns/GW150914_mass_spin_corner.pdf}
-    \caption[Posteriors on the remnant mass and spin for a GW150915-like injection]{ 
+    \caption[Posteriors on the remnant mass and spin for a GW150914-like injection analysed with a fixed sky location and ringdown start time, for different numbers of wavelets]{ 
     Similar to Fig.~\ref{fig:mass_spin_corner_fixed_sky}, posteriors on the recovered remnant mass and spin for the GW150914-like injection using the fundamental QNM and a varying numbers of wavelets. 
     Also shown for comparison is the result of a time-domain analysis (solid blue line).
     }
@@ -567,13 +564,14 @@ As was the case for the GW190521-like analysis, we find the frequency-domain mod
     \label{fig:GW150914_whitened_waveforms}
 \end{figure}
 
-Finally, we inspect the whitened waveform reconstructions for all four analyses shown in Fig.~\ref{fig:GW150914_mass_spin_corner}.
+Finally, in Fig.~\ref{fig:GW150914_whitened_waveforms} we inspect the whitened waveform reconstructions for all four analyses shown in Fig.~\ref{fig:GW150914_mass_spin_corner}.
 We focus on the waveform in the Hanford detector.
-We take samples from the posterior of each run and use these to compute the projected waveform $F^\mathrm{H}_{+} h_+(t+\Delta t_\mathrm{H})+F^\mathrm{H}_{\times} h_\times(t+\Delta t_\mathrm{H})$, see Eq.~\ref{eq:projection_antenna}. This quantity is always discontinuous for both the time- and frequency-domain analyses.
+We take samples from the posterior of each run and use these to compute the projected waveform $F^\mathrm{H}_{+} h_+(t+\Delta t_\mathrm{H})+F^\mathrm{H}_{\times} h_\times(t+\Delta t_\mathrm{H})$ (see Eq.~\ref{eq:projection_antenna}). This quantity is always discontinuous for both the time- and frequency-domain analyses.
 We then whiten this waveform (and the data) using the Hanford PSD. After whitening, the projected waveform is continuous.
 In Fig.~\ref{fig:GW150914_whitened_waveforms} we plot the median and $5\%-95\%$ credible region of the whitened waveform reconstructions.
-The figure highlights the problem of spectral leakage, which occurs when taking Fourier transforms of discontinuous models. 
-The time-domain model (top panel) has a discontinuity at the ringdown start time and this causes oscillations to appear before the start time in the whitened waveform.
+In a time-domain analysis no Fourier transforms are performed, and usually data before the ringdown start time is excluded, so the top panel is not representative of the actual analysis.
+Instead, we include it to here to highlight the problem of spectral leakage, which occurs when taking Fourier transforms of discontinuous models. 
+A ringdown-only model (as shown in the top panel) has a discontinuity at the ringdown start time and this causes oscillations to appear before the start time in the whitened waveform.
 The following panels, which include wavelets to model the inspiral-merger signal, remove this discontinuity and prevent Fourier transform artifacts.
 A single wavelet is not sufficient to capture the full inspiral-merger signal, which likely causes the bias seen in Fig.~\ref{fig:GW150914_mass_spin_corner}. 
 Increasing the number of wavelets makes the model flexible enough to model the inspiral-merger signal, and also to remove bias in the mass-spin posterior.

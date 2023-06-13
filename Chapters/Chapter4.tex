@@ -172,14 +172,14 @@ The Bayesian evidence under the new prior, $\hat{\pi}(\params)$, is $\hat{Z}=\in
 	\hat{Z} = Z\frac{\hat{W}}{W}.
 \end{align}
 
-\begin{figure}[b!]
+\begin{figure}[t]
     \centering
     \includegraphics[width=0.6\columnwidth]{SearchingforaRingdownOvertoneinGW150914/start_time_plot.pdf}
     \caption[Priors on the ringdown start time used for the GW150914 analysis]{ 
     Our ringdown inference is run initially using a flat, uniform prior on the ringdown start time, $t_0$, over the plot range $\pm 15 \tilde{M_f}$ relative to $t_\mathrm{ref}$ (Hanford frame).
     In post processing, the posterior samples can be reweighted to a different choice of prior on $t_0$ (see Section~\ref{subsec:reweighting}). 
     The different prior choices used in this chapter are shown in this figure. 
-    We use a sequence of narrow Gaussian priors (with different means $\bar{t_0}$ defined relative to $t_\mathrm{ref}$ and fixed standard deviation, $\sigma=1\tilde{M_f}$) as well as using the posterior on the time of peak strain from a full IMR analysis as a prior.
+    We use a sequence of narrow Gaussian priors (with different means $\bar{t_0}$ defined relative to $t_\mathrm{ref}$ and fixed standard deviation of $1\tilde{M_f}$) as well as using the posterior on the time of peak strain from a full IMR analysis as a prior.
     }
     \label{fig:start_time}
 \end{figure}
@@ -190,12 +190,12 @@ Here, we reweight on just a single parameter, the ringdown start time $t_0$.
 As described above, we use a uniform prior on $t_0$ as the original prior, $\pi$, in our analyses.
 For the target prior we use a variety of different choices, this removes the need for performing a large number of runs with different start times. 
 Our prior choices are plotted in Fig.~\ref{fig:start_time}.
-Narrow Gaussians centred at different start times are used to explore the start time dependence on the results, and we use the notation $\bar{t_0}$ to indicate the mean of the Gaussian relative to $t_\mathrm{ref}$. 
+Narrow Gaussians centred at different start times are used to explore the start-time dependence on the results, and we use the notation $\bar{t_0}$ to indicate the mean of the Gaussian relative to $t_\mathrm{ref}$. 
 For more details on the $t_0$ reweighting, see Section~\ref{app:t0_posterior_prior}.
 
 We also use the posterior on $t_\mathrm{peak}$ from a full inspiral-merger-ringdown (IMR) analysis from Ref.~\cite{Isi:2022mhy}, obtained with the \textsc{IMRPhenomPv2} (IMRP) waveform model~\cite{Hannam:2013oca}, as another prior on $t_0$. 
-Our aim in doing this is to marginalise over our uncertainty on the ringdown start time, $t_0$. 
-We emphasise that this is achieved here by using the posterior on the time of peak strain as a prior on $t_0$; this is motivated by the observations of Refs.~\cite{Giesler:2019uxc, Bhagwat:2019dtm, Ota:2019bzl, Cook:2020otn, JimenezForteza:2020cve, Dhani:2020nik, Finch:2021iip, Forteza:2021wfq, Dhani:2021vac, MaganaZertuche:2021syq} described above, which show that generically the ringdown can be considered to start at around this time.
+Our aim in doing this is to marginalise over our uncertainty on the ringdown start time, given that it occurs at the time of peak strain. 
+This is motivated by the observations of Refs.~\cite{Giesler:2019uxc, Bhagwat:2019dtm, Ota:2019bzl, Cook:2020otn, JimenezForteza:2020cve, Dhani:2020nik, Finch:2021iip, Forteza:2021wfq, Dhani:2021vac, MaganaZertuche:2021syq} described above, which show that generically the ringdown can be considered to start at around this time.
 
 
 \section{Results}\label{sec:results}
@@ -221,7 +221,7 @@ Aside from the inclusion of the overtone in the ringdown (which introduces two a
     \centering
     \;\subfloat{\includegraphics[width=.49\linewidth]{SearchingforaRingdownOvertoneinGW150914/220_mass_spin_plot.pdf}}
     \;\subfloat{\includegraphics[width=.49\linewidth]{SearchingforaRingdownOvertoneinGW150914/220221_mass_spin_plot.pdf}}
-    \caption[Posteriors on the GW150914 remnant mass and spin for different choices of the ringdown start-time prior]{  
+    \caption[Posteriors on the GW150914 remnant mass and spin for each choice of ringdown start-time prior]{  
     Posterior distributions on the remnant mass, $M_f$, and dimensionless spin, $\chi_f$, for different choices of $t_0$ prior (the colours and line styles correspond to those used in Fig.~\ref{fig:start_time}). 
     \emph{Left:} the results from the $(2,2,0)$ fundamental-mode-only analysis (i.e.\ $N=0$).
     \emph{Right:} the results from the overtone analysis including the $(2,2,0)$ and $(2,2,1)$ modes (i.e.\ $N=1$).
@@ -248,7 +248,7 @@ Additionally, using an earlier ringdown start time increases the SNR in the ring
 \begin{figure}[t!]
     \centering
     \includegraphics[width=0.9\columnwidth]{SearchingforaRingdownOvertoneinGW150914/overtone_amplitude_plot.pdf}
-    \caption[Posteriors on the GW150914 overtone amplitude and Bayes' factors in favour of the overtone model for different choices of the ringdown start-time prior]{ 
+    \caption[Posteriors on the GW150914 overtone amplitude and Bayes' factors in favour of the overtone model for each choice of ringdown start-time prior]{ 
     Posteriors on the overtone amplitude, and Bayes' factors in favour of the overtone model for different choices of $t_0$ prior (the colours and line styles correspond to those used in Fig.~\ref{fig:start_time}).
     \emph{Top:} posterior on the time of peak strain in the Hanford frame, from a \textsc{IMRPhenomPv2} analysis, as in Fig.~\ref{fig:start_time} (and originally from Ref.~\cite{Isi:2022mhy}). 
     \emph{Middle:} overtone amplitude posteriors for different choices of $t_0$ prior. The left panel corresponds to Gaussian priors with standard deviation $1\tilde{M_f}$, centred at the time they are plotted.
@@ -338,14 +338,14 @@ This differs from the $N=1$ overtone analysis described above, where the frequen
 Recovering a value of $\delta f$ consistent with zero has been suggested (particularly by Ref.~\cite{Isi:2022mhy}) as further evidence for the presence of an overtone; otherwise, it might be expected that the extra parameters would fit to the noise and would not recover the Kerr value.
 We use the parameterisation from Ref.~\cite{Isi:2022mhy}; the complex frequency of the second QNM is now $\omega_{221} = 2\pi f-i/\tau$, where $f=f_{221}\exp(\delta f)$ and $\tau=\tau_{221}\exp(\delta \tau)$. 
 This introduces the two new dimensionless parameters $\delta f$ and $\delta \tau$ into the model, for which we use uniform priors in the range $[-0.5,\, 0.5]$.
-The $\delta \tau$ parameter is not well constrained, therefore we focus initially on $\delta f$.
+The $\delta \tau$ parameter is not well constrained, therefore we focus on $\delta f$.
 We find posteriors on $\delta f$ consistent with zero for all choices of $t_0$ prior with standard deviations $\sim 0.2$. 
 This is consistent with what was found in Ref.~\cite{Isi:2019aib} and can be viewed as a test of the no-hair theorem at the $\sim 20\%$ level.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.6\columnwidth]{SearchingforaRingdownOvertoneinGW150914/220221_deviation_plot.pdf}
-    \caption[Posteriors on the deviation from Kerr for the real part of the GW150914 overtone frequency, for different choices of the ringdown start-time prior]{ 
+    \caption[Posteriors on the deviation from Kerr for the real part of the GW150914 overtone frequency for each choice of the ringdown start-time prior]{ 
     Posteriors on the deviation from the Kerr value for the real part of the overtone frequency.
     The colours and line styles distinguish different choices for the $t_0$ prior and correspond to those used in Fig.~\ref{fig:start_time}.
     The mode frequency is given by $f_{221}^{\rm Kerr} \exp(\delta f)$, so that $\delta_f=0$ is the expected result for the Kerr metric.
@@ -354,10 +354,23 @@ This is consistent with what was found in Ref.~\cite{Isi:2019aib} and can be vie
     \label{fig:delta_f}
 \end{figure}
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{Figures/SearchingforaRingdownOvertoneinGW150914/kerr_deviation_2d.pdf}
+    \caption[Posteriors on the deviation from Kerr for the real part of the GW150914 overtone frequency and ringdown start time for each choice of the ringdown start-time prior]{ 
+    Two-dimensional posteriors on the deviation from Kerr parameter (as in Fig.~\ref{fig:delta_f}) and ringdown start time.
+    The 90\% contours are plotted, with the colours and line styles indicating the $t_0$ prior and correspond to those used in Fig.~\ref{fig:start_time}.
+    }
+    \label{fig:delta_f_2d}
+\end{figure}
+
 Our results in Fig.~\ref{fig:delta_f} can be compared with Fig.~2 of Ref.~\cite{Isi:2022mhy}. 
 Our preferred run, using the IMRP $t_{\rm peak}$ prior on $t_0$, is broadly consistent with that result.
-However, what is notable about our results is that we do not find a significant broadening of the posterior for later choices of the start time. 
-This was found by Ref.~\cite{Isi:2022mhy} and would be expected if an overtone was present, as both the overtone amplitude and ringdown SNR decaying with later ringdown start times.
+However, there is less noticeable broadening of our posterior for later choices of the ringdown start time (as was found by Ref.~\cite{Isi:2022mhy}). 
+A broadening would be expected if an overtone was present, as both the overtone amplitude and ringdown SNR decay with later ringdown start times.
+Since in our analysis we obtain a posterior on the ringdown start time, we can also plot two-dimensional posteriors of the $\delta f$ parameter and $t_0$; this is shown in Fig.~\ref{fig:delta_f_2d}.
+With the exception of the earliest $\bar{t_0} = -2\tilde{M_f}$ posterior, with this representation it is easier to make out the slight broadening of the posterior at later times. 
+The breakdown of this trend for the earliest $t_0$ deserves more attention, perhaps indicating sampling issues or unexpected model behaviour.
 
 \begin{figure}
     \centering
@@ -375,7 +388,7 @@ This was found by Ref.~\cite{Isi:2022mhy} and would be expected if an overtone w
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.6\columnwidth]{SearchingforaRingdownOvertoneinGW150914/amplitude_ratio.pdf}
-    \caption[Posteriors on the GW150914 overtone amplitude divided by the fundamental-mode amplitude, for different choices of the ringdown start-time prior]{ 
+    \caption[Posteriors on the GW150914 overtone amplitude divided by the fundamental-mode amplitude for each choice of the ringdown start-time prior]{ 
     Posteriors on the amplitude ratio $A_1/A_0$ from our $N=1$ overtone analysis. 
     The 90\% contours are plotted, with the colours and line styles indicating the $t_0$ prior and correspond to those used in Fig.~\ref{fig:start_time}.
     The solid grey curve shows the results of a two-QNM fit to the NR simulation SXS:BBH:0305 which has parameters consistent with GW150914.
@@ -384,7 +397,7 @@ This was found by Ref.~\cite{Isi:2022mhy} and would be expected if an overtone w
     \label{fig:amp_ratio}
 \end{figure}
 
-To investigate this further, we use the results of the ringdown analysis where the frequency of the overtone is allowed to vary freely to address another important question. 
+To investigate the consistency with Kerr further, we use the results of the ringdown analysis where the frequency of the overtone is allowed to vary freely to address another important question. 
 If the data does indeed contain a second QNM, can we determine which mode it is?
 Theoretical studies of NR simulations suggest that the $(\ell,|m|,n)=(2,2,1)$ will be the next most prominent, especially for early start times~\cite{Giesler:2019uxc}. 
 In Fig.~\ref{fig:other_QNMs} we plot the posterior on the dimensionless complex frequency (allowing both the real and imaginary parts to vary freely) of the second QNM, $\omega M_f$ for the preferred IMRP $t_{\rm peak}$ reweighting.
@@ -433,7 +446,7 @@ This was done for convenience and computational speed and was not originally ant
 
 In this chapter the $4\,$kHz data is used for all the analyses in the main text. 
 Additionally, a frequency-domain log-likelihood with an upper integration limit of $f_{\rm high}=1000\,$Hz was used.
-Our method is very different from the time-domain analyses, and do not expect our results to be sensitive to small changes in these choices.
+Our method is very different from the time-domain analyses, and we do not expect our results to be sensitive to small changes in these choices.
 To check that this is the case we have repeated the $N=1$ overtone analysis using the $16\,$kHz sampled data (obtained from Ref.~\cite{gwosc}) and we find no significant changes in our results.
 Using reweighting techniques (this time applied to the likelihood) we have also investigated the effect of changing the upper limit of integration in the likelihood. 
 By re-evaluating the $N=1$ posterior chain on a likelihood with $f_\mathrm{high}=1500\,$Hz and $2000\,$Hz, and then reweighting, we again find no significant changes in our results.
@@ -446,15 +459,15 @@ The posteriors on $t_0$ from both the $N=0$ and $N=1$ analyses are shown in Fig.
 We do not consider these posteriors to be physically meaningful results because they were obtained with a prior that does not correctly describe our state of knowledge about when the ringdown should start.
 These results are produced merely as an intermediate step in our analysis, before the reweighting was applied, and are shown here only to further illustrate the reweighting procedure described in Section~\ref{subsec:reweighting}.
 
-\begin{figure}[t]
+\begin{figure}[b!]
     \centering
     \includegraphics[width=0.6\columnwidth]{SearchingforaRingdownOvertoneinGW150914/unweighted_t0_posteriors.pdf}
     \caption[Posteriors on the GW150914 ringdown start time, using a flat prior]{ 
-    Posteriors on the ringdown start time obtained from our initial analysis using a flat prior over the range shown in the plot.
+    Posteriors on the Hanford ringdown start time obtained from our initial analysis using a flat prior over the range shown in the plot.
     Results are shown for the fundamental only ($N=0$) and overtone ($N=1$) analyses.
     Vertical coloured lines show the locations of the means $\bar{t_0}$ of the narrow Gaussian priors used for the subsequent reweighting (see Fig.~\ref{fig:start_time}).
     The $N=1$ posterior has ample support across the entire range of interest, as required for the reweighting to remain accurate.
-    The $N=0$ posterior has enough support everywhere except the $\bar{t_0}=-2\ \tilde{M_f}$ prior.
+    The $N=0$ posterior has enough support everywhere except the $\bar{t_0}=-2\tilde{M_f}$ prior.
     }
     \label{fig:t0_posterior}
 \end{figure}
@@ -478,7 +491,7 @@ Additionally, a zero-noise injection was performed for comparison.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.9\columnwidth]{SearchingforaRingdownOvertoneinGW150914/injection_study_amps_only.pdf}
-    \caption[Posteriors on the overtone amplitude from a noise injection study]{ 
+    \caption[Posteriors on the overtone amplitude from a GW150914-like injection study]{ 
     This is similar to the middle panel of Fig.~\ref{fig:overtone_amplitude} in the main text, but shows the posteriors on the overtone amplitude from the noise injection study.
     The different violin plots are for the different priors on the ringdown start time and the colours are the same as those used in Figs.~\ref{fig:start_time} and \ref{fig:overtone_amplitude}.
     On the right-hand side of each set of violin plots, the filled posterior shows the result obtained using the real GW150914 data (this is the same as what is plotted in Fig.~\ref{fig:overtone_amplitude}). 
@@ -497,7 +510,7 @@ We also investigated the Bayes' factors and found the same declining trend.
 
 As expected, different noise realisations introduce some scatter into the results and we observe a spread in the locations of the maximum posterior values for the overtone amplitudes. 
 However, this spread is consistent with the width of the posterior. 
-The analysis described in the main text found only tentative evidence for the overtone, but there is no indication that this is overly effected by noise fluctuations.
+The analysis described in the main text found only tentative evidence for the overtone, but there is no indication that this is overly affected by noise fluctuations.
 
 
 \subsection{Wavelet posteriors}\label{app:W3}
@@ -516,7 +529,7 @@ As expected, in order to describe the ``chirping'' inspiral signal, the wavelets
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.9\columnwidth]{SearchingforaRingdownOvertoneinGW150914/wavelet_posterior_figure.pdf}
-    \caption[Posteriors on selected wavelet parameters]{ 
+    \caption[Posteriors on selected wavelet parameters from the GW150914 overtone analysis for the preferred choice of ringdown start-time prior]{ 
     Posteriors on selected parameters for the $W=3$ wavelets used in the $N=1$ overtone analysis, reweighted using the IMRP $t_{\rm peak}$ prior on the ringdown start time.
     \emph{Left:} the wavelet central times, $\eta_w$.
     \emph{Middle:} the wavelet widths, $\tau_w$.
@@ -531,10 +544,10 @@ As expected, in order to describe the ``chirping'' inspiral signal, the wavelets
 
 \subsection{Other results}\label{subsec:other_results}
 
-\begin{figure}[t]
+\begin{figure}[b!]
     \centering
     \includegraphics[width=0.9\columnwidth]{SearchingforaRingdownOvertoneinGW150914/skymap.pdf}
-    \caption[Posterior on the GW150914 sky location]{ 
+    \caption[Posterior on the sky location from the GW150914 overtone analysis for the preferred choice of ringdown start-time prior]{ 
     Posterior on the source sky position using geocentric coordinates in Mollweide projection.
     Shown in blue is the results from the $N=1$ overtone analysis using the IMRP $t_{\rm peak}$ reweighting for the prior on the ringdown start time.
     The LIGO skymap for this event is shown by the dashed black line for comparison.
@@ -544,29 +557,36 @@ As expected, in order to describe the ``chirping'' inspiral signal, the wavelets
     \label{fig:skymap}
 \end{figure}
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{SearchingforaRingdownOvertoneinGW150914/waveform_plot.pdf}
+    \caption[Whitened waveform reconstructions from the GW150914 overtone analysis for the preferred choice of ringdown start-time prior]{ 
+    Posterior on the reconstructed whitened waveform.
+    Shown in grey is the strain data from both LIGO interferometers (\emph{top}: Hanford, \emph{bottom}: Livingston) whitened according to the noise amplitude spectral density in the detector and bandpass filtered between 32 and $512\,\mathrm{Hz}$ for clarity.
+    Shown in blue is the waveform reconstruction from the $N=1$ overtone analysis with the IMRP $t_{\rm peak}$ reweighting for the prior on the ringdown start time.
+    The blue lines and shaded regions indicate the median and the 90\% credible interval. 
+    The signal is plotted as a function of time from $t_{\rm ref}$ using both SI and natural units on the upper and lower $x$-axis respectively.
+    }
+    \label{fig:waveform}
+\end{figure}
+
 One important benefit of the frequency-domain approach to ringdown data analysis introduced in Chapter~\ref{Chapter3} and used here is that it naturally allows us to search (and hence to numerically marginalise) over source sky position and ringdown start time. 
 This should be contrasted with the treatment of these parameters in most time-domain analyses where these parameters are fixed, potentially biasing the results. (Although it is technically possible to search over the sky in a time-domain analysis~\cite{Carullo:2019flw, Isi:2021iql}, this is rarely done in practice.)
 To emphasise this, we plot the posterior on the sky location of GW150914 from our $N=1$ overtone analysis reweighted to the IMRP $t_{\rm peak}$ prior on the ringdown start time.
 This can be compared with the publicly available LIGO sky posterior for GW150914 obtained using the samples from Ref.~\cite{skysamples}.
 This is shown in Fig.~\ref{fig:skymap}.
 As discussed in Chapter~\ref{Chapter3} (see the discussion around Fig.~\ref{fig:t0_geocent_posterior}), it should be emphasised that this sky posterior is not a ringdown-only result because much of the information is also coming from the wavelets used to model the inspiral-merger portion of the signal.
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.9\columnwidth]{SearchingforaRingdownOvertoneinGW150914/waveform_plot.pdf}
-    \caption[Whitened waveform reconstructions for GW150914]{ 
-    Posterior on the reconstructed whitened waveform.
-    Shown in grey is the strain data from both LIGO interferometers (\emph{top}: Hanford, \emph{bottom}: Livingston) whitened according to the noise amplitude spectral density in the detector and bandpass filtered between 32 and $512\,\mathrm{Hz}$ for clarity.
-    Shown in blue is the waveform reconstruction from the $N=1$ overtone analysis with the IMRP $t_{\rm peak}$ reweighting for the prior on the ringdown start time.
-    The blue lines and shaded regions indicate median and the 90\% credible interval. 
-    The signal is plotted as a function of time from $t_{\rm ref}$ using both SI and natural units on the upper and lower $x$-axis respectively.
-    }
-    \label{fig:waveform}
-\end{figure}
+Our result is consistent with the LIGO skymap, but we note that our posterior does not include as much of the sky.
+In particular, our result only has support in a section of the LIGO arc (which itself corresponds to a section of a constant-time-delay ring).
+This may be due to a sampling issue, or it is possible that the choice to fix the inclination is responsible. 
+We choose to model the signal as being face-off, and is partly motivated by aiding comparison with previous analyses (which also fix the inclination in this manner). 
+Since the inclination is degenerate with amplitude, this choice is also conservative in the sense that it minimises value of the recovered overtone amplitude (a high-amplitude off-axis system will give the same signal as a on-axis lower-amplitude system).
+The LIGO analysis is consistent with a face-off inclination, hence this choice in the analysis, but also shows some support at off-axis values.
+The coupling of the inclination to the GW amplitude and relative weights of the plus and cross polarizations may lead to a wider support on the sky.
 
 Because the inspiral and merger parts of the signal are being modelled using truncated wavelets as part of the frequency-domain ringdown analysis, this allows us to plot a full waveform reconstruction from our results.
 This reconstruction is shown in Fig.~\ref{fig:waveform} for our $N=1$ overtone analysis reweighted to the IMRP $t_{\rm peak}$ prior.
-The full waveform model used in our analysis is discontinuous at $t_0$. However, as discussed in Chapter~\ref{Chapter3}, the whitened waveform reconstruction plotted here is smooth; this is a result of marginalising over the location of the discontinuity at $t_0$, the waveform model ``learning'' the continuity from the data, and the whitening process used to make the figure.
+The full waveform model used in our analysis is discontinuous at $t_0$. However, as discussed in Chapter~\ref{Chapter3}, the whitened waveform reconstruction plotted here is smooth; this is a result of marginalising over the location of the discontinuity at $t_0$, the waveform model ``learning'' the continuity from the data, and the whitening process (i.e., the PSD) used to make the figure.
 This waveform reconstruction uses the posterior on all of the model parameters, including those for the wavelets; more details on these parameters are given in Section~\ref{app:W3}.
 
 
@@ -581,7 +601,7 @@ In conclusion, we do find tentative evidence for a ringdown overtone, but not at
 
 In order to be more quantitative, it is first necessary to be able to say clearly what it even means to ``detect a overtone''. 
 Although intuitively obvious, it is not clear how to make this notion precise (this issue has previously been discussed in Ref.~\cite{Isi:2022mhy}). 
-Several approaches have been suggested: looking to see if including the overtone improves the posterior on the remnant parameters (see Fig.~\ref{fig:mass_spin_post}); looking at the posterior on the overtone amplitude for a range of start times (see middle panel of Fig.~\ref{fig:overtone_amplitude}); computing the Bayes' factor in favour of an overtone (see bottom panel of Fig.~\ref{fig:overtone_amplitude}); and allowing the frequency of the second QNM to vary freely to see if the data prefers, or at least is consistent with, the expected Kerr value (see Figs.~\ref{fig:delta_f} and \ref{fig:other_QNMs}).
+Several approaches have been suggested: looking to see if including the overtone improves the posterior on the remnant parameters (see Fig.~\ref{fig:mass_spin_post}); looking at the posterior on the overtone amplitude for a range of start times (see middle panel of Fig.~\ref{fig:overtone_amplitude}); computing the Bayes' factor in favour of an overtone (see bottom panel of Fig.~\ref{fig:overtone_amplitude}); and allowing the frequency of the second QNM to vary freely to see if the data prefers, or at least is consistent with, the expected Kerr value (see Figs.~\ref{fig:delta_f}, \ref{fig:delta_f_2d}, and \ref{fig:other_QNMs}).
 Although these are not all independent from one another, they all help shed light on which QNMs are present. 
 The results of all of these tests can also be compared to results from a noise injection study.
 
@@ -594,6 +614,11 @@ We think our frequency-domain method has some important advantages over what has
 For example, it marginalises over the ringdown start time and sky position which is preferable to fixing these parameters (which potentially introduces systematic biases). 
 Ideally, we should also marginalise over the uncertainties in the noise power spectral density (see, e.g.,\ Ref.~\cite{Cornish:2020dwh}) and detector calibration (see, e.g.,\ Ref.~\cite{LIGOScientific:2017aaj}) as part of a ringdown analysis. 
 The ability to do this is, in principle, another benefit of the frequency-domain analysis approach used here as this can be done using techniques that are standard in the field.
+
+Since the time of writing, the spin-weighted spheroidal harmonics have been implemented in the waveform model (via the \textsc{pykerr}~\cite{pykerr} package).
+This will allow the inclination to be marginalised over, which will be important for analysis of other events with less well constrained inclination (and getting closer towards the goal of marginalising over all uncertainty).
+Going forwards, the unexpected results at an early ringdown start time from the Kerr-deviation tests (Figs.~\ref{fig:delta_f} and \ref{fig:delta_f_2d}) warrants further investigation.
+This type of analysis was not considered in the injection studies of Chapter~\ref{Chapter3}, and a controlled test would be helpful to see if the model behaves as expected for this sort of test. 
 
 We stress that while our results have been compared with those of previous time-domain studies, our frequency-domain method is rather different and therefore we do not expect to find perfect agreement. 
 In contrast, the results of Refs.~\cite{Isi:2019aib, Cotesta:2022pci, Isi:2022mhy} are produced using essentially identical methods and should therefore be expected to agree exactly. 

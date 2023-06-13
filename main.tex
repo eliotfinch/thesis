@@ -227,7 +227,7 @@ I’ll always be grateful for the time you have invested in me, and for your pat
 I would also like to thank Alberto Vecchio for introducing me to gravitational-wave astronomy, and for being a caring head of a brilliant research group. 
 It’s been a pleasure to be a part of it.
 
-A special thanks goes to all the PhD students (Aysha, Diganta, Tom, Alice, Riccardo, Cressida, Daria, Alex, Matt, Paige, Dan, Evan, Xinyue, Lucy and Natalie) for the help, friendship, pubs, parties and board games. 
+A special thanks goes to all the PhD students (Aysha, Diganta, Tom, Alice, Riccardo, Cressida, Andris, Daria, Alex, Matt, Paige, Dan, Evan, Xinyue, Lucy and Natalie) for the help, friendship, pubs, parties and board games. 
 You have helped make a very challenging endeavour a very enjoyable one, too.
 
 I’m also grateful for the administrative staff in the group, with particular thanks to Jo Cox and David Stops for all the help. 
@@ -347,7 +347,8 @@ I wrote the majority of the text, with input from my supervisor.
 \noindent The study of Chapter~\ref{Chapter2} was prompted by numerical work of Giesler et al., who found that the linear ringdown description could be extended to relatively early times if multiple quasinormal-mode overtones were included in the model.
 We generalised this work (which considered only aligned-spin systems) to precessing systems, testing the validity of the model across a wider parameter space.
 We find a much greater variation in the performance of ringdown fits than in the aligned-spin case. 
-The inclusion of mirror modes and higher harmonics, along with overtones, improves the reliability of ringdown fits with an early start time (perhaps a sign that mode mixing in the ringdown is generally more important in precessing systems); however, there remain cases with poor performing fits.
+The inclusion of mirror modes and higher harmonics, along with overtones, improves the reliability of ringdown fits with an early start time (perhaps a sign that mode mixing in the ringdown is generally more important in precessing systems).
+However, there remain cases with poor performing fits.
 This suggests that it is not possible to reliably model the ringdown from as early a time as claimed in the work of Giesler et al.
 
 \begin{center}
@@ -421,15 +422,16 @@ In principle, the QNM amplitudes encode information about how the remnant BH was
 Mappings between aligned-spin binary properties and QNM amplitudes have been found~\cite{London:2014cma}, but a similar relationship for precessing systems remains elusive.
 This is closely related to the issue of ringdown start time, for which choosing a reliable value becomes even more complicated in the precessing case.
 With the code~\cite{qnmfits} developed for the work in Chapter~\ref{Chapter2}, studies of QNM amplitudes is a natural target.
-Since the publication of Ref.~\cite{Finch:2021iip} the code has been developed to incorporate multimode ringdown fitting, and also has the capability to do fits of nonlinear QNM frequencies.
-A second-order effect, nonlinear QNMs can be thought of as QNMs sourced by their first-order counterparts.
-These quadratic QNMs have now been identified in NR waveforms~\cite{Cheung:2022rbm, Mitman:2022qdl}, hinting at their importance in waveform modelling.
+Since the publication of Ref.~\cite{Finch:2021iip} the code has been developed to incorporate multimode ringdown fitting, and also has the capability to do fits of quadratic QNM frequencies.
+A second-order effect, quadratic QNMs can be thought of as QNMs sourced by their first-order counterparts.
+These ``nonlinear'' QNMs have now been identified in NR waveforms~\cite{Cheung:2022rbm, Mitman:2022qdl}, hinting at their importance in waveform modelling.
 
 But, it is now clear that QNM studies are being limited by the accuracy of state-of-the-art NR waveforms. 
 Typically, NR waveforms extrapolate the signal to large distances from the source.
 However, this is known to be sub-optimal for the ringdown.
-The future of work in this area is to utilise CCE waveforms~\cite{MaganaZertuche:2021syq}, which allows for more control over subtle choices of the waveform frame.
-This machinery provides opportunities for studying in detail topics such as nonlinear QNMs and GW memory, and is readily compatible with our code.
+In particular, it is known that the extrapolation technique does not capture GW memory effects, and post-processing must be performed to ensure the remnant BH is in a suitable frame. 
+In future work it will be important to utilise CCE waveforms~\cite{MaganaZertuche:2021syq}, which allow for more control over subtle choices of the waveform frame.
+This machinery provides opportunities for studying in detail topics such as nonlinear QNMs, a non-inertial ringdown frame, and GW memory, and is readily compatible with our code.
 
 Turning to the analysis of real data, the ringdown presents some unique challenges. 
 These include low SNR signals, uncertainties with mode content and start time, and that it is more natural to work in the time domain (due to the ringdown's abrupt start) instead of the more commonly used frequency domain.
