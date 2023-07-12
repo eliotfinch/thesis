@@ -9,21 +9,6 @@
 
 ---
 
-## Comments
-
-Comments on Chapter 2
-
-Sec 2.1 
-- Paragraph 2. When discussing why this is a “surprising” result you might also consider adding some more recent references, perhaps to some of the nonlinear QNM studies from 2022.
-
-Sec 2.2
-- In section 2.3.2, did you want to explain why this stacking of all the lm modes is equivalent to doing a least-squares fit averaged over Omega?
-
-Comments on Chapter 3 (Added 06/03/2023)
-
-Sec 3.1
- - end of paragraph 3, “The applications mentioned so far use only the QNM frequencies; however, the excitation amplitudes and phases of the QNMs also carry useful information about the progenitor binary”. There are some recent papers you could cite here. E.g. by Swetha.
-
 ## Outline
 
 ### Introduction
