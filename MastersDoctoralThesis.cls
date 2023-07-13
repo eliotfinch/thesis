@@ -529,7 +529,7 @@ KOMA-script documentation for details.}]{fancyhdr}
 bookmarksopen=true,
 bookmarksopenlevel=0,
 hypertexnames=false,
-colorlinks=false,% Set to false to disable coloring links
+colorlinks=true,% Set to false to disable coloring links
 citecolor=magenta,% The color of citations
 linkcolor=Mahogany,% The color of references to document elements (sections, figures, etc)
 urlcolor=mdtRed,% The color of hyperlinks (URLs)
