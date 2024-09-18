@@ -106,16 +106,16 @@ Using Eqs.~\ref{eq:spheroidal_transform} and \ref{eq:spherical_transform} we can
 \begin{align}
     \int_\Omega \dd{\Omega}& ~ {}_{-2}S'_{\ell m n}(\Omega) ~ {}_{-2}Y^*_{\ell' m'}(\Omega) = \nonumber \\ 
     &= \int_\Omega \dd{\Omega} ~ (-1)^\ell {}_{-2}S^*_{\ell -m}(\pi - \theta, \phi; a\omega_{\ell -m n}) ~ (-1)^{\ell'} ~ {}_{-2}Y_{\ell' -m'}(\pi - \theta, \phi) \nonumber \\
-    &= (-1)^{l+l'} \int_\Omega \dd{\Omega} ~ {}_{-2}S^*_{\ell -m}(\pi - \theta, \phi; a\omega_{\ell -m n}) ~ {}_{-2}Y_{\ell' -m'}(\pi - \theta, \phi) \nonumber \\
-    &= (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \delta_{m' m}.
+    &= (-1)^{\ell+\ell'} \int_\Omega \dd{\Omega} ~ {}_{-2}S^*_{\ell -m}(\pi - \theta, \phi; a\omega_{\ell -m n}) ~ {}_{-2}Y_{\ell' -m'}(\pi - \theta, \phi) \nonumber \\
+    &= (-1)^{\ell+\ell'} \mu^*_{\ell' -m' \ell n} \delta_{m' m}.
 \end{align}
 Substituting for both of the integrals of Eq.~\ref{eq:hlm_with_ints} we get
 \begin{align}\label{ch2:eq:hlm_model}
-    h_{\ell' m'}(t) &= \sum_{\ell m n} \left[ C_{\ell m n} e^{-i \omega_{\ell m n} t} \mu_{\ell' m' \ell n} \delta_{m' m} + C'_{\ell m n} e^{-i \omega'_{\ell m n} t} (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \delta_{m' m} \right] \nonumber \\
-    &= \sum_{\ell n} \left[ C_{\ell m' n} e^{-i \omega_{\ell m' n} t} \mu_{\ell' m' \ell n} + C'_{\ell m' n} e^{-i \omega'_{\ell m' n} t} (-1)^{l+l'} \mu^*_{\ell' -m' \ell n} \right] \nonumber \\
+    h_{\ell' m'}(t) &= \sum_{\ell m n} \left[ C_{\ell m n} e^{-i \omega_{\ell m n} t} \mu_{\ell' m' \ell n} \delta_{m' m} + C'_{\ell m n} e^{-i \omega'_{\ell m n} t} (-1)^{\ell+\ell'} \mu^*_{\ell' -m' \ell n} \delta_{m' m} \right] \nonumber \\
+    &= \sum_{\ell n} \left[ C_{\ell m' n} e^{-i \omega_{\ell m' n} t} \mu_{\ell' m' \ell n} + C'_{\ell m' n} e^{-i \omega'_{\ell m' n} t} (-1)^{\ell+\ell'} \mu^*_{\ell' -m' \ell n} \right] \nonumber \\
     &= \sum_{\ell n} \left[ C_{\ell m' n} e^{-i \omega_{\ell m' n} t} \mu_{\ell' m' \ell n} + C'_{\ell m' n} e^{-i \omega'_{\ell m' n} t} \mu'_{\ell' m' \ell n} \right],
 \end{align}
-where $\mu'_{\ell' m' \ell n} = (-1)^{l+l'} \mu^*_{\ell' -m' \ell n}$.
+where $\mu'_{\ell' m' \ell n} = (-1)^{\ell+\ell'} \mu^*_{\ell' -m' \ell n}$.
 Eq.~\ref{ch2:eq:hlm_model} tells us how a given spherical-harmonic mode (as provided by NR simulations) can be expressed in terms of QNMs. 
 It reveals that each spherical-harmonic mode has contributions from every QNM of the same $m$, weighted by the spherical-spheroidal mixing coefficients; this is an effect known as mode mixing~\cite{Berti:2014fga}.
 
