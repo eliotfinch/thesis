@@ -43,7 +43,7 @@ jobs:
       uses: actions/download-artifact@v4
       
     - name: Display structure of downloaded files
-      run: ls -R your/destination/dir
+      run: ls -R
         
     - name: Move
       run: mkdir github_deploy && mv github_artifacts/main/main.pdf github_deploy
