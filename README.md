@@ -4,7 +4,7 @@
 
 ---
 
-### [Download PDF](https://github.com/EliotFinch/thesis/raw/build/main.pdf)
+### [Download PDF](https://github.com/EliotFinch/thesis/raw/build/main/main.pdf)
 ![Makefile CI](https://github.com/eliotfinch/thesis/actions/workflows/makefile.yml/badge.svg)
 
 ---
