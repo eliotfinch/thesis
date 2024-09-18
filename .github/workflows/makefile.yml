@@ -12,7 +12,7 @@ jobs:
     steps:
     
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     
     - name: Install TeX live
       run: sudo apt-get update && sudo apt-get install texlive texlive-publishers texlive-science texlive-bibtex-extra latexmk biber cm-super
@@ -24,7 +24,7 @@ jobs:
       run: mkdir github_artifacts && mv main.pdf github_artifacts
 
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v4
       with:
         name: main
         path: github_artifacts
@@ -37,7 +37,7 @@ jobs:
     steps:
     
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       
     - name: Download a Build Artifact
       uses: actions/download-artifact@v4
