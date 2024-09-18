@@ -46,7 +46,7 @@ jobs:
       run: ls -R
         
     - name: Move
-      run: mkdir github_deploy && mv main.pdf github_deploy
+      run: mkdir github_deploy && mv main github_deploy
       
     - name: Deploy on New Branch
       uses: peaceiris/actions-gh-pages@v4
